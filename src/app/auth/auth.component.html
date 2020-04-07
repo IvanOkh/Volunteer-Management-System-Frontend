@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row pt-4">
+    <div class="col-12">
+      <div class="alert alert-danger" *ngIf="error">
+        <p>
+          {{ error }}
+        </p>
+      </div>
+      <div *ngIf="isLoading" style="text-align: center;">
+        <app-loading-spinner></app-loading-spinner>
+      </div>
+    </div>
+  </div>
+
+  <div class="loginSection">
+    <div class="row">
+      <div class="col">
+        <form
+          #authForm="ngForm"
+          (ngSubmit)="onSubmit(authForm)"
+          *ngIf="!isLoading"
+        >
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">E-Mail</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                ngModel
+                name="email"
+                required
+                email
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                ngModel
+                name="password"
+                required
+                minlength="6"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <button class="btn btn-success btn-sm mr-2" type="submit">
+                <!-- (click)="onLoginClick()" -->
+                Login<i class="fa fa-sign-in ml-1" aria-hidden="true"></i>
+              </button>
+              <app-reset-password class="ml-2"></app-reset-password>
+            </div>
+          </div>
+
+          <div class="form-row"></div>
+        </form>
+        <div class="container">
+          <div class="row p-3 w-25">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="form-row">
+      <div class="form-group">
+        <span>
+          <button class="btn btn-dark mr-2" routerLink="/admin">
+            Admin<i class="fa fa-users ml-1" aria-hidden="true"></i>
+          </button>
+          <button class="btn btn-warning" routerLink="/volunteer">
+            Volunteer<i class="fa fa-user-o ml-1" aria-hidden="true"></i>
+          </button>
+        </span>
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="col">
+        <p style="text-align: center; color: red;">
+          {{ message }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

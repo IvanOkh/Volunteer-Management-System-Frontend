@@ -1,0 +1,13 @@
+table.Availability td {
+  padding-right: 2rem;
+  padding-left: 2rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+input,
+select {
+  margin-bottom: 1rem;
+}
+

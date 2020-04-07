@@ -1,0 +1,6 @@
+.container {
+  display: inline-block;
+  min-width: 683;
+  max-width: 100em;
+  /* margin: 0px; */
+}

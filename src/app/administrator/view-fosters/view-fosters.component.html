@@ -1,0 +1,872 @@
+<ng-container *ngIf="this.isLoading">
+  <div class="row justify-content-center">
+    <div class="spinner-border text-danger" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!this.isLoading && this.fosterList.length > 0">
+  <div class="body">
+    <div class="container pt-2 mb-5">
+      <table
+        id="myTable"
+        #dataTable
+        class="table table-hover table-striped"
+        width="100%"
+      >
+        <thead>
+          <tr class="table-danger">
+            <th class="th">First Name</th>
+            <th class="th">Last Name</th>
+            <th class="th">Email</th>
+            <th class="th">Home Phone</th>
+            <th class="th text-center">Status</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of this.fosterList">
+          <tr
+            data-toggle="modal"
+            [attr.data-target]="'#viewFoster' + item.id"
+            (click)="viewFoster(item.id)"
+            style="cursor: pointer;"
+          >
+            <td [innerText]="item.fname"></td>
+            <td [innerText]="item.lname"></td>
+            <td [innerText]="item.email"></td>
+            <td [innerText]="item.homePhone"></td>
+            <td *ngIf="!item.active" class="text-center">
+              <i class="fa fa-user" style="font-size: 20px; color: red;"></i>
+            </td>
+            <td *ngIf="item.active" class="text-center">
+              <i class="fa fa-user" style="font-size: 20px; color: green;"></i>
+            </td>
+            <!-- End of table row -->
+          </tr>
+          <!-- View foster info modal  -->
+          <div class="modal fade" [id]="'viewFoster' + item.id">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <ng-container *ngIf="this.fetchedLoading">
+                  <div class="row justify-content-center">
+                    <div class="spinner-border text-danger" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="!this.fetchedLoading && this.fetched">
+                  <div class="modal-header">
+                    <h2
+                      class="modal-title"
+                      id="viewFosterModalLabel"
+                      style="color: #fbfbff;"
+                    >
+                      Foster Information
+                    </h2>
+                    <button type="button" class="close">
+                      <span aria-hidden="true" data-dismiss="modal">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <!-- this is the personal information of foster  -->
+                    <div class="col-12">
+                      <!-- Big Name -->
+                      <h1 class="text-center mt-1">
+                        {{ fetched.fname }}<span> {{ fetched.lname }}</span>
+                      </h1>
+                      <hr style="width: 1px black;" />
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="centerElements">
+                            <h3 class="mb-4">Details</h3>
+                          </div>
+                          <p>
+                            <strong>Status: </strong>
+                            <span [ngStyle]="{ color: fetched.active ? 'green' : 'red' }">
+                              <i class="fa fa-user" style="font-size: 20px;"></i>
+                            </span>
+                          </p>
+                          <p><strong>Foster ID: </strong> {{ fetched.id }}</p>
+                          <p><strong>First name: </strong> {{ fetched.fname }}</p>
+                          <p><strong>Last name: </strong> {{ fetched.lname }}</p>
+                        </div>
+
+                        <div class="col-sm-6">
+                          <!-- Contact Information -->
+                          <h3 class="sectionTitle mb-4">Contact Information</h3>
+                          <div style="text-align: left;">
+                            <p><strong>Cell phone:</strong> {{ fetched.cellPhone }}</p>
+                            <p>
+                              <strong>Home phone:</strong> {{ fetched.homePhone }}
+                            </p>
+                            <p><strong>Email:</strong> {{ fetched.email }}</p>
+                            <p>
+                              <strong>Address: </strong> {{ fetched.address }},
+                              {{ fetched.city }}, {{ fetched.province }}
+                            </p>
+                            <p>
+                              <strong>Postal Code: </strong> {{ fetched.postalCode }}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Foster background -->
+                      <hr style="width: 1px black;" />
+                      <h5 class="sectionTitle">Foster Background</h5>
+                      <hr style="width: 1px black;" />
+                      <div class="row" style="text-align: left;">
+                        <div class="col-sm-6">
+                          <p>
+                            <strong>Residence: </strong>
+                            {{ fetched.typeOfResidence }}
+                          </p>
+                          <p>
+                            <strong>Pet Details: </strong> {{ fetched.petDetails }}
+                          </p>
+                          <p>
+                            <strong>Spayed and Neutered: </strong>
+                            {{ fetched.spayedAndNeutered }}
+                          </p>
+                          <p><strong>Dog Habit </strong> {{ fetched.dogHabit }}</p>
+                          <p><strong>Cat Habit </strong> {{ fetched.catHabit }}</p>
+                          <p>
+                            <strong>Family Agreeable: </strong>
+                            {{ fetched.familyAgreeable | yesNo }}
+                          </p>
+                          <p>
+                            <strong>Foster Animal Type: </strong>
+                            {{ fetched.fosterAnimalType }}
+                          </p>
+                          <p>
+                            <strong>Preferred Animal: </strong>
+                            {{ fetched.preferredAnimal }}
+                          </p>
+                          <p>
+                            <strong>Keep Cats Indoor: </strong>
+                            {{ fetched.keepCatsIndoor | yesNo }}
+                          </p>
+                        </div>
+
+                        <div class="col-sm-6">
+                          <p><strong>Fenced Yard: </strong> {{ fetched.fencedYard | yesNo }}</p>
+                          <p>
+                            <strong>Fence Height: </strong>
+                            {{ fetched.fenceHeight }}
+                          </p>
+                          <p>
+                            <strong>Willing to train: </strong>
+                            {{ fetched.willingtotrain | yesNo }}
+                          </p>
+                          <p>
+                            <strong>Familiar with crate: </strong>
+                            {{ fetched.familiarWithCrate | yesNo }}
+                          </p>
+                          <p><strong>Use Dog Crate: </strong> {{ fetched.useDogCrate | yesNo }}</p>
+                          <p>
+                            <strong>Past Rescue Experience: </strong>
+                            {{ fetched.pastRescueExperience }}
+                          </p>
+                          <p>
+                            <strong>Take Animal To Vet: </strong>
+                            {{ fetched.takeAnimalToVet | yesNo }}
+                          </p>
+                          <p><strong>Has Vehicle: </strong> {{ fetched.haveVehicle | yesNo }}</p>
+                          <p>
+                            <strong>Medicate Animal: </strong>
+                            {{ fetched.medicateAnimal | yesNo }}
+                          </p>
+                          <p>
+                            <strong>Hours left Alone Animal: </strong>
+                            {{ fetched.hoursLeftAlone }}
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- Contact Section -->
+                      <div class="row contactSection">
+                        <!-- Ref contact 1  -->
+                        <div class="col-4">
+                          <hr style="width: 1px black;" />
+                          <h5 class="sectionTitle">Reference Contact 1</h5>
+                          <hr style="width: 1px black;" />
+                          <p>
+                            <strong>First name:</strong> {{ fetched.ref1_fname }}
+                          </p>
+                          <p><strong>Last name:</strong> {{ fetched.ref1_lname }}</p>
+                          <p>
+                            <strong>Cell Phone:</strong>
+                            {{ fetched.ref1_cellPhone }}
+                          </p>
+                          <p><strong>Email:</strong> {{ fetched.ref1_email }}</p>
+                        </div>
+
+                        <!-- Ref contact 2  -->
+                        <div class="col-4">
+                          <hr style="width: 1px black;" />
+                          <h5 class="sectionTitle">Reference Contact 2</h5>
+                          <hr style="width: 1px black;" />
+                          <p>
+                            <strong>First name:</strong> {{ fetched.ref2_fname }}
+                          </p>
+                          <p><strong>Last name:</strong> {{ fetched.ref2_lname }}</p>
+                          <p>
+                            <strong>Cell Phone:</strong>
+                            {{ fetched.ref2_cellPhone }}
+                          </p>
+                          <p><strong>Email:</strong> {{ fetched.ref2_email }}</p>
+                        </div>
+
+                        <!-- Ref contact 3  -->
+                        <div class="col-4">
+                          <hr style="width: 1px black;" />
+                          <h5 class="sectionTitle">Reference Contact 3</h5>
+                          <hr style="width: 1px black;" />
+                          <p>
+                            <strong>First name:</strong> {{ fetched.ref3_fname }}
+                          </p>
+                          <p><strong>Last name:</strong> {{ fetched.ref3_lname }}</p>
+                          <p>
+                            <strong>Cell Phone:</strong>
+                            {{ fetched.ref3_cellPhone }}
+                          </p>
+                          <p><strong>Email:</strong> {{ fetched.ref3_email }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer" *ngIf="!adminCheck">
+                    <button
+                      type="button"
+                      class="btn btn-dark delete-button"
+                      data-dismiss="modal"
+                      [attr.data-target]="'#confirmDelete' + item.id"
+                      data-toggle="modal"
+                      [disabled]="this.fetched.active"
+                    >
+                      Delete Foster
+                    </button>
+
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary"
+                      data-dismiss="modal"
+                      [attr.data-target]="'#editFoster' + item.id"
+                      data-toggle="modal"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      data-dismiss="modal"
+                      [attr.data-target]="'#confirmDeactive' + item.id"
+                      [disabled]="!this.fetched.active"
+                      data-toggle="modal"
+                    >
+                      Deactivate
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success"
+                      data-dismiss="modal"
+                      [attr.data-target]="'#confirmActive' + item.id"
+                      [disabled]="this.fetched.active"
+                      data-toggle="modal"
+                    >
+                      Activate
+                    </button>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+          <!-- confirm dialog modal -->
+          <div class="bootstrapConfirm">
+            <!-- confirm deactive  -->
+            <div
+              class="modal fade"
+              [id]="'editFoster' + item.id"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <ng-container *ngIf="this.fetchedLoading">
+                    <div class="row justify-content-center">
+                      <div class="spinner-border text-danger" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf="!this.fetchedLoading && this.fetched">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">
+                        Edit Foster
+                      </h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <!-- Edit Foster -->
+                    <div class="modal-body ml-2">
+                      <form #form="ngForm" (ngSubmit)="editFoster(form, fetched.id)">
+                        <div class="form-inline">
+                          <div class="row mt-3">
+                            <div class="col-6">
+                              <label for="">First name:</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="fname"
+                                [(ngModel)]="fetched.fname"
+                              />
+                            </div>
+                            <div class="col-6">
+                              <label for="">Last name:</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="lname"
+                                [(ngModel)]="fetched.lname"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <label for="">Address</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="address"
+                                [(ngModel)]="fetched.address"
+                              />
+                            </div>
+                            <div class="col-6">
+                              <label for="">City</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="city"
+                                [(ngModel)]="fetched.city"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <label for="">Province</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="province"
+                                [(ngModel)]="fetched.province"
+                              />
+                            </div>
+                            <div class="col-6">
+                              <label for="">Postal Code</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="postalCode"
+                                [(ngModel)]="fetched.postalCode"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <label for="">Home Phone</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="homePhone"
+                                [(ngModel)]="fetched.homePhone"
+                              />
+                            </div>
+                            <div class="col-6">
+                              <label for="">Email</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="email"
+                                [(ngModel)]="fetched.email"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <label for="">Type of residence</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="typeOfResidence"
+                                [(ngModel)]="fetched.typeOfResidence"
+                              />
+                            </div>
+                            <div class="col-6">
+                              <label for="">Pet details</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="petDetails"
+                                [(ngModel)]="fetched.petDetails"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <label for="">Spayed And Neutered</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="spayedAndNeutered"
+                                [(ngModel)]="fetched.spayedAndNeutered"
+                              />
+                            </div>
+                            <div class="col-6">
+                              <label for="">Dog Habit</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="dogHabit"
+                                [(ngModel)]="fetched.dogHabit"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <label for="">Cat Habit</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="catHabit"
+                                [(ngModel)]="fetched.catHabit"
+                              />
+                            </div>
+                            <div class="col-6">
+                              <label for="">Preferred animal</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="preferredAnimal"
+                                [(ngModel)]="fetched.preferredAnimal"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <label for="">Past Rescue Experience</label>
+                              <input
+                                class="form-control"
+                                type="number"
+                                name="pastRescueExperience"
+                                [(ngModel)]="fetched.pastRescueExperience"
+                              />
+                            </div>
+                            <div class="col-6">
+                              <label for="">House left alone</label>
+                              <input
+                                class="form-control"
+                                type="number"
+                                name="hoursLeftAlone"
+                                [(ngModel)]="fetched.hoursLeftAlone"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div
+                              class="col-12"
+                              style="
+                                font-weight: bold;
+                                margin-left: 145%;
+                                margin-top: 20%;
+                              "
+                            >
+                              Reference 1
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <label for="">First name </label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="ref1_fname"
+                                [(ngModel)]="fetched.ref1_fname"
+                              />
+                            </div>
+                            <div class="col-6">
+                              <label for="">Last name</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="ref1_lname"
+                                [(ngModel)]="fetched.ref1_lname"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <label for="">Cell Phone</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="ref1_cellPhone"
+                                [(ngModel)]="fetched.ref1_cellPhone"
+                              />
+                            </div>
+                            <div class="col-6">
+                              <label for="">Email</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="ref1_email"
+                                [(ngModel)]="fetched.ref1_email"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div
+                              class="col-12"
+                              style="
+                                font-weight: bold;
+                                margin-left: 145%;
+                                margin-top: 20%;
+                              "
+                            >
+                              Reference 2
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <label for="">First name </label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="ref2_fname"
+                                [(ngModel)]="fetched.ref2_fname"
+                              />
+                            </div>
+                            <div class="col-6">
+                              <label for="">Last name</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="ref2_lname"
+                                [(ngModel)]="fetched.ref2_lname"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <label for="">Cell Phone</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="ref2_cellPhone"
+                                [(ngModel)]="fetched.ref2_cellPhone"
+                              />
+                            </div>
+                            <div class="col-6">
+                              <label for="">Email</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="ref2_email"
+                                [(ngModel)]="fetched.ref2_email"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div
+                              class="col-12"
+                              style="
+                                font-weight: bold;
+                                margin-left: 145%;
+                                margin-top: 20%;
+                              "
+                            >
+                              Reference 3
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <label for="">First name </label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="ref3_fname"
+                                [(ngModel)]="fetched.ref3_fname"
+                              />
+                            </div>
+                            <div class="col-6">
+                              <label for="">Last name</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="ref3_lname"
+                                [(ngModel)]="fetched.ref3_lname"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <label for="">Cell Phone</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="ref3_cellPhone"
+                                [(ngModel)]="fetched.ref3_cellPhone"
+                              />
+                            </div>
+                            <div class="col-6">
+                              <label for="">Email</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="ref3_email"
+                                [(ngModel)]="fetched.ref3_email"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="modal-footer">
+                          <button
+                            type="submit"
+                            class="btn btn-success"
+                            onclick="$('.modal').modal('hide')"
+                          >
+                            Submit
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-outline-secondary"
+                            data-dismiss="modal"
+                          >
+                            Cancel
+                          </button>
+                          <!-- <button type="button" class="btn btn-success" data-dismiss="modal" (click)="deactiveVolunteer(id)">OK</button> -->
+                        </div>
+                      </form>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+
+            <!-- confirm deactive  -->
+            <div
+              class="modal fade"
+              [id]="'confirmDeactive' + item.id"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <ng-container *ngIf="this.fetchedLoading">
+                    <div class="row justify-content-center">
+                      <div class="spinner-border text-danger" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf="!this.fetchedLoading && this.fetched">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">
+                        Confirm deactivate
+                      </h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body ml-2" style="padding: 4% 0px;">
+                      Are you sure you want to deactivate
+                      <span style="color: orangered;"
+                        >{{ fetched.fname + " " + fetched.lname }}
+                      </span>
+                      ?
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        data-dismiss="modal"
+                        (click)="activateFoster()"
+                      >
+                        Deactivate
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+
+            <!-- confirm active -->
+            <div
+              class="modal fade"
+              [id]="'confirmActive' + item.id"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <ng-container *ngIf="this.fetchedLoading">
+                    <div class="row justify-content-center">
+                      <div class="spinner-border text-danger" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf="!this.fetchedLoading && this.fetched">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">
+                        Confirm Activate
+                      </h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body ml-2" style="padding: 4% 0px;">
+                      Are you sure you want to activate
+                      <span style="color: orangered;"
+                        >{{ fetched.fname + " " + fetched.lname }}
+                      </span>
+                      ?
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-success"
+                        data-dismiss="modal"
+                        (click)="activateFoster()"
+                      >
+                        Activate
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+
+            <!-- confirm delete  -->
+            <div
+              class="modal fade"
+              [id]="'confirmDelete' + item.id"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <ng-container *ngIf="this.fetchedLoading">
+                    <div class="row justify-content-center">
+                      <div class="spinner-border text-danger" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf="!this.fetchedLoading && this.fetched">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">
+                        Confirm Delete
+                      </h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body ml-2" style="padding: 4% 0px;">
+                      Are you sure you want to permanently delete
+                      <span style="color: orangered;"
+                        >{{ fetched.fname + " " + fetched.lname }}
+                      </span>
+                      ?
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        data-dismiss="modal"
+                        (click)="onDeleteFoster(fetched.id)"
+                      >
+                        Delete {{ fetched.fname }} {{ fetched.lname }}
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!this.isLoading && this.fosterList.length === 0">
+  <div class="row justify-content-center">
+    <h3>No foster volunteers to display!</h3>
+  </div>
+</ng-container>

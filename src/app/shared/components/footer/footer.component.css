@@ -1,0 +1,153 @@
+/*
+RED -        #cd0d2e
+BLACK -      #0c120c
+GREY -       #6d7275
+LIGHT GREY - #c7d6d5
+WHITE -      #ecebf3
+*/
+ul {
+  list-style: none;
+  transition: all 0.5s;
+}
+
+ul li {
+  margin-top: 20px;
+}
+
+ul i {
+  color: #cd0d2e;
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+ul li a:hover {
+  color: #e96839;
+}
+
+ul a:hover p {
+  color: #e96839;
+}
+
+ul a:hover li {
+  color: #e96839;
+}
+
+.items {
+  padding: 20px;
+}
+
+.items ul a {
+  color: #c7d6d5;
+}
+
+.footerTitle {
+  text-align: center;
+}
+
+ul a {
+  text-decoration: none;
+}
+
+.footer {
+  background-color: #0c120c;
+  color: #c7d6d5;
+  text-align: left;
+}
+
+.copyRight {
+  padding: 10px 0px;
+  color: #c7d6d5;
+  background-color: #0c120c;
+}
+
+.FooterSection {
+  padding: 0px;
+  margin: 0px;
+  font-size: 15px;
+  color: #c7d6d5;
+}
+
+.socialMediaIcon {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 17px;
+}
+
+.socialMediaIcon i {
+  border: 0px;
+  transition: all 0.5s;
+}
+
+.socialMediaIcon #fb {
+  padding: 9px 12px;
+  border-radius: 80%;
+  color: white;
+  transition: all 0.5s;
+  background-color: #34589d;
+}
+
+.socialMediaIcon #insta {
+  padding: 9px 10px;
+  border-radius: 80%;
+  color: white;
+  transition: all 0.5s;
+  background: -moz-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
+}
+
+.socialMediaIcon #tw {
+  padding: 9px 9px;
+  border-radius: 80%;
+  color: white;
+  transition: all 0.5s;
+  background-color: #00a2f9;
+}
+
+.socialMediaIcon #google {
+  padding: 9px 8px;
+  border-radius: 80%;
+  color: orangered;
+  transition: all 0.5s;
+  background-color: white;
+}
+
+.socialMediaIcon #fb:hover {
+  background-color: rgb(8, 32, 110);
+}
+.socialMediaIcon #google:hover {
+  background-color: rgb(177, 179, 187);
+}
+.socialMediaIcon #tw:hover {
+  background-color: rgb(9, 39, 138);
+}
+.socialMediaIcon #insta:hover {
+  background-color: rgb(46, 48, 54);
+}
+
+.container-fluid {
+  box-shadow: 0px 0px 14px black;
+}

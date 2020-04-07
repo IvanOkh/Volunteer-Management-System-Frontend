@@ -1,0 +1,159 @@
+import { Component, Input, ViewChild } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { ModifiedFosterForm } from "./modified-foster-form.model";
+import { HttpClient } from "@angular/common/http";
+import { FamilyMember } from "./family-members/familymember.model";
+import { FormsService } from "src/app/shared/services/forms.service";
+import { Router } from "@angular/router";
+
+@Component({
+  selector: "app-foster-form",
+  templateUrl: "./foster-form.component.html",
+  styleUrls: ["./foster-form.component.css"],
+})
+export class FosterFormComponent {
+
+  onScroll() {
+    document.body.scrollTop = 0;
+  }
+
+  /***FIELDS/PARAMETERS***/
+  choices = ["Yes", "No"];
+  residencesRadio = [
+    "House",
+    "Duplex",
+    "Apartment",
+    "Mobile Home",
+    "Farm/Acreage",
+    "Basement Suite",
+  ];
+  ownRentRadio = ["Own", "Rent"];
+  ifDogChoices = [
+    "Primarily Indoor",
+    "Primarily Outdoor",
+    "Combination",
+    "No Dogs",
+  ];
+  ifCatChoices = ["Indoor", "Outdoor", "Combination", "No Cats"];
+  fosterTypesRadio = [
+    "Puppy",
+    "Adult Dog",
+    "Kitten",
+    "Adult Cat",
+    "Medical Care",
+    "Quarantine",
+  ];
+
+  // Form Values
+  @ViewChild("fl", { static: false })
+  public familyList: FamilyMember[];
+
+  @ViewChild("ownRent", { static: false }) ownRent: string;
+
+  /***FUNCTIONS***/
+  constructor(private http: HttpClient, private FS: FormsService, private router: Router) {}
+
+  stringifyFamilyList(familyList: FamilyMember[]) {
+    console.log(familyList);
+    let stringified = "";
+
+    familyList.forEach((member) => {
+      stringified += member.fname + "," + member.lname + "," + member.age + ";";
+    });
+
+    stringified = stringified.slice(0, -1);
+
+    return stringified;
+  }
+
+  onOkClick() {
+    this.router.navigate(["/login"]);
+  }
+
+  onSubmit(f: NgForm) {
+    if (!f.valid) {
+      alert('Please make sure to fill out every required field.');
+      return;
+    }
+    let formatForm: ModifiedFosterForm;
+
+    formatForm = new ModifiedFosterForm(
+      f.value.fname as string,
+      f.value.lname as string,
+      f.value.street as string,
+      f.value.city as string,
+      f.value.prov as string,
+      f.value.postal as string,
+      f.value.hphone as string,
+      f.value.cphone as string,
+      !!(f.value.over18 as string).match("Yes"),
+      f.value.email as string,
+      f.value.residenceType as string,
+      !!(f.value.rentOrOwn as string).match("Own"),
+      f.value.llQuestion as string,
+      this.checkForChildren(f.value.familyList.familyMembers as FamilyMember[]),
+      this.stringifyFamilyList(
+        f.value.familyList.familyMembers as FamilyMember[]
+      ),
+      !!(f.value.hasAllergies as string).match("Yes"),
+      !!(f.value.safeHandling as string).match("Yes"),
+      !!(f.value.hasPets as string).match("Yes"),
+      f.value.petDetails as string,
+      f.value.petMedical as string,
+      f.value.dogEnvironment as string,
+      f.value.catEnvironment as string,
+      !!(f.value.familyAgrees as string).match("Yes"),
+      f.value.rescueHistory as string,
+      f.value.fosterRequest as string,
+      !!(f.value.keepFosterCatInside as string).match("Yes"),
+      !!(f.value.hasFence as string).match("Yes"),
+      f.value.fenceHeight as number,
+      !!(f.value.canHouseTrain as string).match("Yes"),
+      !!(f.value.familiarCrateTrain as string).match("Yes"),
+      !!(f.value.crateWilling as string).match("Yes"),
+      f.value.rescueHistory as string,
+      !!(f.value.vetWilling as string).match("Yes"),
+      !!(f.value.hasVehicle as string).match("Yes"),
+      !!(f.value.medicateWilling as string).match("Yes"),
+      f.value.hoursAlone as number,
+      f.value.ref1Fname as string,
+      f.value.ref1Lname as string,
+      f.value.ref1Phone as string,
+      f.value.ref1Email as string,
+      f.value.ref2Fname as string,
+      f.value.ref2Lname as string,
+      f.value.ref2Phone as string,
+      f.value.ref2Email as string,
+      f.value.ref3Fname as string,
+      f.value.ref3Lname as string,
+      f.value.ref3Phone as string,
+      f.value.ref3Email as string,
+      !!(f.value.agreeHomeVisit as string).match("Yes")
+    );
+
+    // this.onCreatePost(formatForm);
+    this.sendTheForm(formatForm);
+
+    if (f.valid) {
+      alert('submission successful! Thanks for taking the time to fill out our Foster application.');
+      return;
+    }
+  }
+
+  private sendTheForm(fosForm: ModifiedFosterForm): void {
+    this.FS.sendFosterForm(fosForm).subscribe(
+      () => {
+        // success
+        console.log("Events add HTTP response succeeded.");
+      },
+      () => {
+        // error
+        console.log("Events add HTTP response failed.");
+      }
+    );
+  }
+
+  private checkForChildren(familyMembers: FamilyMember[]) {
+    return false;
+  }
+}

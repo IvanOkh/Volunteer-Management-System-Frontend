@@ -1,0 +1,130 @@
+<div class="container">
+    <h3 class="sticky-top">Application Information</h3>
+    <hr style="height: 1px;">
+  
+    <form [formGroup]="formGroup">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-md-4">
+            <label>Name of the cat you are interested in:</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" formControlName="catName">
+          </div>
+  
+  
+          <div class="col-md-4 mt-3">
+            <label>Name: <span class="star">*</span></label>
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control mt-3" placeholder="First name" formControlName="fname"
+              [ngClass]="{'is-invalid': form.fname.errors && form.fname.touched}">
+            <!-- validation  -->
+            <div *ngIf="form.fname.errors && form.fname.touched" class="col-12">
+              <div *ngIf="form.fname.hasError('required')"><em class="errorMsg">*First name is required*</em></div>
+            </div>
+          </div>
+  
+          <div class="col-md-3">
+            <input type="text" class="form-control mt-3" placeholder="Last name" formControlName="lname"
+              [ngClass]="{'is-invalid': form.lname.errors && form.lname.touched}">
+            <!-- validation  -->
+            <div *ngIf="form.lname.errors && form.lname.touched" class="col-12">
+              <div *ngIf="form.lname.hasError('required')"><em class="errorMsg">*Last name is required*</em></div>
+            </div>
+          </div>
+  
+  
+          <div class="col-md-4 mt-3">
+            <label>Address: <span class="star">*</span></label>
+          </div>
+          <div class="col-md-6 mt-3">
+            <input type="text" class="form-control" placeholder="Street address" formControlName="address"
+              [ngClass]="{'is-invalid': form.address.errors && form.address.touched}">
+          </div>
+  
+          <div class="col-md-4"></div>
+          <div class="col-md-3 mt-3">
+            <input type="text" class="form-control" placeholder="City" formControlName="city"
+              [ngClass]="{'is-invalid': form.city.errors && form.city.touched}">
+          </div>
+          <div class="col-md-3 mt-3">
+            <input type="text" class="form-control" placeholder="Province" formControlName="province"
+              [ngClass]="{'is-invalid': form.province.errors && form.province.touched}">
+          </div>
+  
+          <div class="col-md-4"></div>
+          <div class="col-md-5 mt-3">
+            <input type="text" class="form-control" placeholder="Postal Code" style="width: 57%;"
+              formControlName="postalCode" [ngClass]="{'is-invalid': form.postalCode.errors && form.postalCode.touched}">
+  
+            <!-- validation address  -->
+            <div *ngIf="(form.address.errors && form.address.touched) 
+              ||  (form.city.errors && form.city.touched) 
+              || (form.province.errors && form.province.touched) ||(form.postalCode.errors && form.postalCode.touched)  "
+              class="col-12">
+              <div *ngIf="form.address.hasError('required')"><em class="errorMsg">*Street
+                  address is required*</em></div>
+              <div *ngIf="form.city.hasError('required')"><em class="errorMsg">*City is required*</em></div>
+              <div *ngIf="form.province.hasError('required')"><em class="errorMsg">*Province is required*</em></div>
+              <div *ngIf="form.postalCode.hasError('required')"><em class="errorMsg">*Postal Code is required*</em></div>
+            </div>
+          </div>
+  
+          <div class="col-md-4 mt-3">
+            <label>Home Phone: <span class="star">*</span></label>
+          </div>
+          <div class="col-md-3">
+            <input type="tel" pattern="[0-9]*" maxlength="10" class="form-control mt-3" placeholder="Phone Number"
+              formControlName="homephone" [ngClass]="{'is-invalid': form.homephone.errors && form.homephone.touched}">
+            <!-- validation  -->
+            <div *ngIf="form.homephone.errors && form.homephone.touched" class="col-12">
+              <div *ngIf="form.homephone.hasError('required')"><em class="errorMsg">*Phone number is required*</em>
+              </div>
+              <div *ngIf="form.homephone.hasError('pattern')"><em class="errorMsg">*Must be number*</em></div>
+            </div>
+          </div>
+          <div class="col-9"></div>
+          <div class="col-md-4 mt-3">
+            <label>Cell Phone: <span class="star">*</span></label>
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control mt-3" placeholder="Phone Number" formControlName="cellphone"
+              [ngClass]="{'is-invalid': form.cellphone.errors && form.cellphone.touched}">
+            <div *ngIf="form.cellphone.errors && form.cellphone.touched" class="col-12">
+              <div *ngIf="form.cellphone.hasError('required')"><em class="errorMsg">*Phone number is required*</em>
+              </div>
+              <div *ngIf="form.cellphone.hasError('pattern')"><em class="errorMsg">*Must be number*</em></div>
+            </div>
+          </div>
+          <div class="col-9"></div>
+  
+          <div class="col-md-4 mt-3">
+            <label>Email: <span class="star">*</span></label>
+          </div>
+          <div class="col-md-5">
+            <input type="email" class="form-control mt-3" placeholder="example@example.com" formControlName="email"
+              [ngClass]="{'is-invalid': form.email.errors && form.email.touched}">
+            <div *ngIf="form.email.errors && form.email.touched" class="col-12">
+              <div *ngIf="form.email.hasError('required')"><em class="errorMsg">*Email is required*</em>
+              </div>
+              <div *ngIf="form.email.hasError('email')"><em class="errorMsg">*Invalid email*</em></div>
+            </div>
+          </div>
+  
+          <div class="col-md-4 mt-3">
+            <label>Your age: <span class="star">*</span></label>
+          </div>
+          <div class="col-md-5">
+            <input type="number" min="0" class="form-control mt-3 small-input" formControlName="age"
+              [ngClass]="{'is-invalid': form.age.errors && form.age.touched}">
+            <div *ngIf="form.age.errors && form.age.touched" class="col-12">
+              <div *ngIf="form.age.hasError('required')"><em class="errorMsg">*Age is required*</em>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  

@@ -1,0 +1,970 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-4 text-center" id="topPage">Foster Home Application</h1>
+  </div>
+</div>
+
+<div class="container">
+  <!-- <h2 class="text-center">Foster Home Application</h2>
+  <hr /> -->
+  <p>
+    Please complete this application form if you are interested in becoming a
+    Calgary Animal Rescue Society (CARS) foster parent. Once you complete the
+    form, click the Submit Application button at the bottom.
+  </p>
+  <button class="btn btn-primary mb-5" type="button" (click)="onOkClick()">
+    Back to Login
+  </button>
+  <hr />
+
+  <br />
+  <form class="mb-4" (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="form-row">
+      <div class="col-xs-12">
+        <h3 class="text-center">Personal Information</h3>
+        <hr />
+      </div>
+    </div>
+
+    <!--PERSONAL INFORMATION-->
+    <!--Name-->
+    <div class="form-row">
+      <div class="form-group col-xs-6">
+        <label for="fname">First Name</label>
+        <input
+          type="text"
+          id="fname"
+          class="form-control"
+          placeholder="First Name"
+          ngModel
+          name="fname"
+          required
+          #fname="ngModel"
+        />
+        <span class="help-block" *ngIf="!fname.valid && fname.touched"
+          >Please enter a first name.</span
+        >
+      </div>
+      <div class="form-group col-xs-6">
+        <label for="lname">Last Name</label>
+        <input
+          type="text"
+          id="lname"
+          class="form-control"
+          placeholder="Last Name"
+          ngModel
+          name="lname"
+          required
+          #lname="ngModel"
+        />
+        <span class="help-block" *ngIf="!lname.valid && lname.touched"
+          >Please enter a last name.</span
+        >
+      </div>
+    </div>
+    <!--Address 1-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="street">Street Address</label>
+        <input
+          type="text"
+          id="street"
+          class="form-control"
+          placeholder="Street Address"
+          ngModel
+          name="street"
+          required
+          #street="ngModel"
+        />
+        <span class="help-block" *ngIf="!street.valid && street.touched"
+          >Please enter a street address.</span
+        >
+      </div>
+    </div>
+    <!--Address 2-->
+    <div class="form-row">
+      <div class="form-group col-xs-4">
+        <label for="city">City</label>
+        <input
+          type="text"
+          id="city"
+          class="form-control"
+          placeholder="City"
+          ngModel
+          name="city"
+          required
+          #city="ngModel"
+        />
+        <span class="help-block" *ngIf="!city.valid && city.touched"
+          >Please enter a city.</span
+        >
+      </div>
+      <div class="form-group col-xs-4">
+        <label for="prov">Province</label>
+        <input
+          type="text"
+          id="prov"
+          class="form-control"
+          placeholder="Province"
+          ngModel
+          name="prov"
+          required
+          #prov="ngModel"
+        />
+        <span class="help-block" *ngIf="!prov.valid && prov.touched"
+          >Please enter a province</span
+        >
+      </div>
+      <div class="form-group col-xs-4">
+        <label for="postal">Postal Code</label>
+        <input
+          type="text"
+          id="postal"
+          class="form-control"
+          placeholder="Postal Code"
+          ngModel
+          name="postal"
+          required
+          #postal="ngModel"
+        />
+        <span class="help-block" *ngIf="!postal.valid && postal.touched"
+          >Please enter a valid postal code (ex. A1B-2C3)</span
+        >
+      </div>
+    </div>
+    <!--Phones-->
+    <div class="form-row">
+      <div class="form-group col-xs-6">
+        <label for="hphone">Homephone</label>
+        <input
+          type="tel"
+          id="hphone"
+          class="form-control"
+          placeholder="555-555-5555"
+          ngModel
+          name="hphone"
+        />
+      </div>
+      <div class="form-group col-xs-6">
+        <label for="cphone">Cellphone</label>
+        <input
+          type="tel"
+          id="cphone"
+          class="form-control"
+          placeholder="555-555-5555"
+          ngModel
+          name="cphone"
+          required
+          #cphone="ngModel"
+        />
+        <span class="help-block" *ngIf="!cphone.valid && cphone.touched"
+          >Please enter a valid cellphone number.</span
+        >
+      </div>
+    </div>
+    <!--Email-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          placeholder="abc@mail.com"
+          ngModel
+          name="email"
+          required
+          email
+          #email="ngModel"
+        />
+        <span class="help-block" *ngIf="!email.valid && email.touched"
+          >Please enter a valid email.</span
+        >
+      </div>
+    </div>
+    <!--Over 18-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="over18">Are you over 18?</label>
+        <div class="radio" id="over18" *ngFor="let choice of choices">
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="over18"
+              required
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-xs-12">
+        <h3 class="text-center">Home Information</h3>
+        <hr />
+      </div>
+    </div>
+
+    <!--HOME INFORMATION-->
+    <!--Type of Residence-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="residenceType">Type of Residence</label>
+        <div
+          class="radio"
+          id="residenceType"
+          *ngFor="let residence of residencesRadio"
+        >
+          <label>
+            <input
+              type="radio"
+              [value]="residence"
+              ngModel
+              name="residenceType"
+              required
+            />
+            {{ residence }}
+          </label>
+        </div>
+      </div>
+    </div>
+    <!--Own or Rent-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="rentOrOwn">Do you rent or own your home?</label>
+        <div class="radio" id="rentOrOwn" *ngFor="let choice of ownRentRadio">
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="rentOrOwn"
+              required
+              #ownRent="ngModel"
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+      <div class="form-group col-xs-12" *ngIf="form.value.rentOrOwn === 'Rent'">
+        <label for="llQuestion">Landlord Contact Information</label>
+        <textarea
+          id="llQuestion"
+          name="llQuestion"
+          rows="3"
+          class="form-control"
+          ngModel
+        >
+        </textarea>
+      </div>
+    </div>
+    <!--Fenced Yard-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="hasFence">Do you have a fenced yard?</label>
+        <div class="radio" id="hasFence" *ngFor="let choice of choices">
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="hasFence"
+              required
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+      <div class="form-group col-xs-12" *ngIf="form.value.hasFence === 'Yes'">
+        <label for="fenceHeight">Fence height (in approximate inches):</label>
+        <input
+          type="number"
+          class="form-control"
+          id="fenceHeight"
+          name="fenceHeight"
+          ngModel
+        />
+      </div>
+    </div>
+    <!--Access to Vehicle-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="hasVehicle"
+          >Do you drive a vehicle or have access to a vehicle to transport your
+          foster to adoption events and appointments?</label
+        >
+        <div class="radio" id="hasVehicle" *ngFor="let choice of choices">
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="hasVehicle"
+              required
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+    </div>
+    <!--Consent to Home Visit-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="agreeHomeVisit"
+          >Would you be willing to consent to a home visit prior to your
+          foster?</label
+        >
+        <div class="radio" id="agreeHomeVisit" *ngFor="let choice of choices">
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="agreeHomeVisit"
+              required
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-xs-12">
+        <h3 class="text-center">Family Information</h3>
+        <hr />
+      </div>
+    </div>
+
+    <!--FAMILY INFORMATION-->
+    <!--Family Member List-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label
+          >List all individuals living in Household (including name and
+          age):</label
+        >
+        <app-family-members #familyList> </app-family-members>
+        <input
+          type="hidden"
+          name="familyList"
+          [ngModel]="familyList"
+          #fl="ngModel"
+          required
+        />
+      </div>
+    </div>
+    <!--Family Members with Allergies-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label>Does anyone in your household have allergies to animals?</label>
+        <div class="radio" id="hasAllergies" *ngFor="let choice of choices">
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="hasAllergies"
+              required
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+    </div>
+    <!--Family Can Handle Pets-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="safeHandling"
+          >Does everyone in your household know safe handling procedures for new
+          and potentially reactive animals, including children?</label
+        >
+        <div class="radio" id="safeHandling" *ngFor="let choice of choices">
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="safeHandling"
+              required
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+    </div>
+    <!--Family Agrees to Foster-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="familyAgrees"
+          >Are all members of your family agreeable to fostering a pet?</label
+        >
+        <div class="radio" id="familyAgrees" *ngFor="let choice of choices">
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="familyAgrees"
+              required
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-xs-12">
+        <h3 class="text-center">Pet Information</h3>
+        <hr />
+      </div>
+    </div>
+
+    <!--PET INFORMATION-->
+    <!--Owns Pets-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="hasPets">Do you have any pets?</label>
+        <div class="radio" id="hasPets" *ngFor="let choice of choices">
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="hasPets"
+              required
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+    </div>
+    <!--List Pets Details-->
+    <div class="form-row">
+      <div class="form-group col-xs-12" *ngIf="form.value.hasPets === 'Yes'">
+        <label for="petDetails"
+          >Please list all pets details and whether they are good with new
+          animals.</label
+        >
+        <textarea
+          id="petDetails"
+          name="petDetails"
+          rows="3"
+          class="form-control"
+          ngModel
+        ></textarea>
+      </div>
+    </div>
+    <!--Pets Spayed/Neutered-->
+    <div class="form-row">
+      <div class="form-group col-xs-12" *ngIf="form.value.hasPets === 'Yes'">
+        <label for="petMedical"
+          >Are they spayed/neutered and up to date on all vaccines?</label
+        >
+        <textarea
+          id="petMedical"
+          name="petMedical"
+          rows="3"
+          class="form-control"
+          ngModel
+        ></textarea>
+      </div>
+    </div>
+    <!--If Dogs-->
+    <div class="form-row">
+      <div class="form-group col-xs-12" *ngIf="form.value.hasPets === 'Yes'">
+        <label for="dogEnvironment">If you have dogs, are they:</label>
+        <div
+          class="radio"
+          id="dogEnvironment"
+          *ngFor="let choice of ifDogChoices"
+        >
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="dogEnvironment"
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+    </div>
+    <!--If Cats-->
+    <div class="form-row">
+      <div class="form-group col-xs-12" *ngIf="form.value.hasPets === 'Yes'">
+        <label for="catEnvironment">If you have cats, are they:</label>
+        <div
+          class="radio"
+          id="catEnvironment"
+          *ngFor="let choice of ifCatChoices"
+        >
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="catEnvironment"
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-xs-12">
+        <h3 class="text-center">Foster Information</h3>
+        <hr />
+      </div>
+    </div>
+
+    <!--FOSTER INFORMATION-->
+    <!--Types of Fosters-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="fosterTypes"
+          >What type(s) of fosters are you interested in?</label
+        >
+        <div
+          class="checkbox"
+          id="fosterTypes"
+          *ngFor="let type of fosterTypesRadio"
+        >
+          <label>
+            <input
+              class="custom-check-input"
+              type="checkbox"
+              [value]="type"
+              ngModel
+              [name]="type"
+            />
+            {{ type }}
+          </label>
+        </div>
+      </div>
+    </div>
+    <!--Animal Request Description-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="fosterRequest"
+          >Describe the type of animal you would like to foster and we will try
+          to match your request- ie age, sex, energy level, coat type, breed,
+          etc</label
+        >
+        <textarea
+          id="fosterRequest"
+          name="fosterRequest"
+          rows="3"
+          class="form-control"
+          ngModel
+          required
+        >
+        </textarea>
+      </div>
+    </div>
+    <!--Keep Cats Indoors-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="keepFosterCatInside"
+          >If you foster cats, would you be willing to keep them strictly
+          indoors?</label
+        >
+        <div
+          class="radio"
+          id="keepFosterCatInside"
+          *ngFor="let choice of choices"
+        >
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="keepFosterCatInside"
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+    </div>
+    <!--Willing to Train-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="canHouseTrain"
+          >We cannot guarantee the temperament of a foster. Are you willing to
+          house train with love and patience?</label
+        >
+        <div class="radio" id="canHousetrain" *ngFor="let choice of choices">
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="canHouseTrain"
+              required
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+    </div>
+    <!--Familiar with Crate Training-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="familiarCrateTrain"
+          >Are you familiar with Crate Training methods?</label
+        >
+        <div
+          class="radio"
+          id="familiarCrateTrain"
+          *ngFor="let choice of choices"
+        >
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="familiarCrateTrain"
+              required
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+    </div>
+    <!--Willing to Crate Train-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="crateWilling"
+          >Are you willing to use a crate for a foster dog if advised to?</label
+        >
+        <div class="radio" id="crateWilling" *ngFor="let choice of choices">
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="crateWilling"
+              required
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+    </div>
+    <!--Rescue Animal Experience-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="rescueHistory"
+          >Have you had any experience with a rescue animal in the past? Please
+          give the details.</label
+        >
+        <textarea
+          id="rescueHistory"
+          name="rescueHistory"
+          rows="3"
+          class="form-control"
+          ngModel
+          required
+        >
+        </textarea>
+      </div>
+    </div>
+    <!--Hours Alone-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="hoursAlone"
+          >How many hours in the day will your foster be left alone?</label
+        >
+        <input
+          type="number"
+          id="hoursAlone"
+          class="form-control"
+          placeholder="2"
+          ngModel
+          name="hoursAlone"
+          required
+        />
+      </div>
+    </div>
+    <!--Willing to Take Foster to Vet-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="vetWilling"
+          >Are you willing to take your foster animal to the vet?</label
+        >
+        <div class="radio" id="vetWilling" *ngFor="let choice of choices">
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="vetWilling"
+              required
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+    </div>
+    <!--Willing to Medicate Foster-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label for="medicateWilling"
+          >Are you willing and able to medicate your foster if required?</label
+        >
+        <div class="radio" id="medicateWilling" *ngFor="let choice of choices">
+          <label>
+            <input
+              type="radio"
+              [value]="choice"
+              ngModel
+              name="medicateWilling"
+              required
+            />
+            {{ choice }}
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-xs-12">
+        <h3 class="text-center">References</h3>
+        <hr />
+      </div>
+    </div>
+
+    <!--Reference 1-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label
+          >Please list a reference with phone numbers, address and email
+          address.</label
+        >
+        <div class="row">
+          <div class="col-xs-6 mr-2">
+            <label>First name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="First name"
+              name="ref1FName"
+              ngModel
+              required
+              #refFName="ngModel"
+            />
+            <span class="help-block" *ngIf="!refFName.valid && refFName.touched"
+              >Please enter reference's First Name.</span
+            >
+          </div>
+          <div class="col-xs-6 mr-2">
+            <label>Last name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Last name"
+              name="ref1LName"
+              ngModel
+              required
+              #refLName="ngModel"
+            />
+            <span class="help-block" *ngIf="!refLName.valid && refLName.touched"
+              >Please enter reference's Last name.</span
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 mr-2">
+            <label>Phone number</label>
+            <input
+              type="tel"
+              class="form-control"
+              placeholder="555-555-5555"
+              name="ref1Phone"
+              ngModel
+              required
+              #refPhone="ngModel"
+            />
+            <span class="help-block" *ngIf="!refPhone.valid && refPhone.touched"
+              >Please enter a valid phone number.</span
+            >
+          </div>
+          <div class="col-xs-6 mr-2">
+            <label>Email</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="abc@mail.com"
+              name="ref1Email"
+              ngModel
+              email
+              #refEmail="ngModel"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Reference 2-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label
+          >Please list a second reference with phone numbers, address and email
+          address.</label
+        >
+        <div class="row">
+          <div class="col-xs-6 mr-2">
+            <label>First name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="First name"
+              name="ref2FName"
+              ngModel
+              required
+              #refFName="ngModel"
+            />
+            <span class="help-block" *ngIf="!refFName.valid && refFName.touched"
+              >Please enter reference's First Name.</span
+            >
+          </div>
+          <div class="col-xs-6 mr-2">
+            <label>Last name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Last name"
+              name="ref2LName"
+              ngModel
+              required
+              #refLName="ngModel"
+            />
+            <span class="help-block" *ngIf="!refLName.valid && refLName.touched"
+              >Please enter reference's Last name.</span
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 mr-2">
+            <label>Phone number</label>
+            <input
+              type="tel"
+              class="form-control"
+              placeholder="555-555-5555"
+              name="ref2Phone"
+              ngModel
+              required
+              #refPhone="ngModel"
+            />
+            <span class="help-block" *ngIf="!refPhone.valid && refPhone.touched"
+              >Please enter a valid phone number.</span
+            >
+          </div>
+          <div class="col-xs-6 mr-2">
+            <label>Email</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="abc@mail.com"
+              name="ref2Email"
+              ngModel
+              email
+              #refEmail="ngModel"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Reference 3-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <label
+          >Please list a final reference with phone numbers, address and email
+          address.</label
+        >
+        <div class="row">
+          <div class="col-xs-6 mr-2">
+            <label>First name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="First name"
+              name="ref3FName"
+              ngModel
+              required
+              #refFName="ngModel"
+            />
+            <span class="help-block" *ngIf="!refFName.valid && refFName.touched"
+              >Please enter reference's First Name.</span
+            >
+          </div>
+          <div class="col-xs-6">
+            <label>Last name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Last name"
+              name="ref3LName"
+              ngModel
+              required
+              #refLName="ngModel"
+            />
+            <span class="help-block" *ngIf="!refLName.valid && refLName.touched"
+              >Please enter reference's Last name.</span
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 mr-2">
+            <label>Phone number</label>
+            <input
+              type="tel"
+              class="form-control"
+              placeholder="555-555-5555"
+              name="ref3Phone"
+              ngModel
+              required
+              #refPhone="ngModel"
+            />
+            <span class="help-block" *ngIf="!refPhone.valid && refPhone.touched"
+              >Please enter a valid phone number.</span
+            >
+          </div>
+          <div class="col-xs-6">
+            <label>Email</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="abc@mail.com"
+              name="ref3Email"
+              ngModel
+              email
+              #refEmail="ngModel"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <!--Submission Button-->
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <button type="submit" class="btn btn-primary">
+          Submit Application
+        </button>
+      </div>
+
+      <!-- modal here ? -->
+
+    </div>
+  </form>
+</div>
+
+<div>
+  <a (click)="onScroll()" id="button-top"><i class="fa fa-angle-double-up"></i></a>
+</div>

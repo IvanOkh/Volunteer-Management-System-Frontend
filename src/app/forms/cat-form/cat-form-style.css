@@ -1,0 +1,115 @@
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+/* Style CSS For Cat form  */
+/* START  */
+/* You can add global styles to this file, and also import other style files */
+.textArea-width {
+  width: 50% !important;
+}
+
+hr {
+  height: 1px;
+}
+
+h1 {
+  color: #17a2b8 !important;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+h3 {
+  color: #3366ff;
+  background-color: #eff4f7;
+  padding: 1% 0;
+}
+
+.star,
+em {
+  color: red;
+}
+
+label {
+  font-weight: 600;
+}
+
+.small-input {
+  width: 90px !important;
+}
+
+.form-control {
+  height: calc(1.5em + .75rem + -2px);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-radio-group {
+  font-size: 19px;
+}
+
+.mat-radio-button {
+  margin-left: 50px;
+}
+
+.mat-radio-label-content,
+.mat-checkbox-layout .mat-checkbox-label {
+  font-weight: 450;
+  font-size: 15px;
+}
+
+.group-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.hover {
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 10px 0px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 767px) {
+  .hover {
+    display: unset;
+  }
+}
+
+.hover:hover {
+  background-color: rgba(255, 149, 79, 0.164);
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+}
+
+.background {
+  background-color: #eff4f7;
+  border-radius: 15px;
+  padding: 20px 10px;
+}
+
+/*# sourceMappingURL=styles.css.map */
+
+/* END  */

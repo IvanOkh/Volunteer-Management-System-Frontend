@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&display=swap');
+
+table {
+  width: 100%;
+  box-shadow: 0px 0px 13px -10px black;
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.avatar img {
+  width: 15%;
+  height: auto;
+}
+
+.avatarImg {
+  width: 55px;
+  height: 80px;
+  padding: 10px 0px;
+  border-radius: 100%;
+}
+
+.mat-form-field-wrapper {
+  padding-bottom: 0px !important;
+}
+
+.avatar {
+  width: 80%;
+  height: 20%;
+  margin-top: 18px;
+}
+
+.personalInfo {
+  background-color: rgb(245, 234, 234);
+}
+
+.flag,
+.description {
+  margin-top: 5px;
+  padding: 13px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.noteSection {
+  margin: 3px 5px;
+  padding: 13px;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: rgb(245, 234, 234);
+}
+
+#viewVolunteer1 i {
+  font-size: 21px;
+  color: rgb(44, 75, 248);
+  border-radius: 80%;
+  transition: all 0.5s;
+}
+
+
+.modal-body {
+  padding: 0px 1rem;
+}
+
+.delete-button {
+  position: absolute;
+  left: 3%;
+}
+
+.sectionTitle,
+.centerElements {
+  text-align: center;
+  color: #ce0e2d;
+}
+
+.contactSection {
+  padding: 0px 16px;
+}
+
+.lineSection {
+  width: 100%;
+  height: 1px;
+  color: grey;
+  margin: 8px;
+}

@@ -1,0 +1,54 @@
+<!-- NAVBAR -->
+<div class="row sticky-top">
+  <nav class="navbar navbar-expand-sm">
+    <a class="navbar-brand ml-5" routerLink="/login"
+      >Calgary Animal Rescue Society</a
+    >
+    <ul class="navbar-nav ml-auto mr-5">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['events']" routerLinkActive="active"
+          >Events</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['volunteers']"
+          routerLinkActive="active"
+        >
+          Volunteers
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['fosters']" routerLinkActive="active"
+          >Fosters</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['applications']"
+          routerLinkActive="active"
+          >Applications</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['animals']" routerLinkActive="active"
+          >Animals</a
+        >
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" [routerLink]="['login']">Account</a> -->
+        <a class="nav-link" [routerLink]="['profile']" routerLinkActive="active"
+          >Account</a
+        >
+        <!-- configure admin account map -->
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="" (click)="doLogOut()"
+          ><i class="fa fa-sign-out mr-1" aria-hidden="true"></i>Logout</a
+        >
+      </li>
+    </ul>
+  </nav>
+</div>

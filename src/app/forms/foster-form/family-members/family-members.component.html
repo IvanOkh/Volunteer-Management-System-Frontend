@@ -1,0 +1,70 @@
+<table class="table">
+  <thead>
+    <tr class="row">
+      <th class="col-xs-8">Name</th>
+      <th class="col">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="row" *ngIf="familyMembers.length === 0">
+      <td class="col-xs-8">Example Name</td>
+      <td class="col">45</td>
+      <td class="col">
+        <button class="btn btn-sm" disabled>Delete</button>
+      </td>
+    </tr>
+    <tr class="row" *ngFor="let member of familyMembers">
+      <td class="col-xs-8">{{ member.fname }}&nbsp;{{ member.lname }}</td>
+      <td class="col">{{ member.age }}</td>
+      <td class="col">
+        <button class="btn btn-sm" (click)="removeFamilyMember(member)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<form class="form-inline" #form="ngForm">
+  <div class="form-row">
+    <div class="form-group col-xs-3">
+      <input
+        type="text"
+        name="fname"
+        class="form-control"
+        placeholder="First Name"
+        ngModel
+        required
+      />
+    </div>
+    <div class="form-group col-xs-3">
+      <input
+        type="text"
+        name="lname"
+        class="form-control"
+        placeholder="Last Name"
+        ngModel
+        required
+      />
+    </div>
+    <div class="form-group col-xs-3">
+      <input
+        type="number"
+        name="age"
+        class="form-control"
+        placeholder="Age"
+        ngModel
+        maxlength="2"
+        required
+      />
+    </div>
+    <div class="form-group col-xs-offset-1 col-xs-1">
+      <button
+        class="btn btn-primary"
+        [disabled]="!form.valid"
+        (click)="addFamilyMember(form.value)"
+      >
+        Add
+      </button>
+    </div>
+  </div>
+</form>

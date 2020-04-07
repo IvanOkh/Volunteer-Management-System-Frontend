@@ -1,0 +1,79 @@
+<div class="container">
+  <hr>
+    <h3 class="sticky-top">Desired Physical Characteristics</h3>
+    <hr>
+    <form [formGroup]="formGroup">
+      <div class="row">
+        <div class="container">
+          <div class="row">
+
+            <div class="hover">
+                <div class="col-md-3 mt-3">
+                  <label for="">Gender</label>
+                </div>
+                <div class="col-md-9 mt-3">
+                  <mat-radio-group formControlName="desiredGender">
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
+                    <mat-radio-button value="Either">Either</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              </div>
+
+              <div class="hover">
+                <div class="col-md-3 mt-3">
+                  <label for="">Coat</label>
+                </div>
+                <div class="col-md-9 mt-3">
+                  <mat-radio-group formControlName="desiredCoat">
+                    <mat-radio-button value="Short">Short</mat-radio-button>
+                    <mat-radio-button value="Medium">Medium</mat-radio-button>
+                    <mat-radio-button value="Long">Long</mat-radio-button>
+                    <mat-radio-button value="Either">Either</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              </div>
+
+              <div class="hover">
+                <div class="col-md-4 mt-3">
+                  <label for="">Age</label>
+                </div>
+                <div class="col-md-7 mt-3">
+                  <mat-radio-group formControlName="desiredAge">
+                    <mat-radio-button value="Kitten">Kitten (8 weeks to 6 months)</mat-radio-button>
+                    <mat-radio-button value="Adolescent">Adolescent (6 months to 1 year)</mat-radio-button>
+                    <mat-radio-button value="Adult">Adult (1-7 years)</mat-radio-button>
+                    <mat-radio-button value="Senior">Senior(7+ years)</mat-radio-button>
+                    <mat-radio-button value="Any">Any</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              </div>
+
+              
+          <div class="hover">
+            <div class="col-md-4 mt-3">
+              <label>Breed/type/colour?</label>
+            </div>
+            <div class="col-md-6 mt-3">
+              <input type="text" class="form-control" formControlName="breedTypeColor">
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,174 @@
+  <div class="container">
+    <hr>
+    <h3 class="sticky-top">Your Home</h3>
+    <hr>
+    <form [formGroup]="formGroup">
+      <div class="row">
+        <div class="container">
+          <div class="row">
+  
+            <div class="hover">
+              <div class="col-md-4">
+                <label for="">What type of home do you live in?<span class="star">*</span></label>
+              </div>
+              <div class="col-md-8">
+                <div class="row">
+                  <mat-radio-group formControlName="typeofresidence">
+                    <mat-radio-button value="house">House</mat-radio-button>
+                    <mat-radio-button value="condo">Condo</mat-radio-button>
+                    <mat-radio-button value="inner city">Inner City</mat-radio-button>
+                    <mat-radio-button value="acreage">Acreage</mat-radio-button>
+                    <mat-radio-button value="apartment">Apartment</mat-radio-button>
+                    <mat-radio-button value="suburban">Suburban</mat-radio-button>
+                    <mat-radio-button value="rural">Rural</mat-radio-button>
+                    <mat-radio-button value="other">Other</mat-radio-button>
+                  </mat-radio-group>
+                  <!-- validation  -->
+                  <div *ngIf="form.typeofresidence.errors && form.typeofresidence.touched" class="col-12">
+                    <div *ngIf="form.typeofresidence.hasError('required')"><em class="errorMsg">*Type of residence is
+                        required*</em></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="hover">
+              <div class="col-md-3 mt-3">
+                <label for="">Do you own or rent? <span class="star">*</span></label>
+              </div>
+              <div class="col-md-9 mt-3">
+                <mat-radio-group formControlName="own">
+                  <mat-radio-button value=true>Own</mat-radio-button>
+                  <mat-radio-button value=false>Rent</mat-radio-button>
+                </mat-radio-group>
+  
+                <!-- validation  -->
+                <div *ngIf="form.own.errors && form.own.touched" class="col-12">
+                  <div *ngIf="form.own.hasError('required')"><em class="errorMsg">*Renting information is required*</em></div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="hover">
+              <div class="col-md-4 mt-3">
+                <label>If rent, provide name and phone number of landlord:</label>
+              </div>
+              <div class="col-md-6 mt-3">
+                <input type="text" class="form-control" formControlName="landlordcontact">
+              </div>
+            </div>
+  
+            <div class="hover">
+              <div class="col-md-3 mt-3">
+                <label for="">Does your landlord allow cats?</label>
+              </div>
+              <div class="col-md-9 mt-3">
+                <mat-radio-group formControlName="catsallowed">
+                  <mat-radio-button value=true>Yes</mat-radio-button>
+                  <mat-radio-button value=false>No</mat-radio-button>
+                </mat-radio-group>
+  
+              </div>
+            </div>
+  
+            <div class="hover">
+              <div class="col-md-3 mt-3">
+                <label for="">Are there any restrictions from your landlord or subdivision?</label>
+              </div>
+              <div class="col-md-9 mt-3" style="display: grid;">
+                <mat-checkbox formControlName="numberOfPetRestrict">Number of pets</mat-checkbox>
+                <mat-checkbox formControlName="sizeWeightRestrict">Size or weight restrictions</mat-checkbox>
+                <mat-checkbox formControlName="breedRestrict">Breed restrictions</mat-checkbox>
+  
+              </div>
+            </div>
+  
+            <div class="hover">
+              <div class="col-md-4 mt-3">
+                <label for="">What outdoor areas would your cat have access to?</label>
+              </div>
+              <div class="col-md-7 mt-3">
+                <mat-radio-group formControlName="outdoorareas">
+                  <mat-radio-button value="balcony">Balcony</mat-radio-button>
+                  <mat-radio-button value="yard">Yard</mat-radio-button>
+                  <mat-radio-button value="patio">Patio</mat-radio-button>
+                  <mat-radio-button value="cat condo">Fully enclosed cat condo</mat-radio-button>
+                  <mat-radio-button value="none">None</mat-radio-button>
+                  <mat-radio-button value="other">Other</mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </div>
+  
+            <div class="hover">
+              <div class="col-md-3 mt-3">
+                <label for="">How busy is your Street? <span class="star">*</span></label>
+              </div>
+              <div class="col-md-9 mt-3" style="display: grid;">
+                <mat-radio-group formControlName="busystreet">
+                  <mat-radio-button value="busy">Busy</mat-radio-button>
+                  <mat-radio-button value="quite">Quiet</mat-radio-button>
+                  <mat-radio-button value="mainroad">Main road</mat-radio-button>
+                  <mat-radio-button value="other">Other</mat-radio-button>
+                </mat-radio-group>
+  
+                <!-- validation  -->
+                <div *ngIf="form.busystreet.errors && form.busystreet.touched" class="col-12">
+                  <div *ngIf="form.busystreet.hasError('required')"><em class="errorMsg">*Information is
+                      required*</em></div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="hover">
+              <div class="col-md-4">
+                <label for="">Where will your cat live? Check all that apply <span class="star">*</span></label>
+              </div>
+              <div class="col-md-8">
+                <div class="row">
+                  <div class="col-md-4">
+                    <mat-checkbox formControlName="ExclusivelyIndoorCatPlace">Exclusively Indoors</mat-checkbox>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-checkbox formControlName="CombinationCatPlace">Indoors/Outdoors Combination
+                    </mat-checkbox>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-checkbox formControlName="OneRoomCatPlace">Confined to one room</mat-checkbox>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-checkbox formControlName="CondoCatPlace">Cat Condo</mat-checkbox>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-checkbox formControlName="BarnCatPlace">Barn</mat-checkbox>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-checkbox formControlName="ExclusivelyOutdoorCatPlace">Exclusively Outdoors</mat-checkbox>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-checkbox formControlName="FreeCatPlace">Free region of the house</mat-checkbox>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-checkbox formControlName="OutdoorCatPlace">Outdoor Encloser</mat-checkbox>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-checkbox formControlName="GarageCatPlace">Garage</mat-checkbox>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hover">
+              <div class="col-4 mt-3">
+                <label for="">What will happen if your living situation changes and you canʼt take your cat to your new
+                  home? If your landlord or condo board reverses their decision to allow pets?</label>
+              </div>
+              <div class="col-12">
+                <textarea class="form-control textArea-width" formControlName="livingsituationchanges"
+                  rows="5"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  

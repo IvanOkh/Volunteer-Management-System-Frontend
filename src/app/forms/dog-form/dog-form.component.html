@@ -1,0 +1,4733 @@
+<div class="mt-2 container">
+  <div class="pb-0 mt-2 sticky-top text-center bg-transparent">
+    <h1 class="display-6 text-info bg-white">
+      Dog Adoption Application
+      <hr />
+    </h1>
+  </div>
+
+  <!-- style="position: center" -->
+
+  <!-- &nbsp -->
+  <!-- <div class="col-12 col-sm-10 col-sm-offset-1 col-md-offset-1 m-1"> -->
+  <div class="col-12 col-sm-10 col-sm-offset-1 col-md-offset-1 ml-5">
+    <div class="jumbotron">
+      <!-- <input type="text" class="form-control" />
+        <button class="btn btn-primary" (click)="onAddMyText()">Add Text</button>
+        <p>Hi</p>
+        <hr /> -->
+      <!-- let Angular know that we want this form to be ngForm object -->
+      <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+        <h3 class="sticky" id="applicantlink" style="color: #3366ff;">
+          Applicant Information
+          <hr />
+        </h3>
+        <!-- Dog name -->
+        <!-- [ngModel]="letsNameTheDog" -->
+        <div class="form-group row">
+          <label for="doggyName" class="col-6 col-form-label">
+            Name of the dog you are interested in:
+          </label>
+          <div class="col-6" data-toggle="tooltip" title="Dog Name">
+            <input
+              type="text"
+              id="dogName"
+              ngModel
+              name="dogName"
+              dogName
+              class="form-control"
+              placeholder="Leave blank if you want to adopt any dog"
+              #dogName="ngModel"
+            />
+
+            <!-- <span class="help-block" *ngIf="!dogName.valid && dogName.touched"
+              >Please enter the dog name!</span
+            > -->
+          </div>
+        </div>
+
+        <!-- name -->
+        <div class="form-group row">
+          <label for="applicantName" class="col-3 col-form-label">
+            Your name: <b style="color: red;">*</b>
+          </label>
+          <div class="col-4" data-toggle="tooltip" title="Your First Name">
+            <input
+              type="text"
+              id="firstName"
+              ngModel
+              name="firstName"
+              required
+              minlength="2"
+              class="form-control"
+              placeholder="First Name"
+              #firstName="ngModel"
+            />
+            <span
+              class="help-block"
+              *ngIf="!firstName.valid && firstName.touched"
+              >Enter your first name!</span
+            >
+            <!-- helper valid check -->
+            <!-- <span class="help-block" *ngIf="!firstName.valid"
+              >Enter your first name!</span
+            > -->
+          </div>
+          <div class="col-5" data-toggle="tooltip" title="Your Last Name">
+            <input
+              type="text"
+              id="lastName"
+              ngModel
+              name="lastName"
+              required
+              minlength="2"
+              class="form-control"
+              placeholder="Last Name"
+              #lastName="ngModel"
+            />
+            <span class="help-block" *ngIf="!lastName.valid && lastName.touched"
+              >Enter your last name!</span
+            >
+            <!-- helper valid check -->
+            <!-- <span class="help-block" *ngIf="!lastName.valid"
+              >Enter your last name!</span
+            > -->
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="applicantAddress" class="col-3 col-form-label">
+            Address: <b style="color: red;">*</b>
+          </label>
+          <div
+            class="col-9"
+            data-toggle="tooltip"
+            title="Type your Street Address"
+          >
+            <input
+              type="text"
+              id="street"
+              ngModel
+              name="street"
+              required
+              minlength="5"
+              class="form-control"
+              placeholder="Street Address"
+              #street="ngModel"
+            />
+            <span class="help-block" *ngIf="!street.valid && street.touched"
+              >Enter your street address!</span
+            >
+
+            <!-- helper valid check -->
+            <!-- <span class="help-block" *ngIf="!street.valid"
+              >Enter your street!</span
+            > -->
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-3"></div>
+          <div
+            class="col-4"
+            data-toggle="tooltip"
+            title="City you are living in"
+          >
+            <input
+              type="text"
+              id="city"
+              ngModel
+              name="city"
+              required
+              minlength="3"
+              class="form-control"
+              placeholder="City"
+              #city="ngModel"
+            />
+            <span class="help-block" *ngIf="!city.valid && city.touched"
+              >Enter the city name!</span
+            >
+            <!-- helper valid check -->
+            <!-- <span class="help-block" *ngIf="!city.valid">Enter your city!</span> -->
+          </div>
+          <!-- province dropdown menu -->
+          <div class="col-2" data-toggle="tooltip" title="Choose your province">
+            <select
+              name="province"
+              id="province"
+              [ngModel]="selectedProvince"
+              class="form-control"
+            >
+              <!-- loop through array of subscriptions to load them into dropdown menu -->
+              <option *ngFor="let province of provinces" [value]="province">
+                {{ province }}</option
+              >
+            </select>
+          </div>
+          <!-- <div class="col-3">
+            <input
+              type="text"
+              id="province"
+              ngModel
+              name="province"
+              required
+              province
+              class="form-control"
+              placeholder="Province"
+              #province="ngModel"
+            />
+            <span class="help-block" *ngIf="!province.valid && province.touched"
+              >Enter the province name!</span
+            >
+          </div> -->
+          <div
+            class="col-3"
+            data-toggle="tooltip"
+            title="Type your postal code"
+          >
+            <input
+              type="text"
+              id="postal"
+              ngModel
+              name="postal"
+              required
+              minlength="6"
+              class="form-control"
+              placeholder="Postal Code"
+              #postal="ngModel"
+            />
+            <span class="help-block" *ngIf="!postal.valid && postal.touched"
+              >Enter the postal code!</span
+            >
+            <!-- helper valid check -->
+            <!-- <span class="help-block" *ngIf="!postal.valid"
+              >Enter your postal code!</span
+            > -->
+          </div>
+        </div>
+        <!-- cell phone -->
+        <div class="form-group row">
+          <label for="cellPhone" class="col-3 col-form-label">
+            Cell phone: <b style="color: red;">*</b>
+          </label>
+
+          <div
+            class="col-9"
+            data-toggle="tooltip"
+            title="Type your cell phone number"
+          >
+            <input
+              type="phone"
+              id="cellPhone"
+              ngModel
+              name="cellPhone"
+              minlength="10"
+              required
+              class="form-control"
+              placeholder="Cell Phone"
+              #cellPhone="ngModel"
+            />
+            <span
+              class="help-block"
+              *ngIf="!cellPhone.valid && cellPhone.touched"
+              >Enter your cell phone!</span
+            >
+            <!-- helper valid check -->
+            <!-- <span class="help-block" *ngIf="!cellPhone.valid"
+              >Enter your cell phone!</span
+            > -->
+          </div>
+        </div>
+        <!-- home phone -->
+        <div class="form-group row">
+          <label for="homePhone" class="col-3 col-form-label">
+            Home phone:
+          </label>
+          <div
+            class="col-9"
+            data-toggle="tooltip"
+            title="Type your home phone number"
+          >
+            <input
+              type="phone"
+              id="homePhone"
+              ngModel
+              name="homePhone"
+              homePhone
+              class="form-control"
+              placeholder="Home Phone"
+              #homePhone="ngModel"
+            />
+            <!-- <span
+              class="help-block"
+              *ngIf="!homePhone.valid && homePhone.touched"
+              >Enter your home phone!</span
+            > -->
+          </div>
+        </div>
+        <!-- email -->
+        <div class="form-group row">
+          <label for="applicantEmail" class="col-3 col-form-label">
+            Email: <b style="color: red;">*</b>
+          </label>
+          <div
+            class="col-9"
+            data-toggle="tooltip"
+            title="Type your email address"
+          >
+            <input
+              type="email"
+              id="email"
+              minlength="6"
+              ngModel
+              name="email"
+              email
+              required
+              class="form-control"
+              placeholder="example@example.com"
+              #email="ngModel"
+            />
+            <span class="help-block" *ngIf="!email.valid && email.touched"
+              >Enter your email!</span
+            >
+          </div>
+        </div>
+        <!-- age -->
+        <div class="form-group row">
+          <label for="applicantAge" class="col-3 col-form-label">
+            Your age: <b style="color: red;">*</b>
+          </label>
+          <div class="col-9" data-toggle="tooltip" title="Enter your age">
+            <input
+              min="1"
+              max="99"
+              type="number"
+              id="age"
+              ngModel
+              name="age"
+              age
+              required
+              class="form-control"
+              placeholder="Age"
+              #age="ngModel"
+            />
+            <span class="help-block" *ngIf="!age.valid && age.touched"
+              >Enter your age!</span
+            >
+          </div>
+        </div>
+        <hr />
+        <h3 style="color: #3366ff;">
+          Your Family and Lifestyle
+          <hr />
+        </h3>
+        <!-- Radiobuttons-->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              Are all members of your household in agreement with this adoption?
+              <b style="color: red;">*</b>
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="familyLovesDogs"
+                  id="gridRadios1"
+                  value="Yes"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="gridRadios1">
+                  &nbsp;Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="familyLovesDogs"
+                  id="gridRadios2"
+                  value="No"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="gridRadios2">
+                  &nbsp;No
+                </label>
+              </div>
+              <!-- <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="familyLovesDogs"
+                  id="gridRadios3"
+                  value="Don't know"
+                  #radio1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="gridRadios3">
+                  Don't Know
+                </label>
+              </div> -->
+            </div>
+          </div>
+        </fieldset>
+        <!-- radio set 2 - family already knows the dog -->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              Have all members of your household been introduced to the dog?
+              <b style="color: red;">*</b>
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="familyKnowsTheDog"
+                  id="2gridRadios1"
+                  value="Yes"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="2gridRadios1">
+                  &nbsp;Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="familyKnowsTheDog"
+                  id="2gridRadios2"
+                  value="No"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="2gridRadios2">
+                  &nbsp;No
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- radio set 3 - family alleries and asthma-->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              Does anyone in your home have allergies to dogs or have asthma?
+              <b style="color: red;">*</b>
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="familyHasAllergy"
+                  id="3gridRadios1"
+                  value="Yes"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="3gridRadios1">
+                  &nbsp;Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="familyHasAllergy"
+                  id="3gridRadios2"
+                  value="No"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="3gridRadios2">
+                  &nbsp;No
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- adults in household -->
+        <div class="form-group row">
+          <label for="adults" class="col-6 col-form-label">
+            How many adults are in your household? <b style="color: red;">*</b>
+          </label>
+          <div class="col-2" data-toggle="tooltip" title="Number of adults">
+            <input
+              type="number"
+              min="0"
+              max="99"
+              id="adults"
+              ngModel
+              name="adults"
+              adults
+              required
+              class="form-control"
+              placeholder="ex: 1"
+              #adults="ngModel"
+            />
+          </div>
+          <div class="col-4">
+            <span class="help-block" *ngIf="!adults.valid && adults.touched"
+              >Enter number of adults in your household!</span
+            >
+          </div>
+        </div>
+        <!-- children in household -->
+        <div class="form-group row">
+          <label for="children" class="col-6 col-form-label">
+            How many children are in your household?
+            <b style="color: red;">*</b>
+          </label>
+          <div class="col-2" data-toggle="tooltip" title="Number of children">
+            <input
+              type="number"
+              min="0"
+              max="99"
+              id="children"
+              ngModel
+              name="children"
+              children
+              required
+              class="form-control"
+              placeholder="ex: 2"
+              #children="ngModel"
+            />
+          </div>
+          <div class="col-4">
+            <span class="help-block" *ngIf="!children.valid && children.touched"
+              >Enter number of children in your household!</span
+            >
+          </div>
+        </div>
+        <!-- children ages -->
+        <div class="form-group row" *ngIf="children.value >= '1'">
+          <label for="childAges" class="col-6 col-form-label">
+            If children, what are their ages?
+          </label>
+          <div class="col-6">
+            <input
+              type="text"
+              id="childAges"
+              ngModel
+              name="childAges"
+              childAges
+              class="form-control"
+              placeholder="ex: 2, and 10 years old"
+              #childAges="ngModel"
+            />
+          </div>
+        </div>
+        <!-- smartChildren -->
+        <div class="form-group">
+          <label for="smartKids">
+            Have your children been taught the correct way to handle a dog?
+            Please explain:
+          </label>
+
+          <textarea
+            maxlength="200"
+            rows="3"
+            type="text"
+            id="smartKids"
+            ngModel
+            name="smartKids"
+            smartKids
+            class="form-control"
+            placeholder=" Enter your answer here"
+            #smartKids="ngModel"
+          ></textarea>
+        </div>
+        <!-- radio set 4 - children regularly visit your home-->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              Do you have children that regularly visit your home?
+              <b style="color: red;">*</b>
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="childrenVisit"
+                  id="4gridRadios1"
+                  value="Yes"
+                  ngModel
+                />
+                <label class="form-check-label" for="4gridRadios1">
+                  &nbsp;Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="childrenVisit"
+                  id="4gridRadios2"
+                  value="No"
+                  ngModel
+                />
+                <label class="form-check-label" for="4gridRadios2">
+                  &nbsp;No
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- radio set 5 - how often they visit your home-->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <!-- 1st column -->
+            <legend class="col-form-label col-6 pt-0">
+              How often do they visit?
+            </legend>
+            <!-- 2nd column -->
+            <div class="col-3">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="visitFrequency"
+                  id="5gridRadios1"
+                  value="Daily"
+                  ngModel
+                />
+                <label class="form-check-label" for="5gridRadios1">
+                  &nbsp;Daily
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="visitFrequency"
+                  id="5gridRadios2"
+                  value="Monthly"
+                  ngModel
+                />
+                <label class="form-check-label" for="5gridRadios2">
+                  &nbsp;Monthly
+                </label>
+              </div>
+            </div>
+            <!-- 3rd column -->
+            <div class="col-3">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="visitFrequency"
+                  id="3gridRadios3"
+                  value="Weekly"
+                  ngModel
+                />
+                <label class="form-check-label" for="5gridRadios3">
+                  &nbsp;Weekly
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="visitFrequency"
+                  id="5gridRadios4"
+                  value="Annually"
+                  ngModel
+                />
+                <label class="form-check-label" for="5gridRadios4">
+                  &nbsp;Annually
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- preparedChildren -->
+        <div class="form-group">
+          <label for="preparedKids">
+            How have you prepared your children to respect the dogʼs boundaries,
+            observe its reactions, and avoid bites? Explain:
+          </label>
+          <textarea
+            maxlength="200"
+            rows="3"
+            type="text"
+            id="preparedKids"
+            ngModel
+            name="preparedKids"
+            preparedKids
+            class="form-control"
+            placeholder=" Enter your answer here"
+            #preparedKids="ngModel"
+          ></textarea>
+        </div>
+        <!-- radio set 6- busy family?-->
+        <fieldset class="form-group">
+          <div class="row d-flex flex-wrap" id="highlight">
+            <!-- 1st column -->
+            <legend class="col-form-label col-6 pt-0">
+              How busy is your family? <b style="color: red;">*</b>
+            </legend>
+            <!-- 2nd column -->
+            <div class="col-3">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="busyFamily"
+                  id="6gridRadios1"
+                  value="Very Busy"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="6gridRadios1">
+                  &nbsp;Very busy
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="busyFamily"
+                  id="6gridRadios2"
+                  value="Somewhat"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="6gridRadios2">
+                  &nbsp;Somewhat
+                </label>
+              </div>
+            </div>
+            <!-- 3rd column -->
+            <div class="col-3">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="busyFamily"
+                  id="6gridRadios3"
+                  value="A little"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="6gridRadios3">
+                  &nbsp;A little
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="busyFamily"
+                  id="6gridRadios4"
+                  value="Not at all"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="6gridRadios4">
+                  &nbsp;Not at all
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- redio set 7 - how active is the family -->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              How active is your family? <b style="color: red;">*</b>
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="activeFamily"
+                  id="7gridRadios1"
+                  value="Very Active"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="7gridRadios1">
+                  &nbsp;Very Active
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="activeFamily"
+                  id="7gridRadios2"
+                  value="A little"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="7gridRadios2">
+                  &nbsp;A little
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="activeFamily"
+                  id="7gridRadios3"
+                  value="Not at all"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="7gridRadios3">
+                  &nbsp;Not at all
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- redio set 8 - regular schedule? -->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              How regular is your schedule? <b style="color: red;">*</b>
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="regularSchedule"
+                  id="8gridRadios1"
+                  value="Very regular"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="8gridRadios1">
+                  &nbsp;Very regular
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="regularSchedule"
+                  id="8gridRadios2"
+                  value="Moderate"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="8gridRadios2">
+                  &nbsp;Moderate
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="regularSchedule"
+                  id="8gridRadios3"
+                  value="Very irregular"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="8gridRadios3">
+                  &nbsp;Very irregular
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- familyPersonality -->
+        <div class="form-group">
+          <label for="familyPerosonality">
+            How would you describe your family’s personality? (e.g. loud, calm,
+            nervous, social, homebodies, etc.)
+            <b style="color: red;">*</b>
+          </label>
+          <textarea
+            maxlength="200"
+            rows="3"
+            type="text"
+            id="familyPerosonality"
+            ngModel
+            minlength="4"
+            name="familyPerosonality"
+            class="form-control"
+            placeholder=" Enter your answer here"
+            #familyPerosonality="ngModel"
+            required
+          ></textarea>
+          <span
+            class="help-block"
+            *ngIf="!familyPerosonality.valid && familyPerosonality.touched"
+            >Please answer the question!</span
+          >
+        </div>
+        <!-- redio set 9 - events in next two months -->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <!-- 1st column -->
+            <legend class="float-left col-form-label col-6">
+              Are you planning any of the following in the next two months?
+            </legend>
+            <!-- 2nd column -->
+            <div class="float-left col-3">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="expectEvents"
+                  id="9gridRadios1"
+                  value="Moving"
+                  ngModel
+                />
+                <label class="form-check-label" for="9gridRadios1">
+                  &nbsp;Moving
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="expectEvents"
+                  id="9gridRadios2"
+                  value="Vacation"
+                  ngModel
+                />
+                <label class="form-check-label" for="9gridRadios2">
+                  &nbsp;Vacation
+                </label>
+              </div>
+            </div>
+            <!-- 3rd column -->
+            <div class="float-left col-3">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="expectEvents"
+                  id="9gridRadios3"
+                  value="Change in schedule"
+                  ngModel
+                />
+                <label class="form-check-label" for="9gridRadios3">
+                  &nbsp;New&nbsp;schedule
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="expectEvents"
+                  id="9gridRadios4"
+                  value="inputPlans"
+                  ngModel
+                />
+                <label
+                  class="d-inline ml-1 form-check-label"
+                  for="9gridRadios4"
+                >
+                  <input
+                    type="text"
+                    maxlength="75"
+                    id="inputPlans"
+                    ngModel
+                    name="inputPlans"
+                    class="d-inline w-75 form-control"
+                    placeholder="Other"
+                    #inputPlans="ngModel"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <hr />
+        <h3 style="color: #3366ff;">
+          Your Home
+          <hr />
+        </h3>
+        <!-- type of home -->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <!-- 1st column -->
+            <legend class="col-form-label col-6 pt-0">
+              What type of home do you live in? (Check all that apply)
+              <b style="color: red;">*</b>
+            </legend>
+            <!-- 2nd column -->
+            <div class="col-3">
+              <!-- 1 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="typeOfHome"
+                  id="1checkBoxes1"
+                  value="House"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="1checkBoxes1">
+                  &nbsp;House
+                </label>
+              </div>
+              <!-- 2 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="typeOfHome"
+                  id="1checkBoxes2"
+                  value="Duplex"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="1checkBoxes2">
+                  &nbsp;Duplex
+                </label>
+              </div>
+              <!-- 3 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="typeOfHome"
+                  id="1checkBoxes3"
+                  value="Apartment"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="1checkBoxes3">
+                  &nbsp;Apartment
+                </label>
+              </div>
+            </div>
+            <!-- 3rd column -->
+            <div class="col-3">
+              <!-- 1 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="typeOfHome"
+                  id="1checkBoxes5"
+                  value="Mobile Home"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="1checkBoxes5">
+                  &nbsp;Mobile Home
+                </label>
+              </div>
+              <!-- 2 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="typeOfHome"
+                  id="1checkBoxes6"
+                  value="Farm/Acreage"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="1checkBoxes6">
+                  &nbsp;Farm/Acreage
+                </label>
+              </div>
+              <!-- 3 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="typeOfHome"
+                  id="1checkBoxes7"
+                  value="Basement Suite"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="1checkBoxes7">
+                  &nbsp;Basement
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- radio set 10 - own or rent?-->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              Do you own or rent? <b style="color: red;">*</b>
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="ownOrRent"
+                  id="10gridRadios1"
+                  value="Own"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="10gridRadios1">
+                  &nbsp;Own
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="ownOrRent"
+                  id="10gridRadios2"
+                  value="Rent"
+                  #renting="ngModel"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="10gridRadios2">
+                  &nbsp;Rent
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- Landlord info -->
+        <!-- *ngIf="renting.value === 'Rent'" -->
+        <div class="form-group row" *ngIf="renting.value === 'Rent'">
+          <label for="landlord" class="col-6 col-form-label">
+            If rent, provide name and phone number of landlord:
+          </label>
+          <div class="col-6">
+            <input
+              type="text"
+              id="landlord"
+              ngModel
+              name="landlord"
+              landlord
+              class="form-control"
+              placeholder=""
+              #landlord="ngModel"
+            />
+          </div>
+        </div>
+        <!-- radio set 11 - does landlord allow dogs?-->
+        <fieldset class="form-group" *ngIf="renting.value === 'Rent'">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              Does your landlord allow dogs?
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="landlordAllows"
+                  id="11gridRadios1"
+                  value="Yes"
+                  #radio11="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="11gridRadios1">
+                  &nbsp;Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="landlordAllows"
+                  id="11gridRadios2"
+                  value="No"
+                  #radio11="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="11gridRadios2">
+                  &nbsp;No
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- restrictions from landlord -->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <!-- 1st column -->
+            <legend class="col-form-label col-6 pt-0">
+              Are there any restrictions from your landlord or subdivision?
+            </legend>
+            <!-- 2nd column -->
+            <div class="col-6">
+              <!-- 1 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="numberRestriction"
+                  id="2checkBoxes1"
+                  value="Number Of Pets"
+                  #check2="ngModel"
+                  ngModel
+                />
+
+                <label class="form-check-label" for="2checkBoxes1">
+                  &nbsp;Number of pets
+                </label>
+              </div>
+              <!-- 2 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="breedRestrictions"
+                  id="2checkBoxes2"
+                  value="Breed Restrictions"
+                  #check2="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="2checkBoxes2">
+                  &nbsp;Breed Restrictions
+                </label>
+              </div>
+
+              <!-- 3 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="sizeRestrictions"
+                  id="2checkBoxes3"
+                  value="Size Restrictions"
+                  #check2="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="2checkBoxes3">
+                  &nbsp;Size or weight restrictions
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- life situation change -->
+        <div class="form-group">
+          <label for="lifeChanges">
+            What will happen if your living situation changes and you canʼt take
+            your dog to your new home? What if your landlord or condo board
+            reverses their decision to allow pets?
+          </label>
+          <textarea
+            maxlength="200"
+            rows="3"
+            type="text"
+            id="lifeChanges"
+            ngModel
+            name="lifeChanges"
+            lifeChanges
+            class="form-control"
+            placeholder=" Enter your answer here"
+            #lifeChanges="ngModel"
+          ></textarea>
+        </div>
+        <!-- have a yard? -->
+        <fieldset id="yardlink" class="form-group">
+          <div class="row" id="highlight">
+            <!-- 1st column -->
+            <legend class="col-form-label col-5 pt-0">
+              Do you have a yard?
+              <b style="color: red;">*</b>
+            </legend>
+            <!-- 2nd column -->
+            <div class="col-3">
+              <!-- 1 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="hasYard"
+                  id="3checkBoxes1"
+                  value="No yard"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="3checkBoxes1">
+                  &nbsp;No yard
+                </label>
+              </div>
+              <!-- 2 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="hasYard"
+                  id="3checkBoxes2"
+                  value="Not fenced"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="3checkBoxes2">
+                  &nbsp;Not fenced
+                </label>
+              </div>
+            </div>
+            <!-- 3rd column -->
+            <div class="col-4">
+              <!-- 1 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="hasYard"
+                  id="3checkBoxes4"
+                  value="Fenced"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="3checkBoxes4">
+                  &nbsp;Fenced
+                </label>
+              </div>
+              <!-- 2 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="hasYard"
+                  id="3checkBoxes5"
+                  value="Partially fenced"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="3checkBoxes5">
+                  &nbsp;Partially fenced
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- fence type -->
+        <div class="form-group row">
+          <label for="fenceType" class="col-6 col-form-label">
+            Type of the fence
+          </label>
+          <div class="col-6">
+            <input
+              type="text"
+              id="fenceType"
+              ngModel
+              name="fenceType"
+              fenceType
+              required
+              class="form-control"
+              placeholder=""
+              #fenceType="ngModel"
+            />
+            <span
+              class="help-block"
+              *ngIf="!fenceType.valid && fenceType.touched"
+              >Please enter the type of fence!</span
+            >
+          </div>
+        </div>
+        <!-- fence height -->
+        <div class="form-group row">
+          <label for="fenceHeight" class="col-6 col-form-label">
+            Height of the fence
+          </label>
+          <div class="col-6">
+            <input
+              type="number"
+              min="0"
+              id="fenceHeight"
+              ngModel
+              name="fenceHeight"
+              fenceHeight
+              required
+              class="form-control"
+              #fenceHeight="ngModel"
+            />
+            <span
+              class="help-block"
+              *ngIf="!fenceHeight.valid && fenceHeight.touched"
+              >Please enter the height of fence!</span
+            >
+          </div>
+        </div>
+        <!-- has a kennel -->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <!-- 1st column -->
+            <legend class="col-form-label col-6 pt-0">
+              Do you have any of the following?
+            </legend>
+            <!-- 2nd column -->
+            <div class="col-6">
+              <!-- 1 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="undrgrndFence"
+                  id="4checkBoxes1"
+                  value="Underground fence"
+                  ngModel
+                />
+                <label class="form-check-label" for="4checkBoxes1">
+                  &nbsp;Underground Fence
+                </label>
+              </div>
+              <!-- 2 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="kennel"
+                  id="4checkBoxes2"
+                  value="Kennel"
+                  ngModel
+                />
+                <label class="form-check-label" for="4checkBoxes2">
+                  &nbsp;Kennel
+                </label>
+              </div>
+              <!-- 3 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="dogRun"
+                  id="4checkBoxes3"
+                  value="Dog Run"
+                  ngModel
+                />
+                <label class="form-check-label" for="4checkBoxes3">
+                  &nbsp;Dog Run
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- Current/Previous Pets -->
+        <hr />
+        <h3 style="color: #3366ff;">
+          Current/Previous Pets
+          <hr />
+        </h3>
+        <!-- radio set 12 - other dogs live with you?-->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              Is there any dogs that live with you now?
+              <b style="color: red;">*</b>
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="otherDogs"
+                  id="12gridRadios1"
+                  value="Yes"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="12gridRadios1">
+                  &nbsp;Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="otherDogs"
+                  id="12gridRadios2"
+                  value="No"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="12gridRadios2">
+                  &nbsp;No
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- How old are your animals? -->
+        <div class="form-group row">
+          <label for="howOldAnmls" class="col-6 col-form-label">
+            If yes, how many and how old are they?
+          </label>
+          <div class="col-6">
+            <input
+              type="text"
+              id="howOldAnmls"
+              ngModel
+              name="howOldAnmls"
+              howOldAnmls
+              class="form-control"
+              placeholder=""
+              #howOldAnmls="ngModel"
+            />
+          </div>
+        </div>
+        <!-- radio set 99 - other dogs live with you?-->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              Do you have other pets?
+              <b style="color: red;">*</b>
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="otherPets"
+                  id="99gridRadios1"
+                  value="Yes"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="99gridRadios1">
+                  &nbsp;Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="otherPets"
+                  id="12gridRadios2"
+                  value="No"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="99gridRadios2">
+                  &nbsp;No
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- other pets? -->
+        <div class="form-group row">
+          <label for="otherPets" class="col-6 col-form-label">
+            If yes, what are they? <b style="color: red;">*</b>
+          </label>
+          <div class="col-6">
+            <input
+              type="text"
+              id="otherPetsDesc"
+              ngModel
+              name="otherPetsDesc"
+              otherPetsDesc
+              class="form-control"
+              placeholder=""
+              #otherPetsDesc="ngModel"
+              required
+            />
+          </div>
+        </div>
+        <!-- other pets checkboxes retired? -->
+        <!-- <fieldset class="form-group">
+          <div class="row" id="highlight">
+
+            <legend class="col-form-label col-6 pt-0">
+              Do you have other pets? <b style="color: red">*</b>
+            </legend>
+
+            <div class="col-3">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="haveCats"
+                  id="6checkBoxes1"
+                  value="Cats"
+                  #check6="ngModel"
+                  ngModel
+                />
+
+                <label class="form-check-label" for="6checkBoxes1">
+                  Cats
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="haveRabbits"
+                  id="6checkBoxes2"
+                  value="Rabbits"
+                  #check6="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="6checkBoxes2">
+                  Rabbits
+                </label>
+              </div>
+            </div>
+
+            <div class="col-3">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="haveBirds"
+                  id="6checkBoxes3"
+                  value="Birds"
+                  #check6="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="6checkBoxes3">
+                  Birds
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="haveOthers"
+                  id="6checkBoxes4"
+                  value="Other"
+                  #check6="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="6checkBoxes4">
+                  Other
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset> -->
+        <!-- How many spayed -->
+        <div class="form-group row">
+          <label for="howMnySpayed" class="col-6 col-form-label">
+            How many of these pets are spayed/neutered?
+          </label>
+          <div class="col-6">
+            <input
+              type="number"
+              min="0"
+              id="howMnySpayed"
+              ngModel
+              name="howMnySpayed"
+              howMnySpayed
+              class="form-control"
+              #howMnySpayed="ngModel"
+            />
+          </div>
+        </div>
+        <!-- Where are the animals? -->
+        <div class="form-group">
+          <label for="whereAnimals">
+            Where are these animals now?
+          </label>
+          <textarea
+            maxlength="200"
+            rows="3"
+            type="text"
+            id="whereAnimals"
+            ngModel
+            name="whereAnimals"
+            whereAnimals
+            class="form-control"
+            placeholder=" Enter your answer here"
+            #whereAnimals="ngModel"
+          ></textarea>
+        </div>
+        <!-- radio set 13 - adopted before?-->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              Have you adopted from an animal rescue group before?
+              <b style="color: red;">*</b>
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="adoptedBefore"
+                  id="13gridRadios1"
+                  value="Yes"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="13gridRadios1">
+                  &nbsp;Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="adoptedBefore"
+                  id="13gridRadios2"
+                  value="No"
+                  required
+                  ngModel
+                />
+                <label class="form-check-label" for="13gridRadios2">
+                  &nbsp;No
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- What group? -->
+        <div class="form-group row">
+          <label for="whatGroup" class="col-6 col-form-label">
+            If yes, what group?
+          </label>
+          <div class="col-6">
+            <input
+              type="text"
+              id="whatGroup"
+              ngModel
+              name="whatGroup"
+              whatGroup
+              class="form-control"
+              placeholder=""
+              #whatGroup="ngModel"
+            />
+          </div>
+        </div>
+        <!-- radio set 14 - surrendered before?-->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              Have you ever surrendered a pet to a humane society or rescue?
+              <b style="color: red;">*</b>
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="surrendered"
+                  id="14gridRadios1"
+                  value="Yes"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="14gridRadios1">
+                  &nbsp;Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="surrendered"
+                  id="14gridRadios2"
+                  value="No"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="14gridRadios2">
+                  &nbsp;No
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- what were the circumstances? -->
+        <div class="form-group">
+          <label for="circumstances">
+            If yes, what were the circumstances?
+          </label>
+          <textarea
+            maxlength="200"
+            rows="3"
+            type="text"
+            id="circumstances"
+            ngModel
+            name="circumstances"
+            circumstances
+            class="form-control"
+            placeholder=" Enter your answer here"
+            #circumstances="ngModel"
+          ></textarea>
+        </div>
+        <!-- veterinarian information -->
+        <div class="form-group">
+          <label for="veterinarian">
+            Please provide the name and phone number of your current and/or
+            previous veterinarian or clinic:
+          </label>
+          <textarea
+            maxlength="200"
+            rows="3"
+            type="text"
+            id="veterinarian"
+            ngModel
+            name="veterinarian"
+            veterinarian
+            class="form-control"
+            placeholder=" Enter your answer here"
+            #veterinarian="ngModel"
+          ></textarea>
+        </div>
+        <!-- NEW PET INFORMATION -->
+        <hr />
+        <h3 style="color: #3366ff;">
+          New Pet Information
+          <hr />
+        </h3>
+        <!-- primary caretaker -->
+        <div class="form-group row">
+          <label for="primeCaretaker" class="col-6 col-form-label">
+            Who will be the dogʼs primary caretaker?
+            <b style="color: red;">*</b>
+          </label>
+          <div class="col-6">
+            <input
+              type="text"
+              id="primeCaretaker"
+              ngModel
+              name="primeCaretaker"
+              primeCaretaker
+              class="form-control"
+              placeholder=""
+              #primeCaretaker="ngModel"
+              required
+            />
+          </div>
+        </div>
+        <!-- radio set 15 - had dogs before?-->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              Have you had dogs before?
+              <b style="color: red;">*</b>
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="hadDogs"
+                  id="15gridRadios1"
+                  value="Yes"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="15gridRadios1">
+                  &nbsp;Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="hadDogs"
+                  id="15gridRadios2"
+                  value="No"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="15gridRadios2">
+                  &nbsp;No
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- radio set 16 - ever house-broken a dog or puppy before? -->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              Have you ever house-broken a dog or puppy before?
+              <b style="color: red;">*</b>
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="houseBroken"
+                  id="16gridRadios1"
+                  value="Yes"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="16gridRadios1">
+                  &nbsp;Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="house-broken"
+                  id="16gridRadios2"
+                  value="No"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="16gridRadios2">
+                  &nbsp;No
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- type of correction you plan to use -->
+        <div class="form-group" id="daylink">
+          <label for="correction">
+            If the dog has an "accident" in your home, what type of correction
+            do you plan to use? <b style="color: red;">*</b>
+          </label>
+          <textarea
+            maxlength="200"
+            rows="3"
+            type="text"
+            id="correction"
+            ngModel
+            name="correction"
+            correction
+            class="form-control"
+            placeholder=" Enter your answer here"
+            #correction="ngModel"
+            required
+          ></textarea>
+        </div>
+
+        <!-- where the dog will stay during the day? -->
+        <fieldset id="nightlink" class="form-group">
+          <div class="row" id="highlight">
+            <!-- 1st column -->
+            <legend class="col-form-label col-sm-4 pt-0">
+              Where will your dog stay during the day when you are out of the
+              home? (Check all that apply)
+              <b style="color: red;">*</b>
+            </legend>
+            <!-- 2nd column -->
+            <div class="float-left col-sm">
+              <!-- 1 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="staysInHouse"
+                  id="7checkBoxes1"
+                  value="Loose in the house"
+                  ngModel
+                />
+                <!-- #staysInHouse="ngModel" -->
+                <label class="form-check-label" for="7checkBoxes1">
+                  &nbsp;Loose&nbsp;in&nbsp;the&nbsp;house
+                </label>
+              </div>
+              <!-- 2 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="staysOutdoor"
+                  id="7checkBoxes2"
+                  value="Outdoor Run"
+                  ngModel
+                />
+                <label class="form-check-label" for="7checkBoxes2">
+                  &nbsp;Outdor&nbsp;Run
+                </label>
+              </div>
+              <!-- 3 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="staysInG"
+                  id="7checkBoxes3"
+                  value="Garage"
+                  ngModel
+                />
+                <label class="form-check-label" for="7checkBoxes3">
+                  &nbsp;Garage
+                </label>
+              </div>
+              <!-- 4 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="staysIndoor"
+                  id="7checkBoxes4"
+                  value="Indoor Run"
+                  ngModel
+                />
+                <label class="form-check-label" for="7checkBoxes4">
+                  &nbsp;Indoor&nbsp;Run
+                </label>
+              </div>
+            </div>
+            <!-- 3rd column -->
+            <div class="float-left col-sm">
+              <!-- 1 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="staysTied"
+                  id="7checkBoxes5"
+                  value="Tied outside"
+                  ngModel
+                />
+                <label class="form-check-label" for="7checkBoxes5">
+                  &nbsp;Tied&nbsp;outside
+                </label>
+              </div>
+              <!-- 2 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="staysOutLoose"
+                  id="7checkBoxes6"
+                  value="Loose outside"
+                  ngModel
+                />
+                <label class="form-check-label" for="7checkBoxes6">
+                  &nbsp;Loose&nbsp;outside
+                </label>
+              </div>
+              <!-- 3 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="indorsLocked"
+                  id="7checkBoxes7"
+                  value="Crate/Kennel Indoors"
+                  ngModel
+                />
+                <label class="form-check-label" for="7checkBoxes7">
+                  &nbsp;Crate/Kennel&nbsp;Indoors
+                </label>
+              </div>
+              <!-- 4 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="staysWith"
+                  id="7checkBoxes8"
+                  value="With you"
+                  ngModel
+                />
+                <label class="form-check-label" for="7checkBoxes8">
+                  &nbsp;With&nbsp;you
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- where the dog will stay during the night? -->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <!-- 1st column -->
+            <legend class="float-left col-form-label col-sm-4">
+              Where will your dog stay during the night? (Check all that apply)
+              <b style="color: red;">*</b>
+            </legend>
+            <!-- 2nd column -->
+            <div class="float-left col-sm">
+              <!-- 1 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="staysInHouseN"
+                  id="8checkBoxes1"
+                  value="Loose in the house"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="8checkBoxes1">
+                  &nbsp;Loose&nbsp;in&nbsp;the&nbsp;house
+                </label>
+              </div>
+              <!-- 2 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="staysOutdoorN"
+                  id="8checkBoxes2"
+                  value="Outdoor Run"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="8checkBoxes2">
+                  &nbsp;Outdor&nbsp;Run
+                </label>
+              </div>
+              <!-- 3 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="staysInGN"
+                  id="8checkBoxes3"
+                  value="Garage"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="8checkBoxes3">
+                  &nbsp;Garage
+                </label>
+              </div>
+              <!-- 4 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="staysIndoorN"
+                  id="8checkBoxes4"
+                  value="Indoor Run"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="8checkBoxes4">
+                  &nbsp;Indoor&nbsp;Run
+                </label>
+              </div>
+            </div>
+            <!-- 3rd column -->
+            <div class="float-left col-sm">
+              <!-- 1 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="staysTiedN"
+                  id="8checkBoxes5"
+                  value="Tied outside"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="8checkBoxes5">
+                  &nbsp;Tied&nbsp;outside
+                </label>
+              </div>
+              <!-- 2 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="staysOutLooseN"
+                  id="8checkBoxes6"
+                  value="Loose outside"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="8checkBoxes6">
+                  &nbsp;Loose&nbsp;outside
+                </label>
+              </div>
+              <!-- 3 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="indorsLockedN"
+                  id="8checkBoxes7"
+                  value="Crate/Kennel Indoors"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="8checkBoxes7">
+                  &nbsp;Crate/Kennel&nbsp;Indoors
+                </label>
+              </div>
+              <!-- 4 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="staysWithN"
+                  id="8checkBoxes8"
+                  value="With you"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="8checkBoxes8">
+                  &nbsp;With &nbsp;you&nbsp;(bedroom)
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- Where will your dog stay when your family goes on vacation? -->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <!-- 1st column -->
+            <legend class="col-form-label col-sm-4 pt-0">
+              Where will your dog stay when your family goes on vacation?
+              <b style="color: red;">*</b>
+            </legend>
+            <!-- 2nd column -->
+            <div class="col-sm">
+              <!-- 1 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="vacationStay"
+                  id="9checkBoxes1"
+                  value="At home with care"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="9checkBoxes1">
+                  &nbsp;At&nbsp;home&nbsp;with&nbsp;care
+                </label>
+              </div>
+              <!-- 2 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="vacationStay"
+                  id="9checkBoxes2"
+                  value="With family/friends"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="9checkBoxes2">
+                  &nbsp;With&nbsp;family/friends
+                </label>
+              </div>
+            </div>
+            <div class="col-sm">
+              <!-- 3 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="vacationStay"
+                  id="9checkBoxes3"
+                  value="Boarding"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="w-auto p-0 form-check-label" for="9checkBoxes3">
+                  &nbsp;Boarding
+                </label>
+              </div>
+              <!-- 4 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="vacationStay"
+                  id="9checkBoxes4"
+                  value="inputVacation"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label
+                  class="d-inline ml-1 form-check-label"
+                  for="9checkBoxes4"
+                >
+                  <input
+                    type="text"
+                    maxlength="75"
+                    id="inputVacation"
+                    ngModel
+                    name="inputVacation"
+                    class="d-inline w-50 form-control"
+                    placeholder="Other"
+                    #inputVacation="ngModel"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- how long left alone, week -->
+        <div class="form-group row">
+          <label for="leftAlone" class="col-6 col-form-label">
+            How long, on average, will your dog be left alone each day during
+            the week? (in hours) <b style="color: red;">*</b>
+          </label>
+          <div class="col-6">
+            <input
+              type="number"
+              min="0"
+              id="leftAloneWeek"
+              ngModel
+              name="leftAloneWeek"
+              leftAloneWeek
+              class="form-control"
+              #leftAloneWeek="ngModel"
+              required
+            />
+          </div>
+        </div>
+        <!-- how long left alone, weekend -->
+        <div class="form-group row" id="activitieslink">
+          <label for="leftAloneWknd" class="col-6 col-form-label">
+            How long, on average, will your dog be left alone each day during
+            the weekend? (in hours) <b style="color: red;">*</b>
+          </label>
+          <div class="col-6">
+            <input
+              type="number"
+              min="0"
+              id="leftAloneWknd"
+              ngModel
+              name="leftAloneWknd"
+              leftAloneWknd
+              class="form-control"
+              #leftAloneWknd="ngModel"
+              required
+            />
+          </div>
+        </div>
+        <!-- time for adjustment -->
+        <div class="form-group row">
+          <label for="adjTime" class="col-6 col-form-label">
+            What length of time will you allow your new pet to adjust to his new
+            home? (in days) <b style="color: red;">*</b>
+          </label>
+          <div class="col-6">
+            <input
+              type="number"
+              min="0"
+              id="adjTime"
+              ngModel
+              name="adjTime"
+              adjTime
+              class="form-control"
+              placeholder=""
+              #adjTime="ngModel"
+              required
+            />
+          </div>
+        </div>
+        <!-- Activities you plan to do together -->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <!-- 1st column -->
+            <legend class="col-form-label col-md pt-0">
+              What activities do you plan to do with your dog? (Check all that
+              apply)
+              <b style="color: red;">*</b>
+            </legend>
+            <!-- 2nd column -->
+            <div class="col-md">
+              <!-- 1 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="activities1"
+                  id="10checkBoxes1"
+                  value="On leash walks"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="10checkBoxes1">
+                  &nbsp;On leash walks
+                </label>
+              </div>
+              <!-- 2 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="activities2"
+                  id="10checkBoxes2"
+                  value="Swimming"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="10checkBoxes2">
+                  &nbsp;Swimming
+                </label>
+              </div>
+              <!-- 3 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="activities3"
+                  id="10checkBoxes3"
+                  value="Cycling"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="10checkBoxes3">
+                  &nbsp;Cycling
+                </label>
+              </div>
+              <!-- 4 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="activities4"
+                  id="10checkBoxes4"
+                  value="Agility"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="10checkBoxes4">
+                  &nbsp;Agility
+                </label>
+              </div>
+              <!-- 5 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="activities5"
+                  id="10checkBoxes5"
+                  value="Obedience Trails"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="10checkBoxes5">
+                  &nbsp;Obedience Trails
+                </label>
+              </div>
+              <!-- 6 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="activities6"
+                  id="10checkBoxes6"
+                  value="Search and Rescue"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="10checkBoxes6">
+                  &nbsp;Search and Rescue
+                </label>
+              </div>
+              <!-- 7 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="activities7"
+                  id="10checkBoxes7"
+                  value="Herding"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="10checkBoxes7">
+                  &nbsp;Herding
+                </label>
+              </div>
+              <!-- 8 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="activities8"
+                  id="10checkBoxes8"
+                  value="Hunting/Retrieving"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="10checkBoxes8">
+                  &nbsp;Hunting/Retrieving
+                </label>
+              </div>
+            </div>
+
+            <div class="col-md">
+              <!-- 1 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="activities9"
+                  id="10checkBoxes9"
+                  value="Off leash walks"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="10checkBoxes9">
+                  &nbsp;Off leash walks
+                </label>
+              </div>
+              <!-- 2 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="activities10"
+                  id="10checkBoxes10"
+                  value="Jogging"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="10checkBoxes10">
+                  &nbsp;Jogging
+                </label>
+              </div>
+              <!-- 3 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="activities11"
+                  id="10checkBoxes11"
+                  value="Hiking"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="10checkBoxes11">
+                  &nbsp;Hiking
+                </label>
+              </div>
+              <!-- 4 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="activities12"
+                  id="10checkBoxes12"
+                  value="Flyball"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="10checkBoxes12">
+                  &nbsp;Flyball
+                </label>
+              </div>
+              <!-- 5 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="activities13"
+                  id="10checkBoxes13"
+                  value="Pet Therapy"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="10checkBoxes13">
+                  &nbsp;Pet Therapy
+                </label>
+              </div>
+              <!-- 6 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="activities14"
+                  id="10checkBoxes14"
+                  value="Tracking"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="10checkBoxes14">
+                  &nbsp;Tracking
+                </label>
+              </div>
+              <!-- 7 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="checkbox"
+                  name="activities15"
+                  id="10checkBoxes15"
+                  value="Dock Dogs"
+                  #check1="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="10checkBoxes15">
+                  &nbsp;Dock Dogs
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- expected monnthly spendings -->
+        <hr />
+        <h4 style="color: #3366ff;">
+          How much do you expect to spend monthly?
+        </h4>
+        <!-- food expenses -->
+        <div class="form-group row">
+          <label for="foodExp" class="col-6 col-form-label">
+            Food expenses <b style="color: red;">*</b>
+          </label>
+          <div class="col-6">
+            <input
+              type="number"
+              min="0"
+              id="foodExp"
+              ngModel
+              name="foodExp"
+              foodExp
+              class="form-control"
+              placeholder=""
+              #foodExp="ngModel"
+              required
+            />
+          </div>
+        </div>
+        <!-- Veterinarian expenses-->
+        <div class="form-group row">
+          <label for="vetExp" class="col-6 col-form-label">
+            Veterinarian expenses <b style="color: red;">*</b>
+          </label>
+          <div class="col-6">
+            <input
+              type="number"
+              min="0"
+              id="vetExp"
+              ngModel
+              name="vetExp"
+              vetExp
+              class="form-control"
+              placeholder=""
+              #vetExp="ngModel"
+              required
+            />
+          </div>
+        </div>
+        <!-- Grooming expenses-->
+        <div class="form-group row">
+          <label for="groomingExp" class="col-6 col-form-label">
+            Grooming expenses <b style="color: red;">*</b>
+          </label>
+          <div class="col-6">
+            <input
+              type="number"
+              min="0"
+              id="groomingExp"
+              ngModel
+              name="groomingExp"
+              groomingExp
+              class="form-control"
+              placeholder=""
+              #groomingExp="ngModel"
+              required
+            />
+          </div>
+        </div>
+        <!-- Boarding expenses-->
+        <div class="form-group row">
+          <label for="boardingExp" class="col-6 col-form-label">
+            Boarding expenses <b style="color: red;">*</b>
+          </label>
+          <div class="col-6">
+            <input
+              type="number"
+              min="0"
+              id="boardingExp"
+              ngModel
+              name="boardingExp"
+              boardingExp
+              class="form-control"
+              placeholder=""
+              #boardingExp="ngModel"
+              required
+            />
+          </div>
+        </div>
+        <!-- desired physical characteristics -->
+        <hr />
+        <h4 style="color: #3366ff;">
+          Desired Physical Characteristics
+        </h4>
+        <!-- radio set 17 - desired gender-->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              Gender
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="gender"
+                  id="17gridRadios1"
+                  value="Male"
+                  ngModel
+                />
+                <label class="form-check-label" for="17gridRadios1">
+                  &nbsp;Male
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="gender"
+                  id="17gridRadios2"
+                  value="Female"
+                  ngModel
+                />
+                <label class="form-check-label" for="17gridRadios2">
+                  &nbsp;Female
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="gender"
+                  id="17gridRadios3"
+                  value="Either"
+                  ngModel
+                />
+                <label class="form-check-label" for="17gridRadios3">
+                  &nbsp;Either
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- radio set 18 - desired coat-->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              &nbsp;Coat
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="coat"
+                  id="18gridRadios1"
+                  value="Short"
+                  ngModel
+                />
+                <label class="form-check-label" for="18gridRadios1">
+                  &nbsp;Short
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="coat"
+                  id="18gridRadios2"
+                  value="Medium"
+                  ngModel
+                />
+                <label class="form-check-label" for="18gridRadios2">
+                  &nbsp;Meduim
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="coat"
+                  id="18gridRadios3"
+                  value="Long"
+                  ngModel
+                />
+                <label class="form-check-label" for="18gridRadios3">
+                  &nbsp;Long
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="coat"
+                  id="18gridRadios4"
+                  value="Either"
+                  ngModel
+                />
+                <label class="form-check-label" for="18gridRadios4">
+                  &nbsp;Either
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="coat"
+                  id="18gridRadios5"
+                  value="Hypoallergenic"
+                  ngModel
+                />
+                <label class="form-check-label" for="18gridRadios5">
+                  &nbsp;Hypoallergenic <b style="color: red;">*</b>
+                </label>
+              </div>
+            </div>
+          </div>
+          <footer class="blockquote-footer">
+            <b style="color: red;">*</b> It is not possiable to guarantee that a
+            dog will be hyporallergenic
+          </footer>
+        </fieldset>
+        <!-- radio set 19 - desired age-->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              Age
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="desiredAge"
+                  id="19gridRadios1"
+                  value="Puppy (8 weeks to 6 months)"
+                  #radio19="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="19gridRadios1">
+                  &nbsp;Puppy (8 weeks to 6 months)
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="desiredAge"
+                  id="19gridRadios2"
+                  value="Adolescent (6 month to 1 year) "
+                  #radio19="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="19gridRadios2">
+                  &nbsp;Adolescent (6 month to 1 year)
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="desiredAge"
+                  id="19gridRadios3"
+                  value="Adult (1-7 years) "
+                  #radio19="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="19gridRadios3">
+                  &nbsp;Adult (1-7 years)
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="desiredAge"
+                  id="19gridRadios4"
+                  value="Senior (7+ years)"
+                  #radio19="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="19gridRadios4">
+                  &nbsp;Senior (7+ years)
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="desiredAge"
+                  id="19gridRadios5"
+                  value="Any"
+                  #radio19="ngModel"
+                  ngModel
+                />
+                <label class="form-check-label" for="19gridRadios5">
+                  &nbsp;Any
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- Breed/type/color? -->
+        <div class="form-group row">
+          <label for="breedTypeColor" class="col-6 col-form-label">
+            Breed/type/color?
+          </label>
+          <div class="col-6">
+            <input
+              type="text"
+              id="breedTypeColor"
+              ngModel
+              name="breedTypeColor"
+              breedTypeColor
+              class="form-control"
+              placeholder=""
+              #breedTypeColor="ngModel"
+            />
+          </div>
+        </div>
+        <hr />
+        <label>
+          <h4 style="color: #3366ff;">
+            I would like my new dog to:
+            <b style="color: red;">*</b>
+          </h4>
+        </label>
+        <div class="row" id="highlight">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Very Important</th>
+                <th scope="col">Somewhat Important</th>
+                <th scope="col">Not Important</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Be friendly with children</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="friendlyWithChildren1"
+                      name="frndlyWthChldrn"
+                      value="Yery important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="friendlyWithChildren1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="friendlyWithChildren2"
+                      name="frndlyWthChldrn"
+                      value="Somewhat important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="friendlyWithChildren2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="friendlyWithChildren3"
+                      name="frndlyWthChldrn"
+                      value="Not important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="friendlyWithChildren3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">Be friendly with other dogs</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="friendlyWithDog1"
+                      name="frndlyWthDogs"
+                      value="Very important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="friendlyWithDog1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="friendlyWithDog2"
+                      name="frndlyWthDogs"
+                      value="Somewhat important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="friendlyWithDog2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="friendlyWithDog3"
+                      name="frndlyWthDogs"
+                      value="Not important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="friendlyWithDog3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">Be friendly with cats</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="friendlyWithCat1"
+                      name="frndlyWthCats"
+                      value="Very important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="friendlyWithCat1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="friendlyWithCat2"
+                      name="frndlyWthCats"
+                      value="Somewhat important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="friendlyWithCat1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="friendlyWithCat3"
+                      name="frndlyWthCats"
+                      value="Not important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="friendlyWithCat3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">Be friendly with me</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="friendlyWithMe1"
+                      name="frndlyWthMe"
+                      value="Very important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="friendlyWithMe1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="friendlyWithMe2"
+                      name="frndlyWthMe"
+                      value="Somewhat important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="friendlyWithMe2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="friendlyWithMe3"
+                      name="frndlyWthMe"
+                      value="Not important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="friendlyWithMe3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Be friendly with visitors to the house</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="friendlyWithVisitor1"
+                      name="frndlyWthVistrs"
+                      value="Very important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="friendlyWithVisitor1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="friendlyWithVisitor2"
+                      name="frndlyWthVistrs"
+                      value="Somewhat important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="friendlyWithVisitor2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="friendlyWithVisitor3"
+                      name="frndlyWthVistrs"
+                      value="Not important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="friendlyWithVisitor3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Enjoy being groomed</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="groomed1"
+                      name="enjoysGrooming"
+                      value="Very important"
+                      required
+                      ngModel
+                    />
+                    <label class="custom-control-label" for="groomed1"></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="groomed2"
+                      name="enjoysGrooming"
+                      value="Somewhat important"
+                      required
+                      ngModel
+                    />
+                    <label class="custom-control-label" for="groomed2"></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="groomed3"
+                      name="enjoysGrooming"
+                      value="Not important"
+                      required
+                      ngModel
+                    />
+                    <label class="custom-control-label" for="groomed3"></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Enjoy being held</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beingHeld1"
+                      name="lovesBeingHeld"
+                      value="Very important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="beingHeld1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beingHeld2"
+                      name="lovesBeingHeld"
+                      value="Somewhat important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="beingHeld2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beingHeld3"
+                      name="lovesBeingHeld"
+                      value="Not important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="beingHeld3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Enjoy being petted</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beingPetted1"
+                      name="lovesBeingPeted"
+                      value="Very important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="beingPetted1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beingPetted2"
+                      name="lovesBeingPeted"
+                      value="Somewhat important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="beingPetted2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beingPetted3"
+                      name="lovesBeingPeted"
+                      value="Not important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="beingPetted3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Be calm</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beCalm1"
+                      name="beCalm"
+                      value="Very important"
+                      required
+                      ngModel
+                    />
+                    <label class="custom-control-label" for="beCalm1"></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beCalm2"
+                      name="beCalm"
+                      value="Somewhat important"
+                      required
+                      ngModel
+                    />
+                    <label class="custom-control-label" for="beCalm2"></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beCalm3"
+                      name="beCalm"
+                      value="Not important"
+                      required
+                      ngModel
+                    />
+                    <label class="custom-control-label" for="beCalm3"></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Be active</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beActive1"
+                      name="beActive"
+                      value="Very important"
+                      required
+                      ngModel
+                    />
+                    <label class="custom-control-label" for="beActive1"></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beActive2"
+                      name="beActive"
+                      value="Somewhat important"
+                      required
+                      ngModel
+                    />
+                    <label class="custom-control-label" for="beActive2"></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beActive3"
+                      name="beActive"
+                      value="Not important"
+                      required
+                      ngModel
+                    />
+                    <label class="custom-control-label" for="beActive3"></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Be playful</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="bePlayful1"
+                      name="bePlayful"
+                      value="Very important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="bePlayful1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="bePlayful2"
+                      name="bePlayful"
+                      value="Somewhat important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="bePlayful2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="bePlayful3"
+                      name="bePlayful"
+                      value="Not important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="bePlayful3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Be quiet</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beQuiet1"
+                      name="beQuiet"
+                      value="Very important"
+                      required
+                      ngModel
+                    />
+                    <label class="custom-control-label" for="beQuiet1"></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beQuiet2"
+                      name="beQuiet"
+                      value="Somewhat important"
+                      required
+                      ngModel
+                    />
+                    <label class="custom-control-label" for="beQuiet1"></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beQuiet3"
+                      name="beQuiet"
+                      value="Not important"
+                      required
+                      ngModel
+                    />
+                    <label class="custom-control-label" for="beQuiet1"></label>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">Be independent</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beIndependent1"
+                      name="beIndependent"
+                      value="Very important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="beIndependent1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beIndependent2"
+                      name="beIndependent"
+                      value="Somewhat important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="beIndependent2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="beIndependent3"
+                      name="beIndependent"
+                      value="Not important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="beIndependent3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Never wake me up at night</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="neverWakeUp1"
+                      name="neverWakeMe"
+                      value="Very important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="neverWakeUp1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="neverWakeUp2"
+                      name="neverWakeMe"
+                      value="Somewhat important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="neverWakeUp2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="neverWakeUp3"
+                      name="neverWakeMe"
+                      value="Not important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="neverWakeUp3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Never show aggressive behavior</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="aggressive1"
+                      name="neverShowAggr"
+                      value="Very important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="aggressive1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="aggressive2"
+                      name="neverShowAggr"
+                      value="Somewhat important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="aggressive2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="aggressive3"
+                      name="neverShowAggr"
+                      value="Not important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="aggressive3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Be protective</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="protective1"
+                      name="beProtective"
+                      value="Very important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="protective1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="protective2"
+                      name="beProtective"
+                      value="Somewhat important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="protective2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="protective3"
+                      name="beProtective"
+                      value="Not important"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="protective3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <hr />
+        <label>
+          <h4 style="color: #3366ff;">
+            Most of our dogs require training
+            <b style="color: red;">*</b>
+          </h4>
+        </label>
+        <div class="row" id="highlight">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Yes</th>
+                <th scope="col">No</th>
+                <th scope="col">Not Sure</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">I need a dog that is already house trained</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="houseTrained1"
+                      name="houseTrained"
+                      value="Yes"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="houseTrained1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="houseTrained2"
+                      name="houseTrained"
+                      value="No"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="houseTrained2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="houseTrained3"
+                      name="houseTrained"
+                      value="Not Sure"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="houseTrained3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  I need a dog that is already obedience trained
+                </th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="obedienceTrained1"
+                      name="obedienceTrained"
+                      value="Yes"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="obedienceTrained1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="obedienceTrained2"
+                      name="obedienceTrained"
+                      value="No"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="obedienceTrained2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="obedienceTrained3"
+                      name="obedienceTrained"
+                      value="Not Sure"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="obedienceTrained3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">I am a first time owner</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="firstTimeOwner1"
+                      name="firstTimeOwner"
+                      value="Yes"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="firstTimeOwner1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="firstTimeOwner2"
+                      name="firstTimeOwner"
+                      value="No"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="firstTimeOwner2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="firstTimeOwner3"
+                      name="firstTimeOwner"
+                      value="Not Sure"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="firstTimeOwner3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">I have obedience trained before</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="ownerIsTrained1"
+                      name="ownerIsTrained"
+                      value="Yes"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="ownerIsTrained1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="ownerIsTrained2"
+                      name="ownerIsTrained"
+                      value="No"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="ownerIsTrained2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="ownerIsTrained3"
+                      name="ownerIsTrained"
+                      value="Not Sure"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="ownerIsTrained3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  I have lots of experience and could handle a difficult dog
+                </th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="expWthDiffcltDog1"
+                      name="expWthDiffcltDog"
+                      value="Yes"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="expWthDiffcltDog1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="expWthDiffcltDog2"
+                      name="expWthDiffcltDog"
+                      value="No"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="expWthDiffcltDog2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="expWthDiffcltDog3"
+                      name="expWthDiffcltDog"
+                      value="Not Sure"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="expWthDiffcltDog3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">I am willing to attend training classes</th>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="willingToTrain1"
+                      name="willingToTrain"
+                      value="Yes"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="willingToTrain1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="willingToTrain2"
+                      name="willingToTrain"
+                      value="No"
+                      required
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="protective2"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="willingToTrain3"
+                      name="willingToTrain"
+                      value="Not Sure"
+                      ngModel
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="willingToTrain3"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <hr />
+        <!-- 15 years expectations -->
+        <div class="form-group">
+          <label for="longTermExpcttns">
+            Dogs live on average 12 to 18 years (the oldest dog on record was 26
+            years old!). Please consider the next 15 years of your life - what
+            do you expect to be doing and how will your dog fit into this
+            lifestyle?
+            <b style="color: red;">*</b>
+          </label>
+          <textarea
+            maxlength="200"
+            rows="3"
+            type="text"
+            id="longTermExpcttns"
+            ngModel
+            name="longTermExpcttns"
+            longTermExpcttns
+            class="form-control"
+            placeholder=" Enter your answer here"
+            #longTermExpcttns="ngModel"
+            required
+          ></textarea>
+        </div>
+        <hr />
+        <!-- radio set 20 - villing to buy boosters-->
+        <fieldset class="form-group">
+          <label for="buysBoosters">
+            Depending on the age of the dog you are considering for adoption,
+            additional vaccine boosters may be required after adoption (in
+            addition to yearly boosters). Are you prepared to accept the
+            financial obligation for vaccine boosters and ensure that they are
+            done on schedule? <b style="color: red;">*</b>
+          </label>
+          <div class="row" id="highlight">
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="buysBoosters"
+                  id="20gridRadios1"
+                  value="Yes"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="20gridRadios1">
+                  &nbsp;Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="buysBoosters"
+                  id="20gridRadios2"
+                  value="No"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="20gridRadios2">
+                  &nbsp;No
+                </label>
+              </div>
+              <!-- <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="buysBoosters"
+                  id="20gridRadios3"
+                  value="Need more information"
+                  #radio17="ngModel"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="20gridRadios3">
+                  Need more information
+                </label>
+              </div> -->
+            </div>
+          </div>
+        </fieldset>
+        <hr />
+        <!-- easy transition -->
+        <div class="form-group">
+          <label for="wiilBeGentle">
+            Your new dog may have come from a traumatic past, will be leaving
+            the comfort of their foster home, and possibly leaving littermates,
+            and may be very scared and unsure for the first couple of days. How
+            do the members of your family plan to make this transition as easy
+            as possible? <b style="color: red;">*</b>
+          </label>
+          <textarea
+            maxlength="200"
+            rows="3"
+            type="text"
+            id="wiilBeGentle"
+            ngModel
+            name="wiilBeGentle"
+            wiilBeGentle
+            class="form-control"
+            placeholder=" Enter your answer here"
+            #wiilBeGentle="ngModel"
+            required
+          ></textarea>
+        </div>
+        <!-- radio set 21 - villing to buy insurance-->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              Are you considering purchasing pet insurance for your dog?
+              <b style="color: red;">*</b>
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="buysInsurance"
+                  id="21gridRadios1"
+                  value="Yes"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="21gridRadios1">
+                  &nbsp;Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="buysInsurance"
+                  id="21gridRadios2"
+                  value="No"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="21gridRadios2">
+                  &nbsp;No
+                </label>
+              </div>
+              <!-- <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="buysBoosters"
+                  id="20gridRadios3"
+                  value="Not sure"
+                  #radio21="ngModel"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="21gridRadios3">
+                  Not sure
+                </label>
+              </div> -->
+            </div>
+          </div>
+        </fieldset>
+        <!-- radio set 22 - large dog-->
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <legend class="col-form-label col-6 pt-0">
+              Are you aware that a large breed dog takes about two years to
+              mature? Is this something you're prepared for?
+              <b style="color: red;">*</b>
+            </legend>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="largeDog"
+                  id="22gridRadios1"
+                  value="Yes"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="22gridRadios1">
+                  &nbsp;Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="largeDog"
+                  id="22gridRadios2"
+                  value="No"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="22gridRadios2">
+                  &nbsp;No
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!-- why would surrender -->
+        <div class="form-group">
+          <label for="wouldSurrender">
+            What circumstances would lead you to give up your new dog?
+            <b style="color: red;">*</b>
+          </label>
+          <textarea
+            maxlength="200"
+            rows="3"
+            type="text"
+            id="wouldSurrender"
+            ngModel
+            name="wouldSurrender"
+            wouldSurrender
+            class="form-control"
+            placeholder=" Enter your answer here"
+            #wouldSurrender="ngModel"
+            required
+          ></textarea>
+        </div>
+        <!-- what would do -->
+        <div class="form-group">
+          <label for="whatWouldDo">
+            If you had to give up your dog, what would you do with him/her?
+            <b style="color: red;">*</b>
+          </label>
+          <textarea
+            maxlength="200"
+            rows="3"
+            type="text"
+            id="whatWouldDo"
+            ngModel
+            name="whatWouldDo"
+            whatWouldDo
+            class="form-control"
+            placeholder=" Enter your answer here"
+            #whatWouldDo="ngModel"
+            required
+          ></textarea>
+        </div>
+
+        <!-- REFERENCES -->
+        <hr />
+        <h3 style="color: #3366ff;">
+          References
+          <hr />
+        </h3>
+        <!-- First Reference -->
+        <!-- #1 reference name -->
+        <div class="form-group row">
+          <label for="firstRefFirstName" class="col-3 col-form-label">
+            1st Reference name: <b style="color: red;">*</b>
+          </label>
+          <div class="col-4" data-toggle="tooltip" title="First name">
+            <input
+              type="text"
+              id="firstRefFirstName"
+              ngModel
+              name="firstRefFirstName"
+              required
+              firstRefFirstName
+              class="form-control"
+              placeholder="Reference's First Name"
+              #firstRefFirstName="ngModel"
+            />
+            <span
+              class="help-block"
+              *ngIf="!firstRefFirstName.valid && firstRefFirstName.touched"
+              >Enter reference's first name!</span
+            >
+          </div>
+          <div class="col-5" data-toggle="tooltip" title="Last name">
+            <input
+              type="text"
+              id="firstRefLastName"
+              ngModel
+              name="firstRefLastName"
+              required
+              firstRefLastName
+              class="form-control"
+              placeholder="Reference's Last Name"
+              #firstRefLastName="ngModel"
+            />
+            <span
+              class="help-block"
+              *ngIf="!firstRefLastName.valid && firstRefLastName.touched"
+              >Enter reference's last name!</span
+            >
+          </div>
+        </div>
+        <!-- #1 reference relationship -->
+        <div class="form-group row">
+          <label for="firstRefFirstName" class="col-3 col-form-label">
+            Relationship <b style="color: red;">*</b>
+          </label>
+          <!-- dropdown menu -->
+          <div class="col-9">
+            <select
+              required
+              name="relationship"
+              id="relationship"
+              [ngModel]="selectedRelationship"
+              class="form-control"
+            >
+              <!-- loop through array of subscriptions to load them into dropdown menu -->
+              <option
+                *ngFor="let relationship of relationships"
+                [value]="relationship"
+                >{{ relationship }}</option
+              >
+            </select>
+          </div>
+        </div>
+
+        <!-- #1 Reference's phone -->
+        <div class="form-group row">
+          <label for="firstRefPhone" class="col-3 col-form-label">
+            Phone: <b style="color: red;">*</b>
+          </label>
+          <div class="col-9">
+            <input
+              type="phone"
+              id="firstRefPhone"
+              ngModel
+              name="firstRefPhone"
+              firstRefPhone
+              required
+              class="form-control"
+              placeholder="First Reference's Phone"
+              #firstRefPhone="ngModel"
+            />
+            <span
+              class="help-block"
+              *ngIf="!firstRefPhone.valid && firstRefPhone.touched"
+              >Enter reference's phone!</span
+            >
+          </div>
+        </div>
+        <!-- #1 references email -->
+        <div class="form-group row">
+          <label for="firstRefEmail" class="col-3 col-form-label">
+            Email:
+          </label>
+          <div class="col-9">
+            <input
+              type="email"
+              id="firstRefEmail"
+              ngModel
+              name="firstRefEmail"
+              firstRefEmail
+              class="form-control"
+              placeholder="first-reference@example.com"
+              #firstRefEmail="ngModel"
+            />
+          </div>
+        </div>
+        <hr />
+        <!-- Second Reference -->
+        <!-- #2 reference name -->
+        <div class="form-group row">
+          <label for="secondRefFirstName" class="col-3 col-form-label">
+            2nd Reference name: <b style="color: red;">*</b>
+          </label>
+          <div class="col-4" data-toggle="tooltip" title="First name">
+            <input
+              type="text"
+              id="secondRefFirstName"
+              ngModel
+              name="secondRefFirstName"
+              required
+              secondRefFirstName
+              class="form-control"
+              placeholder="Reference's First Name"
+              #secondRefFirstName="ngModel"
+            />
+            <span
+              class="help-block"
+              *ngIf="!secondRefFirstName.valid && secondRefFirstName.touched"
+              >Enter reference's first name!</span
+            >
+          </div>
+          <div class="col-5" data-toggle="tooltip" title="Last name">
+            <input
+              type="text"
+              id="secondRefLastName"
+              ngModel
+              name="secondRefLastName"
+              required
+              secondRefLastName
+              class="form-control"
+              placeholder="Reference's Last Name"
+              #secondRefLastName="ngModel"
+            />
+            <span
+              class="help-block"
+              *ngIf="!secondRefLastName.valid && secondRefLastName.touched"
+              >Enter reference's last name!</span
+            >
+          </div>
+        </div>
+        <!-- #2 reference relationship -->
+        <div class="form-group row">
+          <label for="seconRefLastName" class="col-3 col-form-label">
+            Relationship <b style="color: red;">*</b>
+          </label>
+          <!-- dropdown menu -->
+          <div class="col-9">
+            <select
+              required
+              name="secondRelationship"
+              id="secondRelationship"
+              [ngModel]="selectedRelationship"
+              class="form-control"
+            >
+              <!-- loop through array of subscriptions to load them into dropdown menu -->
+              <option
+                *ngFor="let secondRelationship of relationships"
+                [value]="secondRelationship"
+              >
+                {{ secondRelationship }}</option
+              >
+            </select>
+          </div>
+        </div>
+
+        <!-- #2 Reference's phone -->
+        <div class="form-group row">
+          <label for="secondRefPhone" class="col-3 col-form-label">
+            Phone: <b style="color: red;">*</b>
+          </label>
+          <div class="col-9">
+            <input
+              type="phone"
+              id="secondRefPhone"
+              ngModel
+              name="secondtRefPhone"
+              secondRefPhone
+              required
+              class="form-control"
+              placeholder="Second Reference's Phone"
+              #secondRefPhone="ngModel"
+            />
+            <span
+              class="help-block"
+              *ngIf="!secondRefPhone.valid && firstRefPhone.touched"
+              >Enter reference's phone!</span
+            >
+          </div>
+        </div>
+        <!-- 2 references email -->
+        <div class="form-group row">
+          <label for="secondRefEmail" class="col-3 col-form-label">
+            Email:
+          </label>
+          <div class="col-9">
+            <input
+              type="email"
+              id="secondRefEmail"
+              ngModel
+              name="secondRefEmail"
+              secondRefEmail
+              class="form-control"
+              placeholder="second-reference@example.com"
+              #secondRefEmail="ngModel"
+            />
+          </div>
+        </div>
+        <!-- how did you find out about the dog? -->
+        <label>
+          <h4 style="color: #3366ff;">
+            How did you find out about this animal?
+            <b style="color: red;">*</b>
+          </h4>
+        </label>
+        <fieldset class="form-group">
+          <div class="row" id="highlight">
+            <!-- 1st column -->
+            <div class="col-5">
+              <!-- 1 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="howFoundTheDog"
+                  id="5checkBoxes1"
+                  value="PetSmart"
+                  ngModel
+                  requred
+                />
+                <label class="form-check-label" for="5checkBoxes1">
+                  &nbsp;PetSmart
+                </label>
+              </div>
+              <!-- 2 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="howFoundTheDog"
+                  id="5checkBoxes2"
+                  value="The Body Shop"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="5checkBoxes2">
+                  &nbsp;The Body Shop
+                </label>
+              </div>
+              <!-- 3 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="howFoundTheDog"
+                  id="5checkBoxes3"
+                  value="Petfinder.com"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="5checkBoxes3">
+                  &nbsp;Petfinder.com
+                </label>
+              </div>
+              <!-- 4 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="howFoundTheDog"
+                  id="5checkBoxes4"
+                  value="Friend or family"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="5checkBoxes4">
+                  &nbsp;Friend/Family Member
+                </label>
+              </div>
+            </div>
+            <!-- 2nd column -->
+            <div class="col-5">
+              <!-- 1 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="howFoundTheDog"
+                  id="5checkBoxes5"
+                  value="Pet Valu"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="5checkBoxes5">
+                  &nbsp;Pet Valu
+                </label>
+              </div>
+              <!-- 2 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="howFoundTheDog"
+                  id="5checkBoxes6"
+                  value="Facebook"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="5checkBoxes6">
+                  &nbsp;Facebook
+                </label>
+              </div>
+              <!-- 3 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="howFoundTheDog"
+                  id="5checkBoxes7"
+                  value="CARS website"
+                  ngModel
+                  required
+                />
+                <label class="form-check-label" for="5checkBoxes7">
+                  &nbsp;CARS website
+                </label>
+              </div>
+              <!-- 4 -->
+              <div class="form-check">
+                <input
+                  class="custom-check-input"
+                  type="radio"
+                  name="howFoundTheDog"
+                  id="5checkBoxes8"
+                  value="Other Source"
+                  ngModel
+                  requred
+                />
+                <label class="form-check-label" for="5checkBoxes8">
+                  &nbsp;Other
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <br />
+        <hr />
+        <div class="clearfix">
+          <button
+            class="ml-4 btn btn-success float-left"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Submit application"
+          >
+            <!-- [disabled]="!signupForm.valid" -->
+            {{ signupForm.valid ? "Submit" : "Validate/Submit" }}
+          </button>
+
+          <button
+            class="mr-4 btn btn-danger float-right"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Reset application"
+            type="reset"
+            (click)="errorMessages.length = 0"
+          >
+            Reset the form
+          </button>
+        </div>
+        <hr />
+
+        <div class="fixed-bottom">
+          <hr />
+          <div
+            class="fixed-bottom col-md-10 mx-auto alert alert-danger"
+            *ngIf="errorMessages.length > 0"
+          >
+            <ul>
+              <li
+                class="text-left"
+                style="cursor: pointer;"
+                *ngFor="let error of errorMessages"
+              >
+                <h6 [innerHtml]="error"></h6>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div>
+  <a (click)="onScroll()" id="button-top"><i class="fa fa-angle-double-up"></i></a>
+</div>

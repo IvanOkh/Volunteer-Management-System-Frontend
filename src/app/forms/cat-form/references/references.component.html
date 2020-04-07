@@ -1,0 +1,201 @@
+<div class="container mt-5">
+  <hr>
+  <h3 class="sticky-top">References</h3>
+  <hr>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- <form #formAdd="ngForm" (ngSubmit)=addUser(formAdd.value)> -->
+        <form [formGroup]="formGroup">
+          <div class="row">
+
+            <div class="hover">
+              <div class="col-md-4 mt-3">
+                <label>Reference Name <span class="star">*</span></label>
+              </div>
+              <div class="col-md-3">
+                <input type="text" class="form-control mt-3" placeholder="First name"
+                  formControlName="firstNameReference"
+                  [ngClass]="{'is-invalid': form.firstNameReference.errors && form.firstNameReference.touched}">
+                <!-- validation  -->
+                <div *ngIf="form.firstNameReference.errors && form.firstNameReference.touched" class="col-12">
+                  <div *ngIf="form.firstNameReference.hasError('required')"><em class="errorMsg">*First name reference
+                      is required*</em></div>
+                </div>
+              </div>
+
+
+              <div class="col-md-3">
+                <input type="text" class="form-control mt-3" placeholder="Last name" formControlName="lastNameReference"
+                  [ngClass]="{'is-invalid': form.lastNameReference.errors && form.lastNameReference.touched}">
+                <!-- validation  -->
+                <div *ngIf="form.lastNameReference.errors && form.lastNameReference.touched" class="col-12">
+                  <div *ngIf="form.lastNameReference.hasError('required')"><em class="errorMsg">*Last name reference is
+                      required*</em></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hover">
+              <div class="col-12">
+                <div class="col-md-8 mt-3">
+                  <label>Relationship <span class="star">*</span></label>
+                </div>
+                <mat-radio-group formControlName="relationshipRef">
+                  <mat-radio-button value="Family">Family</mat-radio-button>
+                  <mat-radio-button value="Friend">Friend</mat-radio-button>
+                  <mat-radio-button value="Co-worker">Co-worker</mat-radio-button>
+                  <mat-radio-button value="Manager">Manager</mat-radio-button>
+                  <mat-radio-button value="Landlord">Landlord</mat-radio-button>
+                </mat-radio-group>
+                <!-- validation  -->
+                <div *ngIf="form.relationshipRef.errors && form.relationshipRef.touched" class="col-12">
+                  <div *ngIf="form.relationshipRef.hasError('required')"><em class="errorMsg">*Relationship is
+                      required*</em></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hover">
+              <div class="col-md-4 mt-3">
+                <label>Phone Number <span class="star">*</span></label>
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control mt-3" placeholder="Phone Number"
+                  formControlName="phoneNumReference"
+                  [ngClass]="{'is-invalid': form.phoneNumReference.errors && form.phoneNumReference.touched}">
+                <!-- validation  -->
+                <div *ngIf="form.phoneNumReference.errors && form.phoneNumReference.touched" class="col-12">
+                  <div *ngIf="form.phoneNumReference.hasError('required')"><em class="errorMsg">*Phone number is
+                      required*</em></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hover">
+              <div class="col-md-4 mt-3">
+                <label>Email: <span class="star">*</span></label>
+              </div>
+              <div class="col-md-6">
+                <input type="email" class="form-control mt-3" placeholder="example@example.com"
+                  formControlName="emailReference"
+                  [ngClass]="{'is-invalid': form.emailReference.errors && form.emailReference.touched}">
+                <!-- validation  -->
+                <div *ngIf="form.emailReference.errors && form.emailReference.touched" class="col-12">
+                  <div *ngIf="form.emailReference.hasError('required')"><em class="errorMsg">*Email is
+                      required*</em></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hover">
+              <div class="col-md-4 mt-3">
+                <label>Reference Name <span class="star">*</span></label>
+              </div>
+              <div class="col-md-3">
+                <input type="text" class="form-control mt-3" placeholder="First name"
+                  formControlName="firstNameReference2"
+                  [ngClass]="{'is-invalid': form.firstNameReference2.errors && form.firstNameReference2.touched}">
+                <div *ngIf="form.firstNameReference2.errors && form.firstNameReference2.touched" class="col-12">
+                  <div *ngIf="form.firstNameReference2.hasError('required')"><em class="errorMsg">*First name is
+                      required*</em></div>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <input type="text" class="form-control mt-3" placeholder="Last name"
+                  formControlName="lastNameReference2"
+                  [ngClass]="{'is-invalid': form.lastNameReference2.errors && form.lastNameReference2.touched}">
+                <div *ngIf="form.lastNameReference2.errors && form.lastNameReference2.touched" class="col-12">
+                  <div *ngIf="form.lastNameReference2.hasError('required')"><em class="errorMsg">*Last name reference
+                      is
+                      required*</em></div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="hover">
+              <div class="col-12">
+                <div class="col-md-8 mt-3">
+                  <label>Relationship <span class="star">*</span></label>
+                </div>
+                <mat-radio-group formControlName="relationshipRef2">
+                  <mat-radio-button value="Family">Family</mat-radio-button>
+                  <mat-radio-button value="Friend">Friend</mat-radio-button>
+                  <mat-radio-button value="Co-worker">Co-worker</mat-radio-button>
+                  <mat-radio-button value="Manager">Manager</mat-radio-button>
+                  <mat-radio-button value="Landlord">Landlord</mat-radio-button>
+                </mat-radio-group>
+                <div *ngIf="form.relationshipRef2.errors && form.relationshipRef2.touched" class="col-12">
+                  <div *ngIf="form.relationshipRef2.hasError('required')"><em class="errorMsg">*Relationship is
+                      required*</em></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hover">
+              <div class="col-md-4 mt-3">
+                <label>Phone Number <span class="star">*</span></label>
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control mt-3" formControlName="phoneNumReference2"
+                  [ngClass]="{'is-invalid': form.phoneNumReference2.errors && form.phoneNumReference2.touched}">
+                <div *ngIf="form.phoneNumReference2.errors && form.phoneNumReference2.touched" class="col-12">
+                  <div *ngIf="form.phoneNumReference2.hasError('required')"><em class="errorMsg">*Phone number is
+                      required*</em></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 mt-3">
+              <label>Email: <span class="star">*</span></label>
+            </div>
+            <div class="col-md-6">
+              <input type="email" class="form-control mt-3" placeholder="example@example.com"
+                formControlName="emailReference2"
+                [ngClass]="{'is-invalid': form.emailReference2.errors && form.emailReference2.touched}">
+              <div *ngIf="form.emailReference2.errors && form.emailReference2.touched" class="col-12">
+                <div *ngIf="form.emailReference2.hasError('required')"><em class="errorMsg">*Email is
+                    required*</em></div>
+              </div>
+            </div>
+
+            <div class="hover">
+              <div class="col-md-4 mt-3">
+                <label for="">How did you find out about this animal? <span class="star">*</span></label>
+              </div>
+              <div class="col-md-7 mt-3">
+                <mat-radio-group formControlName="howFindOutThisAnimal">
+                  <mat-radio-button value="PetSmart">PetSmart</mat-radio-button>
+                  <mat-radio-button value="The Body Shop">The Body Shop</mat-radio-button>
+                  <mat-radio-button value="Petfinder.com">Petfinder.com</mat-radio-button>
+                  <mat-radio-button value="Friend/Family Member">Friend/Family Member</mat-radio-button>
+                  <mat-radio-button value="Pet Valu">Pet Valu</mat-radio-button>
+                  <mat-radio-button value="Facebook">Facebook</mat-radio-button>
+                  <mat-radio-button value="CARS website">CARS website</mat-radio-button>
+                  <mat-radio-button value="findOutByOther">Other</mat-radio-button>
+                </mat-radio-group>
+                <div *ngIf="form.howFindOutThisAnimal.errors && form.howFindOutThisAnimal.touched" class="col-12">
+                  <div *ngIf="form.howFindOutThisAnimal.hasError('required')"><em class="errorMsg">*Animal infomation
+                      is
+                      required*</em></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hover">
+              <div class="col-4 mt-3">
+                <label for="">Signature <span class="star">*</span></label>
+              </div>
+              <div class="col-6">
+                <textarea class="form-control textArea-width" rows="5"></textarea>
+              </div>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

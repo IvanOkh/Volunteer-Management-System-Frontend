@@ -1,0 +1,236 @@
+
+<div class="container ">
+  <hr>
+  <h3 class="sticky-top">New Pet Information</h3>
+  <hr>
+  <form [formGroup]="formGroup">
+    <div class="row">
+      <div class="container">
+        <div class="row">
+          <div class="hover">
+            <div class="col-md-4 mt-3">
+              <label>Why do you want this rescue cat and what are your expectations? <span class="star">*</span></label>
+            </div>
+            <div class="col-md-6 mt-3">
+              <input type="text" class="form-control" formControlName="rescueOrExpectation"
+                [ngClass]="{'is-invalid': form.rescueOrExpectation.errors && form.rescueOrExpectation.touched}">
+              <!-- validation  -->
+              <div *ngIf="form.rescueOrExpectation.errors && form.rescueOrExpectation.touched" class="col-12">
+                <div *ngIf="form.rescueOrExpectation.hasError('required')"><em class="errorMsg">*Expectation is
+                    required*</em></div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="hover">
+            <div class="col-md-4 mt-3">
+              <label for="">What is the main purpose of adopting this cat?</label>
+            </div>
+            <div class="col-md-7 mt-3">
+              <mat-radio-group formControlName="mainPurposeAdopting">
+                <mat-radio-button value="Companion">Companion</mat-radio-button>
+                <mat-radio-button value="Companion for other pet">Companion for other pet</mat-radio-button>
+                <mat-radio-button value="Gift">Gift</mat-radio-button>
+                <mat-radio-button value="Muuser">Muuser</mat-radio-button>
+                <mat-radio-button value="Barn Cat">Barn Cat</mat-radio-button>
+                <mat-radio-button value="Other">Other</mat-radio-button>
+              </mat-radio-group>
+              <!-- validation  -->
+              <div *ngIf="form.mainPurposeAdopting.errors && form.mainPurposeAdopting.touched" class="col-12">
+                <div *ngIf="form.mainPurposeAdopting.hasError('required')"><em class="errorMsg">*Purpose is
+                    required*</em></div>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="hover">
+            <div class="col-md-4 mt-3">
+              <label>Who will be the catʼs primary caretaker? <span class="star">*</span></label>
+            </div>
+            <div class="col-md-6 mt-3">
+              <input type="text" class="form-control" formControlName="primaryCaretaker"
+                [ngClass]="{'is-invalid': form.primaryCaretaker.errors && form.primaryCaretaker.touched}">
+              <!-- validation  -->
+              <div *ngIf="form.primaryCaretaker.errors && form.primaryCaretaker.touched" class="col-12">
+                <div *ngIf="form.primaryCaretaker.hasError('required')"><em class="errorMsg">*Primary Caretaker is
+                    required*</em></div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="hover">
+            <div class="col-md-3 mt-3">
+              <label for="">Have you had cats before?</label>
+            </div>
+            <div class="col-md-9 mt-3" style="display: grid;">
+              <mat-radio-group formControlName="hadCatBefore">
+                <mat-radio-button value=true>Yes</mat-radio-button>
+                <mat-radio-button value=false>No</mat-radio-button>
+
+              </mat-radio-group>
+              <!-- validation  -->
+              <div *ngIf="form.hadCatBefore.errors && form.hadCatBefore.touched" class="col-12">
+                <div *ngIf="form.hadCatBefore.hasError('required')"><em class="errorMsg">*Information is required*</em>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="hover">
+            <div class="col-md-3 mt-3">
+              <label for="">Where will your cat stay when your family goes on vacation? <span
+                  class="star">*</span></label>
+            </div>
+            <div class="col-md-9 mt-3" style="display: grid;">
+              <mat-radio-group formControlName="vacationHome">
+                <mat-radio-button value="at home with care">At home with care</mat-radio-button>
+                <mat-radio-button value="family/friends">With family/friends</mat-radio-button>
+                <mat-radio-button value="boarding">Boarding</mat-radio-button>
+                <mat-radio-button value="other">Other</mat-radio-button>
+              </mat-radio-group>
+              <!-- validation  -->
+              <div *ngIf="form.vacationHome.errors && form.vacationHome.touched" class="col-12">
+                <div *ngIf="form.vacationHome.hasError('required')"><em class="errorMsg">*Information is required*</em></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hover">
+            <div class="col-md-4 mt-3">
+              <label>How long, on average, will your cat be left alone each day during the week? <span
+                  class="star">*</span></label>
+            </div>
+            <div class="col-md-6 mt-3">
+              <input type="text" class="form-control" formControlName="catLeftAloneWeek"
+                [ngClass]="{'is-invalid': form.catLeftAloneWeek.errors && form.catLeftAloneWeek.touched}">
+              <!-- validation  -->
+              <div *ngIf="form.catLeftAloneWeek.errors && form.catLeftAloneWeek.touched" class="col-12">
+                <div *ngIf="form.catLeftAloneWeek.hasError('required')"><em class="errorMsg">*Time is
+                    required*</em></div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="hover">
+            <div class="col-md-4 mt-3">
+              <label>How long, on average, will your cat be left alone each day during the weekend? <span
+                  class="star">*</span></label>
+            </div>
+            <div class="col-md-6 mt-3">
+              <input type="text" class="form-control" formControlName="catLeftAloneWeekend"
+                [ngClass]="{'is-invalid': form.catLeftAloneWeekend.errors && form.catLeftAloneWeekend.touched}">
+              <!-- validation  -->
+              <div *ngIf="form.catLeftAloneWeekend.errors && form.catLeftAloneWeekend.touched" class="col-12">
+                <div *ngIf="form.catLeftAloneWeekend.hasError('required')"><em class="errorMsg">*Time is
+                    required*</em></div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="hover">
+            <div class="col-md-4 mt-3">
+              <label>How much Daily exercise can you give your cat? (eg Active Play) <span class="star">*</span></label>
+            </div>
+            <div class="col-md-6 mt-3">
+              <input type="text" class="form-control" formControlName="dailyExercise"
+                [ngClass]="{'is-invalid': form.dailyExercise.errors && form.dailyExercise.touched}">
+              <!-- validation  -->
+              <div *ngIf="form.dailyExercise.errors && form.dailyExercise.touched" class="col-12">
+                <div *ngIf="form.dailyExercise.hasError('required')"><em class="errorMsg">*Daily exercise is
+                    required*</em></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hover">
+            <div class="col-md-4 mt-3">
+              <label>What length of time will you allow your new pet to adjust to his new home? <span
+                  class="star">*</span></label>
+            </div>
+            <div class="col-md-6 mt-3">
+              <input type="text" class="form-control" formControlName="lengthOfTimeAdjustToNewHome"
+                [ngClass]="{'is-invalid': form.lengthOfTimeAdjustToNewHome.errors && form.lengthOfTimeAdjustToNewHome.touched}">
+              <!-- validation  -->
+              <div *ngIf="form.lengthOfTimeAdjustToNewHome.errors && form.lengthOfTimeAdjustToNewHome.touched"
+                class="col-12">
+                <div *ngIf="form.lengthOfTimeAdjustToNewHome.hasError('required')"><em class="errorMsg">*Length of time
+                    is
+                    required*</em></div>
+              </div>
+            </div>
+          </div>
+
+          <label for="">How much do you expect to spend monthly?</label>
+
+          <div class="hover">
+            <div class="col-md-4 mt-3">
+              <label>Food expenses <span class="star">*</span></label>
+            </div>
+            <div class="col-md-6 mt-3">
+              <input type="text" class="form-control" formControlName="foodExpense"
+                [ngClass]="{'is-invalid': form.foodExpense.errors && form.foodExpense.touched}">
+              <!-- validation  -->
+              <div *ngIf="form.foodExpense.errors && form.foodExpense.touched" class="col-12">
+                <div *ngIf="form.foodExpense.hasError('required')"><em class="errorMsg">*Monthly expense is
+                    required*</em></div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="hover">
+            <div class="col-md-4 mt-3">
+              <label>Veterinarian expenses <span class="star">*</span></label>
+            </div>
+            <div class="col-md-6 mt-3">
+              <input type="text" class="form-control" formControlName="veterinarianExpense"
+                [ngClass]="{'is-invalid': form.veterinarianExpense.errors && form.veterinarianExpense.touched}">
+              <!-- validation  -->
+              <div *ngIf="form.veterinarianExpense.errors && form.veterinarianExpense.touched" class="col-12">
+                <div *ngIf="form.veterinarianExpense.hasError('required')"><em class="errorMsg">*Veterianrian expenses is required*</em></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hover">
+            <div class="col-md-4 mt-3">
+              <label>Grooming expenses <span class="star">*</span></label>
+            </div>
+            <div class="col-md-6 mt-3">
+              <input type="text" class="form-control" formControlName="groomingExpense"
+                [ngClass]="{'is-invalid': form.groomingExpense.errors && form.groomingExpense.touched}">
+              <!-- validation  -->
+              <div *ngIf="form.groomingExpense.errors && form.groomingExpense.touched" class="col-12">
+                <div *ngIf="form.groomingExpense.hasError('required')"><em class="errorMsg">*Grooming expenses is
+                    required*</em></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hover">
+            <div class="col-md-4 mt-3">
+              <label>Boarding expenses <span class="star">*</span></label>
+            </div>
+            <div class="col-md-6 mt-3">
+              <input type="text" class="form-control" formControlName="boardingExpense"
+                [ngClass]="{'is-invalid': form.boardingExpense.errors && form.boardingExpense.touched}">
+
+              <!-- validation  -->
+              <div *ngIf="form.boardingExpense.errors && form.boardingExpense.touched" class="col-12">
+                <div *ngIf="form.boardingExpense.hasError('required')"><em class="errorMsg">*Boarding expenses is
+                    required*</em></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

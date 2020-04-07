@@ -1,0 +1,63 @@
+/*
+RED -        #cd0d2e
+BLACK -      #0c120c
+GREY -       #6d7275
+LIGHT GREY - #c7d6d5
+WHITE -      #ecebf3
+*/
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #fbfbff;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", Arial, sans-serif;
+  background-color: #fbfbff;
+  color: #0d0106;
+}
+
+.min {
+  min-width: 683;
+}
+
+
+/* SECTION FOR SCROLL-TOP BUTTON  */
+#button-top{
+  text-decoration: none;
+  font-size: 29px;
+  background-color: rgba(36, 41, 40, 0.22);
+  width: 46px;
+  height: 46px;
+  left: 93%;
+  bottom: 5%;
+  position: fixed;
+  display: -webkit-box;
+  display: flex;
+  border-radius: 20%;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: -21px;
+  flex-wrap: wrap;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+#button-top i{
+     color: rgba(49, 49, 219, 0.61);
+}
+#button-top:hover{
+  background-color: rgba(63, 42, 250, 0.945);
+  color: rgb(55, 58, 236);
+}
+#button-top:hover i{
+  color: white;
+}
+

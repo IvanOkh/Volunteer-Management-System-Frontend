@@ -1,0 +1,265 @@
+  <div class="container">
+    <hr>
+    <h3 class="sticky-top">Your Family and Lifestyle</h3>
+    <hr>
+    <div class="row">
+      <form [formGroup]="formGroup">
+        <div class="hover">
+          <div class="col-md-4">
+            <label for="">Who are you adopting this cat for? <span class="star">*</span></label>
+          </div>
+          <div class="col-md-8">
+            <mat-radio-group formControlName="personcatisfor"
+              [ngClass]="{'is-invalid': form.personcatisfor.errors && (form.personcatisfor.touched || form.personcatisfor.dirty)}"
+              required>
+              <mat-radio-button value="self">Self</mat-radio-button>
+              <mat-radio-button value="other">Other</mat-radio-button>
+            </mat-radio-group>
+            <!-- validation  -->
+            <div *ngIf="form.personcatisfor.errors && form.personcatisfor.touched" class="col-12">
+              <div *ngIf="form.personcatisfor.hasError('required')"><em class="errorMsg">*Adopt person name is
+                  required*</em></div>
+            </div>
+          </div>
+        </div>
+        <!-- This group-button class is to format all text lable and button have center allign -->
+        <div class="hover">
+          <div class="col-md-4 mt-3">
+            <label for="">Are all members of your household in agreement with this adoption?<span
+                class="star">*</span></label>
+          </div>
+          <div class="col-md-8 mt-3">
+            <mat-radio-group aria-label="Select an option" formControlName="householdagreement">
+              <mat-radio-button value=true>Yes</mat-radio-button>
+              <mat-radio-button value=false>No</mat-radio-button>
+            </mat-radio-group>
+            <!-- validation  -->
+            <div *ngIf="form.householdagreement.errors && form.householdagreement.touched" class="col-12">
+              <div *ngIf="form.householdagreement.hasError('required')"><em class="errorMsg">*Household agreement is
+                  required*</em></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="hover">
+          <div class="col-md-4 mt-3">
+            <label for="">Have all members of your household been introduced to the cat? <span
+                class="star">*</span></label>
+          </div>
+          <div class="col-md-8 mt-3">
+            <mat-radio-group aria-label="Select an option" formControlName="membersintroduced">
+              <mat-radio-button value=true>Yes</mat-radio-button>
+              <mat-radio-button value=false>No</mat-radio-button>
+            </mat-radio-group>
+            <!-- validation  -->
+            <div *ngIf="form.membersintroduced.errors && form.membersintroduced.touched" class="col-12">
+              <div *ngIf="form.membersintroduced.hasError('required')"><em class="errorMsg">*Member introduced is
+                  required*</em></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hover">
+          <div class="col-md-4 mt-3">
+            <label for="">Does anyone in your home have allergies to cats or have asthma? <span
+                class="star">*</span></label>
+          </div>
+          <div class="col-md-8 mt-3">
+            <mat-radio-group formControlName="catallergies">
+              <mat-radio-button value=true>Yes</mat-radio-button>
+              <mat-radio-button value=false>No</mat-radio-button>
+            </mat-radio-group>
+            <!-- validation  -->
+            <div *ngIf="form.catallergies.errors && form.catallergies.touched" class="col-12">
+              <div *ngIf="form.catallergies.hasError('required')"><em class="errorMsg">*Allergies information is
+                  required*</em></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hover">
+          <div class="col-md-4 mt-3">
+            <label for="">How many adults are in your household? <span class="star">*</span></label>
+          </div>
+          <div class="col-md-8 mt-3">
+            <input min="0" type="number" class="form-control small-input" placeholder="ex: 23" formControlName="howmanyadults"
+              [ngClass]="{'is-invalid': form.howmanyadults.errors && form.howmanyadults.touched}">
+            <!-- validation  -->
+            <div *ngIf="form.howmanyadults.errors && form.howmanyadults.touched" class="col-12">
+              <div *ngIf="form.howmanyadults.hasError('required')"><em class="errorMsg">*Number of adults is
+                  required*</em></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="hover">
+          <div class="col-md-4 mt-3">
+            <label for="">How many children are in your household? <span class="star">*</span></label>
+          </div>
+          <div class="col-md-8 mt-4">
+            <input min="0" type="number" class="form-control small-input" placeholder="ex: 23" formControlName="howmanychild"
+              [ngClass]="{'is-invalid': form.howmanychild.errors && form.howmanychild.touched}">
+            <!-- validation  -->
+            <div *ngIf="form.howmanychild.errors && form.howmanychild.touched" class="col-12">
+              <div *ngIf="form.howmanychild.hasError('required')"><em class="errorMsg">*Number of children is
+                  required*</em></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hover">
+          <div class="col-md-4 mt-3">
+            <label for="">If children, what are their ages?</label>
+          </div>
+          <div class="col-md-6 mt-3">
+            <input min="0" type="text" class="form-control" placeholder="ex: 11,21,31" formControlName="childrenages">
+          </div>
+        </div>
+
+        <div class="col-6 mt-3">
+          <label for="">Have your children been taught the correct way to handle a cat? Please explain:</label>
+        </div>
+        <div class="col-12">
+          <textarea class="form-control textArea-width" id="" rows="5" formControlName="childrenhandling"></textarea>
+        </div>
+
+        <div class="hover">
+          <div class="col-md-5 mt-3">
+            <label for="">Do you have children that regularly visit your home? <span class="star">*</span></label>
+          </div>
+          <div class="col-md-7 mt-3">
+            <mat-radio-group formControlName="childrenvisit">
+              <mat-radio-button value=true>Yes</mat-radio-button>
+              <mat-radio-button value=false>No</mat-radio-button>
+            </mat-radio-group>
+            <!-- validation  -->
+            <div *ngIf="form.childrenvisit.errors && form.childrenvisit.touched" class="col-12">
+              <div *ngIf="form.childrenvisit.hasError('required')"><em class="errorMsg">*Number of children is
+                  required*</em></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hover">
+          <div class="col-md-4 mt-3">
+            <label for="">How often do they visit? <span class="star">*</span></label>
+          </div>
+          <div class="col-md-8 mt-3">
+            <mat-radio-group formControlName="visitingfrequency">
+              <mat-radio-button value="daily">Daily</mat-radio-button>
+              <mat-radio-button value="weekly">Weekly</mat-radio-button>
+              <mat-radio-button value="monthly">Monthly</mat-radio-button>
+              <mat-radio-button value="annually">Annually</mat-radio-button>
+            </mat-radio-group>
+            <!-- validation  -->
+            <div *ngIf="form.visitingfrequency.errors && form.visitingfrequency.touched" class="col-12">
+              <div *ngIf="form.visitingfrequency.hasError('required')"><em class="errorMsg">*Visiting frequency is
+                  required*</em></div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-6 mt-3">
+          <label for="">How have you prepared your children to respect the catʼs boundaries, observe its reactions, and
+            avoid bites? Explain:</label>
+        </div>
+        <div class="col-12">
+          <textarea class="form-control textArea-width" id="" rows="5" formControlName="childrenprepared"></textarea>
+        </div>
+
+
+        <div class="hover">
+          <div class="col-md-4 mt-3">
+            <label for="">How busy is your family? <span class="star">*</span></label>
+          </div>
+          <div class="col-md-8 mt-3">
+            <mat-radio-group formControlName="familybusy">
+              <mat-radio-button value="very busy">Very Busy</mat-radio-button>
+              <mat-radio-button value="a litte">A little</mat-radio-button>
+              <mat-radio-button value="not at all">No at all</mat-radio-button>
+            </mat-radio-group>
+            <!-- validation  -->
+            <div *ngIf="form.familybusy.errors && form.familybusy.touched" class="col-12">
+              <div *ngIf="form.familybusy.hasError('required')"><em class="errorMsg">*Family busy information is
+                  required*</em></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hover">
+          <div class="col-md-4 mt-3">
+            <label for="">How active is your family? <span class="star">*</span></label>
+          </div>
+          <div class="col-md-8 mt-3">
+            <mat-radio-group formControlName="activefamily">
+              <mat-radio-button value="very active">Very Active</mat-radio-button>
+              <mat-radio-button value="a litte">A little</mat-radio-button>
+              <mat-radio-button value="not al all">No at all</mat-radio-button>
+            </mat-radio-group>
+            <!-- validation  -->
+            <div *ngIf="form.activefamily.errors && form.activefamily.touched" class="col-12">
+              <div *ngIf="form.activefamily.hasError('required')"><em class="errorMsg">*Active of family is
+                  required*</em></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hover">
+          <div class="col-md-4 mt-3">
+            <label for="">How regular is your schedule? <span class="star">*</span></label>
+          </div>
+          <div class="col-md-8 mt-3">
+            <mat-radio-group formControlName="scheduleregularity">
+              <mat-radio-button value="very regular">Very regular</mat-radio-button>
+              <mat-radio-button value="irregular">A irregular</mat-radio-button>
+              <mat-radio-button value="moderate">Moderate</mat-radio-button>
+            </mat-radio-group>
+            <!-- validation  -->
+            <div *ngIf="form.scheduleregularity.errors && form.scheduleregularity.touched" class="col-12">
+              <div *ngIf="form.scheduleregularity.hasError('required')"><em class="errorMsg">*Schedule is
+                  required*</em></div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-6 mt-3">
+          <label for="">How would you describe your family’s personality? (e.g. loud, calm, nervous, social, homebodies,
+            etc. <span class="star">*</span></label>
+        </div>
+        <div class="col-12">
+          <textarea class="form-control textArea-width" id="" rows="5" formControlName="familypersonality"
+            [ngClass]="{'is-invalid': form.howmanyadults.errors && form.howmanyadults.touched}"></textarea>
+          <!-- validation  -->
+          <div *ngIf="form.familypersonality.errors && form.familypersonality.touched" class="col-12">
+            <div *ngIf="form.familypersonality.hasError('required')"><em class="errorMsg">*Family’s personality is required*</em>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="hover">
+          <div class="col-md-4 mt-3">
+            <label for="">Are you planning any of the following in the next two months? <span
+                class="star">*</span></label>
+          </div>
+          <div class="col-md-4 mt-3">
+            <mat-radio-group formControlName="plans">
+              <mat-radio-button value="moving">Moving</mat-radio-button>
+              <mat-radio-button value="vacation">Vacation</mat-radio-button>
+              <mat-radio-button value="change in schedule">Change in schedule</mat-radio-button>
+              <mat-radio-button value="Other">Other</mat-radio-button>
+            </mat-radio-group>
+            <!-- validation  -->
+            <div *ngIf="form.plans.errors && form.plans.touched" class="col-12">
+              <div *ngIf="form.plans.hasError('required')"><em class="errorMsg">*The plan is
+                  required*</em></div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

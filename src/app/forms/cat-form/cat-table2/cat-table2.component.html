@@ -1,0 +1,264 @@
+<div class="container">
+    <label for="">Most of our cats require training</label>
+    <form [formGroup]="formGroup">
+      <div class="row">
+        <table class="table table-striped">
+          <thead></thead>
+          <tbody>
+            <tr>
+              <th scope="row">I need a cat that is already litter trained</th>
+              <td>
+                <mat-radio-group formControlName="litterTrained">
+                  <mat-radio-button value="Y">Yes</mat-radio-button>
+                  <mat-radio-button value="N">No</mat-radio-button>
+                  <mat-radio-button value="X">Not sure</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+  
+            <tr>
+              <th scope="row">I need a cat that is already declawed</th>
+              <td>
+                <mat-radio-group formControlName="declawed">
+                  <mat-radio-button value="Y">Yes</mat-radio-button>
+                  <mat-radio-button value="N">No</mat-radio-button>
+                  <mat-radio-button value="X">Not sure</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+  
+            <tr>
+              <th scope="row">I am a first time owner</th>
+              <td>
+                <mat-radio-group formControlName="firstTimeOwner">
+                  <mat-radio-button value="Y">Yes</mat-radio-button>
+                  <mat-radio-button value="N">No</mat-radio-button>
+                  <mat-radio-button value="X">Not sure</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+  
+            <tr>
+              <th scope="row">I have lots of experience and could handle a difficult cat</th>
+              <td>
+                <mat-radio-group formControlName="handleDifficultCat">
+                  <mat-radio-button value="Y">Yes</mat-radio-button>
+                  <mat-radio-button value="N">No</mat-radio-button>
+                  <mat-radio-button value="X">Not sure</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+  
+  
+          </tbody>
+        </table>
+  
+      </div>
+  
+      <div class="row">
+        <div class="col-12">
+  
+          <div class="row">
+            <div class="hover">
+              <div class="col-md-4 mt-3">
+                <label for="">
+                  Depending on the age of the cat you are considering for adoption, additional vaccine boosters may be
+                  required after adoption (in addition to yearly boosters). Are you prepared to accept the financial
+                  obligation for vaccine boosters and ensure that they are done on schedule? <span
+                    class="star">*</span></label>
+              </div>
+              <div class="col-md-8 mt-3">
+                <mat-radio-group formControlName="medical">
+                  <mat-radio-button value=true>Yes</mat-radio-button>
+                  <mat-radio-button value=false>No</mat-radio-button>
+  
+                </mat-radio-group>
+                <!-- validation  -->
+                <div *ngIf="form.medical.errors && form.medical.touched" class="col-12">
+                  <div *ngIf="form.medical.hasError('required')"><em class="errorMsg">*Number of children is
+                      required*</em>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="hover">
+              <div class="col-md-4 mt-3">
+                <label for="">
+                  For kittens, will you prevent disease transmission by limiting you kitten's exposure to othe cats (no
+                  playdates, outdoor time etc.) until the 3rd set of vaccines?</label>
+              </div>
+              <div class="col-md-8 mt-3">
+                <mat-radio-group aria-label="Select an option" fornControlName="kittenHandling">
+                  <mat-radio-button value=yes>Yes</mat-radio-button>
+                  <mat-radio-button value=No>No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </div>
+  
+            <div class="hover">
+              <div class="col-md-4 mt-3">
+                <label for="">How will you manage your cats's nail care? <span class="star">*</span></label>
+              </div>
+              <div class="col-md-7 mt-3">
+                <mat-radio-group aria-label="Select an option" formControlName="nailCare">
+                  <mat-radio-button value="Declawing">Declawing</mat-radio-button>
+                  <mat-radio-button value="Scratching Posts">Scratching Posts</mat-radio-button>
+                  <mat-radio-button value="Trimming the nails">Trimming the nails</mat-radio-button>
+                  <mat-radio-button value="Soft Paws nails covers">Soft Paws nails covers</mat-radio-button>
+                  <mat-radio-button value="I don't know">I don't know</mat-radio-button>
+                  <mat-radio-button value="Other">Other</mat-radio-button>
+                </mat-radio-group>
+                <!-- validation  -->
+                <div *ngIf="form.nailCare.errors && form.nailCare.touched" class="col-12">
+                  <div *ngIf="form.nailCare.hasError('required')"><em class="errorMsg">*Nail care information is
+                      required*</em></div>
+                </div>
+              </div>
+            </div>
+  
+  
+            <div class="hover">
+              <div class="col-md-4 mt-3">
+                <label for="">What would you consider to be a behavioural issue that you cannot or will not be willing
+                  to work with? <span class="star">*</span></label>
+              </div>
+              <div class="col-md-7 mt-3">
+                <mat-radio-group aria-label="Select an option" formControlName="behaviouralIssue">
+                  <mat-radio-button value="Vocalization">Vocalization</mat-radio-button>
+                  <mat-radio-button value="Litter box issues">Litter box issues</mat-radio-button>
+                  <mat-radio-button value="Spraying">Spraying</mat-radio-button>
+                  <mat-radio-button value="Aggression towards people">Aggression towards people</mat-radio-button>
+                  <mat-radio-button value="Aggression towards other animals">Aggression towards other animals
+                  </mat-radio-button>
+                  <mat-radio-button value="Overly timid">Overly timid</mat-radio-button>
+                  <mat-radio-button value="None">None</mat-radio-button>
+                </mat-radio-group>
+                <!-- validation  -->
+                <div *ngIf="form.behaviouralIssue.errors && form.behaviouralIssue.touched" class="col-12">
+                  <div *ngIf="form.behaviouralIssue.hasError('required')"><em class="errorMsg">*Bahavaioural issue is
+                      required*</em></div>
+                </div>
+              </div>
+            </div>
+  
+  
+  
+            <div class="hover">
+              <div class="col-md-4 mt-3">
+                <label for="">
+                  Will you have tthe cat declaws? <span class="star">*</span></label>
+              </div>
+              <div class="col-md-8 mt-3">
+                <mat-radio-group aria-label="Select an option" formControlName="declaw">
+                  <mat-radio-button value=true>Yes</mat-radio-button>
+                  <mat-radio-button value=false>No</mat-radio-button>
+  
+                </mat-radio-group>
+                <!-- validation  -->
+                <div *ngIf="form.declaw.errors && form.declaw.touched" class="col-12">
+                  <div *ngIf="form.declaw.hasError('required')"><em class="errorMsg">*Cat declaws information is
+                      required*</em></div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="hover">
+              <div class="col-4 mt-3">
+                <label for="">Your new cat may have come from a traumatic past, will be leaving the comfort of their
+                  foster home, and possibly leaving litter mates, and may be very scared and unsure for the first couple
+                  of days. How do the members of your family plan to make this transition as easy as possible? <span
+                    class="star">*</span></label>
+              </div>
+              <div class="col-12">
+                <textarea formControlName="catPast" class="form-control textArea-width" id="" rows="5"
+                  [ngClass]="{'is-invalid': form.catPast.errors && form.catPast.touched}"></textarea>
+                <!-- validation  -->
+                <div *ngIf="form.catPast.errors && form.catPast.touched" class="col-12">
+                  <div *ngIf="form.catPast.hasError('required')"><em class="errorMsg">*Number of your family members is
+                      required*</em></div>
+                </div>
+              </div>
+            </div>
+  
+  
+  
+  
+            <div class="hover">
+              <div class="col-md-4 mt-3">
+                <label for="">
+                  Are you considering purchasing pet insurance for your cat? <span class="star">*</span></label>
+              </div>
+              <div class="col-md-8 mt-3">
+                <mat-radio-group aria-label="Select an option" formControlName="insurance">
+                  <mat-radio-button value=true>Yes</mat-radio-button>
+                  <mat-radio-button value=false>No</mat-radio-button>
+  
+                </mat-radio-group>
+                <!-- validation  -->
+                <div *ngIf="form.insurance.errors && form.insurance.touched" class="col-12">
+                  <div *ngIf="form.insurance.hasError('required')"><em class="errorMsg">*Insurance for your cat is
+                      required*</em></div>
+                </div>
+              </div>
+            </div>
+  
+  
+            <div class="hover">
+  
+              <div class="col-4 mt-3">
+                <label for="">What circumstances would lead you to give up your new cat? <span
+                    class="star">*</span></label>
+              </div>
+  
+              <div class="col-12">
+                <textarea formControlName="giveUpCircumstances" class="form-control textArea-width" id="" rows="5"
+                  [ngClass]="{'is-invalid': form.giveUpCircumstances.errors && form.giveUpCircumstances.touched}"></textarea>
+  
+                <div *ngIf="form.giveUpCircumstances.errors && form.giveUpCircumstances.touched" class="col-12">
+                  <div *ngIf="form.giveUpCircumstances.hasError('required')"> <em class="errorMsg">*Circumstances is
+                      required*</em>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="hover">
+              <div class="col-4 mt-3">
+                <label for="">If you had to give up your cat, what would you do with him/her? <span
+                    class="star">*</span></label>
+              </div>
+              <div class="col-12">
+                <textarea formControlName="explainGiveUp" class="form-control textArea-width" id="" rows="5"
+                  [ngClass]="{'is-invalid': form.explainGiveUp.errors && form.explainGiveUp.touched}"></textarea>
+                <!-- validation  -->
+                <div *ngIf="form.explainGiveUp.errors && form.explainGiveUp.touched" class="col-12">
+                  <div *ngIf="form.explainGiveUp.hasError('required')"><em class="errorMsg">*Information is
+                      required*</em></div>
+                </div>
+              </div>
+            </div>
+  
+  
+            <div class="hover">
+              <div class="col-4 mt-3">
+                <label for="">Please give us any other information that might be import to help us make a better
+                  match:</label>
+              </div>
+  
+              <div class="col-12">
+                <textarea formControlName="additionalInfo" class="form-control textArea-width" id="" rows="5"></textarea>
+              </div>
+            </div>
+  
+  
+  
+  
+  
+          </div>
+        </div>
+      </div>
+  
+    </form>
+  </div>
+  

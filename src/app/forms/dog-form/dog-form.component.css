@@ -1,0 +1,59 @@
+/* style all elements with a required attribute */
+/* :required {
+  background: pink;
+} */
+
+legend,
+label {
+  font-weight: bold;
+  font-size: inherit;
+}
+.container {
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+.form-group.row {
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 10px 0px;
+  border-radius: 5px;
+}
+.form-group.row:hover {
+  /* background-color: rgba(57, 56, 58, 0.164); */
+  background-color: #ccffff;
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+}
+
+#highlight {
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 10px 0px;
+  border-radius: 5px;
+}
+
+#highlight:hover {
+  /* background-color: rgba(57, 56, 58, 0.164); */
+  background-color: #ccffff;
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+}
+
+textarea {
+  width: 95%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 4px 4px 4px 4px;
+  border-radius: 6px;
+}
+
+textarea:hover {
+  background-color: #ccffff;
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+}

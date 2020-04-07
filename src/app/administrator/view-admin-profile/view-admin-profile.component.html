@@ -1,0 +1,209 @@
+<div class="container p-3 heading">
+  <h1 style="text-align: center; color: #555658;">Profile Information</h1>
+</div>
+<ng-container *ngIf="!this.isLoading && this.user">
+  <div class="container">
+    <div class="mainSection">
+      <button
+        class="btn btn-outline-info p-2"
+        style="margin-left: 93%;"
+        data-toggle="modal"
+        data-target="#exampleModalCenter"
+      >
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        Edit
+      </button>
+      <div class="row mt-4">
+        <div class="col-3" style="text-align: center;">
+          <img src="https://picsum.photos/200?random" />
+          <h3 class="mt-2" style="color: rgb(70, 67, 68);">Administrator</h3>
+        </div>
+        <div class="col-3">
+          <p><strong>First name:</strong></p>
+          <p><strong>Last name:</strong></p>
+          <p><strong>Address:</strong></p>
+          <p><strong>City:</strong></p>
+          <p><strong>Province:</strong></p>
+          <p><strong>Postal Code:</strong></p>
+          <p><strong>Home Phone:</strong></p>
+          <p><strong>Email:</strong></p>
+        </div>
+        <div class="col-5">
+          <p>{{ user.fname | na}}</p>
+          <p>{{ user.lname | na}}</p>
+          <p>{{ user.address | na}}</p>
+          <p>{{ user.city | na}}</p>
+          <p>{{ user.province | na}}</p>
+          <p>{{ user.postalCode | na}}</p>
+          <p>{{ user.homePhone | na}}</p>
+          <p>{{ user.email | na}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- popup to edit  -->
+  <!-- Modal -->
+  <div
+    class="modal"
+    id="exampleModalCenter"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- FORM RIGHT HERE  -->
+          <form #form="ngForm" (ngSubmit)="onSubmit()">
+            <label for="fname">First Name: </label>
+            <input
+              type="text"
+              [(ngModel)]="user.fname"
+              name="fname"
+              required
+              class="form-control"
+            />
+            <label for="address">Last Name:</label>
+            <input
+              type="text"
+              [(ngModel)]="user.lname"
+              name="lname"
+              required
+              class="form-control"
+            />
+            <label for="fname">Address</label>
+            <input
+              type="text"
+              [(ngModel)]="user.address"
+              name="address"
+              required
+              #Address="ngModel"
+              class="form-control"
+            />
+            <!-- validation  -->
+            <div *ngIf="Address.errors && (Address.touched || Address.dirty)">
+              <div *ngIf="Address.errors.required" class="text-danger">
+                <em style="color: red;">*Address is required*</em>
+              </div>
+            </div>
+
+            <label for="city" class="mt-2">City</label>
+            <input
+              type="text"
+              [(ngModel)]="user.city"
+              name="city"
+              required
+              #City="ngModel"
+              class="form-control"
+            />
+            <!-- validation  -->
+            <div *ngIf="City.errors && (City.touched || City.dirty)">
+              <div *ngIf="City.errors.required" class="text-danger">
+                <em style="color: red;">*City is required*</em>
+              </div>
+            </div>
+
+            <label for="province" class="mt-2">Province</label>
+            <input
+              type="text"
+              [(ngModel)]="user.province"
+              name="province"
+              required
+              #Province="ngModel"
+              class="form-control"
+            />
+            <!-- validation  -->
+            <div *ngIf="Province.errors && (Province.touched || Province.dirty)">
+              <div *ngIf="Province.errors.required" class="text-danger">
+                <em style="color: red;">*Province is required*</em>
+              </div>
+            </div>
+
+            <label for="postalcode" class="mt-2">Postal Code</label>
+            <input
+              type="text"
+              [(ngModel)]="user.postalCode"
+              name="postalcode"
+              required
+              #PostalCode="ngModel"
+              class="form-control"
+            />
+            <!-- validation  -->
+            <div
+              *ngIf="
+                PostalCode.errors && (PostalCode.touched || PostalCode.dirty)
+              "
+            >
+              <div *ngIf="PostalCode.errors.required" class="text-danger">
+                <em style="color: red;">*Postal Code is requred*</em>
+              </div>
+            </div>
+
+            <label for="homephone" class="mt-2">Home Phone</label>
+            <input
+              type="text"
+              [(ngModel)]="user.homePhone"
+              name="homephone"
+              required
+              #HomePhone="ngModel"
+              class="form-control"
+            />
+
+            <label for="email" class="mt-2">Email</label>
+            <input
+              type="text"
+              [(ngModel)]="user.email"
+              name="email"
+              required
+              #Email="ngModel"
+              class="form-control"
+              [email]="true"
+            />
+            <!-- validation  -->
+            <div *ngIf="Email.errors && (Email.touched || Email.dirty)">
+              <div *ngIf="Email.errors.required" class="text-danger">
+                <em style="color: red;">*Email is required*</em>
+              </div>
+              <div *ngIf="Email.errors.email" class="text-danger">
+                <em style="color: red;">*Invalid email*</em>
+              </div>
+            </div>
+            <div
+              class="mt-3"
+              style="display: flex; justify-content: space-evenly;"
+            >
+              <button
+                type="button"
+                class="btn btn-outline-danger"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="submit"
+                [disabled]="form.invalid"
+                class="btn btn-outline-success"
+                data-toggle="modal"
+                onclick="$('.modal').modal('hide')"
+              >
+                Save changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

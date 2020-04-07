@@ -1,0 +1,33 @@
+<div class="row sticky-top">
+  <nav class="navbar navbar-expand-sm">
+    <a class="navbar-brand ml-5" routerLink="/login"
+      >Calgary Animal Rescue Society</a
+    >
+    <ul class="navbar-nav ml-auto mr-5">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['sideevents']"
+          routerLinkActive="active"
+          >Events</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/volunteer/account"
+          routerLinkActive="active"
+          >Account</a
+        >
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" routerLink="/login"
+            ><i class="fa fa-sign-out mr-1" aria-hidden="true"></i>Logout</a
+          > -->
+        <a class="nav-link" href="" (click)="doLogOut()"
+          ><i class="fa fa-sign-out mr-1" aria-hidden="true"></i>Logout</a
+        >
+      </li>
+    </ul>
+  </nav>
+</div>

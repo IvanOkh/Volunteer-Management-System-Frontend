@@ -1,0 +1,152 @@
+<div class="container mt-5">
+
+  </div>
+  
+  <div class="container">
+    <hr>
+    <h3 class="sticky-top">Current/Previous Pets</h3>
+    <hr>
+    <form [formGroup]="formGroup">
+      <div class="row">
+        <div class="container">
+          <div class="hover">
+            <div class="col-md-3 mt-3">
+              <label for="">Is there any cats that live with you now? <span class="star">*</span></label>
+            </div>
+            <div class="col-md-9 mt-3">
+              <mat-radio-group formControlName="anycats">
+                <mat-radio-button value=true>Yes</mat-radio-button>
+                <mat-radio-button value=false>No</mat-radio-button>
+              </mat-radio-group>
+              <!-- validation  -->
+              <div *ngIf="form.anycats.errors && form.anycats.touched" class="col-12">
+                <div *ngIf="form.anycats.hasError('required')"><em class="errorMsg">*Information is required*</em></div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="hover">
+            <div class="col-md-4">
+              <label>If yes, how many and how old are they?</label>
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control" formControlName="catsinfo">
+            </div>
+          </div>
+  
+          <div class="hover">
+            <div class="col-md-3 mt-3">
+              <label for="">How are your cats towards other cats?</label>
+            </div>
+            <div class="col-md-9 mt-3" style="display: grid;">
+              <mat-checkbox formControlName="FriendlyCat">Friendly</mat-checkbox>
+              <mat-checkbox formControlName="PlayfulCat">Playful</mat-checkbox>
+              <mat-checkbox formControlName="AfraidCat">Afraid</mat-checkbox>
+              <mat-checkbox formControlName="AggressiveCat">Aggressive</mat-checkbox>
+              <mat-checkbox formControlName="NotSureCat">Not Sure</mat-checkbox>
+            </div>
+          </div>
+  
+          <div class="hover">
+            <div class="col-md-3 mt-3">
+              <label for="">Do you have other pets? <span class="star">*</span></label>
+            </div>
+            <div class="col-md-9 mt-3" style="display: grid;">
+              <mat-radio-group formControlName="otherpet">
+                <mat-radio-button value=true>Yes</mat-radio-button>
+                <mat-radio-button value=false>No</mat-radio-button>
+              </mat-radio-group>
+              <input type="text" class="form-control" formControlName="otherpetinfo">
+              <!-- validation  -->
+              <div *ngIf="form.otherpet.errors && form.otherpet.touched" class="col-12">
+                <div *ngIf="form.otherpet.hasError('required')"><em class="errorMsg">*Other pet is
+                    required*</em></div>
+              </div>
+            </div>
+          </div>
+  
+  
+  
+          <div class="hover">
+            <div class="col-md-4">
+              <label>How many of these pets are spayed/neutered?</label>
+            </div>
+            <div class="col-md-6">
+              <input type="number" min="0" formControlName="numberPetSpayed" class="form-control small-input">
+            </div>
+          </div>
+  
+          <div class="hover">
+            <div class="col-4 mt-3">
+              <label for="">Where are these animals now?</label>
+            </div>
+            <div class="col-12">
+              <textarea class="form-control textArea-width" formControlName="animalLocation" rows="5"></textarea>
+            </div>
+          </div>
+  
+          <div class="hover">
+            <div class="col-md-3 mt-3">
+              <label for="">Have you adopted from an animal rescue group before? <span class="star">*</span></label>
+            </div>
+            <div class="col-md-9 mt-3">
+              <mat-radio-group formControlName="adoptedBefore">
+                <mat-radio-button value=true>Yes</mat-radio-button>
+                <mat-radio-button value=false>No</mat-radio-button>
+              </mat-radio-group>
+              <!-- validation  -->
+              <div *ngIf="form.adoptedBefore.errors && form.adoptedBefore.touched" class="col-12">
+                <div *ngIf="form.adoptedBefore.hasError('required')"><em class="errorMsg">*Information is required*</em></div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="hover">
+            <div class="col-md-4">
+              <label>If yes, what group?</label>
+            </div>
+            <div class="col-md-6">
+              <input type="text" formControlName="adoptedBeforeValue" class="form-control">
+            </div>
+          </div>
+  
+          <div class="hover">
+            <div class="col-md-3 mt-3">
+              <label for="">Have you ever surrendered a pet to a humane society or rescue? <span
+                  class="star">*</span></label>
+            </div>
+            <div class="col-md-9 mt-3">
+              <mat-radio-group formControlName="surrenderedPet">
+                <mat-radio-button value=yes>Yes</mat-radio-button>
+                <mat-radio-button value="no">No</mat-radio-button>
+              </mat-radio-group>
+              <!-- validation  -->
+              <div *ngIf="form.surrenderedPet.errors && form.surrenderedPet.touched" class="col-12">
+                <div *ngIf="form.surrenderedPet.hasError('required')"><em class="errorMsg">*Information is required*</em></div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="hover">
+            <div class="col-4 mt-3">
+              <label for="">If yes, what were the circumstances?</label>
+            </div>
+            <div class="col-12">
+              <textarea class="form-control textArea-width" formControlName="circumstancesValue" rows="5"></textarea>
+            </div>
+          </div>
+  
+          <div class="hover">
+            <div class="col-4 mt-3">
+              <label for="">Please provide the name and phone number of your current and/or previous veterinarian or
+                clinic:</label>
+            </div>
+            <div class="col-12">
+              <textarea class="form-control textArea-width" formControlName="petInfoPrivious" rows="5"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  
