@@ -38,7 +38,7 @@ export class AuthService {
       _token: string;
       _tokenExpirationDate: string;
     } = JSON.parse(localStorage.getItem("userData"));
-    console.log(userData);
+    //console.log(userData);
     //if user data is empty, return
     if (!userData) {
       return;
@@ -61,6 +61,12 @@ export class AuthService {
         new Date().getTime();
       this.autoLogout(expirationDuration);
     }
+
+    if (this.user.value.role === "admin") {
+      this.router.navigate(["/admin"]);
+    } else {
+      this.router.navigate(["/volunteer"]);
+    }
   }
 
   //Method that sends entered email and password to backend. Returns observable of type <AuthResponseData> which can be subscribed to in auth.component.ts
@@ -79,9 +85,9 @@ export class AuthService {
           catchError(this.handleError),
           //observe for response data, and if recieved, pass it to handleAuthentication
           tap((resData) => {
-            console.log(resData);
+            //console.log(resData);
             if (resData.email === email) {
-              console.log(resData.expiresIn);
+              //console.log(resData.expiresIn);
               this.handleAuthentication(
                 resData.email,
                 resData.id,
@@ -109,7 +115,7 @@ export class AuthService {
     // console.log(newD);
     // console.log(new Date().getTime());
     let expirationDate = new Date(new Date().getTime() + newD.getTime());
-    console.log("new user date is " + expirationDate);
+    //console.log("new user date is " + expirationDate);
     //instantiate a user from backend reply
     const user = new User(email, userId, userRole, token, expirationDate);
     //push it to observable declared before consturctor
@@ -132,7 +138,7 @@ export class AuthService {
 
   //Method which logs a user out. User is returned to login screen, and local storage is cleaned.
   logout() {
-    console.log("in log out");
+    //console.log("in log out");
     //remove "session" data from local storage
     localStorage.removeItem("userData");
     localStorage.clear;
