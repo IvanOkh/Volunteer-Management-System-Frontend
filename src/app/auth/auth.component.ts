@@ -36,7 +36,7 @@ export class AuthComponent {
 
     authObservable.subscribe(
       (responseData) => {
-        console.log(responseData);
+        //console.log(responseData);
         this.isLoading = false;
         if (responseData.role === "admin") {
           this.router.navigate(["/admin"]);
@@ -45,7 +45,7 @@ export class AuthComponent {
         }
       },
       (errorMessage) => {
-        console.log(errorMessage);
+        //console.log(errorMessage);
         this.error = errorMessage;
         this.isLoading = false;
       }

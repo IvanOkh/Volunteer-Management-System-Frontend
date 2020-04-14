@@ -27,10 +27,10 @@ export class AuthGuard implements CanActivate {
       map((user) => {
         const isAuth = !!user;
         if (isAuth && user.role === "admin") {
-          console.log("Guard let you inside admin");
+          //console.log("Guard let you inside admin");
           return true;
         }
-        console.log("Guard didn't let you in");
+        //console.log("Guard didn't let you in");
         return this.router.createUrlTree(["/login"]);
       })
     );

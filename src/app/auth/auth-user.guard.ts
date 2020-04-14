@@ -27,10 +27,10 @@ export class AuthUserGuard implements CanActivate {
       map((user) => {
         const isAuth = !!user;
         if (isAuth && user.role === "regular") {
-          console.log("Guard let you inside regular");
+          // console.log("Guard let you inside regular");
           return true;
         }
-        console.log("Guard didn't let you in");
+        //console.log("Guard didn't let you in");
         return this.router.createUrlTree(["/login"]);
       })
     );
