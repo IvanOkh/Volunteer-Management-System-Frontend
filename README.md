@@ -1,3 +1,7 @@
+                                              C.A.R.S. Volunteer System
+
+The purpose of this system is to look for volunteers who can become foster parents, participate in adoption events, and work at fundraisers. The system would help both clients and users have better experience when dealing with application forms, managing volunteers, animals and events easily.
+
 # CarsMasterFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
