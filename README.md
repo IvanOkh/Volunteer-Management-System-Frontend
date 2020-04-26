@@ -1,5 +1,5 @@
                                               C.A.R.S. Volunteer System
-
+![login page image](images/Login-Page.jpg)
 The purpose of this system is to look for volunteers who can become foster parents, participate in adoption events, and work at fundraisers. The system would help both clients and users have better experience when dealing with application forms, managing volunteers, animals and events easily.
 
 The system is used to manage adoption forms, foster/volunteer application forms, and events. CARS Chairs are admins for the system and manage the forms, the personnel and the events. They can view forms and either accept or reject them. They can manage fosters and volunteers that belong to CARS. They can also create and manage events for the organization. 
