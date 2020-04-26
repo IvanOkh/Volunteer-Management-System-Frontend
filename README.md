@@ -1,4 +1,4 @@
-                                             #  C.A.R.S. Volunteer System
+#  C.A.R.S. Volunteer System
 ![login page image](images/Login-Page.jpg)
 
   ## Problem
