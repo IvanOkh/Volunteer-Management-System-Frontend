@@ -41,6 +41,10 @@ The system uses tokens, password hashing and roles to create a secure environmen
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
+# Reference Materials
+### Admin-side events page
+![administrator side events image](images/Admin-Side-Events.jpg)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
