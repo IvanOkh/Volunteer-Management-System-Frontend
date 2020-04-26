@@ -14,7 +14,7 @@ The two systems (front and back end) are packaged into a web application that is
 As a result, of the new system developed, CARS are able to significantly reduce the cost of managing their day to day activities. The new system is able to manage adoption forms, foster/volunteer application forms, and events. CARS chairs are admins for the system, and can manage the forms, the personnel and the events. They can view forms and either accept or reject them. They can manage fosters and volunteers that belong to CARS. They can also create and manage events for the organization. Fosters and volunteers of CARS have access to their account details and are able to edit them as well as view events that the chairs have created and register/unregister from them. This system ensures that all the essential services that are currently used at CARS are concentrated into one place instead of being scattered across multiple applications. 
 
 
-# CarsMasterFrontend
+## Version
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
