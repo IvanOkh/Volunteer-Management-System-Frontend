@@ -19,8 +19,8 @@ import { DogFormComponent } from "./forms/dog-form/dog-form.component";
 import { FormLayoutComponent } from "./forms/cat-form/form-layout/form-layout.component";
 import { AuthGuard } from "./auth/auth.guard";
 import { AuthUserGuard } from "./auth/auth-user.guard";
-import { ResetPasswordComponent } from './shared/components/reset-password/reset-password.component';
-import { MainPageComponent } from './shared/components/main-page/main-page.component';
+import { ResetPasswordComponent } from "./shared/components/reset-password/reset-password.component";
+import { MainPageComponent } from "./shared/components/main-page/main-page.component";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -66,30 +66,6 @@ const appRoutes: Routes = [
     ],
   },
   { path: "**", redirectTo: "/login" },
-  // { path: "**", component: MainPageComponent }, //replace with page not found component
-
-  //     { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  //     {
-  //       path: 'recipes',
-  //       component: RecipesComponent,
-  //       canActivate: [AuthGuard],
-  //       children: [
-  //         { path: '', component: RecipeStartComponent },
-  //         { path: 'new', component: RecipeEditComponent },
-  //         {
-  //           path: ':id',
-  //           component: RecipeDetailComponent,
-  //           resolve: [RecipesResolverService]
-  //         },
-  //         {
-  //           path: ':id/edit',
-  //           component: RecipeEditComponent,
-  //           resolve: [RecipesResolverService]
-  //         }
-  //       ]
-  //     },
-  //     { path: 'shopping-list', component: ShoppingListComponent },
-  //     { path: 'auth', component: AuthComponent }
 ];
 
 @NgModule({
