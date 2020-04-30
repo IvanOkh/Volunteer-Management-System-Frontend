@@ -19,6 +19,7 @@ import { FormService } from "../../cat-form/services/form.service";
 import { CatForm } from "../cat-model";
 import { invalid } from "@angular/compiler/src/render3/view/util";
 import { FormsService } from "src/app/shared/services/forms.service";
+import { Router } from "@angular/router";
 
 export type SubFormName =
   | "basicInfo"
@@ -93,7 +94,8 @@ export class FormLayoutComponent implements OnInit {
   constructor(
     private readonly fb: FormBuilder,
     private readonly formService: FormService,
-    private FS: FormsService
+    private FS: FormsService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -107,6 +109,13 @@ export class FormLayoutComponent implements OnInit {
       references: null,
       catTable: null,
     });
+  }
+
+  /**
+   * Function to navigate the user back to home page (used for back button)
+   */
+  onOkClick() {
+    this.router.navigate(["/login"]);
   }
 
   public onSubmit() {

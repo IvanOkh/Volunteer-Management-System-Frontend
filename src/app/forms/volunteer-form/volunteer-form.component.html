@@ -6,7 +6,7 @@
 
 <div class="container">
   <button class="btn btn-primary mb-5" type="button" (click)="onOkClick()">
-    Back to Login
+    <i class="fa fa-reply" aria-hidden="true"></i> Back to Login
   </button>
   <p>
     Please complete this application form if you are interested in becoming a
@@ -804,7 +804,6 @@
     <div class="modal" id="submissionModal">
       <div class="modal-dialog">
         <div class="modal-content">
-
           <!-- If form is valid -->
           <div *ngIf="validForm">
             <div class="modal-header">
@@ -836,17 +835,11 @@
               Can't submit form. Make sure all fields have been filled!
             </div>
             <div class="modal-footer">
-              <button
-                class="btn btn-danger"
-                data-dismiss="modal"
-              >
+              <button class="btn btn-danger" data-dismiss="modal">
                 Back to form
               </button>
             </div>
           </div>
-
-
-
         </div>
       </div>
     </div>

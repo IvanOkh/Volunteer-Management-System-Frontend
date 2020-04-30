@@ -1,24 +1,29 @@
 <div class="mt-2 container">
+  <div class="col-12 col-sm-10 col-sm-offset-1 col-md-offset-1 ml-5">
   <div class="pb-0 mt-2 sticky-top text-center bg-transparent">
-    <h1 class="display-6 text-info bg-white">
+    <h1 class="display-6 text-info bg-white mt-2">
       Dog Adoption Application
       <hr />
     </h1>
   </div>
 
+  <button class="btn btn-primary mb-5 text-left" type="button" (click)="onOkClick()">
+    <i class="fa fa-reply" aria-hidden="true"></i> Back to Login
+  </button>
+
   <!-- style="position: center" -->
 
   <!-- &nbsp -->
   <!-- <div class="col-12 col-sm-10 col-sm-offset-1 col-md-offset-1 m-1"> -->
-  <div class="col-12 col-sm-10 col-sm-offset-1 col-md-offset-1 ml-5">
-    <div class="jumbotron">
+ 
+    <div class="jumbotron pt-4">
       <!-- <input type="text" class="form-control" />
         <button class="btn btn-primary" (click)="onAddMyText()">Add Text</button>
         <p>Hi</p>
         <hr /> -->
       <!-- let Angular know that we want this form to be ngForm object -->
       <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
-        <h3 class="sticky" id="applicantlink" style="color: #3366ff;">
+        <h3 id="applicantlink" style="color: #3366ff;">
           Applicant Information
           <hr />
         </h3>

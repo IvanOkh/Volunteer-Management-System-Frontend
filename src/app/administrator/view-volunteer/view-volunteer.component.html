@@ -179,7 +179,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger delete-button" data-dismiss="modal" data-target="#confirmDelete"
+            <button type="button" class="btn btn-danger delete-button" data-dismiss="modal" data-target="#confirmDelete" [disabled]="this.fetched.active"
               data-toggle="modal">
               Delete
             </button>
@@ -194,6 +194,7 @@
                 Deactivate
               </button>
             </div>
+
             <div *ngIf="!fetched.active">
               <button type="button" class="btn btn-primary" data-dismiss="modal" data-target="#confirmActive"
                 data-toggle="modal">

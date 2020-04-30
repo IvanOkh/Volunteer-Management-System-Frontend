@@ -3,6 +3,7 @@ import { NgForm, NgModel } from "@angular/forms";
 // import { MatCheckboxModule } from "@angular/material/checkbox";
 import { DogForm } from "./dog-form.model";
 import { FormsService } from "src/app/shared/services/forms.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-dog-form",
@@ -53,9 +54,16 @@ export class DogFormComponent implements OnInit {
 
   @ViewChild("signupForm", { static: false }) sgnForm: NgForm;
 
-  constructor(private FS: FormsService) {}
+  constructor(private FS: FormsService, private router: Router) {}
 
   ngOnInit() {}
+
+  /**
+   * Function to navigate the user back to home page (used for back button)
+   */
+  onOkClick() {
+    this.router.navigate(["/login"]);
+  }
 
   onSubmit(form: NgForm) {
     // this.errorMessages.length = 0;
