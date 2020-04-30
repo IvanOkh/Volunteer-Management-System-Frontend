@@ -1,4 +1,33 @@
-.loginSection{
-  padding: 34px 44px;
-  background: #c5bdbdde;
+.loginSection {
+  padding: 11% 10%;
+  background: #e6dedede;
+  border-radius: 3%;
 }
+
+/* SECTION FOR MEDIA QUERY */
+/* BEGIN  */
+@media screen and (max-width: 767px) {
+  .loginSection {
+    padding: 4% 6%;
+  }
+  .loginSection h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 380px) and (max-width: 767px) {
+  .loginSection {
+    width: 72%;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .loginSection {
+    padding: 8% 7%;
+    background: #e6dedede;
+    border-radius: 3%;
+    width: 113%;
+  }
+}
+/* END  */

@@ -19,19 +19,17 @@
 .container-sec {
   position: absolute;
   top: 5%;
-  right: 10%;
 }
-.loginSection {
+.mainLogin {
   position: absolute;
-  top: 20%;
-  right: 10%;
+  top: 25%;
 }
 
 .textSection {
-  position: absolute;
-  top: 42%;
+  /* position: absolute; */
+  /* top: 42%; */
   color: white;
-  width: 50%;
+  /* width: 50%; */
   margin-left: 4%;
 }
 
@@ -173,3 +171,60 @@
   place-content: space-between;
   margin-top: 3%;
 }
+
+/* SECTION FOR RESPONSIVE CUSTOMIZATION */
+/* BEGIN MEDIA QUERY*/
+
+/* BEGIN SECTION 1: background img section */
+@media only screen and (max-width: 767px) {
+  .mainLogin {
+    position: absolute;
+    top: 14%;
+  }
+
+  .textSection {
+    text-align: center;
+  }
+  .loginSection {
+    padding: 0% 4%;
+  }
+  .textSection h1 {
+    font-size: 1.8rem;
+  }
+  .textSection p {
+    font-size: 0.9rem;
+    line-height: 17px;
+    margin-bottom: 0;
+  }
+  .volunteerText h3 {
+    margin: 0;
+    text-align: center;
+    padding-top: 96px;
+    z-index: 1;
+    font-weight: 500;
+  }
+  #text {
+    margin: auto;
+    padding-top: 0%;
+    width: none;
+  }
+  .itemsList {
+    background-color: #ce0e2e;
+    padding: 4% 4%;
+    margin: 5px;
+    border-radius: 7px;
+  }
+}
+
+@media only screen and (min-width: 574px) and (max-width: 767px) {
+  .textSection p {
+    margin-bottom: 0;
+  }
+}
+@media only screen and (min-width: 767px) {
+  .sticky-top {
+    text-align: center;
+  }
+}
+/* END SECTION 1  */
+
