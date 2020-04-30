@@ -36,16 +36,12 @@ header {
   margin-top: 18px;
 }
 
-.personalInfo {
-  background-color: rgb(245, 234, 234);
-}
-
 .flag,
 .description {
   margin-top: 5px;
   padding: 13px;
-  border: 1px solid black;
-  border-radius: 8px;
+  border: 1px solid #7A5C61;
+  border-radius: 3px;
 }
 
 .noteSection {
@@ -76,6 +72,11 @@ header {
 .sectionTitle,
 .centerElements {
   text-align: center;
+  color: #ce0e2d;
+}
+
+.leftElements {
+  text-align: left;
   color: #ce0e2d;
 }
 

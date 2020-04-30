@@ -8,7 +8,10 @@
 
 <ng-container *ngIf="!this.isLoading && this.vList.length == 0">
   <div class="row justify-content-center">
-    <p>We don't nave anything to display at this time. Please stand by or check again later</p>
+    <p>
+      We don't nave anything to display at this time. Please stand by or check
+      again later
+    </p>
   </div>
 </ng-container>
 
@@ -17,7 +20,12 @@
     <div class="body">
       <div class="pt-2">
         <div class="table-responsive-md">
-          <table id="myTable" #dataTable class="table table-hover table-hover" width="100%">
+          <table
+            id="myTable"
+            #dataTable
+            class="table table-hover table-hover"
+            width="100%"
+          >
             <thead style="background-color: #ce0e2d; color: white;">
               <tr>
                 <th class="th">First Name</th>
@@ -29,18 +37,30 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="table-secondary" *ngFor="let item of vList" (click)="viewVolunteer(item.id)"
-                data-toggle="modal" data-target="#viewVolunteerModal" style="cursor: pointer;">
+              <tr
+                class="table-secondary"
+                *ngFor="let item of vList"
+                (click)="viewVolunteer(item.id)"
+                data-toggle="modal"
+                data-target="#viewVolunteerModal"
+                style="cursor: pointer;"
+              >
                 <td [innerText]="item.fname"></td>
                 <td [innerText]="item.lname"></td>
                 <td [innerText]="item.email"></td>
                 <td [innerText]="item.dateOfBirth"></td>
                 <td [innerText]="item.gender"></td>
                 <td *ngIf="!item.active">
-                  <i class="fa fa-user" style="font-size: 20px; color: red;"></i>
+                  <i
+                    class="fa fa-user"
+                    style="font-size: 20px; color: red;"
+                  ></i>
                 </td>
                 <td *ngIf="item.active">
-                  <i class="fa fa-user" style="font-size: 20px; color: green;"></i>
+                  <i
+                    class="fa fa-user"
+                    style="font-size: 20px; color: green;"
+                  ></i>
                 </td>
               </tr>
             </tbody>
@@ -50,8 +70,14 @@
     </div>
   </div>
   <!-- bootstrap pop up modal  -->
-  <div class="modal fade" tabindex="-1" id="viewVolunteerModal" role="dialog" aria-labelledby="viewVolunteerModalLabel"
-    aria-hidden="true">
+  <div
+    class="modal fade"
+    tabindex="-1"
+    id="viewVolunteerModal"
+    role="dialog"
+    aria-labelledby="viewVolunteerModalLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
       <ng-container *ngIf="this.fetchLoading">
         <div class="row justify-content-center">
@@ -62,11 +88,19 @@
       </ng-container>
       <ng-container *ngIf="!this.fetchLoading && this.fetched">
         <div class="modal-content">
-          <div class="modal-header" style="background-color: #ce0e2d; color: white;">
+          <div
+            class="modal-header"
+            style="background-color: #ce0e2d; color: white;"
+          >
             <h2 class="modal-title" id="viewVolunteerModalLabel">
               Volunteer Information
             </h2>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -81,123 +115,167 @@
             </ng-container>
             <!-- displays fetched edit information if it is defined  -->
 
-            <div class="row">
-              <div class="col-4 personalInfo">
-                <div class="centerElements">
-                  <h3>Details</h3>
-                </div>
-                <p>
-                  <strong>Status: </strong>
-                  <span [ngStyle]="{ color: fetched.active ? 'green' : 'red' }">
-                    <i class="fa fa-user" style="font-size: 20px;"></i>
-                  </span>
-                </p>
-                <p><strong>First name:</strong> {{ fetched.fname }}</p>
-                <p><strong>Last name:</strong> {{ fetched.lname }}</p>
-                <!-- string interpolation {{DOB}} removed by MAX because DOB doesn't exist. Fix please! -->
-                <p><strong>Date of Birth:</strong>{{ fetched.dateOfBirth }}</p>
-                <p><strong>Gender:</strong> {{ fetched.gender }}</p>
-                <p><strong>Address:</strong> {{ fetched.address }}</p>
-                <p><strong>Postal Code:</strong> {{ fetched.postalCode }}</p>
+            <div class="container">
+            <h1 class="centerElements mt-3">
+              {{ fetched.fname }}<span> {{ fetched.lname }}</span>
+            </h1>
+            <hr style="width: 1px black;" />
 
-                <hr style="width: 1px black;" />
-                <h5 class="sectionTitle">Contact Information</h5>
-                <hr style="width: 1px black;" />
-                <div style="text-align: left;">
-                  <p><strong>Cell phone:</strong> {{ fetched.cellPhone }}</p>
-                  <p><strong>Home phone:</strong> {{ fetched.homePhone }}</p>
-                  <p><strong>Email:</strong> {{ fetched.email }}</p>
-                  <p><strong>T-shirt size:</strong> {{ fetched.tshirtSize }}</p>
-                </div>
+            <div class="row container">
+              <div class="col-6">
 
+              <h3 class="leftElements">Contact Information</h3>
+              <div style="text-align: left;">
+                <p><strong>Cell phone:</strong> {{ fetched.cellPhone }}</p>
+                <p><strong>Home phone:</strong> {{ fetched.homePhone }}</p>
+                <p><strong>Email:</strong> {{ fetched.email }}</p>
+                <p><strong>T-shirt size:</strong> {{ fetched.tshirtSize }}</p>
+              </div>
+
+              <h4 class="leftElements">Description:</h4>
                 <section class="description mt-4">
-                  <h4 class="sectionTitle">Description:</h4>
                   <p>{{ fetched.description }}</p>
                 </section>
               </div>
-              <div class="col-8">
-                <h1 class="centerElements">
-                  {{ fetched.fname }}<span> {{ fetched.lname }}</span>
-                </h1>
+            
+            <div class="col-6">
+              <div class="leftElements">
+                <h3>Details</h3>
+              </div>
+              <p>
+                <strong>Status: </strong>
+                <span [ngStyle]="{ color: fetched.active ? 'green' : 'red' }">
+                  <i class="fa fa-user" style="font-size: 20px;"></i>
+                </span>
+              </p>
+              <p><strong>First name:</strong> {{ fetched.fname }}</p>
+              <p><strong>Last name:</strong> {{ fetched.lname }}</p>
+              <!-- string interpolation {{DOB}} removed by MAX because DOB doesn't exist. Fix please! -->
+              <p><strong>Date of Birth:</strong>{{ fetched.dateOfBirth }}</p>
+              <p><strong>Gender:</strong> {{ fetched.gender }}</p>
+              <p><strong>Address:</strong> {{ fetched.address }}</p>
+              
+              <p><strong>Postal Code:</strong> {{ fetched.postalCode }}</p>
+              
+            </div>
+          </div>
 
-                <!-- Emercency contact 1  -->
-                <div class="row contactSection">
-                  <div class="col-12" style="text-align: center;">
-                    <hr style="width: 1px black;" />
-                    <h5 class="sectionTitle">Emergency Contact 1</h5>
-                    <hr style="width: 1px black;" />
-                    <p><strong>First name:</strong> {{ fetched.emg1_fname }}</p>
-                    <p><strong>Last name:</strong> {{ fetched.emg1_lname }}</p>
-                    <p>
-                      <strong>Relationship:</strong> {{ fetched.emg1_relationship }}
-                    </p>
-                    <p><strong>Home Phone:</strong> {{ fetched.emg1_homePhone }}</p>
-                    <p><strong>Cell Phone:</strong> {{ fetched.emg1_cellPhone }}</p>
-                    <p><strong>Email:</strong> {{ fetched.emg1_email }}</p>
-                  </div>
+            <!-- emergency contacts section -->
+            <div class="row">
+              
 
-                  <div class="col-12" style="text-align: center;">
-                    <!-- Emercency contact 2  -->
-                    <hr style="width: 1px black;" />
-                    <h5 class="sectionTitle">Emergency Contact 2</h5>
-                    <hr style="width: 1px black;" />
-                    <p><strong>First name:</strong> {{ fetched.emg2_fname }}</p>
-                    <p><strong>Last name:</strong> {{ fetched.emg2_lname }}</p>
-                    <p>
-                      <strong>Relationship:</strong> {{ fetched.emg2_relationship }}
-                    </p>
-                    <p><strong>Home Phone:</strong> {{ fetched.emg2_homePhone }}</p>
-                    <p><strong>Cell Phone:</strong> {{ fetched.emg2_cellPhone }}</p>
-                    <p><strong>Email:</strong> {{ fetched.emg2_email }}</p>
-                  </div>
-                </div>
+              <!-- Emercency contact 1  -->
+              <div class="col-6" style="text-align: left;">
+                <hr style="width: 1px black;" />
+                <h5 class="leftElements">Emergency Contact 1</h5>
+                <hr style="width: 1px black;" />
+                <p><strong>First name:</strong> {{ fetched.emg1_fname }}</p>
+                <p><strong>Last name:</strong> {{ fetched.emg1_lname }}</p>
+                <p>
+                  <strong>Relationship:</strong>
+                  {{ fetched.emg1_relationship }}
+                </p>
+                <p>
+                  <strong>Home Phone:</strong> {{ fetched.emg1_homePhone }}
+                </p>
+                <p>
+                  <strong>Cell Phone:</strong> {{ fetched.emg1_cellPhone }}
+                </p>
+                <p><strong>Email:</strong> {{ fetched.emg1_email }}</p>
+              </div>
 
-                <!-- Ref contact 1  -->
-                <div class="row contactSection">
-                  <div class="col-12" style="text-align: center;">
-                    <hr style="width: 1px black;" />
-                    <h5 class="sectionTitle">Reference Contact 1</h5>
-                    <hr style="width: 1px black;" />
-                    <p><strong>First name:</strong> {{ fetched.ref1_fname }}</p>
-                    <p><strong>Last name:</strong> {{ fetched.ref1_lname }}</p>
-                    <p><strong>Cell Phone:</strong> {{ fetched.ref1_cellPhone }}</p>
-                    <p><strong>Email:</strong> {{ fetched.ref1_email }}</p>
-                  </div>
+              <div class="col-6" style="text-align: left;">
+                <!-- Emercency contact 2  -->
+                <hr style="width: 1px black;" />
+                <h5 class="leftElements">Emergency Contact 2</h5>
+                <hr style="width: 1px black;" />
+                <p><strong>First name:</strong> {{ fetched.emg2_fname }}</p>
+                <p><strong>Last name:</strong> {{ fetched.emg2_lname }}</p>
+                <p>
+                  <strong>Relationship:</strong>
+                  {{ fetched.emg2_relationship }}
+                </p>
+                <p>
+                  <strong>Home Phone:</strong> {{ fetched.emg2_homePhone }}
+                </p>
+                <p>
+                  <strong>Cell Phone:</strong> {{ fetched.emg2_cellPhone }}
+                </p>
+                <p><strong>Email:</strong> {{ fetched.emg2_email }}</p>
+              </div>
+            </div>
 
-                  <!-- Ref contact 2  -->
-                  <div class="col-12" style="text-align: center;">
-                    <hr style="width: 1px black;" />
-                    <h5 class="sectionTitle">Reference Contact 2</h5>
-                    <hr style="width: 1px black;" />
-                    <p><strong>First name:</strong> {{ fetched.ref2_fname }}</p>
-                    <p><strong>Last name:</strong> {{ fetched.ref2_lname }}</p>
-                    <p><strong>Cell Phone:</strong> {{ fetched.ref2_cellPhone }}</p>
-                    <p><strong>Email:</strong> {{ fetched.ref2_email }}</p>
-                  </div>
-                </div>
+            <!-- Ref contact 1  -->
+            <div class="row contactSection">
+              <div class="col-6" style="text-align: left;">
+                <hr style="width: 1px black;" />
+                <h5 class="leftElements">Reference Contact 1</h5>
+                <hr style="width: 1px black;" />
+                <p><strong>First name:</strong> {{ fetched.ref1_fname }}</p>
+                <p><strong>Last name:</strong> {{ fetched.ref1_lname }}</p>
+                <p>
+                  <strong>Cell Phone:</strong> {{ fetched.ref1_cellPhone }}
+                </p>
+                <p><strong>Email:</strong> {{ fetched.ref1_email }}</p>
+              </div>
+
+              <!-- Ref contact 2  -->
+              <div class="col-6" style="text-align: left;">
+                <hr style="width: 1px black;" />
+                <h5 class="leftElements">Reference Contact 2</h5>
+                <hr style="width: 1px black;" />
+                <p><strong>First name:</strong> {{ fetched.ref2_fname }}</p>
+                <p><strong>Last name:</strong> {{ fetched.ref2_lname }}</p>
+                <p>
+                  <strong>Cell Phone:</strong> {{ fetched.ref2_cellPhone }}
+                </p>
+                <p><strong>Email:</strong> {{ fetched.ref2_email }}</p>
+              </div>
               </div>
             </div>
           </div>
+
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger delete-button" data-dismiss="modal" data-target="#confirmDelete" [disabled]="this.fetched.active"
-              data-toggle="modal">
+            <button
+              type="button"
+              class="btn btn-danger delete-button"
+              data-dismiss="modal"
+              data-target="#confirmDelete"
+              [disabled]="this.fetched.active"
+              data-toggle="modal"
+            >
               Delete
             </button>
-            <button type="button" class="btn btn-warning" data-dismiss="modal" data-target="#editInfo"
-              data-toggle="modal">
+            <button
+              type="button"
+              class="btn btn-warning"
+              data-dismiss="modal"
+              data-target="#editInfo"
+              data-toggle="modal"
+            >
               Edit
             </button>
 
             <div *ngIf="fetched.active">
-              <button type="button" class="btn btn-primary" data-dismiss="modal" data-target="#confirmDeactive"
-                data-toggle="modal">
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-dismiss="modal"
+                data-target="#confirmDeactive"
+                data-toggle="modal"
+              >
                 Deactivate
               </button>
             </div>
 
             <div *ngIf="!fetched.active">
-              <button type="button" class="btn btn-primary" data-dismiss="modal" data-target="#confirmActive"
-                data-toggle="modal">
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-dismiss="modal"
+                data-target="#confirmActive"
+                data-toggle="modal"
+              >
                 Activate
               </button>
             </div>
@@ -207,8 +285,14 @@
     </div>
   </div>
   <div class="bootstrapConfirm">
-    <div class="modal fade" id="confirmActive" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
+    <div
+      class="modal fade"
+      id="confirmActive"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-dialog-centered" role="document">
         <ng-container *ngIf="this.fetchLoading">
           <div class="row justify-content-center">
@@ -223,13 +307,19 @@
               <h5 class="modal-title" id="exampleModalLongTitle">
                 Confirmation
               </h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body ml-2" style="padding: 4% 0px;">
               Are you sure you want to activate
-              <span style="color: orangered;">{{ fetched.fname + " " + fetched.lname }}
+              <span style="color: orangered;"
+                >{{ fetched.fname + " " + fetched.lname }}
               </span>
               ?
             </div>
@@ -237,7 +327,12 @@
               <button type="button" class="btn btn-danger" data-dismiss="modal">
                 Cancel
               </button>
-              <button type="button" class="btn btn-success" data-dismiss="modal" (click)="activeVolunteer()">
+              <button
+                type="button"
+                class="btn btn-success"
+                data-dismiss="modal"
+                (click)="activeVolunteer()"
+              >
                 OK
               </button>
             </div>
@@ -246,48 +341,71 @@
       </div>
     </div>
 
-    <div class="modal fade" id="confirmDeactive" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <ng-container *ngIf="this.fetchLoading">
-        <div class="row justify-content-center">
-          <div class="spinner-border text-danger" role="status">
-            <span class="sr-only">Loading...</span>
+    <div
+      class="modal fade"
+      id="confirmDeactive"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <ng-container *ngIf="this.fetchLoading">
+          <div class="row justify-content-center">
+            <div class="spinner-border text-danger" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
           </div>
-        </div>
-      </ng-container>
-      <ng-container *ngIf="!this.fetchLoading && this.fetched">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">
-              Confirmation
-            </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+        </ng-container>
+        <ng-container *ngIf="!this.fetchLoading && this.fetched">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">
+                Confirmation
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body ml-2" style="padding: 4% 0px;">
+              Are you sure you want to deactivate
+              <span style="color: orangered;"
+                >{{ fetched.fname + " " + fetched.lname }}
+              </span>
+              ?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                Cancel
+              </button>
+              <button
+                type="button"
+                class="btn btn-success"
+                data-dismiss="modal"
+                (click)="activeVolunteer()"
+              >
+                OK
+              </button>
+            </div>
           </div>
-          <div class="modal-body ml-2" style="padding: 4% 0px;">
-            Are you sure you want to deactivate
-            <span style="color: orangered;">{{ fetched.fname + " " + fetched.lname }}
-            </span>
-            ?
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">
-              Cancel
-            </button>
-            <button type="button" class="btn btn-success" data-dismiss="modal" (click)="activeVolunteer()">
-              OK
-            </button>
-          </div>
-        </div>
-      </ng-container>
+        </ng-container>
+      </div>
     </div>
-  </div>
 
     <!-- confirm delete  -->
-    <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
+    <div
+      class="modal fade"
+      id="confirmDelete"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-dialog-centered" role="document">
         <ng-container *ngIf="this.fetchLoading">
           <div class="row justify-content-center">
@@ -302,20 +420,32 @@
               <h5 class="modal-title" id="exampleModalLongTitle">
                 Confirm Delete
               </h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body ml-2" style="padding: 4% 0px;">
               Are you sure you want to permanently delete
-              <span style="color: orangered;">{{ fetched.fname + " " + fetched.lname }} </span> ?
+              <span style="color: orangered;"
+                >{{ fetched.fname + " " + fetched.lname }}
+              </span>
+              ?
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">
                 Cancel
               </button>
-              <button type="button" class="btn btn-success" data-dismiss="modal"
-                (click)="onDeleteVolunteer(fetched.id)">
+              <button
+                type="button"
+                class="btn btn-success"
+                data-dismiss="modal"
+                (click)="onDeleteVolunteer(fetched.id)"
+              >
                 OK
               </button>
             </div>
@@ -324,9 +454,18 @@
       </div>
     </div>
     <!-- edit volunteer  -->
-    <div class="modal fade" id="editInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+    <div
+      class="modal fade"
+      id="editInfo"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-lg modal-dialog-scrollable"
+        role="document"
+      >
         <ng-container *ngIf="this.fetchLoading">
           <div class="row justify-content-center">
             <div class="spinner-border text-danger" role="status">
@@ -340,7 +479,12 @@
               <h5 class="modal-title" id="exampleModalLongTitle">
                 Edit Volunteer
               </h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -349,69 +493,130 @@
                 <div class="row">
                   <div class="col-11 m-auto">
                     <label for="">ID</label>
-                    <input type="text" [(ngModel)]="fetched.id" name="id" readonly class="form-control" />
+                    <input
+                      type="text"
+                      [(ngModel)]="fetched.id"
+                      name="id"
+                      readonly
+                      class="form-control"
+                    />
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-5 m-auto">
                     <label>First name</label>
-                    <input type="text" [(ngModel)]="fetched.fname" name="fname" class="form-control" />
+                    <input
+                      type="text"
+                      [(ngModel)]="fetched.fname"
+                      name="fname"
+                      class="form-control"
+                    />
                   </div>
                   <div class="col-5 m-auto">
                     <label>Last name</label>
-                    <input type="text" name="lname" [(ngModel)]="fetched.lname" class="form-control" />
+                    <input
+                      type="text"
+                      name="lname"
+                      [(ngModel)]="fetched.lname"
+                      class="form-control"
+                    />
                   </div>
                 </div>
 
                 <div class="row mt-2">
                   <div class="col-5 m-auto">
                     <label>Date Of birth</label>
-                    <input type="text" [(ngModel)]="fetched.dateOfBirth" name="dateOfBirth" class="form-control" />
+                    <input
+                      type="text"
+                      [(ngModel)]="fetched.dateOfBirth"
+                      name="dateOfBirth"
+                      class="form-control"
+                    />
                   </div>
                   <div class="col-5 m-auto">
                     <label>Gender</label>
-                    <input type="text" name="gender" [(ngModel)]="fetched.gender" class="form-control" />
+                    <input
+                      type="text"
+                      name="gender"
+                      [(ngModel)]="fetched.gender"
+                      class="form-control"
+                    />
                   </div>
                 </div>
 
                 <div class="row mt-2">
                   <div class="col-5 m-auto">
                     <label>Address</label>
-                    <input type="text" name="address" [(ngModel)]="fetched.address" class="form-control" />
+                    <input
+                      type="text"
+                      name="address"
+                      [(ngModel)]="fetched.address"
+                      class="form-control"
+                    />
                   </div>
                   <div class="col-5 m-auto">
                     <label>Postal Code</label>
-                    <input type="text" name="postalCode" [(ngModel)]="fetched.postalCode" class="form-control" />
+                    <input
+                      type="text"
+                      name="postalCode"
+                      [(ngModel)]="fetched.postalCode"
+                      class="form-control"
+                    />
                   </div>
                 </div>
 
                 <div class="row mt-2">
                   <div class="col-5 m-auto">
                     <label>Cell Phone</label>
-                    <input type="text" name="cellPhone" [(ngModel)]="fetched.cellPhone" class="form-control" />
+                    <input
+                      type="text"
+                      name="cellPhone"
+                      [(ngModel)]="fetched.cellPhone"
+                      class="form-control"
+                    />
                   </div>
                   <div class="col-5 m-auto">
                     <label>Home Phone</label>
-                    <input [(ngModel)]="fetched.homePhone" type="text" name="homePhone" class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.homePhone"
+                      type="text"
+                      name="homePhone"
+                      class="form-control"
+                    />
                   </div>
                 </div>
 
                 <div class="row mt-2">
                   <div class="col-11 m-auto">
                     <label>Email</label>
-                    <input [(ngModel)]="fetched.email" type="text" name="email" class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.email"
+                      type="text"
+                      name="email"
+                      class="form-control"
+                    />
                   </div>
                 </div>
 
                 <div class="row mt-2">
                   <div class="col-5 m-auto">
                     <label>Description</label>
-                    <input [(ngModel)]="fetched.description" type="text" name="description" class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.description"
+                      type="text"
+                      name="description"
+                      class="form-control"
+                    />
                   </div>
                   <div class="col-5 m-auto">
                     <label>T-Shirt size</label>
-                    <input [(ngModel)]="fetched.tshirtSize" type="text" name="tshirtSize" class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.tshirtSize"
+                      type="text"
+                      name="tshirtSize"
+                      class="form-control"
+                    />
                   </div>
                 </div>
 
@@ -423,7 +628,12 @@
                     </h5>
                     <hr class="lineSection" />
                     <label>Fist name</label>
-                    <input [(ngModel)]="fetched.emg1_fname" type="text" name="emg1_fname" class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.emg1_fname"
+                      type="text"
+                      name="emg1_fname"
+                      class="form-control"
+                    />
                   </div>
 
                   <div class="col-5 m-auto">
@@ -433,68 +643,117 @@
                     </h5>
                     <hr class="lineSection" />
                     <label>Fist name</label>
-                    <input [(ngModel)]="fetched.emg2_fname" type="text" name="emg2_fname" class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.emg2_fname"
+                      type="text"
+                      name="emg2_fname"
+                      class="form-control"
+                    />
                   </div>
                 </div>
 
                 <div class="row mt-2">
                   <div class="col-5 m-auto">
                     <label>Last name</label>
-                    <input [(ngModel)]="fetched.emg1_lname" type="text" name="emg1_lname" class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.emg1_lname"
+                      type="text"
+                      name="emg1_lname"
+                      class="form-control"
+                    />
                   </div>
                   <div class="col-5 m-auto">
                     <label>Last name</label>
-                    <input [(ngModel)]="fetched.emg2_lname" type="text" name="emg2_lname" class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.emg2_lname"
+                      type="text"
+                      name="emg2_lname"
+                      class="form-control"
+                    />
                   </div>
                 </div>
 
                 <div class="row mt-2">
                   <div class="col-5 m-auto">
                     <label>Relationship</label>
-                    <input [(ngModel)]="fetched.emg1_relationship" type="text" name="emg1_relationship"
-                      class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.emg1_relationship"
+                      type="text"
+                      name="emg1_relationship"
+                      class="form-control"
+                    />
                   </div>
                   <div class="col-5 m-auto">
                     <label>Relationship</label>
-                    <input [(ngModel)]="fetched.emg2_relationship" type="text" name="emg2_relationship"
-                      class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.emg2_relationship"
+                      type="text"
+                      name="emg2_relationship"
+                      class="form-control"
+                    />
                   </div>
                 </div>
 
                 <div class="row mt-2">
                   <div class="col-5 m-auto">
                     <label>Home Phone</label>
-                    <input [(ngModel)]="fetched.emg1_homePhone" type="text" name="emg1_homePhone"
-                      class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.emg1_homePhone"
+                      type="text"
+                      name="emg1_homePhone"
+                      class="form-control"
+                    />
                   </div>
                   <div class="col-5 m-auto">
                     <label>Home Phone</label>
-                    <input [(ngModel)]="fetched.emg2_homePhone" type="text" name="emg2_homePhone"
-                      class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.emg2_homePhone"
+                      type="text"
+                      name="emg2_homePhone"
+                      class="form-control"
+                    />
                   </div>
                 </div>
 
                 <div class="row mt-2">
                   <div class="col-5 m-auto">
                     <label>Cell Phone</label>
-                    <input [(ngModel)]="fetched.emg1_cellPhone" type="text" name="emg1_cellPhone"
-                      class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.emg1_cellPhone"
+                      type="text"
+                      name="emg1_cellPhone"
+                      class="form-control"
+                    />
                   </div>
                   <div class="col-5 m-auto">
                     <label>Cell Phone</label>
-                    <input [(ngModel)]="fetched.emg2_cellPhone" type="text" name="emg2_cellPhone"
-                      class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.emg2_cellPhone"
+                      type="text"
+                      name="emg2_cellPhone"
+                      class="form-control"
+                    />
                   </div>
                 </div>
 
                 <div class="row mt-2">
                   <div class="col-5 m-auto">
                     <label>Email</label>
-                    <input [(ngModel)]="fetched.emg1_email" type="text" name="emg1_email" class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.emg1_email"
+                      type="text"
+                      name="emg1_email"
+                      class="form-control"
+                    />
                   </div>
                   <div class="col-5 m-auto">
                     <label>Email</label>
-                    <input [(ngModel)]="fetched.emg2_email" type="text" name="emg2_email" class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.emg2_email"
+                      type="text"
+                      name="emg2_email"
+                      class="form-control"
+                    />
                   </div>
                 </div>
 
@@ -507,7 +766,12 @@
                     </h5>
                     <hr class="lineSection" />
                     <label>First name</label>
-                    <input [(ngModel)]="fetched.ref1_fname" type="text" name="ref1_fname" class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.ref1_fname"
+                      type="text"
+                      name="ref1_fname"
+                      class="form-control"
+                    />
                   </div>
 
                   <div class="col-5 m-auto">
@@ -517,53 +781,97 @@
                     </h5>
                     <hr class="lineSection" />
                     <label>First name</label>
-                    <input [(ngModel)]="fetched.ref2_fname" type="text" name="ref2_fname" class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.ref2_fname"
+                      type="text"
+                      name="ref2_fname"
+                      class="form-control"
+                    />
                   </div>
                 </div>
 
                 <div class="row mt-2">
                   <div class="col-5 m-auto">
                     <label>Last name</label>
-                    <input [(ngModel)]="fetched.ref1_lname" type="text" name="ref1_lname" class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.ref1_lname"
+                      type="text"
+                      name="ref1_lname"
+                      class="form-control"
+                    />
                   </div>
                   <div class="col-5 m-auto">
                     <label>Last name</label>
-                    <input [(ngModel)]="fetched.ref2_lname" type="text" name="ref2_lname" class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.ref2_lname"
+                      type="text"
+                      name="ref2_lname"
+                      class="form-control"
+                    />
                   </div>
                 </div>
 
                 <div class="row mt-2">
                   <div class="col-5 m-auto">
                     <label>Cell Phone</label>
-                    <input [(ngModel)]="fetched.ref1_cellPhone" type="text" name="ref1_cellPhone"
-                      class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.ref1_cellPhone"
+                      type="text"
+                      name="ref1_cellPhone"
+                      class="form-control"
+                    />
                   </div>
                   <div class="col-5 m-auto">
                     <label>Cell Phone</label>
-                    <input [(ngModel)]="fetched.ref2_cellPhone" type="text" name="ref2_cellPhone"
-                      class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.ref2_cellPhone"
+                      type="text"
+                      name="ref2_cellPhone"
+                      class="form-control"
+                    />
                   </div>
                 </div>
 
                 <div class="row mt-2">
                   <div class="col-5 m-auto">
                     <label>Email</label>
-                    <input [(ngModel)]="fetched.ref1_email" type="text" name="ref1_email" class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.ref1_email"
+                      type="text"
+                      name="ref1_email"
+                      class="form-control"
+                    />
                   </div>
                   <div class="col-5 m-auto">
                     <label>Email</label>
-                    <input [(ngModel)]="fetched.ref2_email" type="text" name="ref2_email" class="form-control" />
+                    <input
+                      [(ngModel)]="fetched.ref2_email"
+                      type="text"
+                      name="ref2_email"
+                      class="form-control"
+                    />
                   </div>
                 </div>
-                <div class="mt-4" style="
+                <div
+                  class="mt-4"
+                  style="
                     display: flex;
                     align-items: center;
                     place-content: space-evenly;
-                  ">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">
+                  "
+                >
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    data-dismiss="modal"
+                  >
                     Discard
                   </button>
-                  <button type="submit" class="btn btn-success" onclick="$('.modal').modal('hide')">
+                  <button
+                    type="submit"
+                    class="btn btn-success"
+                    onclick="$('.modal').modal('hide')"
+                  >
                     Save changes
                   </button>
                 </div>
