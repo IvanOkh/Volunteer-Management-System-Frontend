@@ -59,3 +59,12 @@ textarea:hover {
 }
 
 
+.background{
+  background-color: #eff4f7;
+  border-radius: 15px;
+  padding: 20px 10px;
+}
+
+h3{
+  background-color: #eff4f7;
+}
