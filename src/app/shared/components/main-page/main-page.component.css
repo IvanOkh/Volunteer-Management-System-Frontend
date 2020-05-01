@@ -1,9 +1,9 @@
 .navbar-toggler {
-  padding: 4px!important;
+  padding: 4px !important;
 }
 
 .navbar {
-  padding: 0px!important;
+  padding: 0px !important;
 }
 
 .backgroundSection img {
@@ -256,11 +256,13 @@
   .paraTitle {
     font-size: 90%;
   }
+
 }
 @media only screen and (max-width: 415px) {
   .textItem p {
     font-size: 73%;
   }
+  
 }
 /* END SECTION 2  */
 
