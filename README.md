@@ -7,8 +7,8 @@ They also used an external application management system. This application syste
 The major goal of this project was to build and deploy a system that handles the organization’s volunteers and forms.
 
   ## Solution
-A full stack web application that allows to manage application forms, volunteers, animals, and events easily, and helps both clients and users have better experience when dealing with application forms, event registration, and password recovery.
-The two systems (front and back end) are packaged into a web application that is accessible from any internet browser. The system is built using the Angular Framework and the Spring Framework. Languages used include: Java, SQL, HTML, CSS and TypeScript.
+A scalable full stack web application that allows to manage application forms, volunteers, animals, and events easily, and helps both clients and users have better experience when dealing with application forms, event registration, and password recovery.
+The two systems (front and back end) are packaged into a scalable web application that is accessible from any internet browser. The system is built using the Angular Framework and the Spring Framework. Languages used include: Java, SQL, HTML, CSS and TypeScript.
   
   ## Result
 As a result, of the new system developed, CARS are able to significantly reduce the cost of managing their day to day activities. The new system is able to manage adoption forms, foster/volunteer application forms, and events. CARS chairs are admins for the system, and can manage the forms, the personnel and the events. They can view forms and either accept or reject them. They can manage fosters and volunteers that belong to CARS. They can also create and manage events for the organization. Fosters and volunteers of CARS have access to their account details and are able to edit them as well as view events that the chairs have created and register/unregister from them. This system ensures that all the essential services that are currently used at CARS are concentrated into one place instead of being scattered across multiple applications. 
