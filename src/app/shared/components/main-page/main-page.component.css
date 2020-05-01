@@ -27,7 +27,7 @@
 .container-sec {
   position: absolute;
   top: 5%;
-  margin-left: 2em;
+  margin-left: 3%;
 }
 .mainLogin {
   position: absolute;
@@ -267,6 +267,11 @@
 /* END SECTION 2  */
 
 /* START SECTION 3 (VOLUNTEER) */
+@media only screen and (max-width: 992px) {
+  .volunteerItem {
+    height: 348px;
+}
+}
 @media only screen and (max-width: 767px) {
   .volunteerText h3 {
     margin: 0;
