@@ -35,7 +35,6 @@ body {
   background-color: rgba(36, 41, 40, 0.22);
   width: 46px;
   height: 46px;
-  left: 93%;
   bottom: 5%;
   position: fixed;
   display: -webkit-box;
@@ -49,6 +48,7 @@ body {
   cursor: pointer;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+  right: 4rem;
 }
 #button-top i{
      color: rgba(49, 49, 219, 0.61);
@@ -61,4 +61,15 @@ body {
   color: white;
 }
 
+
+
+/* DIFFERENT RESOLUTIONS FOR RESPONSIVENESS*/
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 412px) {
+  /* Styles */
+#button-top{
+  right: 1rem;
+}
+
+}
 
