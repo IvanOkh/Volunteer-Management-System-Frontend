@@ -1,3 +1,11 @@
+.navbar-toggler {
+  padding: 4px!important;
+}
+
+.navbar {
+  padding: 0px!important;
+}
+
 .backgroundSection img {
   height: auto;
   width: 100%;
@@ -209,6 +217,13 @@
 @media only screen and (min-width: 767px) {
   .sticky-top {
     text-align: center;
+  }
+}
+@media only screen and (max-width: 434px) {
+  .backgroundSection img {
+    /* background-size: cover; */
+    object-fit: cover;
+    position: relative;
   }
 }
 /* END SECTION 1  */

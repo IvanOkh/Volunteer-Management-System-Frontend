@@ -32,6 +32,11 @@ export class VolunteerFormComponent {
   //If form has submitted
   validForm: boolean = false;
 
+  onScroll() {
+    document.body.scrollTop = 0;
+  }
+
+
   onSubmit(form: NgForm) {
     //Validation check
     if (!form.valid) {
