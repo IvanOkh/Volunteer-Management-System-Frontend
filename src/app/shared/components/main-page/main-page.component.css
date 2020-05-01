@@ -19,6 +19,7 @@
 .container-sec {
   position: absolute;
   top: 5%;
+  margin-left: 2em;
 }
 .mainLogin {
   position: absolute;
@@ -61,6 +62,8 @@
   padding: 0px 20px;
   height: 164px;
   text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 .item {
@@ -181,7 +184,6 @@
     position: absolute;
     top: 14%;
   }
-
   .textSection {
     text-align: center;
   }
@@ -195,24 +197,7 @@
     font-size: 0.9rem;
     line-height: 17px;
     margin-bottom: 0;
-  }
-  .volunteerText h3 {
-    margin: 0;
-    text-align: center;
-    padding-top: 96px;
-    z-index: 1;
-    font-weight: 500;
-  }
-  #text {
-    margin: auto;
-    padding-top: 0%;
-    width: none;
-  }
-  .itemsList {
-    background-color: #ce0e2e;
-    padding: 4% 4%;
-    margin: 5px;
-    border-radius: 7px;
+    margin-right: 4%;
   }
 }
 
@@ -228,3 +213,111 @@
 }
 /* END SECTION 1  */
 
+/* BEGIN SECTION 2 (ABOUT US) */
+@media only screen and (min-width: 378px) and (max-width: 991px) {
+  .aboutImg {
+    justify-content: center;
+  }
+  .aboutItems {
+    width: 80%;
+  }
+  .imgItem img {
+    width: 100%;
+    height: 240px;
+  }
+}
+
+@media only screen and (max-width: 535px) {
+  .aboutIntro p {
+    color: grey;
+    letter-spacing: 0.2px;
+    font-size: 14px;
+  }
+  .aboutIntro h1,
+  .title {
+    font-size: 2rem;
+  }
+  .textItem p,
+  .paraTitle {
+    font-size: 90%;
+  }
+}
+@media only screen and (max-width: 415px) {
+  .textItem p {
+    font-size: 73%;
+  }
+}
+/* END SECTION 2  */
+
+/* START SECTION 3 (VOLUNTEER) */
+@media only screen and (max-width: 767px) {
+  .volunteerText h3 {
+    margin: 0;
+    text-align: center;
+    padding-top: 6%;
+    z-index: 1;
+    font-weight: 600;
+  }
+  #text {
+    margin: auto;
+    padding-top: 7%;
+    width: 77%;
+  }
+  .itemsList {
+    background-color: #ce0e2e;
+    padding: 4% 4%;
+    margin: 5px;
+    border-radius: 7px;
+  }
+  .volunteerSection button {
+    margin-top: 5%;
+  }
+  .volunteerSection button {
+    margin-left: 39%;
+  }
+}
+
+@media only screen and (min-width: 333px) and (max-width: 454px) {
+  .volunteerText h3 {
+    padding-top: 6%;
+    font-weight: 500;
+  }
+  .volunteerSection button {
+    margin-left: 34%;
+  }
+}
+
+@media only screen and (max-width: 332px) {
+  .volunteerText h3 {
+    font-size: 27px;
+    font-weight: 500;
+  }
+  .volunteerSection button {
+    margin-left: 33%;
+  }
+}
+/* END SECTION 3 */
+
+/* START SECTION 4 (TYPE OF FOSTER HOME) */
+@media only screen and (max-width: 350px) {
+  .volunteerItem i {
+    font-size: 29px;
+  }
+  .volunteerItem {
+    padding: 2% 7%;
+  }
+  .smallItem h2 {
+    font-size: 1.7rem;
+  }
+}
+@media only screen and (min-width: 576px) {
+  .volunteerItem {
+    height: 410px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .volunteerItem {
+    height: 436px;
+  }
+}
+/* END SECTION 4 */
