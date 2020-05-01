@@ -1,5 +1,5 @@
 #  C.A.R.S. Volunteer System
-![login page image](images/Login-Page.jpg)
+![login page image](images/Login-Page-1.1.jpg)
 
   ## Problem
 CARS is using an external volunteer management system. The client would like a new system that fits their needs better as the existing system has many features that they do not utilize. Given that it is a pay to use system, the end goal is to take CARS off of it and build a system that is more in line with their day to day activities. 
@@ -26,12 +26,12 @@ The application runs on Linux, Mac, or Windows, so long as it is equipped any co
 
 ## Software Platform
 The software required to run the product includes the following stack:
-•	HTML/CSS
-•	Java JDK 1.8
-•	Apache Tomcat
-•	MySQL
-•	Spring
-•	Angular
+HTML/CSS
+Java JDK 1.8
+Apache Tomcat
+MySQL
+Spring
+Angular
 
 ## Security
 The system uses tokens, password hashing and roles to create a secure environment. Tokens act as sessions and resource authentication. When a user logs in they are assigned a token with a unique value. This unique value must be present in all HTTP headers in order to access data from the REST endpoints. Without this value the REST endpoint will not return any data, therefore anyone without the proper permissions will not have access to any data they shouldn’t have access to. The token is also used to keep track of sessions and when the user logs out or a certain amount of time has passed, the token is invalidated and the user must login again to use the application. Passwords are hashed in our system and not stored as plain text. This is an industry best practice and thus was implemented in the system.
