@@ -256,22 +256,15 @@
   .paraTitle {
     font-size: 90%;
   }
-
 }
 @media only screen and (max-width: 415px) {
   .textItem p {
     font-size: 73%;
   }
-  
 }
 /* END SECTION 2  */
 
 /* START SECTION 3 (VOLUNTEER) */
-@media only screen and (max-width: 992px) {
-  .volunteerItem {
-    height: 348px;
-}
-}
 @media only screen and (max-width: 767px) {
   .volunteerText h3 {
     margin: 0;
@@ -340,6 +333,11 @@
 @media only screen and (min-width: 768px) {
   .volunteerItem {
     height: 436px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .volunteerItem {
+    height: 348px;
   }
 }
 /* END SECTION 4 */
