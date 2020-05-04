@@ -135,6 +135,16 @@ export class VolunteerFormComponent {
     }
   }
 
+  /**
+   * Refreshes the volunteer application form removing all inputs that existed before the page was refreshed.
+   */
+  reset() {
+    window.location.reload();
+  }
+
+  /**
+   * Redirects user back to home page
+   */
   onOkClick() {
     this.router.navigate(["/login"]);
   }
