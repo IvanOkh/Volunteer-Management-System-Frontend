@@ -63,6 +63,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ![administrator side applications image](images/Admin-Side-Foster-Information.jpg)
 ![administrator side applications image](images/Admin-Side-Foster-Information-Page-Bottom.jpg)
 
+### Admin-side delete foster
+![administrator side applications image](images/Admin-Side-Delete-Foster.jpg)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
