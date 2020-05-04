@@ -51,12 +51,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Admin-side volunteers page
 ![administrator side applications image](images/Admin-Side-Volunteers.jpg)
 
-### Admin-Side volunteer information
+### Admin-side volunteer information
 ![administrator side applications image](images/Admin-Side-Volunteer-Information-Page-Top.jpg)
 
 ![administrator side applications image](images/Admin-Side-Volunteer-Information-Page-Bottom.jpg)
 
-### Admin-Side edit volunteer
+### Admin-side edit volunteer
 ![administrator side applications image](images/Admin-Side-Volunteer-Edit.jpg)
 
 ## Development server
