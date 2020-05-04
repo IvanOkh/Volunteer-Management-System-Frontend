@@ -53,6 +53,9 @@ export class FosterFormComponent {
   /***FUNCTIONS***/
   constructor(private http: HttpClient, private FS: FormsService, private router: Router) {}
 
+  //If form has submitted
+  validForm: boolean = false;
+
   stringifyFamilyList(familyList: FamilyMember[]) {
     console.log(familyList);
     let stringified = "";
@@ -70,9 +73,16 @@ export class FosterFormComponent {
     this.router.navigate(["/login"]);
   }
 
+  /**
+   * Refreshes the volunteer application form removing all inputs that existed before the page was refreshed.
+   */
+  reset() {
+    window.location.reload();
+  }
+
   onSubmit(f: NgForm) {
     if (!f.valid) {
-      alert('Please make sure to fill out every required field.');
+      this.validForm = false;
       return;
     }
     let formatForm: ModifiedFosterForm;
@@ -135,7 +145,7 @@ export class FosterFormComponent {
     this.sendTheForm(formatForm);
 
     if (f.valid) {
-      alert('submission successful! Thanks for taking the time to fill out our Foster application.');
+      this.validForm = true;
       return;
     }
   }
