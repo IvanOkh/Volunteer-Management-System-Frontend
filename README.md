@@ -61,6 +61,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### Admin-side foster information
 ![administrator side applications image](images/Admin-Side-Foster-Information.jpg)
+![administrator side applications image](images/Admin-Side-Foster-Information-Page-Bottom.jpg)
 
 ## Development server
 
