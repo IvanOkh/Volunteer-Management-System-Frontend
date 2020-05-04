@@ -51,6 +51,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Admin-side volunteers page
 ![administrator side applications image](images/Admin-Side-Volunteers.jpg)
 
+### Admin-Side volunteer information
+![administrator side applications image](images/Admin-Side-Volunteer-Information.jpg)
+Admin-Side-Volunteer-Information
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
