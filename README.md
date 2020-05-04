@@ -53,7 +53,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### Admin-Side volunteer information
 ![administrator side applications image](images/Admin-Side-Volunteer-Information.jpg)
-Admin-Side-Volunteer-Information
 
 ## Development server
 
