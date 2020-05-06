@@ -560,7 +560,7 @@ export class DogFormComponent implements OnInit {
     //Validation
     if (form.valid) {
       this.validForm = true;
-      console.log("Validated")
+      console.log("Validated");
       console.log(NgForm);
       console.log(form);
       return;
