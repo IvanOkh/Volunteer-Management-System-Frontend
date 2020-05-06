@@ -2690,11 +2690,13 @@
           <div class="row">
 
             <div class="col-md-6">
-              <button class="ml-4 mr-4 mb-2 btn btn-success" data-toggle="tooltip" data-placement="right"
+              <span data-toggle="modal" data-target="#submissionModal">
+              <button class="ml-4 mr-4 mb-2 btn btn-success" data-toggle="tooltip" data-placement="right" 
                 title="Submit application">
                 <!-- [disabled]="!signupForm.valid" -->
                 {{ signupForm.valid ? "Submit" : "Submit Form" }}
               </button>
+            </span>
             </div>
 
             <div class="col-md-6">
@@ -2718,6 +2720,49 @@
             </ul>
           </div>
         </div>
+
+        <!-- MODAL -->
+        <div class="modal" id="submissionModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- If form is valid -->
+              <div *ngIf="validForm">
+                <div class="modal-header">
+                  <h5 class="modal-title">Form Submitted!</h5>
+                  <button class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  submission successful! Thanks for taking the time to fill out our Foster application.
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-outline-secondary" data-dismiss="modal" (click)="reset()">
+                    Fill another Application
+                  </button>
+                  <button class="btn btn-primary" data-dismiss="modal" (click)="onOkClick()">
+                    Back to Home Page
+                  </button>
+                </div>
+              </div>
+
+              <!-- If form is invalid -->
+              <div *ngIf="!validForm">
+                <div class="modal-header">
+                  <h5 class="modal-title">Oops! Something went wrong.</h5>
+                  <button class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  Please make sure to fill out every required field.
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-danger" data-dismiss="modal">
+                    Back to form
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </form>
     </div>
   </div>

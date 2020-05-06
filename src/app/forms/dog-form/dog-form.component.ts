@@ -65,11 +65,15 @@ export class DogFormComponent implements OnInit {
     this.router.navigate(["/login"]);
   }
 
+  //If form has submitted
+  validForm: boolean = false;
+
   onSubmit(form: NgForm) {
     // this.errorMessages.length = 0;
     this.errorMessages.splice(0, this.errorMessages.length);
     // console.log(this.sgnForm.value.staysInHouse);
     // Where will your dog stay during the day
+
     if (
       form.value.staysInHouse === true ||
       form.value.staysOutdoor === true ||
@@ -550,6 +554,21 @@ export class DogFormComponent implements OnInit {
       this.sendTheForm(this.newDogForm);
     } else {
       this.checked === 0;
+    }
+
+
+    //Validation
+    if (form.valid) {
+      this.validForm = true;
+      console.log("Validated")
+      console.log(NgForm);
+      console.log(form);
+      return;
+    } else if (!form.valid) {
+      this.validForm = false;
+      console.log(NgForm);
+      console.log(form);
+      return;
     }
   }
   private sendTheForm(dogForm: DogForm): void {
