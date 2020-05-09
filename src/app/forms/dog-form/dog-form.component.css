@@ -68,3 +68,9 @@ textarea:hover {
 h3{
   background-color: #eff4f7;
 }
+
+@media print {
+  body, html, #wrapper, #page {
+      width: 100%;
+  }
+}
