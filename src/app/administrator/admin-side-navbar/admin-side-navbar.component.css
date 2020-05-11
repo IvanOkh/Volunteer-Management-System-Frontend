@@ -11,7 +11,11 @@ WHITE -      #ecebf3
   width: 100%;
 }
 
-
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #cd0d2e;
+}
 .dropdown-item:hover{
   background-color: #cd0d2e;
 }
