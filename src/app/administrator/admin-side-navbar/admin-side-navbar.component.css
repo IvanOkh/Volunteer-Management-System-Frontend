@@ -11,6 +11,11 @@ WHITE -      #ecebf3
   width: 100%;
 }
 
+
+.dropdown-item:hover{
+  background-color: #cd0d2e;
+}
+
 .nav-link {
   color: #0c120c;
 }

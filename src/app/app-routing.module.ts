@@ -1,3 +1,4 @@
+import { ManageCatApplicationComponent } from './administrator/manage-cat-application/manage-cat-application.component';
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { AuthComponent } from "./auth/auth.component";
@@ -21,6 +22,7 @@ import { AuthGuard } from "./auth/auth.guard";
 import { AuthUserGuard } from "./auth/auth-user.guard";
 import { ResetPasswordComponent } from "./shared/components/reset-password/reset-password.component";
 import { MainPageComponent } from "./shared/components/main-page/main-page.component";
+import { ManageDogApplicationComponent } from './administrator/manage-dog-application/manage-dog-application.component';
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -40,7 +42,11 @@ const appRoutes: Routes = [
     component: AdminContainerComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: "animals", component: AnimalManagementComponent },
+      // { path: "animals", component: AnimalManagementComponent },
+      // { path: "adoptions", component: ManageAdoptionsComponent },
+      { path: "cat", component: ManageCatApplicationComponent },
+      { path: "dog", component: ManageDogApplicationComponent },
+
       { path: "applications", component: ManageApplicationsComponent },
       { path: "events", component: ViewEventsComponent },
       { path: "fosters", component: ViewFostersComponent },

@@ -32,6 +32,8 @@ import { ViewAdminProfileComponent } from "./view-admin-profile/view-admin-profi
 import { ViewFostersComponent } from "./view-fosters/view-fosters.component";
 import { YesNoPipe } from '../shared/pipes/yes-no.pipe';
 import { NaPipe } from '../shared/pipes/na.pipe';
+import { ManageCatApplicationComponent } from './manage-cat-application/manage-cat-application.component';
+import { ManageDogApplicationComponent } from './manage-dog-application/manage-dog-application.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,11 @@ import { NaPipe } from '../shared/pipes/na.pipe';
     ViewVolunteerComponent,
     ViewFostersComponent,
     YesNoPipe,
-    NaPipe
+    NaPipe,
+
+    //manage cat and dog application components
+    ManageCatApplicationComponent,
+    ManageDogApplicationComponent
   ],
   imports: [
     BrowserModule,
@@ -72,8 +78,12 @@ import { NaPipe } from '../shared/pipes/na.pipe';
     ManageApplicationsComponent,
     AnimalManagementComponent,
     ViewAdminProfileComponent,
-    NaPipe
-  ],
+    NaPipe,
+
+    //manage dog and cat applications
+    ManageCatApplicationComponent,
+    ManageDogApplicationComponent
+    ],
   providers: [],
   bootstrap: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
