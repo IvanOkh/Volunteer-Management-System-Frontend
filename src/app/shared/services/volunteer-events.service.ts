@@ -115,9 +115,9 @@ export class VolunteerEventsService {
     if (eventStaff != null) {
       this.sendEventStaff(eventStaff).subscribe((responseData: string) => {
         console.log(responseData);
+        this.EventStaffSource.next(this.getEventStaff());
+        return true;
       });
-      this.EventStaffSource.next(this.getEventStaff());
-      return true;
     }
     return false;
   }
@@ -128,10 +128,10 @@ export class VolunteerEventsService {
       this.sendDeleteEventStuff(eventid, this.userid).subscribe(
         (responseData: string) => {
           console.log(responseData);
+          this.EventStaffSource.next(this.getEventStaff());
+          return true;
         }
       );
-      this.EventStaffSource.next(this.getEventStaff());
-      return true;
     }
     return false;
   }
