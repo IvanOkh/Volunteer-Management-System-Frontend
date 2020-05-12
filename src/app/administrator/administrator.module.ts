@@ -25,6 +25,7 @@ import { AdminSideNavbarComponent } from "./admin-side-navbar/admin-side-navbar.
 import { ManageApplicationsComponent } from "./manage-applications/manage-applications.component";
 import { AnimalManagementComponent } from "./animal-management/animal-management.component";
 import { ViewVolunteerComponent } from "./view-volunteer/view-volunteer.component";
+import { VolunteerArchiveComponent } from './volunteer-archive/volunteer-archive.component';
 
 // ROUTING MODULE IMPORTS
 import { AppRoutingModule } from "../app-routing.module";
@@ -45,6 +46,7 @@ import { ManageDogApplicationComponent } from './manage-dog-application/manage-d
     ViewAdminProfileComponent,
     ViewVolunteerComponent,
     ViewFostersComponent,
+    VolunteerArchiveComponent,
     YesNoPipe,
     NaPipe,
 
