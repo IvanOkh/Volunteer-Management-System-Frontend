@@ -40,8 +40,14 @@ export class VolunteerSideEventsComponent implements OnInit {
     // }
     //check if events array contains the given eventID
     if (this.eventArrayHolder.find((e) => e.eventid == eventID)) {
+      setTimeout(() => {
+        return true;
+      }, 2000);
       return true;
     }
+    setTimeout(() => {
+      return false;
+    }, 2000);
     return false;
   }
 
