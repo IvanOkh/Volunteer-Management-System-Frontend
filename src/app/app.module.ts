@@ -29,6 +29,7 @@ import { VolunteerModule } from "./volunteer/volunteer.module";
 import { AdministratorModule } from "./administrator/administrator.module";
 import { NaPipe } from './shared/pipes/na.pipe';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,7 @@ import { NaPipe } from './shared/pipes/na.pipe';
     LoadingSpinnerComponent,
     FooterComponent,
     ResetPasswordComponent,
-    MainPageComponent
+    MainPageComponent,
   ],
   imports: [
     // ANGULAR IMPORTS

@@ -5,15 +5,14 @@ import { Component, OnInit, ApplicationInitStatus } from "@angular/core";
 import { VolunteerForm } from "src/app/shared/models/volunteer-form.model";
 import { VolunteerService } from 'src/app/shared/services/new-volunteer.service';
 
-
 @Component({
-  selector: "app-manage-applications",
-  templateUrl: "./manage-applications.component.html",
-  styleUrls: ["./manage-applications.component.css"],
+  selector: 'app-volunteer-archive',
+  templateUrl: './volunteer-archive.component.html',
+  styleUrls: ['./volunteer-archive.component.css'],
   providers: [VolunteerService]
 })
-export class ManageApplicationsComponent implements OnInit
-{
+export class VolunteerArchiveComponent implements OnInit {
+
   appList: VolunteerForm[] = [];
   isLoading: boolean = false;
 
@@ -126,6 +125,5 @@ export class ManageApplicationsComponent implements OnInit
       }
     );
   }
-
 
 }
