@@ -9,7 +9,7 @@ import { EventStaffModel } from "../models/event-staff.model";
 import { EventsService } from "./events.service";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class VolunteerEventsService {
   //this subject will hold array of EventStaff models.
@@ -25,20 +25,23 @@ export class VolunteerEventsService {
   events: EventModel[] = [];
   //eventStaffArray: EventStaffModel[] = [];
   todayDate = new Date().getTime();
+  //container
+  eventStaffArray: EventStaffModel[] = [];
 
   constructor(
     private ES: EventsService,
     private AS: AuthService,
-    private http: HttpClient
+    private http: HttpClient,
+    private authService: AuthService
   ) {}
 
   initializeData() {
-    //temporary solution - load user ID
-    this.userid = 1;
-    //temporary solution - load subject with dummy data
-    this.EventStaffSource.next(this.eventStaffArray);
-    // this.backEndEvents.next(this.activeEvents);
-    // this.events = this.loadActiveEvents();
+    //load user ID
+    this.userid = +this.authService.user.getValue().id;
+    console.log(+this.authService.user.getValue().id);
+    //push into subject
+    this.EventStaffSource.next(this.getEventStaff());
+    //load list of user specific events
     this.backEndEvents.next(this.loadActiveEvents());
   }
 
@@ -50,22 +53,20 @@ export class VolunteerEventsService {
 
   //Method which pushes new event staff subscription to subject array.
   registerNewEvent(neweventid: number) {
-    let newEvent = new EventStaffModel(this.userid, neweventid);
-    let tempESS = this.EventStaffSource.getValue();
-    tempESS.push(newEvent);
-    this.EventStaffSource.next(tempESS);
+    this.registerForEvent(this.userid, neweventid);
   }
 
-  //Method that pushes modified (unsubscribed from) event to subject array
-  updateEventArray(ap: EventStaffModel[]) {
-    this.EventStaffSource.next(ap);
+  //Method which pushes new event staff subscription to subject array.
+  unregisterExistingEvent(eventid: number) {
+    this.unregisterFromEvent(eventid);
   }
+
   //Method that filters data off expired events and return only active ones.
   loadEvents(): boolean {
     this.events = [];
-    this.sendGetLoadEventsRequest().subscribe(response => {
+    this.sendGetLoadEventsRequest().subscribe((response) => {
       // this.events.splice(0, this.events.length);  // clear array
-      response.body.forEach(e => {
+      response.body.forEach((e) => {
         let eventDate = new Date(e.date).getTime();
         if (eventDate > this.todayDate) {
           this.events.push(e);
@@ -80,28 +81,32 @@ export class VolunteerEventsService {
     return this.http.get<EventModel[]>(
       "http://68.66.193.100:8080/CARS/events",
       {
-        observe: "response"
+        observe: "response",
       }
     );
   }
 
   //Method which loads event associated with current user id.
-  getEventStuff() {
+  getEventStaff() {
+    this.eventStaffArray = [];
     // retreive list of events from the backend, push them to events[]
     this.sendGetLoadEventStaff().subscribe((data: EventStaffModel[]) => {
-      data.forEach(staffEvent => {
+      data.forEach((staffEvent) => {
         //if event staff id matchesone in response data then add event to eventStaffArray
-        if ((staffEvent.staffid = this.userid)) {
+        if (staffEvent != null && (staffEvent.staffid = this.userid)) {
           this.eventStaffArray.push(staffEvent);
         }
       });
     });
+    console.log(this.eventStaffArray);
     return this.eventStaffArray;
   }
 
   //Method which gets eventStaffModel instances fron DB.
   public sendGetLoadEventStaff() {
-    return this.http.get<EventStaffModel[]>("URL" + "eventstaff/");
+    return this.http.get<EventStaffModel[]>(
+      "http://68.66.193.100:8080/CARS/" + "event-info/"
+    );
   }
 
   //Method which sends user event registration to back end. Returns true if successful.
@@ -111,19 +116,21 @@ export class VolunteerEventsService {
       this.sendEventStaff(eventStaff).subscribe((responseData: string) => {
         console.log(responseData);
       });
+      this.EventStaffSource.next(this.getEventStaff());
       return true;
     }
     return false;
   }
 
   //Method which deletes user event registration from back end. Returns true if successful.
-  unregisterFromEvent(eventid: number, staffid: number) {
-    if (eventid != null && staffid != null) {
-      this.sendDeleteEventStuff(eventid, staffid).subscribe(
+  unregisterFromEvent(eventid: number) {
+    if (eventid != null) {
+      this.sendDeleteEventStuff(eventid, this.userid).subscribe(
         (responseData: string) => {
           console.log(responseData);
         }
       );
+      this.EventStaffSource.next(this.getEventStaff());
       return true;
     }
     return false;
@@ -131,53 +138,26 @@ export class VolunteerEventsService {
 
   //Method that posts an eventStaffModel instance to backend.
   public sendEventStaff(_eventStaff: EventStaffModel) {
-    return this.http.post("URL" + "eventstaff/", _eventStaff, {
-      responseType: "text"
-    });
+    return this.http.post(
+      "http://68.66.193.100:8080/CARS/" + "/event-info/",
+      _eventStaff,
+      {
+        responseType: "text",
+      }
+    );
   }
 
   //Method that deletes backend eventStaffModel instance based on event and staff IDs.
   public sendDeleteEventStuff(eventid: number, staffid: number) {
-    return this.http.delete("URL" + "eventstaff/" + eventid + "/" + staffid, {
-      responseType: "text"
-    });
+    return this.http.delete(
+      "http://68.66.193.100:8080/CARS/" +
+        "event-info/" +
+        eventid +
+        "/" +
+        staffid,
+      {
+        responseType: "text",
+      }
+    );
   }
-
-  //Temporary backend data
-  eventStaffArray: EventStaffModel[] = [
-    new EventStaffModel(1, 4),
-    new EventStaffModel(1, 6)
-  ];
-  activeEvents: EventModel[] = [
-    new EventModel(
-      11,
-      "Costco Charity",
-      "Centro st",
-      "very nice",
-      "Raymand",
-      "May",
-      "15:00",
-      "18:30"
-    ),
-    new EventModel(
-      13,
-      "Walmart Carnival",
-      "16 Ave st",
-      "very awesome",
-      "Mags",
-      "June",
-      "19:00",
-      "23:30"
-    ),
-    new EventModel(
-      19,
-      "Games with Max",
-      "Cochrane",
-      "Amazing party",
-      "Ivan",
-      "September 2023",
-      "10:01",
-      "23:59"
-    )
-  ];
 }
