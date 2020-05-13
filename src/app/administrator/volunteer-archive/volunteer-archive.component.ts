@@ -21,7 +21,11 @@ export class VolunteerArchiveComponent implements OnInit {
   ngOnInit()
   {
     // this.loadActiveApplicants();  // this one loads all currently active applicants
+    //this.loadArchive(); // this one loads all rejected/archived applicants
     this.loadAllApplicants();     // this one loads all applicants regardless of active status
+
+    
+    console.log(this.appList);
   }
 
   acceptApplication(volunteerID: number): void
@@ -98,6 +102,25 @@ export class VolunteerArchiveComponent implements OnInit {
   {
     this.isLoading = true;
     this.test.loadAllApplicants()
+    .subscribe(
+      (applicants: VolunteerForm[]) => {
+        this.appList = [];
+        applicants.forEach((applicant: VolunteerForm) => {
+          this.appList.push(applicant);
+        });
+        this.isLoading = false;
+      },
+      (error: any) => {
+        console.log(error);
+        this.isLoading = false;
+      }
+    );
+  }
+
+  private loadArchive(): void
+  {
+    this.isLoading = true;
+    this.test.loadArchivedApplicants()
     .subscribe(
       (applicants: VolunteerForm[]) => {
         this.appList = [];

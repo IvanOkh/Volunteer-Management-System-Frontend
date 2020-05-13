@@ -78,7 +78,7 @@ export class VolunteerService
 
   /**
    * Sends a request to the backend for an array containing all volunteers
-   * where their approved ANDproperties are both true.
+   * where their approved is true and their active status matches the passed activeStatus argument.
    * Returns the list of volunteers in a subscribe-able object.
    * @returns {Observable<VolunteerForm[]>}
    */
@@ -90,6 +90,26 @@ export class VolunteerService
           const volunteerArray: VolunteerForm[] = [];
           responseData.forEach((volunteer: VolunteerForm) => {
             if (!volunteer.approved && volunteer.active === activeStatus) {
+              volunteerArray.push(volunteer);
+            }
+          });
+          return volunteerArray;
+        })
+      );
+  }
+
+  /**
+   * Send a request to the backend for an array containing all volunteers
+   * where their approved AND active properties are BOTH FALSE
+   */
+  public loadArchivedApplicants(): Observable<VolunteerForm[]>
+  {
+    return this.sendGetAllLoadRequest()
+      .pipe(
+        map((responseData: VolunteerForm[]) => {
+          const volunteerArray: VolunteerForm[] = [];
+          responseData.forEach((volunteer: VolunteerForm) => {
+            if (!volunteer.approved && !volunteer.active) {
               volunteerArray.push(volunteer);
             }
           });
