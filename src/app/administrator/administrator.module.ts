@@ -22,10 +22,10 @@ import {
 import { AdminContainerComponent } from "./admin-container/admin-container.component";
 import { ViewEventsComponent } from "./view-events/view-events.component";
 import { AdminSideNavbarComponent } from "./admin-side-navbar/admin-side-navbar.component";
-import { ManageApplicationsComponent } from "./manage-applications/manage-applications.component";
+import { VolunteerPendingComponent } from "./volunteer-applications/volunteer-pending/volunteer-pending.component";
 import { AnimalManagementComponent } from "./animal-management/animal-management.component";
 import { ViewVolunteerComponent } from "./view-volunteer/view-volunteer.component";
-import { VolunteerArchiveComponent } from './volunteer-archive/volunteer-archive.component';
+import { VolunteerArchiveComponent } from './volunteer-applications/volunteer-archive/volunteer-archive.component';
 
 // ROUTING MODULE IMPORTS
 import { AppRoutingModule } from "../app-routing.module";
@@ -41,7 +41,7 @@ import { ManageDogApplicationComponent } from './manage-dog-application/manage-d
     AdminContainerComponent,
     ViewEventsComponent,
     AdminSideNavbarComponent,
-    ManageApplicationsComponent,
+    VolunteerPendingComponent,
     AnimalManagementComponent,
     ViewAdminProfileComponent,
     ViewVolunteerComponent,
@@ -77,7 +77,7 @@ import { ManageDogApplicationComponent } from './manage-dog-application/manage-d
     AdminContainerComponent,
     ViewEventsComponent,
     AdminSideNavbarComponent,
-    ManageApplicationsComponent,
+    VolunteerPendingComponent,
     AnimalManagementComponent,
     ViewAdminProfileComponent,
     NaPipe,

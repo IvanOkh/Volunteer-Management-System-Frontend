@@ -7,12 +7,12 @@ import { VolunteerService } from 'src/app/shared/services/new-volunteer.service'
 
 
 @Component({
-  selector: "app-manage-applications",
-  templateUrl: "./manage-applications.component.html",
-  styleUrls: ["./manage-applications.component.css"],
+  selector: "app-volunteer-pending",
+  templateUrl: "./volunteer-pending.component.html",
+  styleUrls: ["./volunteer-pending.component.css"],
   providers: [VolunteerService]
 })
-export class ManageApplicationsComponent implements OnInit
+export class VolunteerPendingComponent implements OnInit
 {
   appList: VolunteerForm[] = [];
   isLoading: boolean = false;
