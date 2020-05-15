@@ -36,6 +36,7 @@ import { NaPipe } from '../shared/pipes/na.pipe';
 import { ManageCatApplicationComponent } from './manage-cat-application/manage-cat-application.component';
 import { ManageDogApplicationComponent } from './manage-dog-application/manage-dog-application.component';
 
+
 @NgModule({
   declarations: [
     AdminContainerComponent,

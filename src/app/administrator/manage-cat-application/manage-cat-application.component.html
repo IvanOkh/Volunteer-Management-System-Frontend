@@ -1,1 +1,68 @@
-<p>manage-cat-application works!</p>
+<div class="container pt-2">
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-5" matSort width="100%">
+
+    <ng-container matColumnDef="nameOfCat">
+      <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>Cat name</th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="element.nameOfCat == ''" style="color:red;"><em>*Cat is not named*</em></div>
+        <div *ngIf="element.nameOfCat != ''">{{element.nameOfCat}}</div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fname">
+      <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> First name</th>
+      <td mat-cell *matCellDef="let element">{{element.fname}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lname">
+      <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Last name</th>
+      <td mat-cell *matCellDef="let element">{{element.lname}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row.id)" 
+    data-toggle="modal" data-target="#modalCatInfo" style="pointer:cursor">
+    </tr>
+
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+  <!-- POPUP MODAL FOR CAT INFO  -->
+  <div class="modal fade" id="modalCatInfo" tabindex="-1" role="dialog" aria-labelledby="modalCatInfo" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #ce0e2d; color: white;">
+          <h5 class="modal-title" id="exampleModalLongTitle">Cat Adoption Application</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+              <div class="col-6">
+                  <h3>Application Information</h3>
+                  <div style="text-align: left;">
+                    <p><strong>Name of cat: </strong>{{newCatObj?.fname}}</p>
+                  </div>
+              </div>
+              <div class="col-6"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+</div>

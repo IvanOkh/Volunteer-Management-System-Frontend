@@ -1,0 +1,18 @@
+th{
+    background-color:#cd0d2e;
+    color: white;
+}
+tr{
+    padding: .75rem;
+    vertical-align: center;
+    border-top: 1px solid #dee2e6;
+    cursor: pointer;
+    background-color:#dee2e6;
+}
+tr:hover{
+    background-color:#c6c7ca;
+}
+td{
+    padding: .75rem;
+    border-top: 1px solid #dee2e6;
+}
