@@ -20,6 +20,7 @@ export class ViewEventsComponent implements OnInit {
   constructor(private es: EventsService, private ves: VolunteerEventsService) {}
 
   ngOnInit(): void {
+    this.ves.initializeData;
     this.currentDate = new Date();
     this.loadEvents();
   }
