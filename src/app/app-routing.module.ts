@@ -4,7 +4,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { AuthComponent } from "./auth/auth.component";
 import { AdminContainerComponent } from "./administrator/admin-container/admin-container.component";
 import { ViewEventsComponent } from "./administrator/view-events/view-events.component";
-import { ManageApplicationsComponent } from "./administrator/manage-applications/manage-applications.component";
+import { VolunteerPendingComponent } from "./administrator/volunteer-applications/volunteer-pending/volunteer-pending.component";
 import { MyAccountPageComponent } from "./volunteer/my-account-page/my-account-page.component";
 import { ViewVolunteerInfoComponent } from "./volunteer/view-volunteer-info/view-volunteer-info.component";
 import { VolunteerSideEventsComponent } from "./volunteer/volunteer-side-events/volunteer-side-events.component";
@@ -23,7 +23,7 @@ import { AuthUserGuard } from "./auth/auth-user.guard";
 import { ResetPasswordComponent } from "./shared/components/reset-password/reset-password.component";
 import { MainPageComponent } from "./shared/components/main-page/main-page.component";
 import { ManageDogApplicationComponent } from "./administrator/manage-dog-application/manage-dog-application.component";
-import { VolunteerArchiveComponent } from "./administrator/volunteer-archive/volunteer-archive.component";
+import { VolunteerArchiveComponent } from "./administrator/volunteer-applications/volunteer-archive/volunteer-archive.component";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -48,7 +48,7 @@ const appRoutes: Routes = [
       { path: "cat", component: ManageCatApplicationComponent },
       { path: "dog", component: ManageDogApplicationComponent },
       { path: "volunteerarchive", component: VolunteerArchiveComponent },
-      { path: "applications", component: ManageApplicationsComponent },
+      { path: "applications", component: VolunteerPendingComponent },
       { path: "events", component: ViewEventsComponent },
       { path: "fosters", component: ViewFostersComponent },
       { path: "volunteers", component: ViewVolunteerComponent },

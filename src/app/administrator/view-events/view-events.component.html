@@ -205,7 +205,6 @@
                     <li class="list-inline-item">
                       <p
                         [innerText]="isOpen(event.date) ? 'Open' : 'Closed'"
-                        [ngStyle]="{ color: isOpen(event.date) ? 'green' : 'red' }"
                       ></p>
                     </li>
                   </ul>
@@ -228,13 +227,18 @@
                     <button
                       class="btn btn-outline-danger"
                       [attr.data-target]="'#confirmDelete' + event.id"
-                       data-toggle="modal"
-
+                      data-toggle="modal"
                     >
                       <i class="fa fa-trash-o mr-1" aria-hidden="true"></i
                       >Delete
                     </button>
                   </div>
+                  <button
+                    class="btn btn-outline-dark btn-block mt-5 ml-1 mr-2"
+                    type="button"
+                  >
+                    {{ event.id }}
+                  </button>
                 </div>
 
                 <!-- confirm delete  -->
@@ -266,9 +270,7 @@
                       </div>
                       <div class="modal-body ml-2" style="padding: 4% 0px;">
                         Are you sure you want to permanently delete
-                        <span style="color: orangered;"
-                          >{{ event.name }}
-                        </span>
+                        <span style="color: orangered;">{{ event.name }} </span>
                         ?
                       </div>
                       <div class="modal-footer">

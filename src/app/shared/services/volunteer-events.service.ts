@@ -38,7 +38,7 @@ export class VolunteerEventsService {
   initializeData() {
     //load user ID
     this.userid = +this.authService.user.getValue().id;
-    console.log(+this.authService.user.getValue().id);
+    //console.log(+this.authService.user.getValue().id);
     //push into subject
     this.EventStaffSource.next(this.getEventStaff());
     //load list of user specific events
@@ -98,7 +98,7 @@ export class VolunteerEventsService {
         }
       });
     });
-    console.log(this.eventStaffArray);
+    //console.log(this.eventStaffArray);
     return this.eventStaffArray;
   }
 
