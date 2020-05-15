@@ -35,6 +35,8 @@ import { YesNoPipe } from '../shared/pipes/yes-no.pipe';
 import { NaPipe } from '../shared/pipes/na.pipe';
 import { ManageCatApplicationComponent } from './manage-cat-application/manage-cat-application.component';
 import { ManageDogApplicationComponent } from './manage-dog-application/manage-dog-application.component';
+import { FosterPendingComponent } from './foster-applications/foster-pending/foster-pending.component';
+import { FosterArchiveComponent } from './foster-applications/foster-archive/foster-archive.component';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import { ManageDogApplicationComponent } from './manage-dog-application/manage-d
 
     //manage cat and dog application components
     ManageCatApplicationComponent,
-    ManageDogApplicationComponent
+    ManageDogApplicationComponent,
+    FosterPendingComponent,
+    FosterArchiveComponent
   ],
   imports: [
     BrowserModule,
@@ -82,10 +86,13 @@ import { ManageDogApplicationComponent } from './manage-dog-application/manage-d
     AnimalManagementComponent,
     ViewAdminProfileComponent,
     NaPipe,
-
+    FosterPendingComponent,
+    FosterArchiveComponent,
     //manage dog and cat applications
     ManageCatApplicationComponent,
-    ManageDogApplicationComponent
+    ManageDogApplicationComponent,
+    FosterPendingComponent,
+    FosterArchiveComponent
     ],
   providers: [],
   bootstrap: [],

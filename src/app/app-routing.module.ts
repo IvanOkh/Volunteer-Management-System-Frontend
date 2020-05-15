@@ -1,3 +1,4 @@
+import { FosterArchiveComponent } from './administrator/foster-applications/foster-archive/foster-archive.component';
 import { ManageCatApplicationComponent } from "./administrator/manage-cat-application/manage-cat-application.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
@@ -24,6 +25,7 @@ import { ResetPasswordComponent } from "./shared/components/reset-password/reset
 import { MainPageComponent } from "./shared/components/main-page/main-page.component";
 import { ManageDogApplicationComponent } from "./administrator/manage-dog-application/manage-dog-application.component";
 import { VolunteerArchiveComponent } from "./administrator/volunteer-applications/volunteer-archive/volunteer-archive.component";
+import { FosterPendingComponent } from './administrator/foster-applications/foster-pending/foster-pending.component';
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -49,6 +51,8 @@ const appRoutes: Routes = [
       { path: "dog", component: ManageDogApplicationComponent },
       { path: "volunteerarchive", component: VolunteerArchiveComponent },
       { path: "applications", component: VolunteerPendingComponent },
+      { path: "fosterarchive", component: FosterArchiveComponent },
+      { path: "fosterapplications", component: FosterPendingComponent },
       { path: "events", component: ViewEventsComponent },
       { path: "fosters", component: ViewFostersComponent },
       { path: "volunteers", component: ViewVolunteerComponent },

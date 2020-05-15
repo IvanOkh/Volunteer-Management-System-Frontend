@@ -3,11 +3,7 @@
   <div class="mb-5">
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a
-          class="nav-link"
-          routerLink="/admin/applications"
-          routerLinkActive="active"
-          >Pending Applications
+        <a class="nav-link" routerLink="/admin/applications" routerLinkActive="active">Pending Applications
         </a>
       </li>
       <li class="nav-item">
@@ -52,23 +48,16 @@
             </div>
 
             <!-- Card Body -->
-            <div
-              data-toggle="modal"
-              attr.data-target="#viewApplication{{ application.id }}"
-            >
+            <div data-toggle="modal" attr.data-target="#viewApplication{{ application.id }}">
               <!-- Picture -->
               <!-- Separated into 3 columns to center image -->
               <div class="container">
                 <div class="row">
                   <div class="col-sm-3"></div>
                   <div class="col-sm-6">
-                    <img
-                      class="card-img-top img-fluid rounded-circle mt-3"
-                      src="https://source.unsplash.com/random/300x300?sig={{
+                    <img class="card-img-top img-fluid rounded-circle mt-3" src="https://source.unsplash.com/random/300x300?sig={{
                         application.id
-                      }}"
-                      alt=""
-                    />
+                      }}" alt="" />
                   </div>
                   <div class="col-sm-3"></div>
                 </div>
@@ -110,11 +99,8 @@
             <div class="container mb-3">
               <div class="row container ml-0 mr-0 pl-0 pr-0">
                 <div class="col-sm-6 pl-1 pr-1 pb-1">
-                  <button
-                    class="btn btn-outline-success btn-block"
-                    data-toggle="modal"
-                    attr.data-target="#accept{{ application.id }}"
-                  >
+                  <button class="btn btn-outline-success btn-block" data-toggle="modal"
+                    attr.data-target="#accept{{ application.id }}">
                     Accept
                   </button>
 
@@ -138,17 +124,11 @@
                           </p>
                         </div>
                         <div class="modal-footer">
-                          <button
-                            class="btn btn-success"
-                            data-dismiss="modal"
-                            (click)="acceptApplication(application.id)"
-                          >
+                          <button class="btn btn-success" data-dismiss="modal"
+                            (click)="acceptApplication(application.id)">
                             Confirm
                           </button>
-                          <button
-                            class="btn btn-secondary"
-                            data-dismiss="modal"
-                          >
+                          <button class="btn btn-secondary" data-dismiss="modal">
                             Cancel
                           </button>
                         </div>
@@ -159,11 +139,8 @@
                 </div>
 
                 <div class="col-sm-6 pl-1 pr-1 pb-1">
-                  <button
-                    class="btn btn-outline-danger btn-block"
-                    data-toggle="modal"
-                    attr.data-target="#reject{{ application.id }}"
-                  >
+                  <button class="btn btn-outline-danger btn-block" data-toggle="modal"
+                    attr.data-target="#reject{{ application.id }}">
                     Reject
                   </button>
                 </div>
@@ -188,11 +165,7 @@
                         </p>
                       </div>
                       <div class="modal-footer">
-                        <button
-                          class="btn btn-danger"
-                          data-dismiss="modal"
-                          (click)="rejectApplication(application.id)"
-                        >
+                        <button class="btn btn-danger" data-dismiss="modal" (click)="rejectApplication(application.id)">
                           Confirm
                         </button>
                         <button class="btn btn-secondary" data-dismiss="modal">
@@ -208,33 +181,15 @@
           </div>
 
           <!-- View Application -->
-          <div
-            class="modal fade"
-            tabindex="-1"
-            id="viewApplication{{ application.id }}"
-            role="dialog"
-            aria-labelledby="viewApplicationLabel"
-            aria-hidden="true"
-          >
-            <div
-              class="modal-dialog modal-lg modal-dialog-centered"
-              role="document"
-            >
+          <div class="modal fade" tabindex="-1" id="viewApplication{{ application.id }}" role="dialog"
+            aria-labelledby="viewApplicationLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h2
-                    class="modal-title"
-                    id="viewApplicationModalLabel"
-                    style="color: #fbfbff;"
-                  >
+                  <h2 class="modal-title" id="viewApplicationModalLabel" style="color: #fbfbff;">
                     Application Information
                   </h2>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -399,22 +354,12 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-success btn-block"
-                    data-dismiss="modal"
-                    data-toggle="modal"
-                    attr.data-target="#accept{{ application.id }}"
-                  >
+                  <button type="button" class="btn btn-success btn-block" data-dismiss="modal" data-toggle="modal"
+                    attr.data-target="#accept{{ application.id }}">
                     Accept
                   </button>
-                  <button
-                    type="button"
-                    class="btn btn-danger btn-block"
-                    data-dismiss="modal"
-                    data-toggle="modal"
-                    attr.data-target="#reject{{ application.id }}"
-                  >
+                  <button type="button" class="btn btn-danger btn-block" data-dismiss="modal" data-toggle="modal"
+                    attr.data-target="#reject{{ application.id }}">
                     Reject
                   </button>
                 </div>

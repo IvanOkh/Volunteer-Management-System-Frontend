@@ -17,13 +17,19 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['fosters']" routerLinkActive="active">
+              Fosters
+            </a>
+          </li>
+
           <li class="dropdown nav-item" style="cursor: pointer;">
             <a class="dropdown-toggle nav-link" id="dropdownApplications" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
               Applications
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownApplications" style="background-color: white;">
-              <a class="nav-link dropdown-item" [routerLink]="['fosters']" routerLinkActive="active">Foster Applications</a>
+              <a class="nav-link dropdown-item" [routerLink]="['fosterapplications']" routerLinkActive="active">Foster Applications</a>
               <a class="nav-link dropdown-item" [routerLink]="['applications']" routerLinkActive="active">Volunteer Applications</a>
             </div>
           </li>
