@@ -4,6 +4,7 @@ import { NgForm } from "@angular/forms";
 import { EventModel } from "src/app/shared/models/event.model";
 import { EventsService } from "../../shared/services/events.service";
 import { VolunteerEventsService } from "src/app/shared/services/volunteer-events.service";
+import { EventStaffModel } from "src/app/shared/models/event-staff.model";
 
 @Component({
   selector: "app-view-events",
@@ -16,13 +17,31 @@ export class ViewEventsComponent implements OnInit {
   numberArray = []; // list to iterate "less/more details"
   public currentDate: Date; // current date of active session
   public isLoading = false; // loading status
+  eventArrayHolder: EventStaffModel[] = []; //array of user event subscriptions
 
   constructor(private es: EventsService, private ves: VolunteerEventsService) {}
 
   ngOnInit(): void {
     this.ves.initializeData;
+    //subscribe to keep up to date event staff
+    this.ves.eventStaffData.subscribe((data) => {
+      this.eventArrayHolder = data;
+    });
     this.currentDate = new Date();
     this.loadEvents();
+  }
+
+  //Method which checks how many users signed for an event.
+  defineSubscribers(eventID): number {
+    let countSubs: number = 0;
+    //check if events array contains the given eventID
+    //if (this.eventArrayHolder.find((e) => e.eventid == eventID)) {
+    for (let events of this.eventArrayHolder) {
+      if ((events.eventid = eventID)) {
+        countSubs++;
+      }
+    }
+    return countSubs;
   }
 
   onAdd(newEvent: EventModel): void {

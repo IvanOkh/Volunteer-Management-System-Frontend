@@ -98,7 +98,7 @@ export class VolunteerEventsService {
         }
       });
     });
-    console.log(this.eventStaffArray);
+    //console.log(this.eventStaffArray);
     return this.eventStaffArray;
   }
 
