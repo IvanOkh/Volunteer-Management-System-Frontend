@@ -38,11 +38,32 @@ export class VolunteerEventsService {
   initializeData() {
     //load user ID
     this.userid = +this.authService.user.getValue().id;
-    //console.log(+this.authService.user.getValue().id);
     //push into subject
     this.EventStaffSource.next(this.getEventStaff());
     //load list of user specific events
     this.backEndEvents.next(this.loadActiveEvents());
+  }
+
+  //Method which loads all event staff data
+  getSubscriptionData() {
+    this.userid = +this.authService.user.getValue().id;
+    this.EventStaffSource.next(this.loadSubscriptionData());
+  }
+
+  //Method which loads event associated with current user id.
+  loadSubscriptionData() {
+    this.eventStaffArray = [];
+    // retreive list of events from the backend, push them to events[]
+    this.sendGetLoadEventStaff().subscribe((data: EventStaffModel[]) => {
+      data.forEach((staffEvent) => {
+        //if event staff id matchesone in response data then add event to eventStaffArray
+        if (staffEvent != null) {
+          this.eventStaffArray.push(staffEvent);
+        }
+      });
+    });
+    //console.log(this.eventStaffArray);
+    return this.eventStaffArray;
   }
 
   //Method which loads unexpired events to 'events' array.
@@ -91,14 +112,18 @@ export class VolunteerEventsService {
     this.eventStaffArray = [];
     // retreive list of events from the backend, push them to events[]
     this.sendGetLoadEventStaff().subscribe((data: EventStaffModel[]) => {
+      console.log(data);
+      if (data == null) {
+        return this.eventStaffArray;
+      }
       data.forEach((staffEvent) => {
         //if event staff id matchesone in response data then add event to eventStaffArray
-        if (staffEvent != null && (staffEvent.staffid = this.userid)) {
+        if (staffEvent.staffid == this.userid) {
           this.eventStaffArray.push(staffEvent);
         }
       });
     });
-    //console.log(this.eventStaffArray);
+    console.log(this.eventStaffArray);
     return this.eventStaffArray;
   }
 
