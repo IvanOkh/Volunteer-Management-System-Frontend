@@ -18,30 +18,49 @@ export class ViewEventsComponent implements OnInit {
   public currentDate: Date; // current date of active session
   public isLoading = false; // loading status
   eventArrayHolder: EventStaffModel[] = []; //array of user event subscriptions
+  numberOfSubsArray: number[] = new Array(66, 7); //holds exact number of subscriptions for individual event
+  numContainer: number;
 
   constructor(private es: EventsService, private ves: VolunteerEventsService) {}
 
   ngOnInit(): void {
-    this.ves.initializeData;
+    //this.ves.initializeData;
+    this.ves.getSubscriptionData();
     //subscribe to keep up to date event staff
     this.ves.eventStaffData.subscribe((data) => {
       this.eventArrayHolder = data;
+      console.log(this.eventArrayHolder);
     });
+    console.log(this.numberOfSubsArray);
     this.currentDate = new Date();
     this.loadEvents();
   }
 
-  //Method which checks how many users signed for an event.
-  defineSubscribers(eventID): number {
-    let countSubs: number = 0;
-    //check if events array contains the given eventID
-    //if (this.eventArrayHolder.find((e) => e.eventid == eventID)) {
+  defineNumberOfSubs(eventID): number {
+    let bum: number = 0;
     for (let events of this.eventArrayHolder) {
-      if ((events.eventid = eventID)) {
-        countSubs++;
+      if (events.eventid == eventID) {
+        bum++;
       }
     }
-    return countSubs;
+    return bum;
+  }
+
+  //Method which checks how many users signed for an event.
+  defineSubscribers(eventID): boolean {
+    // let countSubs: number = 0;
+    //check if events array contains the given eventID
+    //if (this.eventArrayHolder.find((e) => e.eventid == eventID)) {
+    if (this.eventArrayHolder.find((e) => e.eventid == eventID)) {
+      return true;
+    }
+    return false;
+    // for (let events of this.eventArrayHolder) {
+    //   if ((events.eventid = eventID)) {
+    //     countSubs++;
+    //   }
+    // }
+    // return countSubs;
   }
 
   onAdd(newEvent: EventModel): void {
