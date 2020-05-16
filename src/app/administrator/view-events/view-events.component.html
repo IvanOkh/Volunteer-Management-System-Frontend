@@ -205,6 +205,9 @@
                     <li class="list-inline-item">
                       <p
                         [innerText]="isOpen(event.date) ? 'Open' : 'Closed'"
+                        [ngStyle]="{
+                          color: isOpen(event.date) ? 'green' : 'red'
+                        }"
                       ></p>
                     </li>
                   </ul>
