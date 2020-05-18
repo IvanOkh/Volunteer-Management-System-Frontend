@@ -22,6 +22,14 @@ export class ViewFostersComponent implements OnInit
   // //boolean to determine to disable buttons on viewFoster modal footer
   deletable: boolean = true;
 
+  // Extra variables to delimit fosterAnimalType attribute
+  ftPuppy: string = "No";
+  ftAdultDog: string = "No";
+  ftKitten: string = "No";
+  ftAdultCat: string = "No";
+  ftMedicalCare: string = "No";
+  ftQuarantine: string = "No";
+
   constructor(private test: FostersService) {}
 
   ngOnInit()
@@ -96,6 +104,8 @@ export class ViewFostersComponent implements OnInit
         this.fetchedLoading = false;
       }
     );
+
+    this.delimitFosterType(this.fetched.fosterAnimalType);
   }
 
   private updateFoster(changes: FosterModel): void
@@ -165,6 +175,68 @@ export class ViewFostersComponent implements OnInit
         this.isLoading = false;
       }
     );
+  }
+
+  //Takes FosterType attribute type of string and changes ft attributes to display onto Foster modal.
+  private delimitFosterType(fosterType: string)
+  {
+    let splitted = fosterType.split(" ", 6);
+    console.log(splitted);
+
+    if(splitted[0].match("true"))
+    {
+      this.ftPuppy = "Yes";
+    }
+    else
+    {
+      this.ftPuppy = "No";
+    }
+
+    if(splitted[1].match("true"))
+    {    
+      this.ftAdultDog = "Yes";
+    }
+    else
+    {
+      this.ftAdultDog = "No";
+    }
+
+    if(splitted[2].match("true"))
+    {
+      this.ftKitten = "Yes";
+    }
+    else
+    {
+      this.ftKitten = "No";
+    }
+
+    if(splitted[3].match("true"))
+    {
+      this.ftAdultCat = "Yes";
+    }
+    else 
+    {
+      this.ftAdultCat = "No";
+    }
+
+    if(splitted[4].match("true"))
+    {
+      this.ftMedicalCare = "Yes";
+    }
+    else
+    {
+      this.ftMedicalCare = "No";
+    }
+
+    if(splitted[5].match("true"))
+    {
+      this.ftQuarantine = "Yes";
+    }
+    else
+    {
+      this.ftQuarantine = "No";
+    }
+
   }
 
 }
