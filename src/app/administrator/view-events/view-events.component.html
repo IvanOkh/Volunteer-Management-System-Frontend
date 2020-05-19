@@ -96,6 +96,7 @@
               required
             />
           </div>
+
           <div class="form-group">
             <label for="newEventDesc">Description: </label>
             <textarea
@@ -211,6 +212,21 @@
                       ></p>
                     </li>
                   </ul>
+                  <!-- NUMBER OF REGISTRATIONS -->
+                  <ul class="list-inline" *ngIf="defineSubscribers(event.id)">
+                    <li class="list-inline-item">
+                      <p class="font-weight-bold">Registered:</p>
+                    </li>
+                    <li class="list-inline-item">
+                      <p
+                        [ngStyle]="{
+                          color: isOpen(event.date) ? 'green' : 'red'
+                        }"
+                      >
+                        {{ defineNumberOfSubs(event.id) }}
+                      </p>
+                    </li>
+                  </ul>
                 </div>
 
                 <!-- Edit button -->
@@ -237,13 +253,16 @@
                     </button>
                   </div>
                   <!-- *ngIf="defineSubscribers(event.id)" -->
-                  <button
-                    *ngIf="defineSubscribers(event.id)"
-                    class="btn btn-outline-dark btn-block mt-5 ml-1 mr-2"
-                    type="button"
-                  >
-                    Members Registered: {{ defineNumberOfSubs(event.id) }}
-                  </button>
+
+                  <!-- <div class="btn-group float ">
+                    <button
+                      *ngIf="defineSubscribers(event.id)"
+                      class="btn btn-outline-dark btn-block mt-5 ml-1 mr-2"
+                      type="button"
+                    >
+                      Registations: {{ defineNumberOfSubs(event.id) }}
+                    </button>
+                  </div> -->
                 </div>
 
                 <!-- confirm delete  -->
@@ -442,6 +461,32 @@
             <!-- Description -->
             <p class="font-weight-bold">Description:</p>
             <p [innerText]="event.description"></p>
+          </div>
+          <!-- TABLE WITH REGISTERED USERS -->
+          <div
+            class="table-responsive table-sm"
+            *ngIf="defineNumberOfSubs(event.id) > 0"
+          >
+            <table class="table ml-3">
+              <thead>
+                <tr>
+                  <th>User ID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Cell Phone</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let usr of getRegisteredUsers(event.id)">
+                  <th scope="row">{{ usr.id }}</th>
+                  <td>{{ usr.fname }}</td>
+                  <td>{{ usr.lname }}</td>
+                  <td>{{ usr.cellPhone }}</td>
+                  <td>{{ usr.email }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         <!-- Button to expand or collapse expanded event section -->
