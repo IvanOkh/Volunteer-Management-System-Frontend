@@ -39,6 +39,7 @@ export class VolunteerForm {
     public ref2_cellPhone: string,
     public ref2_email: string,
     public emailAllowed: boolean,
-    public emailPref: string
+    public emailPref: string,
+    public adminNotes: string
   ) { }
 }
