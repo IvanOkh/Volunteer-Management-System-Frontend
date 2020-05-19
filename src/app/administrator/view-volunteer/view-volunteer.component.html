@@ -116,121 +116,138 @@
             <!-- displays fetched edit information if it is defined  -->
 
             <div class="container">
-            <h1 class="centerElements mt-3">
-              {{ fetched.fname }}<span> {{ fetched.lname }}</span>
-            </h1>
-            <hr style="width: 1px black;" />
+              <h1 class="centerElements mt-3">
+                {{ fetched.fname }}<span> {{ fetched.lname }}</span>
+              </h1>
+              <hr style="width: 1px black;" />
 
-            <div class="row container">
-              <div class="col-6">
+              <div class="row container">
+                <div class="col-6">
+                  <h3 class="leftElements">Contact Information</h3>
+                  <div style="text-align: left;">
+                    <p><strong>Cell phone:</strong> {{ fetched.cellPhone }}</p>
+                    <p><strong>Home phone:</strong> {{ fetched.homePhone }}</p>
+                    <p><strong>Email:</strong> {{ fetched.email }}</p>
+                    <p>
+                      <strong>T-shirt size:</strong> {{ fetched.tshirtSize }}
+                    </p>
+                  </div>
 
-              <h3 class="leftElements">Contact Information</h3>
-              <div style="text-align: left;">
-                <p><strong>Cell phone:</strong> {{ fetched.cellPhone }}</p>
-                <p><strong>Home phone:</strong> {{ fetched.homePhone }}</p>
-                <p><strong>Email:</strong> {{ fetched.email }}</p>
-                <p><strong>T-shirt size:</strong> {{ fetched.tshirtSize }}</p>
+                  <h4 class="leftElements">Description:</h4>
+                  <section class="description mt-4">
+                    <p>{{ fetched.description }}</p>
+                  </section>
+                </div>
+
+                <div class="col-6">
+                  <div class="leftElements">
+                    <h3>Details</h3>
+                  </div>
+                  <p>
+                    <strong>Status: </strong>
+                    <span
+                      [ngStyle]="{ color: fetched.active ? 'green' : 'red' }"
+                    >
+                      <i class="fa fa-user" style="font-size: 20px;"></i>
+                    </span>
+                  </p>
+                  <p><strong>First name:</strong> {{ fetched.fname }}</p>
+                  <p><strong>Last name:</strong> {{ fetched.lname }}</p>
+                  <!-- string interpolation {{DOB}} removed by MAX because DOB doesn't exist. Fix please! -->
+                  <p>
+                    <strong>Date of Birth:</strong>{{ fetched.dateOfBirth }}
+                  </p>
+                  <p><strong>Gender:</strong> {{ fetched.gender }}</p>
+                  <p><strong>Address:</strong> {{ fetched.address }}</p>
+
+                  <p><strong>Postal Code:</strong> {{ fetched.postalCode }}</p>
+                </div>
               </div>
 
-              <h4 class="leftElements">Description:</h4>
-                <section class="description mt-4">
-                  <p>{{ fetched.description }}</p>
-                </section>
+              <!-- emergency contacts section -->
+              <div class="row">
+                <!-- Emercency contact 1  -->
+                <div class="col-6" style="text-align: left;">
+                  <hr style="width: 1px black;" />
+                  <h5 class="leftElements">Emergency Contact 1</h5>
+                  <hr style="width: 1px black;" />
+                  <p><strong>First name:</strong> {{ fetched.emg1_fname }}</p>
+                  <p><strong>Last name:</strong> {{ fetched.emg1_lname }}</p>
+                  <p>
+                    <strong>Relationship:</strong>
+                    {{ fetched.emg1_relationship }}
+                  </p>
+                  <p>
+                    <strong>Home Phone:</strong> {{ fetched.emg1_homePhone }}
+                  </p>
+                  <p>
+                    <strong>Cell Phone:</strong> {{ fetched.emg1_cellPhone }}
+                  </p>
+                  <p><strong>Email:</strong> {{ fetched.emg1_email }}</p>
+                </div>
+
+                <div class="col-6" style="text-align: left;">
+                  <!-- Emercency contact 2  -->
+                  <hr style="width: 1px black;" />
+                  <h5 class="leftElements">Emergency Contact 2</h5>
+                  <hr style="width: 1px black;" />
+                  <p><strong>First name:</strong> {{ fetched.emg2_fname }}</p>
+                  <p><strong>Last name:</strong> {{ fetched.emg2_lname }}</p>
+                  <p>
+                    <strong>Relationship:</strong>
+                    {{ fetched.emg2_relationship }}
+                  </p>
+                  <p>
+                    <strong>Home Phone:</strong> {{ fetched.emg2_homePhone }}
+                  </p>
+                  <p>
+                    <strong>Cell Phone:</strong> {{ fetched.emg2_cellPhone }}
+                  </p>
+                  <p><strong>Email:</strong> {{ fetched.emg2_email }}</p>
+                </div>
               </div>
-            
-            <div class="col-6">
-              <div class="leftElements">
-                <h3>Details</h3>
+
+              <!-- Ref contact 1  -->
+              <div class="row contactSection">
+                <div class="col-6" style="text-align: left;">
+                  <hr style="width: 1px black;" />
+                  <h5 class="leftElements">Reference Contact 1</h5>
+                  <hr style="width: 1px black;" />
+                  <p><strong>First name:</strong> {{ fetched.ref1_fname }}</p>
+                  <p><strong>Last name:</strong> {{ fetched.ref1_lname }}</p>
+                  <p>
+                    <strong>Cell Phone:</strong> {{ fetched.ref1_cellPhone }}
+                  </p>
+                  <p><strong>Email:</strong> {{ fetched.ref1_email }}</p>
+                </div>
+
+                <!-- Ref contact 2  -->
+                <div class="col-6" style="text-align: left;">
+                  <hr style="width: 1px black;" />
+                  <h5 class="leftElements">Reference Contact 2</h5>
+                  <hr style="width: 1px black;" />
+                  <p><strong>First name:</strong> {{ fetched.ref2_fname }}</p>
+                  <p><strong>Last name:</strong> {{ fetched.ref2_lname }}</p>
+                  <p>
+                    <strong>Cell Phone:</strong> {{ fetched.ref2_cellPhone }}
+                  </p>
+                  <p><strong>Email:</strong> {{ fetched.ref2_email }}</p>
+                </div>
               </div>
-              <p>
-                <strong>Status: </strong>
-                <span [ngStyle]="{ color: fetched.active ? 'green' : 'red' }">
-                  <i class="fa fa-user" style="font-size: 20px;"></i>
-                </span>
-              </p>
-              <p><strong>First name:</strong> {{ fetched.fname }}</p>
-              <p><strong>Last name:</strong> {{ fetched.lname }}</p>
-              <!-- string interpolation {{DOB}} removed by MAX because DOB doesn't exist. Fix please! -->
-              <p><strong>Date of Birth:</strong>{{ fetched.dateOfBirth }}</p>
-              <p><strong>Gender:</strong> {{ fetched.gender }}</p>
-              <p><strong>Address:</strong> {{ fetched.address }}</p>
+
+              <hr>
               
-              <p><strong>Postal Code:</strong> {{ fetched.postalCode }}</p>
-              
-            </div>
-          </div>
-
-            <!-- emergency contacts section -->
-            <div class="row">
-              
-
-              <!-- Emercency contact 1  -->
-              <div class="col-6" style="text-align: left;">
-                <hr style="width: 1px black;" />
-                <h5 class="leftElements">Emergency Contact 1</h5>
-                <hr style="width: 1px black;" />
-                <p><strong>First name:</strong> {{ fetched.emg1_fname }}</p>
-                <p><strong>Last name:</strong> {{ fetched.emg1_lname }}</p>
-                <p>
-                  <strong>Relationship:</strong>
-                  {{ fetched.emg1_relationship }}
-                </p>
-                <p>
-                  <strong>Home Phone:</strong> {{ fetched.emg1_homePhone }}
-                </p>
-                <p>
-                  <strong>Cell Phone:</strong> {{ fetched.emg1_cellPhone }}
-                </p>
-                <p><strong>Email:</strong> {{ fetched.emg1_email }}</p>
-              </div>
-
-              <div class="col-6" style="text-align: left;">
-                <!-- Emercency contact 2  -->
-                <hr style="width: 1px black;" />
-                <h5 class="leftElements">Emergency Contact 2</h5>
-                <hr style="width: 1px black;" />
-                <p><strong>First name:</strong> {{ fetched.emg2_fname }}</p>
-                <p><strong>Last name:</strong> {{ fetched.emg2_lname }}</p>
-                <p>
-                  <strong>Relationship:</strong>
-                  {{ fetched.emg2_relationship }}
-                </p>
-                <p>
-                  <strong>Home Phone:</strong> {{ fetched.emg2_homePhone }}
-                </p>
-                <p>
-                  <strong>Cell Phone:</strong> {{ fetched.emg2_cellPhone }}
-                </p>
-                <p><strong>Email:</strong> {{ fetched.emg2_email }}</p>
-              </div>
-            </div>
-
-            <!-- Ref contact 1  -->
-            <div class="row contactSection">
-              <div class="col-6" style="text-align: left;">
-                <hr style="width: 1px black;" />
-                <h5 class="leftElements">Reference Contact 1</h5>
-                <hr style="width: 1px black;" />
-                <p><strong>First name:</strong> {{ fetched.ref1_fname }}</p>
-                <p><strong>Last name:</strong> {{ fetched.ref1_lname }}</p>
-                <p>
-                  <strong>Cell Phone:</strong> {{ fetched.ref1_cellPhone }}
-                </p>
-                <p><strong>Email:</strong> {{ fetched.ref1_email }}</p>
-              </div>
-
-              <!-- Ref contact 2  -->
-              <div class="col-6" style="text-align: left;">
-                <hr style="width: 1px black;" />
-                <h5 class="leftElements">Reference Contact 2</h5>
-                <hr style="width: 1px black;" />
-                <p><strong>First name:</strong> {{ fetched.ref2_fname }}</p>
-                <p><strong>Last name:</strong> {{ fetched.ref2_lname }}</p>
-                <p>
-                  <strong>Cell Phone:</strong> {{ fetched.ref2_cellPhone }}
-                </p>
-                <p><strong>Email:</strong> {{ fetched.ref2_email }}</p>
-              </div>
+              <div class="container mb-3">
+                <!-- Admin Notes -->
+                <!-- (Still awaiting backend and service attribute) -->
+                <h4 class="leftElements">Admin Notes:</h4>
+                <i>
+                  This note will only be visible to admins and won't be visible
+                  to volunteers
+                </i>
+                  <section class="description mt-4">
+                    <p>{{ fetched.adminNotes }}</p>
+                  </section>
               </div>
             </div>
           </div>

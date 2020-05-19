@@ -240,6 +240,22 @@
                         </div>
                       </div>
                     </div>
+
+                    <hr>
+
+                    <div class="container mb-3">
+                      <!-- Admin Notes -->
+                      <!-- (Still awaiting backend and service attribute) -->
+                      <h3>Admin Notes:</h3>
+                      <i>
+                        This note will only be visible to admins and won't be visible
+                        to volunteers
+                      </i>
+                        <section class="description mt-4">
+                          <p>{{ fetched.adminNotes }}</p>
+                        </section>
+                    </div>
+
                   </div>
                   <div class="modal-footer" *ngIf="!adminCheck">
                     <button
