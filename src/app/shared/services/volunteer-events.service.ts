@@ -55,6 +55,9 @@ export class VolunteerEventsService {
     this.eventStaffArray = [];
     // retreive list of events from the backend, push them to events[]
     this.sendGetLoadEventStaff().subscribe((data: EventStaffModel[]) => {
+      if (data == null) {
+        return this.eventStaffArray;
+      }
       data.forEach((staffEvent) => {
         //if event staff id matchesone in response data then add event to eventStaffArray
         if (staffEvent != null) {
@@ -62,7 +65,7 @@ export class VolunteerEventsService {
         }
       });
     });
-    //console.log(this.eventStaffArray);
+    // console.log(this.eventStaffArray);
     return this.eventStaffArray;
   }
 
@@ -112,7 +115,6 @@ export class VolunteerEventsService {
     this.eventStaffArray = [];
     // retreive list of events from the backend, push them to events[]
     this.sendGetLoadEventStaff().subscribe((data: EventStaffModel[]) => {
-      console.log(data);
       if (data == null) {
         return this.eventStaffArray;
       }
@@ -123,7 +125,6 @@ export class VolunteerEventsService {
         }
       });
     });
-    console.log(this.eventStaffArray);
     return this.eventStaffArray;
   }
 
