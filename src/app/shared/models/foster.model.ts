@@ -52,6 +52,7 @@ export class FosterModel {
   private _ref3_cellPhone: string;
   private _ref3_email: string;
   private _allowHomeVisit: boolean;
+  private _adminNotes: string;
 
   constructor(
     approved: boolean,
@@ -106,7 +107,8 @@ export class FosterModel {
     ref3_lname: string,
     ref3_cellPhone: string,
     ref3_email: string,
-    allowHomeVisit: boolean
+    allowHomeVisit: boolean,
+    adminNotes: string
   ) {
     this.approved = approved;
     this.active = active;
@@ -161,6 +163,7 @@ export class FosterModel {
     this.ref3_cellPhone = ref3_cellPhone;
     this.ref3_email = ref3_email;
     this.allowHomeVisit = allowHomeVisit;
+    this.adminNotes = adminNotes;
   }
   public get approved(): boolean {
     return this._approved;
@@ -498,6 +501,12 @@ export class FosterModel {
   }
   public set allowHomeVisit(value: boolean) {
     this._allowHomeVisit = value;
+  }
+  public get adminNotes(): string{
+    return this._adminNotes;
+  }
+  public set adminNotes(value: string) {
+    this._adminNotes = value;
   }
 
   edit(

@@ -22,6 +22,7 @@ export class VolunteerFormComponent {
   defaultec1Relationship: string = "";
   defaultec2Relationship: string = "";
   defaultProvince = "choose";
+  choices = ["Yes", "No"];
 
   constructor(
     private http: HttpClient,
@@ -124,7 +125,8 @@ export class VolunteerFormComponent {
         form.value.r2Cphone as string, // ref2_cellPhone
         form.value.r2Email as string, // ref2_email
         false, // emailAllowed
-        "false,false,false,false" as string // emailPref [FALSE,FALSE,FALSE,FALSE] [electric newsletters, recruitment appeals, schedule reminders, checlist reminders]
+        "false,false,false,false" as string, // emailPref [FALSE,FALSE,FALSE,FALSE] [electric newsletters, recruitment appeals, schedule reminders, checlist reminders]
+        form.value.adminNotes as string // adminNotes
       );
 
       console.log(volunteerForm);
