@@ -5,6 +5,8 @@ import { EventModel } from "src/app/shared/models/event.model";
 import { EventsService } from "../../shared/services/events.service";
 import { VolunteerEventsService } from "src/app/shared/services/volunteer-events.service";
 import { EventStaffModel } from "src/app/shared/models/event-staff.model";
+import { VolunteerService } from "src/app/shared/services/new-volunteer.service";
+import { VolunteerForm } from "src/app/shared/models/volunteer-form.model";
 
 @Component({
   selector: "app-view-events",
@@ -18,10 +20,14 @@ export class ViewEventsComponent implements OnInit {
   public currentDate: Date; // current date of active session
   public isLoading = false; // loading status
   eventArrayHolder: EventStaffModel[] = []; //array of user event subscriptions
-  numberOfSubsArray: number[] = new Array(66, 7); //holds exact number of subscriptions for individual event
   numContainer: number;
+  volunteerArray: VolunteerForm[] = [];
 
-  constructor(private es: EventsService, private ves: VolunteerEventsService) {}
+  constructor(
+    private es: EventsService,
+    private ves: VolunteerEventsService,
+    private vs: VolunteerService
+  ) {}
 
   ngOnInit(): void {
     //this.ves.initializeData;
@@ -29,13 +35,36 @@ export class ViewEventsComponent implements OnInit {
     //subscribe to keep up to date event staff
     this.ves.eventStaffData.subscribe((data) => {
       this.eventArrayHolder = data;
-      console.log(this.eventArrayHolder);
+      // console.log(this.eventArrayHolder);
     });
-    console.log(this.numberOfSubsArray);
+    //load active volunteers
+    this.vs.loadVolunteers(true).subscribe((responseData) => {
+      this.volunteerArray = responseData;
+      // console.log(this.volunteerArray);
+    });
+
     this.currentDate = new Date();
     this.loadEvents();
   }
 
+  //Method that return array of event specific registered fosters
+  getRegisteredUsers(eventID): VolunteerForm[] {
+    let cont: VolunteerForm[] = [];
+    for (let staffevents of this.eventArrayHolder) {
+      if (staffevents.eventid === eventID) {
+        for (let vols of this.volunteerArray) {
+          // console.log("listong" + vols.id);
+          if (vols.id === staffevents.staffid) {
+            //console.log("id:" + eventID + " volunteer:" + vols.id);
+            cont.push(vols);
+          }
+        }
+      }
+    }
+    return cont;
+  }
+
+  //Method that returns number of event specific user subscriptions
   defineNumberOfSubs(eventID): number {
     let bum: number = 0;
     for (let events of this.eventArrayHolder) {
@@ -46,21 +75,12 @@ export class ViewEventsComponent implements OnInit {
     return bum;
   }
 
-  //Method which checks how many users signed for an event.
+  //Method that check if anybody has signed for an event
   defineSubscribers(eventID): boolean {
-    // let countSubs: number = 0;
-    //check if events array contains the given eventID
-    //if (this.eventArrayHolder.find((e) => e.eventid == eventID)) {
     if (this.eventArrayHolder.find((e) => e.eventid == eventID)) {
       return true;
     }
     return false;
-    // for (let events of this.eventArrayHolder) {
-    //   if ((events.eventid = eventID)) {
-    //     countSubs++;
-    //   }
-    // }
-    // return countSubs;
   }
 
   onAdd(newEvent: EventModel): void {
