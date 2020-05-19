@@ -114,9 +114,19 @@
     <hr />
     <div>
       <h3>Demographic Information</h3>
-      <label class="mt-3" for="dob">Are you over the Age of 18? </label>
-      <input type="checkbox" class="custom-check-input ml-2 mr-1" id="over18" name="over18" value="Over the age of 18"
-        ngModel />
+      <label for="over18">Are you over the age of 18?</label>
+      <div class="radio" id="over18" *ngFor="let choice of choices">
+        <label>
+          <input
+            type="radio"
+            [value]="choice"
+            ngModel
+            name="over18"
+            required
+          />
+          {{ choice }}
+        </label>
+      </div>
         <br>
       <label for="gender">Gender</label>
       <select id="gender" class="form-control" [ngModel]="defaultGender" name="gender" required>

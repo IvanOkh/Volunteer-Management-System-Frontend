@@ -23,12 +23,12 @@ export class ViewFostersComponent implements OnInit
   deletable: boolean = true;
 
   // Extra variables to delimit fosterAnimalType attribute
-  ftPuppy: string = "No";
-  ftAdultDog: string = "No";
-  ftKitten: string = "No";
-  ftAdultCat: string = "No";
-  ftMedicalCare: string = "No";
-  ftQuarantine: string = "No";
+  ftPuppy: string = "Error";
+  ftAdultDog: string = "Error";
+  ftKitten: string = "Error";
+  ftAdultCat: string = "Error";
+  ftMedicalCare: string = "Error";
+  ftQuarantine: string = "Error";
 
   constructor(private test: FostersService) {}
 
@@ -105,7 +105,10 @@ export class ViewFostersComponent implements OnInit
       }
     );
 
+    
     this.delimitFosterType(this.fetched.fosterAnimalType);
+
+    
   }
 
   private updateFoster(changes: FosterModel): void

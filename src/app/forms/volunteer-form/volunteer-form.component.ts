@@ -22,6 +22,7 @@ export class VolunteerFormComponent {
   defaultec1Relationship: string = "";
   defaultec2Relationship: string = "";
   defaultProvince = "choose";
+  choices = ["Yes", "No"];
 
   constructor(
     private http: HttpClient,
