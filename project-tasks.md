@@ -1,7 +1,4 @@
-#  Task
 
-  ## Problem
-  
 #  Project Tasks 						## Monday, May 18th, 2020
 
 ### APP-WIDE:
