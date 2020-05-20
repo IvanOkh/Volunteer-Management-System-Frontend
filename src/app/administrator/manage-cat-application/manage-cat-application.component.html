@@ -6,53 +6,265 @@
       <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>Cat name</th>
       <td mat-cell *matCellDef="let element">
         <div *ngIf="element.nameOfCat == ''" style="color:red;"><em>*Cat is not named*</em></div>
-        <div *ngIf="element.nameOfCat != ''">{{element.nameOfCat}}</div>
+        <div *ngIf="element.nameOfCat != ''">{{element?.nameOfCat}}</div>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="fname">
       <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> First name</th>
-      <td mat-cell *matCellDef="let element">{{element.fname}}</td>
+      <td mat-cell *matCellDef="let element">{{element?.fname}}</td>
     </ng-container>
 
     <ng-container matColumnDef="lname">
       <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Last name</th>
-      <td mat-cell *matCellDef="let element">{{element.lname}}</td>
+      <td mat-cell *matCellDef="let element">{{element?.lname}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row.id)" 
-    data-toggle="modal" data-target="#modalCatInfo" style="pointer:cursor">
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row.id)" data-toggle="modal"
+      data-target="#modalCatInfo" style="pointer:cursor">
     </tr>
 
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 
   <!-- POPUP MODAL FOR CAT INFO  -->
-  <div class="modal fade" id="modalCatInfo" tabindex="-1" role="dialog" aria-labelledby="modalCatInfo" aria-hidden="true">
+  <div class="modal fade" id="modalCatInfo" tabindex="-1" role="dialog" aria-labelledby="modalCatInfo"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
-        <div class="modal-header" style="background-color: #ce0e2d; color: white;">
-          <h5 class="modal-title" id="exampleModalLongTitle">Cat Adoption Application</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <div class="modal-body">
-          <div class="row">
-              <div class="col-6">
-                  <h3>Application Information</h3>
-                  <div style="text-align: left;">
-                    <p><strong>Name of cat: </strong>{{newCatObj?.fname}}</p>
-                  </div>
-              </div>
-              <div class="col-6"></div>
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #ce0e2d; color: white;">
+            <h5 class="modal-title" id="exampleModalLongTitle">Cat Adoption Application</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12">
+                <div style="text-align: left;">
+                  <h4 class="title">Application Information</h4>
+                  <hr>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <p><strong>Name of cat: </strong> {{application?.nameOfCat}}</p>
+                      <p><strong>Applicant's name: </strong> {{application?.fname + ' ' + application?.lname}}</p>
+                      <p><strong>Age: </strong>{{application?.age}}</p>
+                    </div>
+                    <div class="col-lg-6">
+                      <p><strong>Cell Phone: </strong>{{application?.cellPhone}}</p>
+                      <p><strong>Home Phone: </strong>{{application?.homePhone}}</p>
+                      <p><strong>Email: </strong>{{application?.email}}</p>
+                    </div>
+                    <div class="col-12">
+                      <p><strong>Address: </strong> {{application?.address + ' ' + 
+                        application?.city + ', ' + application?.province + ', ' + application?.postalCode}}</p>
+                    </div>
+                  </div>
+
+                  <hr>
+                  <h4 class="title">Family and Lifestyle</h4>
+                  <hr>
+                  <p><strong>Who are you adopting this cat for? </strong>
+                    {{ application?.personCatIsFor}}
+                  </p>
+                  <p><strong>Are all members of your household in agreement with this adoption? </strong>
+                    <span [ngStyle]="{ display: !application?.householdAgreement ? 'none' : 'inline' }">
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                    </span>
+                    <span [ngStyle]="{ display: application?.householdAgreement ? 'none' : 'inline' }">
+                      <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+
+                    <p><strong>Have all members of your household been introduced to the cat? </strong>
+                      <span [ngStyle]="{ display: !application?.membersIntroduced ? 'none' : 'inline' }">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                      </span>
+                      <span [ngStyle]="{ display: application?.membersIntroduced ? 'none' : 'inline' }">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                      </span>
+                    </p>
+                    <p><strong>Does anyone in your home have allergies to cats or have asthma? </strong>
+                      <span [ngStyle]="{ display: !application?.catAllergies ? 'none' : 'inline' }">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                      </span>
+                      <span [ngStyle]="{ display: application?.catAllergies ? 'none' : 'inline' }">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                      </span>
+                    </p>
+                    <p><strong>How many adults are in your household? </strong>{{application?.howManyAdults}}</p>
+                    <p><strong>If children, what are their ages? </strong>{{application?.childrenAges}}</p>
+                    <p><strong>Have your children been taught the correct way to handle a cat? Please explain:
+                      </strong>{{application?.childrenCatHandling}}</p>
+                    <p><strong>Do you have children that regularly visit your home? </strong>
+                      <span [ngStyle]="{ display: !application?.childrenVisiting ? 'none' : 'inline' }">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                      </span>
+                      <span [ngStyle]="{ display: application?.childrenVisiting ? 'none' : 'inline' }">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                      </span>
+                    </p>
+                    <p><strong>How often do they visit? </strong>
+                      {{ application?.visitingFrequency}}
+                    </p>
+                    <p><strong>How have you prepared your children to respect the dogʼs boundaries, observe its
+                        reactions,
+                        and avoid bites? Explain: </strong>
+                      {{application?.childrenPrepared}}
+                    </p>
+                    <p><strong>How busy is your family? </strong>
+                      {{application?.familyBusy}}
+                    </p>
+                    <p><strong>How active is your family? </strong>
+                      {{application?.familyActive}}
+                    </p>
+                    <p><strong>How regular is your schedule? </strong>
+                      {{application?.scheduleRegularity}}
+                    </p>
+                    <p><strong>How would you describe your family’s personality? </strong>
+                      {{application?.familyPersonality}}
+                    </p>
+                    <p><strong>Are you planning any of the following in the next two months? </strong>
+                      {{application?.familyPlans}}
+                    </p>
+
+                    <hr>
+                    <h4 class="title">Your Home</h4>
+                    <hr>
+                    <p><strong>What type of home do you live in? </strong>
+                      {{application?.typeOfResidence}}
+                    </p>
+                    <p><strong>Do you own or rent? </strong>
+                      <span [ngStyle]="{ display: !application?.own ? 'none' : 'inline' }">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                      </span>
+                      <span [ngStyle]="{ display: application?.own ? 'none' : 'inline' }">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                      </span>
+                    </p>
+                    <p><strong>If rent, provide name and phone number of landlord: </strong>
+                      {{application?.landlordContact}}
+                    </p>
+                    <p><strong>Does your landlord allow cats? </strong>
+                      <span [ngStyle]="{ display: !application?.catsAllowed ? 'none' : 'inline' }">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                      </span>
+                      <span [ngStyle]="{ display: application?.catsAllowed ? 'none' : 'inline' }">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                      </span>
+                    </p>
+                    <p><strong>Are there any restrictions from your landlord or subdivision? </strong>
+                      {{application?.restrictions}}
+                    </p>
+                    <p><strong>What outdoor areas would your cat have access to? </strong>
+                      {{application?.outdoorAreas}}
+                    </p>
+                    <p><strong>How busy is your Street? </strong>
+                      {{application?.typeOfStreet}}
+                    </p>
+                    <p><strong>Where will your cat live? </strong>
+                      {{application?.catHome}}
+                    </p>
+                    <p><strong>What will happen if your living situation changes and you canʼt take your cat to your new home? If your landlord or condo board reverses their decision to allow pets? </strong>
+                      {{application?.livingSituationChanges}}
+                    </p>
+
+
+                    <h4 class="title">Current/Previous Pets</h4>
+                    <hr>
+                    <p><strong>Is there any cats that live with you now?</strong>
+                      <span [ngStyle]="{ display: !application?.otherCats ? 'none' : 'inline' }">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                      </span>
+                      <span [ngStyle]="{ display: application?.otherCats ? 'none' : 'inline' }">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                      </span>
+                    </p>
+                    <p><strong>If yes, how many and how old are they?</strong>
+                      {{application?.catsInfo}}
+                    </p>
+                    <p><strong>How are your cats towards other cats? 
+                    </strong>
+                      {{ application?.catsAttitude}}
+                    </p>
+                    <p><strong>Do you have other pets?</strong>
+                      <span [ngStyle]="{ display: !application?.otherPets ? 'none' : 'inline' }">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                      </span>
+                      <span [ngStyle]="{ display: application?.otherPets ? 'none' : 'inline' }">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                      </span>
+                    </p>
+                    <p><strong>If yes, what are they?</strong>
+                      {{application?.otherPetsInfo}}
+                    </p>
+                    <p><strong>How many of these pets are spayed/neutered?</strong>
+                      {{application?.spayedAndNeutered}}
+                    </p>
+                    <p><strong>Where are these animals now?</strong>
+                      {{application?.petLocation}}
+                    </p>
+                    <p><strong>Have you adopted from an animal rescue group before?</strong>
+                      <span [ngStyle]="{ display: !application?.priorAdoption ? 'none' : 'inline' }">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                      </span>
+                      <span [ngStyle]="{ display: application?.priorAdoption ? 'none' : 'inline' }">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                      </span>
+                    </p>
+                    <p><strong>If yes, what group?</strong>
+                      {{application?.groupName}}
+                    </p>
+
+
+                    <p><strong>Have you ever surrendered a pet to a humane society or rescue? </strong>
+                      {{application?.surrenderedPet}}
+                    </p>
+                    <p><strong>If yes, what were the circumstances?</strong>
+                      {{application?.circumstances}}
+                    </p>
+                    <p><strong>Please provide the name and phone number of your current and/or previous veterinarian or
+                        clinic:</strong>
+                      {{application?.vetInfo}}
+                    </p>
+
+                    <hr>
+                    <h4 class="title">New Pet Information</h4>
+                    <hr>
+                    <p><strong>Why do you want this rescue cat and what are your expectations?</strong>
+                      {{application?.expectations}}
+                    </p>
+                    <p><strong>What is the main purpose of adopting this cat?</strong>
+                      {{application?.purpose}}
+                    </p>
+                    <p><strong>Who will be the catʼs primary caretaker?</strong>
+                      {{application?.primaryCaretaker }}
+                    </p>
+
+                    <p><strong>Have you had cats before?</strong>
+                      <span [ngStyle]="{ display: !application?.hadCats ? 'none' : 'inline' }">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                      </span>
+                      <span [ngStyle]="{ display: application?.hadCats ? 'none' : 'inline' }">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                      </span>
+                    </p>
+                    
+                    
+
+                    <p><strong>How did you find out about this animal?</strong>
+                      {{ application?.findOutAbout}}
+                    </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save</button>
+          </div>
         </div>
       </div>
     </div>

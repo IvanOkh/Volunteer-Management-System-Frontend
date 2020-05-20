@@ -17,7 +17,7 @@ import { AnimalModel } from "src/app/shared/models/animal.model";
 })
 export class ManageCatApplicationComponent implements OnInit {
   catObj: AnimalModel;
-  newCatObj: any;
+  application: any;
   catArray = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -37,14 +37,14 @@ export class ManageCatApplicationComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.catArray = cats;
-      this.newCatObj = this.catArray[0];
+      this.application = this.catArray[0];
     });
   }
 
   getRecord(id: number) {
     this.catArray.forEach((element) => {
       if (element.id === id) {
-        this.newCatObj = element;
+        this.application = element;
       }
     });
   }

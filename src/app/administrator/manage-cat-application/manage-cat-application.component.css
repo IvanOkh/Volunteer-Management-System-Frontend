@@ -16,3 +16,16 @@ td{
     padding: .75rem;
     border-top: 1px solid #dee2e6;
 }
+.title {
+    text-align: center;
+    color: #cd0d2e;
+  }
+  
+  .fa-check {
+    font-size: 20px;
+    color: green;
+  }
+  .fa-times {
+    font-size: 20px;
+    color: red;
+  }
