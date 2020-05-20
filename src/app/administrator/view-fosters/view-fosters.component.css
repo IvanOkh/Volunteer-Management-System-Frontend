@@ -21,6 +21,10 @@ h5 {
   color: #fbfbff;
 }
 
+label{
+  margin-top: .5rem;
+}
+
 .avatar img {
   width: 15%;
   height: auto;

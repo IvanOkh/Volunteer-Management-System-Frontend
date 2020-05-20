@@ -255,7 +255,7 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-danger delete-button"
+              class="btn btn-outline-dark delete-button"
               data-dismiss="modal"
               data-target="#confirmDelete"
               [disabled]="this.fetched.active"
@@ -265,7 +265,7 @@
             </button>
             <button
               type="button"
-              class="btn btn-warning"
+              class="btn btn-outline-primary"
               data-dismiss="modal"
               data-target="#editInfo"
               data-toggle="modal"
@@ -276,7 +276,7 @@
             <div *ngIf="fetched.active">
               <button
                 type="button"
-                class="btn btn-primary"
+                class="btn btn-outline-danger"
                 data-dismiss="modal"
                 data-target="#confirmDeactive"
                 data-toggle="modal"
@@ -288,7 +288,7 @@
             <div *ngIf="!fetched.active">
               <button
                 type="button"
-                class="btn btn-primary"
+                class="btn btn-outline-success"
                 data-dismiss="modal"
                 data-target="#confirmActive"
                 data-toggle="modal"
@@ -341,17 +341,18 @@
               ?
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">
-                Cancel
-              </button>
               <button
                 type="button"
-                class="btn btn-success"
+                class="btn btn-outline-success"
                 data-dismiss="modal"
                 (click)="activeVolunteer()"
               >
-                OK
+                Activate
               </button>
+              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                Cancel
+              </button>
+              
             </div>
           </div>
         </ng-container>
@@ -397,17 +398,18 @@
               ?
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">
-                Cancel
-              </button>
               <button
                 type="button"
-                class="btn btn-success"
+                class="btn btn-outline-danger"
                 data-dismiss="modal"
                 (click)="activeVolunteer()"
               >
-                OK
+                Deactivate
               </button>
+              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                Cancel
+              </button>
+              
             </div>
           </div>
         </ng-container>
@@ -454,17 +456,18 @@
               ?
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">
-                Cancel
-              </button>
               <button
                 type="button"
-                class="btn btn-success"
+                class="btn btn-outline-danger"
                 data-dismiss="modal"
                 (click)="onDeleteVolunteer(fetched.id)"
               >
-                OK
+                Delete
               </button>
+              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                Cancel
+              </button>
+              
             </div>
           </div>
         </ng-container>
@@ -869,6 +872,28 @@
                     />
                   </div>
                 </div>
+
+                <hr>
+
+                <!-- Admin Notes -->
+                <div class="container mt-3">
+                  <h5 class="m-auto" style="text-align: center;">
+                    Admin Notes
+                  </h5>
+
+                  <div class="form-group">
+                    <textarea
+                      class="form-control"
+                      name="adminNotes"
+                      id="adminNotes"
+                      rows="3"
+                      [(ngModel)]="fetched.adminNotes"
+                    ></textarea>
+                  </div>
+
+              </div>
+
+
                 <div
                   class="mt-4"
                   style="
@@ -878,18 +903,19 @@
                   "
                 >
                   <button
-                    type="button"
-                    class="btn btn-danger"
-                    data-dismiss="modal"
-                  >
-                    Discard
-                  </button>
-                  <button
                     type="submit"
-                    class="btn btn-success"
+                    class="btn btn-outline-success"
                     onclick="$('.modal').modal('hide')"
                   >
                     Save changes
+                  </button>
+
+                  <button
+                    type="button"
+                    class="btn btn-outline-danger"
+                    data-dismiss="modal"
+                  >
+                    Discard
                   </button>
                 </div>
               </form>
