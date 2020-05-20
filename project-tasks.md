@@ -9,7 +9,7 @@
 
 •	Build HTML templates for all 4 forms (the backend executive requested clean html code for building email templates (e.g. <p> First Name: {{firstname}} </p>). In progress
 
-•	On Volunteer Form, replace “Date of Birth” with “Are you over 18?” (Yes/No bullets). Adjust Volunteer Form model accordingly, and make sure submission is correct. 
+•	On Volunteer Form, replace “Date of Birth” with “Are you over 18?” (Yes/No bullets). Adjust Volunteer Form model accordingly, and make sure submission is correct. [COMPLETED] - Albert
 
 •	Resolve multiple issues and error messages on Dog Application Form. Make sure submission is correct.
 
