@@ -5,7 +5,7 @@
 ### APP-WIDE:
 •	Disabled users can access application. FIX
 
-###FORMS:
+### FORMS:
 
 •	Build HTML templates for all 4 forms (the backend executive requested clean html code for building email templates (e.g. <p> First Name: {{firstname}} </p>). In progress
 
