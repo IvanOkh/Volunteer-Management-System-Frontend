@@ -17,7 +17,7 @@ import { AnimalModel } from "src/app/shared/models/animal.model";
 })
 export class ManageDogApplicationComponent implements OnInit {
   dogObj: AnimalModel;
-  newDogObj: any;
+  application: any;
   dogArray = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -37,14 +37,14 @@ export class ManageDogApplicationComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.dogArray = dogs;
-      this.newDogObj = this.dogArray[0];
+      this.application = this.dogArray[0];
     });
   }
 
   getRecord(id: number) {
     this.dogArray.forEach((element) => {
       if (element.id === id) {
-        this.newDogObj = element;
+        this.application = element;     
       }
     });
   }
