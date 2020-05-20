@@ -306,7 +306,7 @@
                   <div class="modal-footer" *ngIf="!adminCheck">
                     <button
                       type="button"
-                      class="btn btn-dark delete-button"
+                      class="btn btn-outline-dark delete-button"
                       data-dismiss="modal"
                       [attr.data-target]="'#confirmDelete' + item.id"
                       data-toggle="modal"
@@ -326,7 +326,7 @@
                     </button>
                     <button
                       type="button"
-                      class="btn btn-danger"
+                      class="btn btn-outline-danger"
                       data-dismiss="modal"
                       [attr.data-target]="'#confirmDeactive' + item.id"
                       [disabled]="!this.fetched.active"
@@ -336,7 +336,7 @@
                     </button>
                     <button
                       type="button"
-                      class="btn btn-success"
+                      class="btn btn-outline-success"
                       data-dismiss="modal"
                       [attr.data-target]="'#confirmActive' + item.id"
                       [disabled]="this.fetched.active"
@@ -741,19 +741,19 @@
                         <div class="modal-footer">
                           <button
                             type="submit"
-                            class="btn btn-success"
+                            class="btn btn-outline-success"
                             onclick="$('.modal').modal('hide')"
                           >
                             Save Changes
                           </button>
                           <button
                             type="button"
-                            class="btn btn-outline-secondary"
+                            class="btn btn-outline-danger"
                             data-dismiss="modal"
                           >
                             Discard Changes
                           </button>
-                          <!-- <button type="button" class="btn btn-success" data-dismiss="modal" (click)="deactiveVolunteer(id)">OK</button> -->
+                          <!-- <button type="button" class="btn btn-outline-success" data-dismiss="modal" (click)="deactiveVolunteer(id)">OK</button> -->
                         </div>
                       </form>
                     </div>
@@ -804,7 +804,7 @@
                     <div class="modal-footer">
                       <button
                         type="button"
-                        class="btn btn-danger"
+                        class="btn btn-outline-danger"
                         data-dismiss="modal"
                         (click)="activateFoster()"
                       >
@@ -812,7 +812,7 @@
                       </button>
                       <button
                         type="button"
-                        class="btn btn-secondary"
+                        class="btn btn-outline-secondary"
                         data-dismiss="modal"
                       >
                         Cancel
@@ -865,7 +865,7 @@
                     <div class="modal-footer">
                       <button
                         type="button"
-                        class="btn btn-success"
+                        class="btn btn-outline-success"
                         data-dismiss="modal"
                         (click)="activateFoster()"
                       >
@@ -873,7 +873,7 @@
                       </button>
                       <button
                         type="button"
-                        class="btn btn-secondary"
+                        class="btn btn-outline-secondary"
                         data-dismiss="modal"
                       >
                         Cancel
@@ -926,7 +926,7 @@
                     <div class="modal-footer">
                       <button
                         type="button"
-                        class="btn btn-danger"
+                        class="btn btn-outline-danger"
                         data-dismiss="modal"
                         (click)="onDeleteFoster(fetched.id)"
                       >
@@ -934,7 +934,7 @@
                       </button>
                       <button
                         type="button"
-                        class="btn btn-secondary"
+                        class="btn btn-outline-secondary"
                         data-dismiss="modal"
                       >
                         Cancel
