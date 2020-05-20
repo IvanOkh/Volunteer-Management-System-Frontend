@@ -64,7 +64,9 @@
                       Foster Information
                     </h2>
                     <button type="button" class="close">
-                      <span aria-hidden="true" data-dismiss="modal">&times;</span>
+                      <span aria-hidden="true" data-dismiss="modal"
+                        >&times;</span
+                      >
                     </button>
                   </div>
                   <div class="modal-body">
@@ -82,22 +84,37 @@
                           </div>
                           <p>
                             <strong>Status: </strong>
-                            <span [ngStyle]="{ color: fetched.active ? 'green' : 'red' }">
-                              <i class="fa fa-user" style="font-size: 20px;"></i>
+                            <span
+                              [ngStyle]="{
+                                color: fetched.active ? 'green' : 'red'
+                              }"
+                            >
+                              <i
+                                class="fa fa-user"
+                                style="font-size: 20px;"
+                              ></i>
                             </span>
                           </p>
                           <p><strong>Foster ID: </strong> {{ fetched.id }}</p>
-                          <p><strong>First name: </strong> {{ fetched.fname }}</p>
-                          <p><strong>Last name: </strong> {{ fetched.lname }}</p>
+                          <p>
+                            <strong>First name: </strong> {{ fetched.fname }}
+                          </p>
+                          <p>
+                            <strong>Last name: </strong> {{ fetched.lname }}
+                          </p>
                         </div>
 
                         <div class="col-sm-6">
                           <!-- Contact Information -->
                           <h3 class="sectionTitle mb-4">Contact Information</h3>
                           <div style="text-align: left;">
-                            <p><strong>Cell phone:</strong> {{ fetched.cellPhone }}</p>
                             <p>
-                              <strong>Home phone:</strong> {{ fetched.homePhone }}
+                              <strong>Cell phone:</strong>
+                              {{ fetched.cellPhone }}
+                            </p>
+                            <p>
+                              <strong>Home phone:</strong>
+                              {{ fetched.homePhone }}
                             </p>
                             <p><strong>Email:</strong> {{ fetched.email }}</p>
                             <p>
@@ -105,7 +122,8 @@
                               {{ fetched.city }}, {{ fetched.province }}
                             </p>
                             <p>
-                              <strong>Postal Code: </strong> {{ fetched.postalCode }}
+                              <strong>Postal Code: </strong>
+                              {{ fetched.postalCode }}
                             </p>
                           </div>
                         </div>
@@ -121,14 +139,19 @@
                             {{ fetched.typeOfResidence }}
                           </p>
                           <p>
-                            <strong>Pet Details: </strong> {{ fetched.petDetails }}
+                            <strong>Pet Details: </strong>
+                            {{ fetched.petDetails }}
                           </p>
                           <p>
                             <strong>Spayed and Neutered: </strong>
                             {{ fetched.spayedAndNeutered }}
                           </p>
-                          <p><strong>Dog Habit </strong> {{ fetched.dogHabit }}</p>
-                          <p><strong>Cat Habit </strong> {{ fetched.catHabit }}</p>
+                          <p>
+                            <strong>Dog Habit </strong> {{ fetched.dogHabit }}
+                          </p>
+                          <p>
+                            <strong>Cat Habit </strong> {{ fetched.catHabit }}
+                          </p>
                           <p>
                             <strong>Family Agreeable: </strong>
                             {{ fetched.familyAgreeable | yesNo }}
@@ -136,12 +159,12 @@
                           <p>
                             <strong>Foster Animal Type: </strong>
                             <i>
-                            <br>Puppy: {{ this.ftPuppy }}
-                            <br>Adult Dog: {{ this.ftAdultDog }}
-                            <br>Kitten: {{ this.ftKitten }}
-                            <br>Adult Cat: {{ this.ftAdultCat }}
-                            <br>Medical Care: {{ this.ftMedicalCare }}
-                            <br>Quarantine: {{ this.ftQuarantine }}
+                              <br />Puppy: {{ this.ftPuppy }} <br />Adult Dog:
+                              {{ this.ftAdultDog }} <br />Kitten:
+                              {{ this.ftKitten }} <br />Adult Cat:
+                              {{ this.ftAdultCat }} <br />Medical Care:
+                              {{ this.ftMedicalCare }} <br />Quarantine:
+                              {{ this.ftQuarantine }}
                             </i>
                           </p>
                           <p>
@@ -155,7 +178,10 @@
                         </div>
 
                         <div class="col-sm-6">
-                          <p><strong>Fenced Yard: </strong> {{ fetched.fencedYard | yesNo }}</p>
+                          <p>
+                            <strong>Fenced Yard: </strong>
+                            {{ fetched.fencedYard | yesNo }}
+                          </p>
                           <p>
                             <strong>Fence Height: </strong>
                             {{ fetched.fenceHeight }}
@@ -168,7 +194,10 @@
                             <strong>Familiar with crate: </strong>
                             {{ fetched.familiarWithCrate | yesNo }}
                           </p>
-                          <p><strong>Use Dog Crate: </strong> {{ fetched.useDogCrate | yesNo }}</p>
+                          <p>
+                            <strong>Use Dog Crate: </strong>
+                            {{ fetched.useDogCrate | yesNo }}
+                          </p>
                           <p>
                             <strong>Past Rescue Experience: </strong>
                             {{ fetched.pastRescueExperience }}
@@ -177,7 +206,10 @@
                             <strong>Take Animal To Vet: </strong>
                             {{ fetched.takeAnimalToVet | yesNo }}
                           </p>
-                          <p><strong>Has Vehicle: </strong> {{ fetched.haveVehicle | yesNo }}</p>
+                          <p>
+                            <strong>Has Vehicle: </strong>
+                            {{ fetched.haveVehicle | yesNo }}
+                          </p>
                           <p>
                             <strong>Medicate Animal: </strong>
                             {{ fetched.medicateAnimal | yesNo }}
@@ -197,14 +229,19 @@
                           <h5 class="sectionTitle">Reference Contact 1</h5>
                           <hr style="width: 1px black;" />
                           <p>
-                            <strong>First name:</strong> {{ fetched.ref1_fname }}
+                            <strong>First name:</strong>
+                            {{ fetched.ref1_fname }}
                           </p>
-                          <p><strong>Last name:</strong> {{ fetched.ref1_lname }}</p>
+                          <p>
+                            <strong>Last name:</strong> {{ fetched.ref1_lname }}
+                          </p>
                           <p>
                             <strong>Cell Phone:</strong>
                             {{ fetched.ref1_cellPhone }}
                           </p>
-                          <p><strong>Email:</strong> {{ fetched.ref1_email }}</p>
+                          <p>
+                            <strong>Email:</strong> {{ fetched.ref1_email }}
+                          </p>
                         </div>
 
                         <!-- Ref contact 2  -->
@@ -213,14 +250,19 @@
                           <h5 class="sectionTitle">Reference Contact 2</h5>
                           <hr style="width: 1px black;" />
                           <p>
-                            <strong>First name:</strong> {{ fetched.ref2_fname }}
+                            <strong>First name:</strong>
+                            {{ fetched.ref2_fname }}
                           </p>
-                          <p><strong>Last name:</strong> {{ fetched.ref2_lname }}</p>
+                          <p>
+                            <strong>Last name:</strong> {{ fetched.ref2_lname }}
+                          </p>
                           <p>
                             <strong>Cell Phone:</strong>
                             {{ fetched.ref2_cellPhone }}
                           </p>
-                          <p><strong>Email:</strong> {{ fetched.ref2_email }}</p>
+                          <p>
+                            <strong>Email:</strong> {{ fetched.ref2_email }}
+                          </p>
                         </div>
 
                         <!-- Ref contact 3  -->
@@ -229,33 +271,37 @@
                           <h5 class="sectionTitle">Reference Contact 3</h5>
                           <hr style="width: 1px black;" />
                           <p>
-                            <strong>First name:</strong> {{ fetched.ref3_fname }}
+                            <strong>First name:</strong>
+                            {{ fetched.ref3_fname }}
                           </p>
-                          <p><strong>Last name:</strong> {{ fetched.ref3_lname }}</p>
+                          <p>
+                            <strong>Last name:</strong> {{ fetched.ref3_lname }}
+                          </p>
                           <p>
                             <strong>Cell Phone:</strong>
                             {{ fetched.ref3_cellPhone }}
                           </p>
-                          <p><strong>Email:</strong> {{ fetched.ref3_email }}</p>
+                          <p>
+                            <strong>Email:</strong> {{ fetched.ref3_email }}
+                          </p>
                         </div>
                       </div>
                     </div>
 
-                    <hr>
+                    <hr />
 
                     <div class="container mb-3">
                       <!-- Admin Notes -->
                       <!-- (Still awaiting backend and service attribute) -->
                       <h3>Admin Notes:</h3>
                       <i>
-                        This note will only be visible to admins and won't be visible
-                        to volunteers
+                        This note will only be visible to admins and won't be
+                        visible to volunteers
                       </i>
-                        <section class="description mt-4">
-                          <p>{{ fetched.adminNotes }}</p>
-                        </section>
+                      <section class="description mt-4">
+                        <p>{{ fetched.adminNotes }}</p>
+                      </section>
                     </div>
-
                   </div>
                   <div class="modal-footer" *ngIf="!adminCheck">
                     <button
@@ -339,7 +385,10 @@
                     </div>
                     <!-- Edit Foster -->
                     <div class="modal-body ml-2">
-                      <form #form="ngForm" (ngSubmit)="editFoster(form, fetched.id)">
+                      <form
+                        #form="ngForm"
+                        (ngSubmit)="editFoster(form, fetched.id)"
+                      >
                         <div class="form-inline">
                           <div class="row mt-3">
                             <div class="col-6">
@@ -675,20 +724,33 @@
                           </div>
                         </div>
 
+                        <hr />
+
+                        <h4 class="mt-3 text-center">Admin Notes</h4>
+                        <div class="form-group">
+                          <textarea
+                            class="form-control"
+                            name="adminNotes"
+                            id="adminNotes"
+                            rows="3"
+                            [(ngModel)]="fetched.adminNotes"
+                          ></textarea>
+                        </div>
+
                         <div class="modal-footer">
                           <button
                             type="submit"
                             class="btn btn-success"
                             onclick="$('.modal').modal('hide')"
                           >
-                            Submit
+                            Save Changes
                           </button>
                           <button
                             type="button"
                             class="btn btn-outline-secondary"
                             data-dismiss="modal"
                           >
-                            Cancel
+                            Discard Changes
                           </button>
                           <!-- <button type="button" class="btn btn-success" data-dismiss="modal" (click)="deactiveVolunteer(id)">OK</button> -->
                         </div>
