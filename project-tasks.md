@@ -1,5 +1,6 @@
 
-#  Project Tasks 						## Monday, May 18th, 2020
+#  Project Tasks 					
+## Monday, May 18th, 2020
 
 ### APP-WIDE:
 •	Disabled users can access application. FIX
