@@ -1,36 +1,33 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
-import { VolunteerForm } from '../models/volunteer-form.model';
+import { VolunteerForm } from "../models/volunteer-form.model";
 
 /******************************************************************************/
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
-export class VolunteerService
-{
+export class VolunteerService {
   private REST_API_SERVER = "http://68.66.193.100:8080/CARS/";
   private CTRL_MAPPING = "volunteers/";
 
   constructor(private http: HttpClient) {}
 
-  public loadAllVolunteers(): Observable<VolunteerForm[]>
-  {
-    return this.sendGetAllLoadRequest()
-      .pipe(
-        map((responseData: VolunteerForm[]) => {
-          const volunteerArray: VolunteerForm[] = [];
-          responseData.forEach((volunteer: VolunteerForm) => {
-            if (volunteer.approved) {
-              volunteerArray.push(volunteer);
-            }
-          });
-          return volunteerArray;
-        })
-      );
+  public loadAllVolunteers(): Observable<VolunteerForm[]> {
+    return this.sendGetAllLoadRequest().pipe(
+      map((responseData: VolunteerForm[]) => {
+        const volunteerArray: VolunteerForm[] = [];
+        responseData.forEach((volunteer: VolunteerForm) => {
+          if (volunteer.approved) {
+            volunteerArray.push(volunteer);
+          }
+        });
+        return volunteerArray;
+      })
+    );
   }
 
   /**
@@ -38,20 +35,20 @@ export class VolunteerService
    * Returns the list of volunteers in a subscribe-able object.
    * @returns {Observable<VolunteerForm[]>}
    */
-  public loadVolunteers(activeStatus: boolean): Observable<VolunteerForm[]>
-  {
-    return this.sendGetAllLoadRequest()
-      .pipe(
-        map((responseData: VolunteerForm[]) => {
-          const volunteerArray: VolunteerForm[] = [];
+  public loadVolunteers(activeStatus: boolean): Observable<VolunteerForm[]> {
+    return this.sendGetAllLoadRequest().pipe(
+      map((responseData: VolunteerForm[]) => {
+        const volunteerArray: VolunteerForm[] = [];
+        if (responseData != null) {
           responseData.forEach((volunteer: VolunteerForm) => {
             if (volunteer.approved && volunteer.active === activeStatus) {
               volunteerArray.push(volunteer);
             }
           });
-          return volunteerArray;
-        })
-      );
+        }
+        return volunteerArray;
+      })
+    );
   }
 
   /**
@@ -60,20 +57,18 @@ export class VolunteerService
    * Returns the list of volunteers in a subscribe-able object.
    * @returns {Observable<VolunteerForm[]>}
    */
-  public loadAllApplicants(): Observable<VolunteerForm[]>
-  {
-    return this.sendGetAllLoadRequest()
-      .pipe(
-        map((responseData: VolunteerForm[]) => {
-          const volunteerArray: VolunteerForm[] = [];
-          responseData.forEach((volunteer: VolunteerForm) => {
-            if (!volunteer.approved) {
-              volunteerArray.push(volunteer);
-            }
-          });
-          return volunteerArray;
-        })
-      );
+  public loadAllApplicants(): Observable<VolunteerForm[]> {
+    return this.sendGetAllLoadRequest().pipe(
+      map((responseData: VolunteerForm[]) => {
+        const volunteerArray: VolunteerForm[] = [];
+        responseData.forEach((volunteer: VolunteerForm) => {
+          if (!volunteer.approved) {
+            volunteerArray.push(volunteer);
+          }
+        });
+        return volunteerArray;
+      })
+    );
   }
 
   /**
@@ -82,40 +77,36 @@ export class VolunteerService
    * Returns the list of volunteers in a subscribe-able object.
    * @returns {Observable<VolunteerForm[]>}
    */
-  public loadApplicants(activeStatus: boolean): Observable<VolunteerForm[]>
-  {
-    return this.sendGetAllLoadRequest()
-      .pipe(
-        map((responseData: VolunteerForm[]) => {
-          const volunteerArray: VolunteerForm[] = [];
-          responseData.forEach((volunteer: VolunteerForm) => {
-            if (!volunteer.approved && volunteer.active === activeStatus) {
-              volunteerArray.push(volunteer);
-            }
-          });
-          return volunteerArray;
-        })
-      );
+  public loadApplicants(activeStatus: boolean): Observable<VolunteerForm[]> {
+    return this.sendGetAllLoadRequest().pipe(
+      map((responseData: VolunteerForm[]) => {
+        const volunteerArray: VolunteerForm[] = [];
+        responseData.forEach((volunteer: VolunteerForm) => {
+          if (!volunteer.approved && volunteer.active === activeStatus) {
+            volunteerArray.push(volunteer);
+          }
+        });
+        return volunteerArray;
+      })
+    );
   }
 
   /**
    * Send a request to the backend for an array containing all volunteers
    * where their approved AND active properties are BOTH FALSE
    */
-  public loadArchivedApplicants(): Observable<VolunteerForm[]>
-  {
-    return this.sendGetAllLoadRequest()
-      .pipe(
-        map((responseData: VolunteerForm[]) => {
-          const volunteerArray: VolunteerForm[] = [];
-          responseData.forEach((volunteer: VolunteerForm) => {
-            if (!volunteer.approved && !volunteer.active) {
-              volunteerArray.push(volunteer);
-            }
-          });
-          return volunteerArray;
-        })
-      );
+  public loadArchivedApplicants(): Observable<VolunteerForm[]> {
+    return this.sendGetAllLoadRequest().pipe(
+      map((responseData: VolunteerForm[]) => {
+        const volunteerArray: VolunteerForm[] = [];
+        responseData.forEach((volunteer: VolunteerForm) => {
+          if (!volunteer.approved && !volunteer.active) {
+            volunteerArray.push(volunteer);
+          }
+        });
+        return volunteerArray;
+      })
+    );
   }
 
   /**
@@ -123,15 +114,13 @@ export class VolunteerService
    * Returns a subscribe-able object containing the found Volunteer.
    * @param volunteerID
    */
-  public getVolunteerForm(volunteerID: number): Observable<VolunteerForm>
-  {
-    return this.sendGetVolunteerRequest(volunteerID)
-      .pipe(
-        map((responseData: VolunteerForm[]) => {
-          const volunteer: VolunteerForm = responseData[0];
-          return volunteer;
-        })
-      );
+  public getVolunteerForm(volunteerID: number): Observable<VolunteerForm> {
+    return this.sendGetVolunteerRequest(volunteerID).pipe(
+      map((responseData: VolunteerForm[]) => {
+        const volunteer: VolunteerForm = responseData[0];
+        return volunteer;
+      })
+    );
   }
 
   /**
@@ -140,14 +129,12 @@ export class VolunteerService
    * subscibe-able object containing the server success/error response.
    * @param newVolunteer
    */
-  public addVolunteer(newVolunteer: VolunteerForm): Observable<string>
-  {
-    return this.sendPostRequest(newVolunteer)
-      .pipe(
-        map((responseData) => {
-          return responseData;
-        })
-      );
+  public addVolunteer(newVolunteer: VolunteerForm): Observable<string> {
+    return this.sendPostRequest(newVolunteer).pipe(
+      map((responseData) => {
+        return responseData;
+      })
+    );
   }
 
   /**
@@ -157,14 +144,12 @@ export class VolunteerService
    * response.
    * @param changes
    */
-  public updateVolunteer(changes: VolunteerForm): Observable<string>
-  {
-    return this.sendUpdateRequest(changes)
-      .pipe(
-        map((responseData: string) => {
-          return responseData;
-        })
-      );
+  public updateVolunteer(changes: VolunteerForm): Observable<string> {
+    return this.sendUpdateRequest(changes).pipe(
+      map((responseData: string) => {
+        return responseData;
+      })
+    );
   }
 
   /**
@@ -173,22 +158,19 @@ export class VolunteerService
    * able object containing the server success/error response.
    * @param deleteID
    */
-  public removeVolunteer(deleteID: number): Observable<string>
-  {
-    return this.sendDeleteRequest(deleteID)
-      .pipe(
-        map((responseData) => {
-          return responseData;
-        })
-      );
+  public removeVolunteer(deleteID: number): Observable<string> {
+    return this.sendDeleteRequest(deleteID).pipe(
+      map((responseData) => {
+        return responseData;
+      })
+    );
   }
 
   /******************************************************************************/
   /**
    * Http get load info from server.
    */
-  private sendGetAllLoadRequest()
-  {
+  private sendGetAllLoadRequest() {
     return this.http.get<VolunteerForm[]>(
       this.REST_API_SERVER + this.CTRL_MAPPING
     );
@@ -197,8 +179,7 @@ export class VolunteerService
   /**
    * Http get one Volunteer from server.
    */
-  private sendGetVolunteerRequest(id: number)
-  {
+  private sendGetVolunteerRequest(id: number) {
     return this.http.get<VolunteerForm[]>(
       this.REST_API_SERVER + this.CTRL_MAPPING + id
     );
@@ -207,36 +188,29 @@ export class VolunteerService
   /**
    * HTTP post new Volunteer to server
    */
-  private sendPostRequest(volunteer: VolunteerForm)
-  {
-    return this.http.post(
-      this.REST_API_SERVER + this.CTRL_MAPPING,
-      volunteer,
-      {responseType: 'text'}
-    );
+  private sendPostRequest(volunteer: VolunteerForm) {
+    return this.http.post(this.REST_API_SERVER + this.CTRL_MAPPING, volunteer, {
+      responseType: "text",
+    });
   }
 
   /**
    * HTTP delete Volunteer from server
    */
-  private sendDeleteRequest(id: number)
-  {
-    return this.http.delete(
-      this.REST_API_SERVER + this.CTRL_MAPPING + id,
-      { responseType: 'text' }
-    );
+  private sendDeleteRequest(id: number) {
+    return this.http.delete(this.REST_API_SERVER + this.CTRL_MAPPING + id, {
+      responseType: "text",
+    });
   }
 
   /**
    * HTTP patch Volunteer to update server
    */
-  private sendUpdateRequest(volunteer: VolunteerForm)
-  {
+  private sendUpdateRequest(volunteer: VolunteerForm) {
     return this.http.patch(
       this.REST_API_SERVER + this.CTRL_MAPPING,
       volunteer,
-      { responseType: 'text' }
+      { responseType: "text" }
     );
   }
-
 }
