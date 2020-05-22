@@ -7,6 +7,8 @@ import { VolunteerEventsService } from "src/app/shared/services/volunteer-events
 import { EventStaffModel } from "src/app/shared/models/event-staff.model";
 import { VolunteerService } from "src/app/shared/services/new-volunteer.service";
 import { VolunteerForm } from "src/app/shared/models/volunteer-form.model";
+import { FosterModel } from "src/app/shared/models/foster.model";
+import { FostersService } from "src/app/shared/services/new-fosters.service";
 
 @Component({
   selector: "app-view-events",
@@ -22,11 +24,13 @@ export class ViewEventsComponent implements OnInit {
   eventArrayHolder: EventStaffModel[] = []; //array of user event subscriptions
   numContainer: number;
   volunteerArray: VolunteerForm[] = [];
+  fosterArray: FosterModel[] = [];
 
   constructor(
     private es: EventsService,
     private ves: VolunteerEventsService,
-    private vs: VolunteerService
+    private vs: VolunteerService,
+    private fs: FostersService
   ) {}
 
   ngOnInit(): void {
@@ -35,19 +39,23 @@ export class ViewEventsComponent implements OnInit {
     //subscribe to keep up to date event staff
     this.ves.eventStaffData.subscribe((data) => {
       this.eventArrayHolder = data;
-      // console.log(this.eventArrayHolder);
     });
     //load active volunteers
     this.vs.loadVolunteers(true).subscribe((responseData) => {
       this.volunteerArray = responseData;
       // console.log(this.volunteerArray);
     });
+    //load active fosters
+    this.fs.loadFosters(true).subscribe((responseData) => {
+      this.fosterArray = responseData;
+      // console.log(this.fosterArray);
+      this.loadEvents();
+    });
 
     this.currentDate = new Date();
-    this.loadEvents();
   }
 
-  //Method that return array of event specific registered fosters
+  //Method that returns array of registered event specific volunteers
   getRegisteredUsers(eventID): VolunteerForm[] {
     let cont: VolunteerForm[] = [];
     for (let staffevents of this.eventArrayHolder) {
@@ -57,6 +65,22 @@ export class ViewEventsComponent implements OnInit {
           if (vols.id === staffevents.staffid) {
             //console.log("id:" + eventID + " volunteer:" + vols.id);
             cont.push(vols);
+          }
+        }
+      }
+    }
+    return cont;
+  }
+  //WORKING
+  getRegisteredFosters(eventID): FosterModel[] {
+    let cont: FosterModel[] = [];
+    for (let staffevents of this.eventArrayHolder) {
+      if (staffevents.eventid === eventID) {
+        for (let fosts of this.fosterArray) {
+          // console.log("listong" + vols.id);
+          if (fosts.id === staffevents.staffid) {
+            //console.log("id:" + eventID + " volunteer:" + vols.id);
+            cont.push(fosts);
           }
         }
       }
