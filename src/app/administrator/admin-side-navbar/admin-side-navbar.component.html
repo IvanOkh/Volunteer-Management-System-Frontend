@@ -2,56 +2,108 @@
 <div class="row sticky-top">
   <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand ml-5">Calgary Animal Rescue Society</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#carsNav">
-        <span class="navbar-toggler-icon" id="navbarToggler"></span>
-      </button>
-      
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#carsNav"
+    >
+      <span class="navbar-toggler-icon" id="navbarToggler"></span>
+    </button>
+
     <div class="collapse navbar-collapse" id="carsNav">
-        <ul class="navbar-nav ml-auto mr-5">
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['events']" routerLinkActive="active">Events</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['volunteers']" routerLinkActive="active">
-              Volunteers
-            </a>
-          </li>
+      <ul class="navbar-nav ml-auto mr-5">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['events']"
+            routerLinkActive="active"
+            >Events</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['volunteers']"
+            routerLinkActive="active"
+          >
+            Volunteers
+          </a>
+        </li>
 
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['fosters']" routerLinkActive="active">
-              Fosters
-            </a>
-          </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['fosters']"
+            routerLinkActive="active"
+          >
+            Fosters
+          </a>
+        </li>
 
-          <li class="dropdown nav-item" style="cursor: pointer;">
-            <a class="dropdown-toggle nav-link" id="dropdownApplications" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              Applications
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownApplications" style="background-color: white;">
-              <a class="nav-link dropdown-item" [routerLink]="['fosterapplications']" routerLinkActive="active">Foster Applications</a>
-              <a class="nav-link dropdown-item" [routerLink]="['applications']" routerLinkActive="active">Volunteer Applications</a>
-              <a class="nav-link dropdown-item" [routerLink]="['dog']" routerLinkActive="active">Dog adoption applications</a>
-              <a class="nav-link dropdown-item" [routerLink]="['cat']" routerLinkActive="active">Cat adoption applications</a>
-            </div>
-          </li>
+        <li class="dropdown nav-item" style="cursor: pointer;">
+          <a
+            class="dropdown-toggle nav-link"
+            id="dropdownApplications"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Applications
+          </a>
+          <div
+            class="dropdown-menu"
+            aria-labelledby="dropdownApplications"
+            style="background-color: white;"
+          >
+            <a
+              class="nav-link dropdown-item"
+              [routerLink]="['fosterapplications']"
+              routerLinkActive="active"
+              >Foster Applications</a
+            >
+            <a
+              class="nav-link dropdown-item"
+              [routerLink]="['applications']"
+              routerLinkActive="active"
+              >Volunteer Applications</a
+            >
+            <a
+              class="nav-link dropdown-item"
+              [routerLink]="['dog']"
+              routerLinkActive="active"
+              >Dog adoption applications</a
+            >
+            <a
+              class="nav-link dropdown-item"
+              [routerLink]="['cat']"
+              routerLinkActive="active"
+              >Cat adoption applications</a
+            >
+          </div>
+        </li>
 
-
-          <!-- this component (Animal) is hidden due to client's request.  -->
-          <!-- <li class="nav-item">
+        <!-- this component (Animal) is hidden due to client's request.  -->
+        <!-- <li class="nav-item">
             <a class="nav-link" [routerLink]="['animals']" routerLinkActive="active">Animals</a>
           </li> -->
 
-          <li class="nav-item">
-            <!-- <a class="nav-link" [routerLink]="['login']">Account</a> -->
-            <a class="nav-link" [routerLink]="['profile']" routerLinkActive="active">Account</a>
-            <!-- configure admin account map -->
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="" (click)="doLogOut()"><i class="fa fa-sign-out mr-1"
-                aria-hidden="true"></i>Logout</a>
-          </li>
-        </ul>
-      </div>
+        <li class="nav-item">
+          <!-- <a class="nav-link" [routerLink]="['login']">Account</a> -->
+          <a
+            class="nav-link"
+            [routerLink]="['profile']"
+            routerLinkActive="active"
+            >Account</a
+          >
+          <!-- configure admin account map -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" (click)="doLogOut()"
+            ><i class="fa fa-sign-out mr-1" aria-hidden="true"></i>Logout</a
+          >
+        </li>
+      </ul>
+    </div>
   </nav>
 </div>
