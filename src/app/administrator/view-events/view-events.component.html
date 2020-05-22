@@ -474,6 +474,13 @@
                   <td>{{ usr.cellPhone }}</td>
                   <td>{{ usr.email }}</td>
                 </tr>
+                <tr *ngFor="let usr of getRegisteredFosters(event.id)">
+                  <th scope="row">{{ usr.id }}</th>
+                  <td>{{ usr.fname }}</td>
+                  <td>{{ usr.lname }}</td>
+                  <td>{{ usr.cellPhone }}</td>
+                  <td>{{ usr.email }}</td>
+                </tr>
               </tbody>
             </table>
           </div>
