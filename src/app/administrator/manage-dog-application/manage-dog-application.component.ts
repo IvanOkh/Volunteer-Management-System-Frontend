@@ -19,12 +19,13 @@ export class ManageDogApplicationComponent implements OnInit {
   dogObj: AnimalModel;
   application: any;
   dogArray = [];
+  isLoading: boolean = false;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild("form", { static: false }) form: NgForm;
   dataSource = new MatTableDataSource(this.adoptionService.loadAllCats());
 
-  displayedColumns: string[] = ["nameOfDog", "fname", "lname"];
+  displayedColumns: string[] = ["nameOfDog", "fname", "lname", "email", "address"];
 
   constructor(
     public dialog: MatDialog,
@@ -32,20 +33,30 @@ export class ManageDogApplicationComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.isLoading = true;
     this.adoptionService.loadDogs().subscribe((dogs) => {
       this.dataSource = new MatTableDataSource(dogs);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.dogArray = dogs;
       this.application = this.dogArray[0];
+      this.isLoading = false;
     });
   }
 
   getRecord(id: number) {
-    this.dogArray.forEach((element) => {
-      if (element.id === id) {
-        this.application = element;     
+    this.isLoading = true;
+    this.dogArray.forEach(
+      (element) => {
+        if (element.id === id) {
+          this.isLoading = false;
+          this.application = element;
+        }
+      },
+      (error: any) => {
+        console.log(error);
+        this.isLoading = false;
       }
-    });
+    );
   }
 }

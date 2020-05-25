@@ -19,12 +19,13 @@ export class ManageCatApplicationComponent implements OnInit {
   catObj: AnimalModel;
   application: any;
   catArray = [];
+  isLoading: boolean = false;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild("form", { static: false }) form: NgForm;
   dataSource = new MatTableDataSource(this.adoptionService.loadAllCats());
 
-  displayedColumns: string[] = ["nameOfCat", "fname", "lname"];
+  displayedColumns: string[] = ["nameOfCat", "fname", "lname", "email", "address"];
 
   constructor(
     public dialog: MatDialog,
@@ -32,20 +33,30 @@ export class ManageCatApplicationComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.isLoading = true;
     this.adoptionService.loadCats().subscribe((cats) => {
       this.dataSource = new MatTableDataSource(cats);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.catArray = cats;
       this.application = this.catArray[0];
+      this.isLoading = false;
     });
   }
 
   getRecord(id: number) {
-    this.catArray.forEach((element) => {
-      if (element.id === id) {
-        this.application = element;
+    this.isLoading = true;
+    this.catArray.forEach(
+      (element) => {
+        if (element.id === id) {
+          this.application = element;
+          this.isLoading = false;
+        }
+      },
+      (error: any) => {
+        console.log(error);
+        this.isLoading = false;
       }
-    });
+    );
   }
 }

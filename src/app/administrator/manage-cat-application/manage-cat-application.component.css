@@ -29,3 +29,8 @@ td{
     font-size: 20px;
     color: red;
   }
+  .referenceContainer {
+    border: 1px solid #cd0d2e;
+    padding: 2px;
+    border-radius: 2%;
+  }
