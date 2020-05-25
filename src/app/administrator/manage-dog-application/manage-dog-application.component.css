@@ -45,3 +45,11 @@ th {
       display: flex;
       justify-content: space-evenly;
   }
+  .form-control {
+    border: 0.5px solid #cd0d2e;
+    padding: 7px;
+  }
+  .input-group {
+    width: 60%;
+    margin: auto;
+  }

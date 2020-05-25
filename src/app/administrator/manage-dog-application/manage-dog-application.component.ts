@@ -43,7 +43,9 @@ export class ManageDogApplicationComponent implements OnInit {
       this.isLoading = false;
     });
   }
-
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
   getRecord(id: number) {
     this.isLoading = true;
     this.dogArray.forEach(

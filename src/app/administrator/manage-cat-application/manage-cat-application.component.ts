@@ -43,7 +43,9 @@ export class ManageCatApplicationComponent implements OnInit {
       this.isLoading = false;
     });
   }
-
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
   getRecord(id: number) {
     this.isLoading = true;
     this.catArray.forEach(
