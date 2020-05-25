@@ -14,6 +14,7 @@
 •	Resolve multiple issues and error messages on Dog Application Form. Make sure submission is correct.
 
 ### ADMIN-SIDE:
+•	Convert Bootstrap tables to Material to enable sorting algorithms.
 
 •	Combine all applications tabs under one “arrowdown” [COMPLETED] - Albert
 
