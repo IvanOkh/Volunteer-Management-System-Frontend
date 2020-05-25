@@ -3,7 +3,7 @@
 ## Monday, May 18th, 2020
 
 ### APP-WIDE:
-•	Disabled users can access application. FIX
+•	Disabled users can access application. FIX - Ray will adjust backend
 
 ### FORMS:
 
