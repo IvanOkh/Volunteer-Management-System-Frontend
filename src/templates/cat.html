@@ -1,0 +1,461 @@
+ <h4>Application Information</h4>
+ <p><strong>Name of cat: </strong> {{application?.nameOfCat}}</p>
+ <p><strong>Applicant's name: </strong> {{application?.fname + ' ' + application?.lname}}</p>
+ <p><strong>Age: </strong>{{application?.age}}</p>
+ <p><strong>Cell Phone: </strong>{{application?.cellPhone}}</p>
+ <p><strong>Home Phone: </strong>{{application?.homePhone}}</p>
+ <p><strong>Email: </strong>{{application?.email}}</p>
+ <p><strong>Address: </strong> {{application?.address + ' ' + 
+                          application?.city + ', ' + application?.province + ', ' + application?.postalCode}}</p>
+
+ <h4>Family and Lifestyle</h4>
+
+ <p><strong>Who are you adopting this cat for? </strong>
+   {{ application?.personCatIsFor}}
+ </p>
+ <p><strong>Are all members of your household in agreement with this adoption? </strong>
+   <span [ngStyle]="{ display: !application?.householdAgreement ? 'none' : 'inline' }">
+     <i class="fa fa-check" aria-hidden="true"></i>
+   </span>
+   <span [ngStyle]="{ display: application?.householdAgreement ? 'none' : 'inline' }">
+     <i class="fa fa-times" aria-hidden="true"></i>
+   </span>
+
+   <p><strong>Have all members of your household been introduced to the cat? </strong>
+     <span [ngStyle]="{ display: !application?.membersIntroduced ? 'none' : 'inline' }">
+       <i class="fa fa-check" aria-hidden="true"></i>
+     </span>
+     <span [ngStyle]="{ display: application?.membersIntroduced ? 'none' : 'inline' }">
+       <i class="fa fa-times" aria-hidden="true"></i>
+     </span>
+   </p>
+   <p><strong>Does anyone in your home have allergies to cats or have asthma? </strong>
+     <span [ngStyle]="{ display: !application?.catAllergies ? 'none' : 'inline' }">
+       <i class="fa fa-check" aria-hidden="true"></i>
+     </span>
+     <span [ngStyle]="{ display: application?.catAllergies ? 'none' : 'inline' }">
+       <i class="fa fa-times" aria-hidden="true"></i>
+     </span>
+   </p>
+   <p><strong>How many adults are in your household? </strong>{{application?.howManyAdults}}</p>
+   <p><strong>If children, what are their ages? </strong>{{application?.childrenAges}}</p>
+   <p><strong>Have your children been taught the correct way to handle a cat? Please explain:
+     </strong>{{application?.childrenCatHandling}}</p>
+   <p><strong>Do you have children that regularly visit your home? </strong>
+     <span [ngStyle]="{ display: !application?.childrenVisiting ? 'none' : 'inline' }">
+       <i class="fa fa-check" aria-hidden="true"></i>
+     </span>
+     <span [ngStyle]="{ display: application?.childrenVisiting ? 'none' : 'inline' }">
+       <i class="fa fa-times" aria-hidden="true"></i>
+     </span>
+   </p>
+   <p><strong>How often do they visit? </strong>
+     {{ application?.visitingFrequency}}
+   </p>
+   <p><strong>How have you prepared your children to respect the dogʼs boundaries, observe its
+       reactions,
+       and avoid bites? Explain: </strong>
+     {{application?.childrenPrepared}}
+   </p>
+   <p><strong>How busy is your family? </strong>
+     {{application?.familyBusy}}
+   </p>
+   <p><strong>How active is your family? </strong>
+     {{application?.familyActive}}
+   </p>
+   <p><strong>How regular is your schedule? </strong>
+     {{application?.scheduleRegularity}}
+   </p>
+   <p><strong>How would you describe your family’s personality? </strong>
+     {{application?.familyPersonality}}
+   </p>
+   <p><strong>Are you planning any of the following in the next two months? </strong>
+     {{application?.familyPlans}}
+   </p>
+
+   <hr>
+   <h4>Your Home</h4>
+   <p><strong>What type of home do you live in? </strong>
+     {{application?.typeOfResidence}}
+   </p>
+   <p><strong>Do you own or rent? </strong>
+     <span [ngStyle]="{ display: !application?.own ? 'none' : 'inline' }">
+       <i class="fa fa-check" aria-hidden="true"></i>
+     </span>
+     <span [ngStyle]="{ display: application?.own ? 'none' : 'inline' }">
+       <i class="fa fa-times" aria-hidden="true"></i>
+     </span>
+   </p>
+   <p><strong>If rent, provide name and phone number of landlord: </strong>
+     {{application?.landlordContact}}
+   </p>
+   <p><strong>Does your landlord allow cats? </strong>
+     <span [ngStyle]="{ display: !application?.catsAllowed ? 'none' : 'inline' }">
+       <i class="fa fa-check" aria-hidden="true"></i>
+     </span>
+     <span [ngStyle]="{ display: application?.catsAllowed ? 'none' : 'inline' }">
+       <i class="fa fa-times" aria-hidden="true"></i>
+     </span>
+   </p>
+   <p><strong>Are there any restrictions from your landlord or subdivision? </strong>
+     {{application?.restrictions}}
+   </p>
+   <p><strong>What outdoor areas would your cat have access to? </strong>
+     {{application?.outdoorAreas}}
+   </p>
+   <p><strong>How busy is your Street? </strong>
+     {{application?.typeOfStreet}}
+   </p>
+   <p><strong>Where will your cat live? </strong>
+     {{application?.catHome}}
+   </p>
+   <p><strong>What will happen if your living situation changes and you canʼt take your cat to your
+       new
+       home? If your landlord or condo board reverses their decision to allow pets? </strong>
+     {{application?.livingSituationChanges}}
+   </p>
+
+   <h4>Current/Previous Pets</h4>
+   <p><strong>Is there any cats that live with you now?</strong>
+     <span [ngStyle]="{ display: !application?.otherCats ? 'none' : 'inline' }">
+       <i class="fa fa-check" aria-hidden="true"></i>
+     </span>
+     <span [ngStyle]="{ display: application?.otherCats ? 'none' : 'inline' }">
+       <i class="fa fa-times" aria-hidden="true"></i>
+     </span>
+   </p>
+   <p><strong>If yes, how many and how old are they?</strong>
+     {{application?.catsInfo}}
+   </p>
+   <p><strong>How are your cats towards other cats?
+     </strong>
+     {{ application?.catsAttitude}}
+   </p>
+   <p><strong>Do you have other pets?</strong>
+     <span [ngStyle]="{ display: !application?.otherPets ? 'none' : 'inline' }">
+       <i class="fa fa-check" aria-hidden="true"></i>
+     </span>
+     <span [ngStyle]="{ display: application?.otherPets ? 'none' : 'inline' }">
+       <i class="fa fa-times" aria-hidden="true"></i>
+     </span>
+   </p>
+   <p><strong>If yes, what are they?</strong>
+     {{application?.otherPetsInfo}}
+   </p>
+   <p><strong>How many of these pets are spayed/neutered?</strong>
+     {{application?.spayedAndNeutered}}
+   </p>
+   <p><strong>Where are these animals now?</strong>
+     {{application?.petLocation}}
+   </p>
+   <p><strong>Have you adopted from an animal rescue group before?</strong>
+     <span [ngStyle]="{ display: !application?.priorAdoption ? 'none' : 'inline' }">
+       <i class="fa fa-check" aria-hidden="true"></i>
+     </span>
+     <span [ngStyle]="{ display: application?.priorAdoption ? 'none' : 'inline' }">
+       <i class="fa fa-times" aria-hidden="true"></i>
+     </span>
+   </p>
+   <p><strong>If yes, what group?</strong>
+     {{application?.groupName}}
+   </p>
+   <p><strong>Have you ever surrendered a pet to a humane society or rescue? </strong>
+     {{application?.surrenderedPet}}
+   </p>
+   <p><strong>If yes, what were the circumstances?</strong>
+     {{application?.circumstances}}
+   </p>
+   <p><strong>Please provide the name and phone number of your current and/or previous veterinarian
+       or
+       clinic:</strong>
+     {{application?.vetInfo}}
+   </p>
+
+
+   <h4>New Pet Information</h4>
+   <p><strong>Why do you want this rescue cat and what are your expectations?</strong>
+     {{application?.expectations}}
+   </p>
+   <p><strong>What is the main purpose of adopting this cat?</strong>
+     {{application?.purpose}}
+   </p>
+   <p><strong>Who will be the catʼs primary caretaker?</strong>
+     {{application?.primaryCaretaker }}
+   </p>
+   <p><strong>Have you had cats before?</strong>
+     <span [ngStyle]="{ display: !application?.hadCats ? 'none' : 'inline' }">
+       <i class="fa fa-check" aria-hidden="true"></i>
+     </span>
+     <span [ngStyle]="{ display: application?.hadCats ? 'none' : 'inline' }">
+       <i class="fa fa-times" aria-hidden="true"></i>
+     </span>
+   </p>
+   <p><strong>Where will your cat stay when your family goes on vacation?</strong>
+     {{application?.vacationHome }}
+   </p>
+   <p><strong>How long, on average, will your cat be left alone each day during the week? </strong>
+     {{application?.leftAloneWeekday }}
+   </p>
+   <p><strong>How long, on average, will your cat be left alone each day during the weekend?
+     </strong>
+     {{application?.leftAloneWeekend }}
+   </p>
+   <p><strong>How much Daily exercise can you give your cat? </strong>
+     {{application?.dailyExercise }}
+   </p>
+   <p><strong>What length of time will you allow your new pet to adjust to his new home? </strong>
+     {{application?.petAdjustment }}
+   </p>
+
+   <h4>How much do you expect to spend monthly?</h4>
+   <p><strong>Food expenses: </strong>
+     {{application?.foodExpenses}}
+   </p>
+   <p><strong>Veterinarian expenses: </strong>
+     {{application?.vetExpenses}}
+   </p>
+
+   <p><strong>Grooming expenses: </strong>
+     {{application?.groomingExpenses}}
+   </p>
+   <p><strong>Boarding expenses: </strong>
+     {{application?.boardingExpenses}}
+   </p>
+
+   <h4>Desired Physical Characteristics</h4>
+   <p><strong>Gender: </strong>
+     {{application?.gender}}
+   </p>
+   <p><strong>Coat: </strong>
+     {{application?.typeOfCoat}}
+   </p>
+   <p><strong>Age: </strong>
+     {{application?.catAge}}
+   </p>
+   <p><strong>Breed/type/color?</strong>
+     {{application?.breedTypeColour}}
+   </p>
+   <p><strong>Age</strong>
+     {{application?.catAge }}
+   </p>
+   <p><strong>Breed/type/colour?</strong>
+     {{application?.breedTypeColour }}
+   </p>
+
+
+   <h4>I would like my new cat to:</h4>
+   <p><em><strong>V</strong>: Very important </em> <em><strong>S</strong>: Somewhat important </em>
+     <em><strong>N</strong>: Not important</em></p>
+
+   <table class="table table-striped">
+     <thead>
+       <tr>
+         <th scope="col"></th>
+         <th scope="col">Importance</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <td>Be friendly with children</td>
+         <td>{{application?.friendlyWithChildren}}</td>
+       </tr>
+       <tr>
+         <td>Be friendly with other dogs</td>
+         <td>{{application?.friendlyWithDogs}}</td>
+       </tr>
+       <tr>
+         <td>Be friendly with cats</td>
+         <td>{{application?.friendlyWithCats}}</td>
+       </tr>
+       <tr>
+         <td>Be friendly with me</td>
+         <td>{{application?.friendlyWithMe}}</td>
+       </tr>
+       <tr>
+         <td>Be friendly with visitors to the house</td>
+         <td>{{application?.friendlyWithVisitors}}</td>
+       </tr>
+       <tr>
+         <td>Enjoy being groomed</td>
+         <td>{{application?.enjoyBeingGroomed}}</td>
+       </tr>
+       <tr>
+         <td>Enjoy being held</td>
+         <td>{{application?.enjoyBeingHeld}}</td>
+       </tr>
+       <tr>
+         <td>Enjoy being petted</td>
+         <td>{{application?.enjoyBeingPetted}}</td>
+       </tr>
+     </tbody>
+   </table>
+   <table class="table table-striped">
+     <thead>
+       <tr>
+         <th scope="col"></th>
+         <th scope="col">Importance</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <td>Be calm</td>
+         <td>{{application?.beCalm}}</td>
+       </tr>
+       <tr>
+         <td>Be active</td>
+         <td>{{application?.beActive}}</td>
+       </tr>
+       <tr>
+         <td>Be playful</td>
+         <td>{{application?.bePlayful}}</td>
+       </tr>
+       <tr>
+         <td>Be quiet</td>
+         <td>{{application?.beQuiet}}</td>
+       </tr>
+       <tr>
+         <td>Be independent</td>
+         <td>{{application?.beIndependent}}</td>
+       </tr>
+       <tr>
+         <td>Never wake me up at night</td>
+         <td>{{application?.wakeMeUpAtNight}}</td>
+       </tr>
+       <tr>
+         <td>Never show aggressive behavior</td>
+         <td>{{application?.aggressiveBehaviour}}</td>
+       </tr>
+       <tr>
+         <td>Be protective</td>
+         <td>{{application?.beProtective}}</td>
+       </tr>
+     </tbody>
+   </table>
+
+   <h4>Most of our dogs require training</h4>
+   <p><em><strong>Y</strong>: Yes </em> <em><strong>N</strong>: No </em>
+     <table class="table table-striped">
+       <thead>
+         <tr>
+           <th scope="col"></th>
+           <th scope="col">Decisions</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td>I need a cat that is already house trained</td>
+           <td>{{application?.litterTrained}}</td>
+         </tr>
+         <tr>
+           <td>I need a cat that is already declawed</td>
+           <td>{{application?.declawed}}</td>
+         </tr>
+         <tr>
+           <td>I am a first time owner</td>
+           <td>{{application?.firstTimeOwner}}</td>
+         </tr>
+         <tr>
+           <td>I have lots of experience and could handle a difficult cat</td>
+           <td>{{application?.handleDifficultCat}}</td>
+         </tr>
+       </tbody>
+     </table>
+
+     <p><strong>Depending on the age of the cat you are considering for adoption, additional vaccine
+         boosters may be required after adoption (in addition to yearly boosters). Are you prepared
+         to
+         accept the financial obligation for vaccine boosters and ensure that they are done on
+         schedule? </strong>
+       <span [ngStyle]="{ display: !application?.medical ? 'none' : 'inline' }">
+         <i class="fa fa-check" aria-hidden="true"></i>
+       </span>
+       <span [ngStyle]="{ display: application?.medical ? 'none' : 'inline' }">
+         <i class="fa fa-times" aria-hidden="true"></i>
+       </span>
+     </p>
+
+     <p><strong>For kittens, will you prevent disease transmission by limiting you kitten's exposure
+         to
+         othe cats (no playdates, outdoor time etc.) until the 3rd set of vaccines? </strong>
+       <span [ngStyle]="{ display: !application?.kittenHandling ? 'none' : 'inline' }">
+         <i class="fa fa-check" aria-hidden="true"></i>
+       </span>
+       <span [ngStyle]="{ display: application?.kittenHandling ? 'none' : 'inline' }">
+         <i class="fa fa-times" aria-hidden="true"></i>
+       </span>
+     </p>
+
+     <p><strong>How will you manage your cats's nail care?</strong>
+       {{application?.nailCare }}
+     </p>
+
+     <p><strong>What would you consider to be a behavioural issue that you cannot or will not be
+         willing to work with? </strong>
+       {{application?.behaviouralIssue }}
+     </p>
+
+     <p><strong>Will you have tthe cat declaws? </strong>
+       <span [ngStyle]="{ display: !application?.declaw ? 'none' : 'inline' }">
+         <i class="fa fa-check" aria-hidden="true"></i>
+       </span>
+       <span [ngStyle]="{ display: application?.declaw ? 'none' : 'inline' }">
+         <i class="fa fa-times" aria-hidden="true"></i>
+       </span>
+     </p>
+
+     <p><strong>Your new cat may have come from a traumatic past, will be leaving the comfort of
+         their
+         foster home, and possibly leaving litter mates, and may be very scared and unsure for the
+         first couple of days. How do the members of your family plan to make this transition as easy
+         as possible? </strong>
+       {{application?.catPast }}
+     </p>
+
+     <p><strong>Are you considering purchasing pet insurance for your cat? </strong>
+       <span [ngStyle]="{ display: !application?.insurance ? 'none' : 'inline' }">
+         <i class="fa fa-check" aria-hidden="true"></i>
+       </span>
+       <span [ngStyle]="{ display: application?.insurance ? 'none' : 'inline' }">
+         <i class="fa fa-times" aria-hidden="true"></i>
+       </span>
+     </p>
+
+     <p><strong>What circumstances would lead you to give up your new cat? </strong>
+       {{application?.giveUpCircumstances }}
+     </p>
+     <p><strong>If you had to give up your cat, what would you do with him/her? </strong>
+       {{application?.explainGiveUp }}
+     </p>
+     <p><strong>Please give us any other information that might be import to help us make a better
+         match: </strong>
+       {{application?.additionalInfo }}
+     </p>
+
+     <h4>References: </h4>
+     <p><strong>1st Reference name: </strong>
+       {{ application?.ref1_fname + ' ' +  application?.ref1_lname}}
+     </p>
+     <p><strong>Relationship: </strong>
+       {{ application?.ref1_relationship}}
+     </p>
+     <p><strong>Phone: </strong>
+       {{ application?.ref1_phoneNumber}}
+     </p>
+     <p><strong>Email: </strong>
+       {{ application?.ref1_email}}
+     </p>
+     <p><strong>2nd Reference name: </strong>
+       {{ application?.ref2_fname + ' ' +  application?.ref2_lname}}
+     </p>
+     <p><strong>Relationship: </strong>
+       {{ application?.ref2_relationship}}
+     </p>
+     <p><strong>Phone: </strong>
+       {{ application?.ref2_phoneNumber}}
+     </p>
+     <p><strong>Email: </strong>
+       {{ application?.ref2_email}}
+     </p>
+     <p><strong>How did you find out about this animal?</strong>
+       {{ application?.findOutAbout}}
+     </p>

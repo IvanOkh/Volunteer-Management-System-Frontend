@@ -1,0 +1,428 @@
+ <h4>Application Information</h4>
+ <p><strong>Name of dog: </strong> {{application?.nameOfDog}}</p>
+ <p><strong>Applicant's name: </strong> {{application?.fname + ' ' + application?.lname}}</p>
+ <p><strong>Age: </strong>{{application?.age}}</p>
+ <p><strong>Cell Phone: </strong>{{application?.cellPhone}}</p>
+ <p><strong>Home Phone: </strong>{{application?.homePhone}}</p>
+ <p><strong>Email: </strong>{{application?.email}}</p>
+ <p><strong>Address: </strong> {{application?.address + ' ' + 
+                        application?.city + ', ' + application?.province + ', ' + application?.postalCode}}</p>
+
+ <h4>Family and Lifestyle</h4>
+ <p><strong>Are all members of your household in agreement with this adoption? </strong>
+   <span [ngStyle]="{ display: !application?.householdAgreement ? 'none' : 'inline' }">
+     <i class="fa fa-check" aria-hidden="true"></i>
+   </span>
+   <span [ngStyle]="{ display: application?.householdAgreement ? 'none' : 'inline' }">
+     <i class="fa fa-times" aria-hidden="true"></i>
+   </span>
+ </p>
+ <p><strong>Have all members of your household been introduced to the dog? </strong>
+   <span [ngStyle]="{ display: !application?.membersIntroduced ? 'none' : 'inline' }">
+     <i class="fa fa-check" aria-hidden="true"></i>
+   </span>
+   <span [ngStyle]="{ display: application?.membersIntroduced ? 'none' : 'inline' }">
+     <i class="fa fa-times" aria-hidden="true"></i>
+   </span>
+
+   <p><strong>Does anyone in your home have allergies to dogs or have asthma? </strong>
+     <span [ngStyle]="{ display: !application?.dogAllergies ? 'none' : 'inline' }">
+       <i class="fa fa-check" aria-hidden="true"></i>
+     </span>
+     <span [ngStyle]="{ display: application?.dogAllergies ? 'none' : 'inline' }">
+       <i class="fa fa-times" aria-hidden="true"></i>
+     </span>
+   </p>
+   <p><strong>How many adults are in your household? </strong>{{application?.howManyAdults}}</p>
+   <p><strong>How many children are in your household? </strong>{{application?.howManyChildren}}</p>
+   <p><strong>Have your children been taught the correct way to handle a dog? Please explain:
+     </strong>{{application?.childrenDogHandling}}</p>
+   <p><strong>Do you have children that regularly visit your home? </strong>
+     <span [ngStyle]="{ display: !application?.childrenVisiting ? 'none' : 'inline' }">
+       <i class="fa fa-check" aria-hidden="true"></i>
+     </span>
+     <span [ngStyle]="{ display: application?.childrenVisiting ? 'none' : 'inline' }">
+       <i class="fa fa-times" aria-hidden="true"></i>
+     </span>
+   </p>
+   <p><strong>How often do they visit? </strong>
+     {{ application?.visitingFrequency}}
+   </p>
+   <p><strong>How have you prepared your children to respect the dogʼs boundaries, observe its
+       reactions,
+       and avoid bites? Explain: </strong>
+     {{application?.childrenPrepared}}
+   </p>
+   <p><strong>How busy is your family? </strong>
+     {{application?.familyBusy}}
+   </p>
+   <p><strong>How active is your family? </strong>
+     {{application?.familyActive}}
+   </p>
+   <p><strong>How would you describe your family’s personality? </strong>
+     {{application?.familyPersonality}}
+   </p>
+   <p><strong>Are you planning any of the following in the next two months? </strong>
+     {{application?.familyPlans}}
+   </p>
+   <p><strong>How regular is your schedule? </strong>
+     {{application?.scheduleRegularity}}
+   </p>
+   <p><strong>How would you describe your family’s personality? </strong>
+     {{application?.familyPersonality}}
+   </p>
+   <p><strong>Are you planning any of the following in the next two months? </strong>
+     {{application?.familyPlans}}
+   </p>
+
+   <h4>Your Home</h4>
+   <p><strong>What type of home do you live in? </strong>
+     {{application?.typeOfResidence}}
+   </p>
+   <p><strong>Do you own or rent? </strong>
+     <span [ngStyle]="{ display: !application?.own ? 'none' : 'inline' }">
+       <i class="fa fa-check" aria-hidden="true"></i>
+     </span>
+     <span [ngStyle]="{ display: application?.own ? 'none' : 'inline' }">
+       <i class="fa fa-times" aria-hidden="true"></i>
+     </span>
+   </p>
+   <p><strong>Are there any restrictions from your landlord or subdivision? </strong>
+     {{application?.landlordContact}}
+   </p>
+   <p><strong>What will happen if your living situation changes and you canʼt take your dog to your new
+       home? What if your landlord or condo board reverses their decision to allow pets?</strong>
+     {{application?.livingSituationChanges}}
+   </p>
+   <p><strong>Do you have a yard? </strong>
+     {{application?.yardType}}
+   </p>
+   <p><strong>Type of the fence</strong>
+     {{application?.fenceType}}
+   </p>
+   <p><strong>Height of the fence</strong>
+     {{application?.fenceHeight}}
+   </p>
+   <p><strong> Do you have any of the following?</strong>
+     {{application?.dogAddons}}
+   </p>
+   
+   <h4>Current/Previous Pets</h4>
+   <p><strong>Is there any dogs that live with you now?</strong>
+     <span [ngStyle]="{ display: !application?.otherDogs ? 'none' : 'inline' }">
+       <i class="fa fa-check" aria-hidden="true"></i>
+     </span>
+     <span [ngStyle]="{ display: application?.otherDogs ? 'none' : 'inline' }">
+       <i class="fa fa-times" aria-hidden="true"></i>
+     </span>
+   </p>
+   <p><strong>If yes, how many and how old are they?</strong>
+     {{application?.dogsInfo}}
+   </p>
+   <p><strong>Do you have other pets?</strong>
+     {{application?.otherPets}}
+   </p>
+   <p><strong>If yes, what are they?</strong>
+     {{application?.otherPetsInfo}}
+   </p>
+   <p><strong>How many of these pets are spayed/neutered?</strong>
+     {{application?.spayedAndNeutered}}
+   </p>
+   <p><strong>Where are these animals now?</strong>
+     {{application?.petLocation}}
+   </p>
+   <p><strong>Have you adopted from an animal rescue group before?</strong>
+     {{application?.priorAdoption}}
+   </p>
+   <p><strong>If yes, what group?</strong>
+     {{application?.groupName}}
+   </p>
+   <p><strong>Have you ever surrendered a pet to a humane society or rescue? </strong>
+     {{application?.surrenderedPet}}
+   </p>
+   <p><strong>If yes, what were the circumstances?</strong>
+     {{application?.circumstances}}
+   </p>
+   <p><strong>Please provide the name and phone number of your current and/or previous veterinarian or
+       clinic:</strong>
+     {{application?.vetInfo}}
+   </p>
+
+   <h4>New Pet Information</h4>
+   <p><strong>Who will be the dogʼs primary caretaker?</strong>
+     {{application?.primaryCaretaker}}
+   </p>
+   <p><strong>Have you had dogs before?</strong>
+     <span [ngStyle]="{ display: !application?.hadDogs ? 'none' : 'inline' }">
+       <i class="fa fa-check" aria-hidden="true"></i>
+     </span>
+     <span [ngStyle]="{ display: application?.hadDogs ? 'none' : 'inline' }">
+       <i class="fa fa-times" aria-hidden="true"></i>
+     </span>
+   </p>
+   <p><strong>Have you ever house-broken a dog or puppy before?</strong>
+     <span [ngStyle]="{ display: !application?.housebrokenBefore ? 'none' : 'inline' }">
+       <i class="fa fa-check" aria-hidden="true"></i>
+     </span>
+     <span [ngStyle]="{ display: application?.housebrokenBefore ? 'none' : 'inline' }">
+       <i class="fa fa-times" aria-hidden="true"></i>
+     </span>
+   </p>
+   <p><strong>If the dog has an "accident" in your home, what type of correction do you plan to
+       use?</strong>
+     {{application?.dogCorrectionPlan}}
+   </p>
+   <p><strong>Where will your dog stay during the day when you are out of the home?</strong>
+     {{application?.dogStayDay}}
+   </p>
+   <p><strong>Where will your dog stay during the night?</strong>
+     {{application?.dogStayNight}}
+   </p>
+   <p><strong>Where will your dog stay when your family goes on vacation?</strong>
+     {{application?.vacationHome}}
+   </p>
+   <p><strong>How long, on average, will your dog be left alone each day during the week?</strong>
+     {{application?.leftAloneWeekday}}
+   </p>
+   <p><strong>How long, on average, will your dog be left alone each day during the weekend?</strong>
+     {{application?.leftAloneWeekend}}
+   </p>
+   <p><strong>What length of time will you allow your new pet to adjust to his new home?</strong>
+     {{application?.petAdjustment}}
+   </p>
+   <p><strong>What activities do you plan to do with your dog?</strong>
+     {{application?.dogActivities}}
+   </p>
+
+   <h4>How much do you expect to spend monthly?</h4>
+   <p><strong>Food expenses: </strong>
+     {{application?.foodExpenses}}
+   </p>
+   <p><strong>Veterinarian expenses: </strong>
+     {{application?.vetExpenses}}
+   </p>
+   </div>
+   <div class="col-lg-6">
+     <p><strong>Grooming expenses: </strong>
+       {{application?.groomingExpenses}}
+     </p>
+     <p><strong>Boarding expenses: </strong>
+       {{application?.boardingExpenses}}
+     </p>
+
+     <h4>Desired Physical Characteristics</h4>
+     <p><strong>Gender: </strong>
+       {{application?.gender}}
+     </p>
+     <p><strong>Coat: </strong>
+       {{application?.typeOfCoat}}
+     </p>
+     <p><strong>Age: </strong>
+       {{application?.dogAge}}
+     </p>
+     <p><strong>Breed/type/color?</strong>
+       {{application?.breedTypeColour}}
+     </p>
+
+     <h4>Application Information</h4>
+     <p><em><strong>V</strong>: Very important </em> <em><strong>S</strong>: Somewhat important </em>
+       <em><strong>N</strong>: Not important</em></p>
+
+     <table class="table table-striped">
+       <thead>
+         <tr>
+           <th scope="col"></th>
+           <th scope="col">Importance</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td>Be friendly with children</td>
+           <td>{{application?.friendlyWithChildren}}</td>
+         </tr>
+         <tr>
+           <td>Be friendly with other dogs</td>
+           <td>{{application?.friendlyWithDogs}}</td>
+         </tr>
+         <tr>
+           <td>Be friendly with cats</td>
+           <td>{{application?.friendlyWithCats}}</td>
+         </tr>
+         <tr>
+           <td>Be friendly with me</td>
+           <td>{{application?.friendlyWithMe}}</td>
+         </tr>
+         <tr>
+           <td>Be friendly with visitors to the house</td>
+           <td>{{application?.friendlyWithVisitors}}</td>
+         </tr>
+         <tr>
+           <td>Enjoy being groomed</td>
+           <td>{{application?.enjoyBeingGroomed}}</td>
+         </tr>
+         <tr>
+           <td>Enjoy being held</td>
+           <td>{{application?.enjoyBeingHeld}}</td>
+         </tr>
+         <tr>
+           <td>Enjoy being petted</td>
+           <td>{{application?.enjoyBeingPetted}}</td>
+         </tr>
+       </tbody>
+     </table>
+
+     <table class="table table-striped">
+       <thead>
+         <tr>
+           <th scope="col"></th>
+           <th scope="col">Importance</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td>Be calm</td>
+           <td>{{application?.beCalm}}</td>
+         </tr>
+         <tr>
+           <td>Be active</td>
+           <td>{{application?.beActive}}</td>
+         </tr>
+         <tr>
+           <td>Be playful</td>
+           <td>{{application?.bePlayful}}</td>
+         </tr>
+         <tr>
+           <td>Be quiet</td>
+           <td>{{application?.beQuiet}}</td>
+         </tr>
+         <tr>
+           <td>Be independent</td>
+           <td>{{application?.beIndependent}}</td>
+         </tr>
+         <tr>
+           <td>Never wake me up at night</td>
+           <td>{{application?.wakeMeUpAtNight}}</td>
+         </tr>
+         <tr>
+           <td>Never show aggressive behavior</td>
+           <td>{{application?.aggressiveBehaviour}}</td>
+         </tr>
+         <tr>
+           <td>Be protective</td>
+           <td>{{application?.beProtective}}</td>
+         </tr>
+       </tbody>
+     </table>
+
+     <h4>Most of our dogs require training</h4>
+     <table class="table table-striped">
+       <thead>
+         <tr>
+           <th scope="col"></th>
+           <th scope="col">Decisions</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td>I need a dog that is already house trained</td>
+           <td>{{application?.houseTrained}}</td>
+         </tr>
+         <tr>
+           <td>I need a dog that is already obedience trained</td>
+           <td>{{application?.obedienceTrained}}</td>
+         </tr>
+         <tr>
+           <td>I am a first time owner</td>
+           <td>{{application?.firstTimeOwner}}</td>
+         </tr>
+         <tr>
+           <td>I have obedience trained before</td>
+           <td>{{application?.obedienceKnowledge}}</td>
+         </tr>
+         <tr>
+           <td>I have lots of experience and could handle a difficult dog</td>
+           <td>{{application?.handleDifficultDog}}</td>
+         </tr>
+         <tr>
+           <td>I am willing to attend training classes</td>
+           <td>{{application?.trainingClasses}}</td>
+         </tr>
+       </tbody>
+     </table>
+
+     <p><strong>Dogs live on average 12 to 18 years (the oldest dog on record was 26 years old!). Please
+         consider the next 15 years of your life - what do you expect to be doing and how will your dog
+         fit
+         into this lifestyle?</strong>
+       {{application?.lifeStyleChange}}
+     </p>
+     <p><strong>Depending on the age of the dog you are considering for adoption, additional vaccine
+         boosters may be required after adoption (in addition to yearly boosters). Are you prepared to
+         accept the financial obligation for vaccine boosters and ensure that they are done on
+         schedule?</strong>
+       <span [ngStyle]="{ display: !application?.medical ? 'none' : 'inline' }">
+         <i class="fa fa-check" aria-hidden="true"></i>
+       </span>
+       <span [ngStyle]="{ display: application?.medical ? 'none' : 'inline' }">
+         <i class="fa fa-times" aria-hidden="true"></i>
+       </span>
+     </p>
+     <p><strong>Your new dog may have come from a traumatic past, will be leaving the comfort of their
+         foster home, and possibly leaving littermates, and may be very scared and unsure for the first
+         couple of days. How do the members of your family plan to make this transition as easy as
+         possible? </strong>
+       {{application?.dogPast}}
+     </p>
+     <p><strong>Are you considering purchasing pet insurance for your dog?</strong>
+       <span [ngStyle]="{ display: !application?.insurance ? 'none' : 'inline' }">
+         <i class="fa fa-check" aria-hidden="true"></i>
+       </span>
+       <span [ngStyle]="{ display: application?.insurance ? 'none' : 'inline' }">
+         <i class="fa fa-times" aria-hidden="true"></i>
+       </span>
+     </p>
+     <p><strong>Are you aware that a large breed dog takes about two years to mature? Is this something
+         you're prepared for?</strong>
+       <span [ngStyle]="{ display: !application?.dogMaturing ? 'none' : 'inline' }">
+         <i class="fa fa-check" aria-hidden="true"></i>
+       </span>
+       <span [ngStyle]="{ display: application?.dogMaturing ? 'none' : 'inline' }">
+         <i class="fa fa-times" aria-hidden="true"></i>
+       </span>
+     </p>
+     <p><strong>What circumstances would lead you to give up your new dog?</strong>
+       {{application?.giveUpCirucumstances}}
+     </p>
+     <p><strong>If you had to give up your dog, what would you do with him/her?</strong>
+       {{application?.giveUpDog}}
+     </p>
+
+     <h4>References: </h4>
+     <p><strong>1st Reference name: </strong>
+       {{ application?.ref1_fname + ' ' +  application?.ref1_lname}}
+     </p>
+     <p><strong>Relationship: </strong>
+       {{ application?.ref1_relationship}}
+     </p>
+     <p><strong>Phone: </strong>
+       {{ application?.ref1_phoneNumber}}
+     </p>
+     <p><strong>Email: </strong>
+       {{ application?.ref1_email}}
+     </p>
+     <p><strong>2nd Reference name: </strong>
+       {{ application?.ref2_fname + ' ' +  application?.ref2_lname}}
+     </p>
+     <p><strong>Relationship: </strong>
+       {{ application?.ref2_relationship}}
+     </p>
+     <p><strong>Phone: </strong>
+       {{ application?.ref2_phoneNumber}}
+     </p>
+     <p><strong>Email: </strong>
+       {{ application?.ref2_email}}
+     </p>
+
+     <p><strong>How did you find out about this animal?</strong>
+       {{ application?.findOutAbout}}
+     </p>
