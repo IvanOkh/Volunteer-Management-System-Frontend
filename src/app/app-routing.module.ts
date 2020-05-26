@@ -1,4 +1,4 @@
-import { FosterArchiveComponent } from './administrator/foster-applications/foster-archive/foster-archive.component';
+import { FosterRejectedComponent } from './administrator/foster-applications/foster-rejected/foster-rejected.component';
 import { ManageCatApplicationComponent } from "./administrator/manage-cat-application/manage-cat-application.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
@@ -51,7 +51,7 @@ const appRoutes: Routes = [
       { path: "dog", component: ManageDogApplicationComponent },
       { path: "volunteerarchive", component: VolunteerRejectedComponent },
       { path: "applications", component: VolunteerPendingComponent },
-      { path: "fosterarchive", component: FosterArchiveComponent },
+      { path: "fosterarchive", component: FosterRejectedComponent },
       { path: "fosterapplications", component: FosterPendingComponent },
       { path: "events", component: ViewEventsComponent },
       { path: "fosters", component: ViewFostersComponent },

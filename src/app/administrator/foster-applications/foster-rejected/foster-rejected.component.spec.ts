@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FosterArchiveComponent } from './foster-archive.component';
+import { FosterRejectedComponent } from './foster-rejected.component';
 
-describe('FosterArchiveComponent', () => {
-  let component: FosterArchiveComponent;
-  let fixture: ComponentFixture<FosterArchiveComponent>;
+describe('FosterRejectedComponent', () => {
+  let component: FosterRejectedComponent;
+  let fixture: ComponentFixture<FosterRejectedComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FosterArchiveComponent ]
+      declarations: [ FosterRejectedComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FosterArchiveComponent);
+    fixture = TestBed.createComponent(FosterRejectedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -36,7 +36,7 @@ import { NaPipe } from '../shared/pipes/na.pipe';
 import { ManageCatApplicationComponent } from './manage-cat-application/manage-cat-application.component';
 import { ManageDogApplicationComponent } from './manage-dog-application/manage-dog-application.component';
 import { FosterPendingComponent } from './foster-applications/foster-pending/foster-pending.component';
-import { FosterArchiveComponent } from './foster-applications/foster-archive/foster-archive.component';
+import { FosterRejectedComponent } from './foster-applications/foster-rejected/foster-rejected.component';
 
 
 @NgModule({
@@ -57,7 +57,7 @@ import { FosterArchiveComponent } from './foster-applications/foster-archive/fos
     ManageCatApplicationComponent,
     ManageDogApplicationComponent,
     FosterPendingComponent,
-    FosterArchiveComponent
+    FosterRejectedComponent
   ],
   imports: [
     BrowserModule,
@@ -87,12 +87,12 @@ import { FosterArchiveComponent } from './foster-applications/foster-archive/fos
     ViewAdminProfileComponent,
     NaPipe,
     FosterPendingComponent,
-    FosterArchiveComponent,
+    FosterRejectedComponent,
     //manage dog and cat applications
     ManageCatApplicationComponent,
     ManageDogApplicationComponent,
     FosterPendingComponent,
-    FosterArchiveComponent
+    FosterRejectedComponent
     ],
   providers: [],
   bootstrap: [],
