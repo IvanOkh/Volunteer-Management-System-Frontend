@@ -98,6 +98,7 @@ export class ViewFostersComponent implements OnInit
       (foster: FosterModel) => {
         this.fetched = foster;
         this.fetchedLoading = false;
+        this.delimitFosterType(this.fetched.fosterAnimalType);
       },
       (error: any) => {
         console.log(error);
@@ -106,7 +107,7 @@ export class ViewFostersComponent implements OnInit
     );
 
     
-    this.delimitFosterType(this.fetched.fosterAnimalType);
+    
 
     
   }
