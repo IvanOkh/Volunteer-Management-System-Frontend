@@ -159,12 +159,29 @@
                           <p>
                             <strong>Foster Animal Type: </strong>
                             <i>
-                              <br />Puppy: {{ this.ftPuppy }} <br />Adult Dog:
-                              {{ this.ftAdultDog }} <br />Kitten:
-                              {{ this.ftKitten }} <br />Adult Cat:
-                              {{ this.ftAdultCat }} <br />Medical Care:
-                              {{ this.ftMedicalCare }} <br />Quarantine:
-                              {{ this.ftQuarantine }}
+                              <ng-container *ngIf="this.ftPuppy">
+                                <br />- Puppy
+                              </ng-container>
+
+                              <ng-container *ngIf="this.ftAdultDog">
+                                <br />- Adult Dog
+                              </ng-container>
+
+                              <ng-container *ngIf="this.ftKitten">
+                                <br />- Kitten
+                              </ng-container>
+
+                              <ng-container *ngIf="this.ftAdultCat">
+                                <br />- Adult Cat
+                              </ng-container>
+
+                              <ng-container *ngIf="this.ftMedicalCare">
+                                <br />- Medical Care
+                              </ng-container>
+
+                              <ng-container *ngIf="this.ftQuarantine">
+                                <br />- Quarantine
+                              </ng-container>
                             </i>
                           </p>
                           <p>

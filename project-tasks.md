@@ -23,7 +23,7 @@
 
 •	Create a “Reason for Rejection” text field in all 4 application objects and make sure it is displayed when admin attempts to “Reject” any of these applications. If “Reason for rejection” was provided, then it should be displayed in table in “Archive” tab.
 
-•	Make sure “Foster Animal Type” displayed correctly instead of “true true true true true true”. If type is false then don’t display it. And if any of the types are true then display them in them in the modal. (NOTE: you can use NgIf to display/hide). [Displays correctly but has loading error] - Albert
+•	Make sure “Foster Animal Type” displayed correctly instead of “true true true true true true”. If type is false then don’t display it. And if any of the types are true then display them in them in the modal. (NOTE: you can use NgIf to display/hide). [COMPLETE] - Albert
 
 •	Fix user side account that doesn’t load info if user is a foster. It only checks list of volunteers. We need to handle this  [In progress] - Ivan
 

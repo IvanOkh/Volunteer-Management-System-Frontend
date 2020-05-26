@@ -23,12 +23,12 @@ export class ViewFostersComponent implements OnInit
   deletable: boolean = true;
 
   // Extra variables to delimit fosterAnimalType attribute
-  ftPuppy: string = "Error";
-  ftAdultDog: string = "Error";
-  ftKitten: string = "Error";
-  ftAdultCat: string = "Error";
-  ftMedicalCare: string = "Error";
-  ftQuarantine: string = "Error";
+  ftPuppy: boolean = false;
+  ftAdultDog: boolean = false;
+  ftKitten: boolean = false;
+  ftAdultCat: boolean = false;
+  ftMedicalCare: boolean = false;
+  ftQuarantine: boolean = false;
 
   constructor(private test: FostersService) {}
 
@@ -106,7 +106,7 @@ export class ViewFostersComponent implements OnInit
       }
     );
 
-    
+    //ORIGINAL LINE this.delimitFosterType(this.fetched.fosterAnimalType);
     
 
     
@@ -189,56 +189,56 @@ export class ViewFostersComponent implements OnInit
 
     if(splitted[0].match("true"))
     {
-      this.ftPuppy = "Yes";
+      this.ftPuppy = true;
     }
     else
     {
-      this.ftPuppy = "No";
+      this.ftPuppy = false;
     }
 
     if(splitted[1].match("true"))
     {    
-      this.ftAdultDog = "Yes";
+      this.ftAdultDog = true;
     }
     else
     {
-      this.ftAdultDog = "No";
+      this.ftAdultDog = false;
     }
 
     if(splitted[2].match("true"))
     {
-      this.ftKitten = "Yes";
+      this.ftKitten = true;
     }
     else
     {
-      this.ftKitten = "No";
+      this.ftKitten = false;
     }
 
     if(splitted[3].match("true"))
     {
-      this.ftAdultCat = "Yes";
+      this.ftAdultCat = true;
     }
     else 
     {
-      this.ftAdultCat = "No";
+      this.ftAdultCat = false;
     }
 
     if(splitted[4].match("true"))
     {
-      this.ftMedicalCare = "Yes";
+      this.ftMedicalCare = true;
     }
     else
     {
-      this.ftMedicalCare = "No";
+      this.ftMedicalCare = false;
     }
 
     if(splitted[5].match("true"))
     {
-      this.ftQuarantine = "Yes";
+      this.ftQuarantine = true;
     }
     else
     {
-      this.ftQuarantine = "No";
+      this.ftQuarantine = false;
     }
 
   }
