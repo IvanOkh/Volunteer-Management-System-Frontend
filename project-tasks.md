@@ -11,7 +11,7 @@
 
 •	Resolve multiple issues and error messages on Dog Application Form. Make sure submission is correct.
 
-•	Adjust header css in dog form.
+•	Adjust header css in dog form. [COMPLETED] - Albert
 
 ### ADMIN-SIDE:
 
