@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VolunteerArchiveComponent } from './volunteer-archive.component';
+import { VolunteerRejectedComponent } from './volunteer-rejected.component';
 
-describe('VolunteerArchiveComponent', () => {
-  let component: VolunteerArchiveComponent;
-  let fixture: ComponentFixture<VolunteerArchiveComponent>;
+describe('VolunteerRejectedComponent', () => {
+  let component: VolunteerRejectedComponent;
+  let fixture: ComponentFixture<VolunteerRejectedComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VolunteerArchiveComponent ]
+      declarations: [ VolunteerRejectedComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VolunteerArchiveComponent);
+    fixture = TestBed.createComponent(VolunteerRejectedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -24,7 +24,7 @@ import { AuthUserGuard } from "./auth/auth-user.guard";
 import { ResetPasswordComponent } from "./shared/components/reset-password/reset-password.component";
 import { MainPageComponent } from "./shared/components/main-page/main-page.component";
 import { ManageDogApplicationComponent } from "./administrator/manage-dog-application/manage-dog-application.component";
-import { VolunteerArchiveComponent } from "./administrator/volunteer-applications/volunteer-archive/volunteer-archive.component";
+import { VolunteerRejectedComponent } from "./administrator/volunteer-applications/volunteer-rejected/volunteer-rejected.component";
 import { FosterPendingComponent } from './administrator/foster-applications/foster-pending/foster-pending.component';
 
 const appRoutes: Routes = [
@@ -49,7 +49,7 @@ const appRoutes: Routes = [
       // { path: "adoptions", component: ManageAdoptionsComponent },
       { path: "cat", component: ManageCatApplicationComponent },
       { path: "dog", component: ManageDogApplicationComponent },
-      { path: "volunteerarchive", component: VolunteerArchiveComponent },
+      { path: "volunteerarchive", component: VolunteerRejectedComponent },
       { path: "applications", component: VolunteerPendingComponent },
       { path: "fosterarchive", component: FosterArchiveComponent },
       { path: "fosterapplications", component: FosterPendingComponent },

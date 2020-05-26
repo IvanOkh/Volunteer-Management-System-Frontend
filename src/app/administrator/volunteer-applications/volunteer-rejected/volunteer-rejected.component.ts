@@ -6,12 +6,12 @@ import { VolunteerForm } from "src/app/shared/models/volunteer-form.model";
 import { VolunteerService } from 'src/app/shared/services/new-volunteer.service';
 
 @Component({
-  selector: 'app-volunteer-archive',
-  templateUrl: './volunteer-archive.component.html',
-  styleUrls: ['./volunteer-archive.component.css'],
+  selector: 'app-volunteer-rejected',
+  templateUrl: './volunteer-rejected.component.html',
+  styleUrls: ['./volunteer-rejected.component.css'],
   providers: [VolunteerService]
 })
-export class VolunteerArchiveComponent implements OnInit {
+export class VolunteerRejectedComponent implements OnInit {
 
   appList: VolunteerForm[] = [];
   isLoading: boolean = false;

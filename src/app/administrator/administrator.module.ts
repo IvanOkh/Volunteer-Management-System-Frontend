@@ -25,7 +25,7 @@ import { AdminSideNavbarComponent } from "./admin-side-navbar/admin-side-navbar.
 import { VolunteerPendingComponent } from "./volunteer-applications/volunteer-pending/volunteer-pending.component";
 import { AnimalManagementComponent } from "./animal-management/animal-management.component";
 import { ViewVolunteerComponent } from "./view-volunteer/view-volunteer.component";
-import { VolunteerArchiveComponent } from './volunteer-applications/volunteer-archive/volunteer-archive.component';
+import { VolunteerRejectedComponent } from './volunteer-applications/volunteer-rejected/volunteer-rejected.component';
 
 // ROUTING MODULE IMPORTS
 import { AppRoutingModule } from "../app-routing.module";
@@ -49,7 +49,7 @@ import { FosterArchiveComponent } from './foster-applications/foster-archive/fos
     ViewAdminProfileComponent,
     ViewVolunteerComponent,
     ViewFostersComponent,
-    VolunteerArchiveComponent,
+    VolunteerRejectedComponent,
     YesNoPipe,
     NaPipe,
 
