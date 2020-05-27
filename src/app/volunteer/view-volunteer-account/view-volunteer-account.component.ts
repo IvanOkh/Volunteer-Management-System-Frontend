@@ -1,45 +1,44 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { NgForm } from "@angular/forms";
 
-import { VolunteerService } from 'src/app/shared/services/new-volunteer.service';
-import { VolunteerForm } from 'src/app/shared/models/volunteer-form.model';
-import { BehaviorSubject } from 'rxjs';
-import { User } from 'src/app/auth/user.model';
-import { AuthService } from 'src/app/auth/auth.service';
+import { VolunteerService } from "src/app/shared/services/new-volunteer.service";
+import { VolunteerForm } from "src/app/shared/models/volunteer-form.model";
+import { BehaviorSubject } from "rxjs";
+import { User } from "src/app/auth/user.model";
+import { AuthService } from "src/app/auth/auth.service";
+import { FostersService } from "src/app/shared/services/new-fosters.service";
+import { FosterModel } from "src/app/shared/models/foster.model";
 
 @Component({
-  selector: 'app-view-volunteer-account',
-  templateUrl: './view-volunteer-account.component.html',
-  styleUrls: ['./view-volunteer-account.component.css'],
-  providers: [VolunteerService]
-
+  selector: "app-view-volunteer-account",
+  templateUrl: "./view-volunteer-account.component.html",
+  styleUrls: ["./view-volunteer-account.component.css"],
+  providers: [VolunteerService],
 })
-export class ViewVolunteerAccountComponent implements OnInit
-{
+export class ViewVolunteerAccountComponent implements OnInit {
   @ViewChild("form", { static: false }) form: NgForm;
   user: VolunteerForm;
   isLoading: boolean = false;
 
-  constructor(private vs: VolunteerService, private a: AuthService) { }
+  constructor(
+    private fs: FostersService,
+    private vs: VolunteerService,
+    private a: AuthService
+  ) {}
 
-  ngOnInit()
-  {
+  ngOnInit() {
     const session: BehaviorSubject<User> = this.a.user;
     this.fetchUser(Number(session.value.id));
-
   }
 
-  onSubmit(myForm: NgForm)
-  {
+  onSubmit(myForm: NgForm) {
     this.updateUser();
-
   }
 
-  private fetchUser(id: number)
-  {
+  //Adding foster to volunteer - IN PROGRESS
+  private fetchUser(id: number) {
     this.isLoading = true;
-    this.vs.getVolunteerForm(id)
-    .subscribe(
+    this.vs.getVolunteerForm(id).subscribe(
       (vol: VolunteerForm) => {
         this.user = vol;
         this.isLoading = false;
@@ -49,18 +48,27 @@ export class ViewVolunteerAccountComponent implements OnInit
         this.isLoading = false;
       }
     );
+
+    //working
+    this.fs.getFoster(id).subscribe(
+      (fos: FosterModel) => {
+        // this.user = fos;
+      },
+      (error: any) => {
+        console.log(error);
+        this.isLoading = false;
+      }
+    );
   }
 
-  private updateUser()
-  {
-    this.vs.updateVolunteer(this.user)
-    .subscribe(
+  private updateUser() {
+    this.vs.updateVolunteer(this.user).subscribe(
       () => {
         this.fetchUser(this.user.id);
       },
       (error: any) => {
         console.log(error);
-      },
+      }
     );
   }
 }
