@@ -30,3 +30,7 @@
 •	Fix login that doesn’t react witch a message to a user if login is invalid or no reply from server has been received. Plus make sure the spinner is working when user awaits from a reply from the server. - 
 
 •	Fix “Print Form” button to all submitted applications modals that are displayed to admin in “Applications” and “Adoptions” tabs.
+
+### USER-SIDE:
+
+•	Ready for responsive.
