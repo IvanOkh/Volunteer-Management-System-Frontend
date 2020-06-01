@@ -15,7 +15,7 @@
 
 ### ADMIN-SIDE:
 
-•	Convert Bootstrap tables to Material to enable sorting algorithms.
+•	Convert Bootstrap tables to Material to enable sorting algorithms. [IN-PROGRESS] -Luat
 
 •	Add “Admin Notes” attribute to both Volunteer and Foster objects and make sure they are displayed in respective modals (this field is only visible to and editable by an admin. Users cannot see its context because it is for admin to make notes about volunteers and fosters). [PROGRESS - Updated model files, Created displayment on modals and editable field. Awaiting backend implementation] - Albert
 
