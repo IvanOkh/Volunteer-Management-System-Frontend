@@ -101,7 +101,7 @@ export class ViewVolunteerComponent implements OnInit
   private loadAllVolunteers(): void
   {
     this.isLoading = true;
-    this.test.loadAllVolunteers()
+    this.test.loadVolunteers()
     .subscribe(
       (volunteers: VolunteerForm[]) => {
         this.vList = [];
@@ -120,7 +120,7 @@ export class ViewVolunteerComponent implements OnInit
   private fetchVolunteer(volID: number): void
   {
     this.fetchLoading = true;
-    this.test.getVolunteerForm(volID)
+    this.test.getVolunteer(volID)
     .subscribe(
       (volunteer: VolunteerForm) => {
         this.fetched = volunteer;

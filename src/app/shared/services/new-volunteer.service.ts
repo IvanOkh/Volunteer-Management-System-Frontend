@@ -22,7 +22,7 @@ export class VolunteerService {
    * Returns the list of volunteers in a subscribe-able object.
    * @returns {Observable<VolunteerForm[]>}
    */
-  public loadVolunteers(activeStatus: boolean): Observable<VolunteerForm[]> {
+  public loadVolunteers(): Observable<VolunteerForm[]> {
     return this.sendGetAllVolunteersLoadRequest().pipe(
       map((responseData: VolunteerForm[]) => {
         const volunteerArray: VolunteerForm[] = [];
