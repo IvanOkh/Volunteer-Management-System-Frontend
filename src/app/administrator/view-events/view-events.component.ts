@@ -41,7 +41,7 @@ export class ViewEventsComponent implements OnInit {
       this.eventArrayHolder = data;
     });
     //load active volunteers
-    this.vs.loadVolunteers(true).subscribe((responseData) => {
+    this.vs.loadVolunteers().subscribe((responseData) => {
       this.volunteerArray = responseData;
       // console.log(this.volunteerArray);
     });

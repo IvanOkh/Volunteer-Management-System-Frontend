@@ -13,7 +13,8 @@ import { VolunteerApplication } from '../models/volunteer-applications.model';
 })
 export class VolunteerService {
   private REST_API_SERVER = "http://68.66.193.100:8080/CARS/";
-  private CTRL_MAPPING = "volunteers/";
+  private CTRL_VOLUNTEER_MAPPING = "volunteers/";
+  private CTRL_APPLICATION_MAPPING = "applications/volunteers";
 
   constructor(private http: HttpClient) {}
 
@@ -192,7 +193,7 @@ export class VolunteerService {
    */
   private sendGetAllVolunteersLoadRequest() {
     return this.http.get<VolunteerForm[]>(
-      this.REST_API_SERVER + this.CTRL_MAPPING
+      this.REST_API_SERVER + this.CTRL_VOLUNTEER_MAPPING
     );
   }
 
@@ -201,7 +202,7 @@ export class VolunteerService {
    */
   private sendGetVolunteerRequest(id: number) {
     return this.http.get<VolunteerForm[]>(
-      this.REST_API_SERVER + this.CTRL_MAPPING + id
+      this.REST_API_SERVER + this.CTRL_VOLUNTEER_MAPPING + id
     );
   }
 
@@ -209,7 +210,7 @@ export class VolunteerService {
    * HTTP post new Volunteer to server
    */
   private sendPostVolunteerRequest(volunteer: VolunteerForm) {
-    return this.http.post(this.REST_API_SERVER + this.CTRL_MAPPING, volunteer, {
+    return this.http.post(this.REST_API_SERVER + this.CTRL_VOLUNTEER_MAPPING, volunteer, {
       responseType: "text",
     });
   }
@@ -218,7 +219,7 @@ export class VolunteerService {
    * HTTP delete Volunteer from server
    */
   private sendDeleteVolunteerRequest(id: number) {
-    return this.http.delete(this.REST_API_SERVER + this.CTRL_MAPPING + id, {
+    return this.http.delete(this.REST_API_SERVER + this.CTRL_VOLUNTEER_MAPPING + id, {
       responseType: "text",
     });
   }
@@ -228,7 +229,7 @@ export class VolunteerService {
    */
   private sendUpdateVolunteerRequest(volunteer: VolunteerForm) {
     return this.http.patch(
-      this.REST_API_SERVER + this.CTRL_MAPPING,
+      this.REST_API_SERVER + this.CTRL_VOLUNTEER_MAPPING,
       volunteer,
       { responseType: "text" }
     );
@@ -239,7 +240,7 @@ export class VolunteerService {
 
   private sendGetAllApplicationsLoadRequest() {
     return this.http.get<VolunteerApplication[]>(
-      this.REST_API_SERVER + this.CTRL_MAPPING
+      this.REST_API_SERVER + this.CTRL_APPLICATION_MAPPING
     );
   }
 
@@ -248,7 +249,7 @@ export class VolunteerService {
    */
   private sendGetApplicationRequest(id: number) {
     return this.http.get<VolunteerApplication[]>(
-      this.REST_API_SERVER + this.CTRL_MAPPING + id
+      this.REST_API_SERVER + this.CTRL_APPLICATION_MAPPING + id
     );
   }
 
@@ -256,7 +257,7 @@ export class VolunteerService {
    * HTTP post new Volunteer to server
    */
   private sendPostApplicationRequest(application: VolunteerApplication) {
-    return this.http.post(this.REST_API_SERVER + this.CTRL_MAPPING, application, {
+    return this.http.post(this.REST_API_SERVER + this.CTRL_APPLICATION_MAPPING, application, {
       responseType: "text",
     });
   }
@@ -265,7 +266,7 @@ export class VolunteerService {
    * HTTP delete Volunteer from server
    */
   private sendDeleteApplicationRequest(id: number) {
-    return this.http.delete(this.REST_API_SERVER + this.CTRL_MAPPING + id, {
+    return this.http.delete(this.REST_API_SERVER + this.CTRL_APPLICATION_MAPPING + id, {
       responseType: "text",
     });
   }
@@ -275,7 +276,7 @@ export class VolunteerService {
    */
   private sendUpdateApplicationRequest(application: VolunteerApplication) {
     return this.http.patch(
-      this.REST_API_SERVER + this.CTRL_MAPPING,
+      this.REST_API_SERVER + this.CTRL_APPLICATION_MAPPING,
       application,
       { responseType: "text" }
     );

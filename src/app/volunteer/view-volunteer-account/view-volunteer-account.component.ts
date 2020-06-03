@@ -54,7 +54,7 @@ export class ViewVolunteerAccountComponent implements OnInit {
   //Adding foster to volunteer - IN PROGRESS
   private fetchUser(id: number) {
     this.isLoading = true;
-    this.vs.getVolunteerForm(id).subscribe(
+    this.vs.getVolunteer(id).subscribe(
       (vol: VolunteerForm) => {
         this.user = vol;
         this.isLoading = false;
