@@ -6,7 +6,7 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatFormFieldModule,
-  MatIconModule
+  MatIconModule,
 } from "@angular/material";
 
 // COMPONENT IMPORTS
@@ -17,9 +17,8 @@ import { VolunteerContainerComponent } from "./volunteer-container/volunteer-con
 // ROUTING MODULE IMPORT
 import { AppRoutingModule } from "../app-routing.module";
 import { ViewVolunteerAccountComponent } from "./view-volunteer-account/view-volunteer-account.component";
-import { NaPipe } from '../shared/pipes/na.pipe';
-import { MyAccountPageComponent } from './my-account-page/my-account-page.component';
-import { ViewVolunteerInfoComponent } from './view-volunteer-info/view-volunteer-info.component';
+import { NaPipe } from "../shared/pipes/na.pipe";
+import { MyAccountPageComponent } from "./my-account-page/my-account-page.component";
 
 // MODULE DEFINITION
 @NgModule({
@@ -29,7 +28,6 @@ import { ViewVolunteerInfoComponent } from './view-volunteer-info/view-volunteer
     VolunteerSideNavbarComponent,
     VolunteerContainerComponent,
     ViewVolunteerAccountComponent,
-    ViewVolunteerInfoComponent
   ],
   imports: [
     CommonModule,
@@ -40,10 +38,7 @@ import { ViewVolunteerInfoComponent } from './view-volunteer-info/view-volunteer
     MatIconModule,
     AppRoutingModule,
   ],
-  exports: [
-    VolunteerSideEventsComponent,
-    VolunteerContainerComponent
-  ],
-  providers: []
+  exports: [VolunteerSideEventsComponent, VolunteerContainerComponent],
+  providers: [],
 })
 export class VolunteerModule {}
