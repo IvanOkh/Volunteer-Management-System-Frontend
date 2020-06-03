@@ -1,18 +1,34 @@
 <div class="container p-3 heading">
-  <h1 style="text-align: center;color: #555658;">Profile Information</h1>
+  <h1 style="text-align: center; color: #555658;">Profile Information</h1>
 </div>
+
+<ng-container *ngIf="this.isLoading">
+  <div class="row justify-content-center">
+    <div class="spinner-border text-danger" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</ng-container>
+
 <ng-container *ngIf="!this.isLoading && this.user">
   <div class="container">
     <div class="mainSection">
-      <button class="btn btn-outline-info p-2" style="margin-left: 93%;" data-toggle="modal"
-        data-target="#exampleModalCenter">
+      <button
+        class="btn btn-outline-info p-2"
+        style="margin-left: 93%;"
+        data-toggle="modal"
+        data-target="#exampleModalCenter"
+      >
         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-        Edit</button>
+        Edit
+      </button>
 
       <div class="row mt-4">
         <div class="col-3" style="text-align: center;">
-          <img src="https://picsum.photos/200?random">
-          <h3 class="mt-2" style="color: rgb(70, 67, 68);">{{user.fname + " " + user.lname}}</h3>
+          <img src="https://picsum.photos/200?random" />
+          <h3 class="mt-2" style="color: rgb(70, 67, 68);">
+            {{ user.fname + " " + user.lname }}
+          </h3>
         </div>
         <div class="col-3">
           <p><strong>First name:</strong></p>
@@ -24,50 +40,69 @@
           <p><strong>Cell Phone:</strong></p>
           <p><strong>Home Phone:</strong></p>
           <p><strong>Email:</strong></p>
-          <p><strong>Date of birth:</strong></p>
-          <p><strong>T-Shirt size:</strong></p>
-          <p><strong>Description:</strong></p>
+          <p *ngIf="tempfoster == null"><strong>T-Shirt size:</strong></p>
+          <p *ngIf="tempfoster == null"><strong>Description:</strong></p>
         </div>
         <div class="col-5">
-          <p>{{user.fname}}</p>
-          <p>{{user.lname}}</p>
-          <p>{{user.address}}</p>
-          <p>{{user.city}}</p>
-          <p>{{user.province}}</p>
-          <p>{{user.postalCode}}</p>
-          <p>{{user.cellPhone}}</p>
-          <p>{{user.homePhone}}</p>
-          <p>{{user.email}}</p>
-          <p>{{user.dateOfBirth}}</p>
-          <p>{{user.tshirtSize}}</p>
-          <p>{{user.description}}</p>
+          <p>{{ user.fname }}</p>
+          <p>{{ user.lname }}</p>
+          <p>{{ user.address }}</p>
+          <p>{{ user.city }}</p>
+          <p>{{ user.province }}</p>
+          <p>{{ user.postalCode }}</p>
+          <p>{{ user.cellPhone }}</p>
+          <p>{{ user.homePhone }}</p>
+          <p>{{ user.email }}</p>
+          <p *ngIf="tempfoster == null">{{ user.tshirtSize }}</p>
+          <p *ngIf="tempfoster == null">{{ user.description }}</p>
         </div>
       </div>
     </div>
   </div>
   <!-- popup to edit  -->
   <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+  <div
+    class="modal fade"
+    id="exampleModalCenter"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle">Edit Profile</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-
           <!-- FORM RIGHT HERE  -->
           <form #form="ngForm" (ngSubmit)="onSubmit(form)">
-
             <label for="">ID</label>
-            <input type="text" [(ngModel)]="user.id" name="id" readonly class="form-control" />
-
+            <input
+              type="text"
+              [(ngModel)]="user.id"
+              name="id"
+              readonly
+              class="form-control"
+            />
 
             <label for="">First name</label>
-            <input type="text" [(ngModel)]="user.fname" name="fname" required #Fname="ngModel" class="form-control" />
+            <input
+              type="text"
+              [(ngModel)]="user.fname"
+              name="fname"
+              required
+              #Fname="ngModel"
+              class="form-control"
+            />
             <!-- validation  -->
             <div *ngIf="Fname.errors && (Fname.touched || Fname.dirty)">
               <div *ngIf="Fname.errors.required" class="text-danger">
@@ -76,7 +111,14 @@
             </div>
 
             <label for="" class="mt-2">Last name</label>
-            <input type="text" [(ngModel)]="user.lname" name="lname" required #Lname="ngModel" class="form-control" />
+            <input
+              type="text"
+              [(ngModel)]="user.lname"
+              name="lname"
+              required
+              #Lname="ngModel"
+              class="form-control"
+            />
             <!-- validation  -->
             <div *ngIf="Lname.errors && (Lname.touched || Lname.dirty)">
               <div *ngIf="Lname.errors.required" class="text-danger">
@@ -84,17 +126,15 @@
               </div>
             </div>
 
-            <!-- <label for="" class="mt-2">Password</label>
-            <input type="text" [(ngModel)]="user.password" name="password" required #Password="ngModel" class="form-control" />
-            validation
-            <div *ngIf="Password.errors && (Password.touched || Password.dirty)">
-              <div *ngIf="Password.errors.required" class="text-danger">
-                <em style="color: red;">*Password is required*</em>
-              </div>
-            </div> -->
-
             <label for="" class="mt-2">Address</label>
-            <input type="text" [(ngModel)]="user.address" name="address" required #Address="ngModel" class="form-control" />
+            <input
+              type="text"
+              [(ngModel)]="user.address"
+              name="address"
+              required
+              #Address="ngModel"
+              class="form-control"
+            />
             <!-- validation  -->
             <div *ngIf="Address.errors && (Address.touched || Address.dirty)">
               <div *ngIf="Address.errors.required" class="text-danger">
@@ -103,7 +143,14 @@
             </div>
 
             <label for="" class="mt-2">City</label>
-            <input type="text" [(ngModel)]="user.city" name="city" required #City="ngModel" class="form-control" />
+            <input
+              type="text"
+              [(ngModel)]="user.city"
+              name="city"
+              required
+              #City="ngModel"
+              class="form-control"
+            />
             <!-- validation  -->
             <div *ngIf="City.errors && (City.touched || City.dirty)">
               <div *ngIf="City.errors.required" class="text-danger">
@@ -112,7 +159,14 @@
             </div>
 
             <label for="" class="mt-2">Province</label>
-            <input type="text" [(ngModel)]="user.province" name="province" required #Province="ngModel" class="form-control" />
+            <input
+              type="text"
+              [(ngModel)]="user.province"
+              name="province"
+              required
+              #Province="ngModel"
+              class="form-control"
+            />
             <!-- validation  -->
             <div *ngIf="City.errors && (Province.touched || Province.dirty)">
               <div *ngIf="Province.errors.required" class="text-danger">
@@ -121,18 +175,44 @@
             </div>
 
             <label for="" class="mt-2">Postal Code</label>
-            <input type="text" [(ngModel)]="user.postalCode" name="postalCode" required #PostalCode="ngModel"
-              class="form-control" />
+            <input
+              type="text"
+              [(ngModel)]="user.postalCode"
+              name="postalCode"
+              required
+              #PostalCode="ngModel"
+              class="form-control"
+            />
             <!-- validation  -->
-            <div *ngIf="PostalCode.errors && (PostalCode.touched || PostalCode.dirty)">
+            <div
+              *ngIf="
+                PostalCode.errors && (PostalCode.touched || PostalCode.dirty)
+              "
+            >
               <div *ngIf="PostalCode.errors.required" class="text-danger">
                 <em style="color: red;">*Postal Code is requred*</em>
               </div>
             </div>
 
+            <label for="" class="mt-2">Cell Phone</label>
+            <input
+              type="text"
+              [(ngModel)]="user.cellPhone"
+              name="cellPhone"
+              required
+              #CellPhone="ngModel"
+              class="form-control"
+            />
+
             <label for="" class="mt-2">Home Phone</label>
-            <input type="text" [(ngModel)]="user.homePhone" name="homePhone" required #HomePhone="ngModel"
-              class="form-control" />
+            <input
+              type="text"
+              [(ngModel)]="user.homePhone"
+              name="homePhone"
+              required
+              #HomePhone="ngModel"
+              class="form-control"
+            />
             <!-- validation  -->
             <!-- <div *ngIf="HomePhone.errors && (HomePhone.touched || HomePhone.dirty)">
               <div *ngIf="HomePhone.errors.required" class="text-danger">
@@ -143,9 +223,6 @@
               </div>
             </div> -->
 
-            <label for="" class="mt-2">Cell Phone</label>
-            <input type="text" [(ngModel)]="user.cellPhone" name="cellPhone" required #CellPhone="ngModel"
-              class="form-control" />
             <!-- validation  -->
             <!-- <div *ngIf="CellPhone.errors && (CellPhone.touched || CellPhone.dirty)">
               <div *ngIf="CellPhone.errors.required" class="text-danger">
@@ -157,8 +234,15 @@
             </div> -->
 
             <label for="email" class="mt-2">Email</label>
-            <input type="text" [(ngModel)]="user.email" name="email" required #Email="ngModel" class="form-control"
-              [email]="true" />
+            <input
+              type="text"
+              [(ngModel)]="user.email"
+              name="email"
+              required
+              #Email="ngModel"
+              class="form-control"
+              [email]="true"
+            />
             <!-- validation  -->
             <div *ngIf="Email.errors && (Email.touched || Email.dirty)">
               <div *ngIf="Email.errors.required" class="text-danger">
@@ -168,29 +252,61 @@
                 <em style="color: red;">*Invalid email*</em>
               </div>
             </div>
-
-            <label for="" class="mt-2">T-shirt size</label>
-            <input type="text" [(ngModel)]="user.tshirtSize" name="tShirtSize" required #Tshirt="ngModel"
-              class="form-control" />
-            <!-- validation  -->
-            <div *ngIf="Tshirt.errors && (Tshirt.touched || Tshirt.dirty)">
-              <div *ngIf="Tshirt.errors.required" class="text-danger">
-                <em style="color: red;">*T-Shirt size is required*</em>
+            <div *ngIf="tempfoster == null">
+              <label for="" class="mt-2">T-shirt size</label>
+              <input
+                type="text"
+                [(ngModel)]="user.tshirtSize"
+                name="tShirtSize"
+                required
+                #Tshirt="ngModel"
+                class="form-control"
+              />
+              <!-- validation  -->
+              <div *ngIf="Tshirt.errors && (Tshirt.touched || Tshirt.dirty)">
+                <div *ngIf="Tshirt.errors.required" class="text-danger">
+                  <em style="color: red;">*T-Shirt size is required*</em>
+                </div>
               </div>
             </div>
-
-            <label for="" class="mt-2">Description</label>
-            <input type="text" [(ngModel)]="user.description" name="description" required #Description="ngModel"
-              class="form-control" />
-            <!-- validation  -->
-            <div *ngIf="Description.errors && (Description.touched || Description.dirty)">
-              <div *ngIf="Description.errors.required" class="text-danger">
-                <em style="color: red;">*Description is required*</em>
+            <div *ngIf="tempfoster == null">
+              <label for="" class="mt-2">Description</label>
+              <input
+                type="text"
+                [(ngModel)]="user.description"
+                name="description"
+                required
+                #Description="ngModel"
+                class="form-control"
+              />
+              <!-- validation  -->
+              <div
+                *ngIf="
+                  Description.errors &&
+                  (Description.touched || Description.dirty)
+                "
+              >
+                <div *ngIf="Description.errors.required" class="text-danger">
+                  <em style="color: red;">*Description is required*</em>
+                </div>
               </div>
             </div>
             <div style="display: flex; justify-content: center;" class="mt-3">
-              <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-              <button type="submit" onclick="$('.modal').modal('hide')" [disabled]="form.invalid" class="btn btn-outline-success mx-3">Save changes</button>
+              <button
+                type="button"
+                class="btn btn-outline-danger"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="submit"
+                onclick="$('.modal').modal('hide')"
+                [disabled]="form.invalid"
+                class="btn btn-outline-success mx-3"
+              >
+                Save changes
+              </button>
             </div>
           </form>
         </div>
