@@ -3,6 +3,7 @@ import { Component, OnInit, ApplicationInitStatus } from "@angular/core";
 
 // CUSTOM COMPONENTS
 import { VolunteerForm } from "src/app/shared/models/volunteer-form.model";
+import { VolunteerApplication } from "src/app/shared/models/volunteer-applications.model";
 import { VolunteerService } from 'src/app/shared/services/new-volunteer.service';
 
 @Component({
@@ -13,7 +14,7 @@ import { VolunteerService } from 'src/app/shared/services/new-volunteer.service'
 })
 export class VolunteerRejectedComponent implements OnInit {
 
-  appList: VolunteerForm[] = [];
+  appList: VolunteerApplication[] = [];
   isLoading: boolean = false;
 
   constructor(private test: VolunteerService) {}
@@ -22,90 +23,20 @@ export class VolunteerRejectedComponent implements OnInit {
   {
     // this.loadActiveApplicants();  // this one loads all currently active applicants
     //this.loadArchive(); // this one loads all rejected/archived applicants
-    this.loadAllApplicants();     // this one loads all applicants regardless of active status
+    this.loadRejectedApplicants();     // this one loads all applicants regardless of active status
 
     
     console.log(this.appList);
   }
 
-  acceptApplication(volunteerID: number): void
-  {
-    // guard condition if the volunteerID returend by the DOM is undefiend
-    if (!volunteerID) {
-      console.log('ERROR: volunteer id is' + volunteerID);
-      return;
-    }
-
-    this.test.getVolunteerForm(volunteerID)
-    .subscribe(
-      (volunteer: VolunteerForm) => {  // http success
-        console.log(volunteer);
-        if (volunteer) {  // if volunteer is found
-          volunteer.approved = true;
-          volunteer.active = true;
-          this.updateApplication(volunteer);
-        } else {  // volunteer is null (happens when not found)
-          console.log('Volunteer not found!')
-        }
-      },
-      (error: any) => {  // http error
-        console.log(error);
-      }
-    );
-  }
-
-  rejectApplication(volunteerID: number): void
-  {
-    // guard condition if the volunteerID returend by the DOM is undefiend
-    if (!volunteerID) {
-      console.log('ERROR: volunteer id is' + volunteerID);
-      return;
-    }
-
-    this.test.getVolunteerForm(volunteerID)
-    .subscribe(
-      (volunteer: VolunteerForm) => {  // http success
-        if (volunteer) {  // if volunteer is found
-          volunteer.approved = false;
-          volunteer.active = false;
-          this.updateApplication(volunteer);
-        } else {  // volunteer is null (happens when not found)
-          console.log('Volunteer not found!')
-        }
-      },
-      (error: any) => {  // http error
-        console.log(error);
-      }
-    );
-  }
-
-  private loadActiveApplicants(): void
+  private loadRejectedApplicants(): void
   {
     this.isLoading = true;
-    this.test.loadApplicants(true)  // true means the returned applicants will be active
+    this.test.loadRejectedApplicants()
     .subscribe(
-      (applicants: VolunteerForm[]) => {  // success
+      (applicants: VolunteerApplication[]) => {
         this.appList = [];
-        applicants.forEach((applicant: VolunteerForm) => {
-          this.appList.push(applicant);
-        });
-        this.isLoading = false;
-      },
-      (error: any) => {  // error
-        console.log(error);
-        this.isLoading = false;
-      }
-    );
-  }
-
-  private loadAllApplicants(): void
-  {
-    this.isLoading = true;
-    this.test.loadAllApplicants()
-    .subscribe(
-      (applicants: VolunteerForm[]) => {
-        this.appList = [];
-        applicants.forEach((applicant: VolunteerForm) => {
+        applicants.forEach((applicant: VolunteerApplication) => {
           this.appList.push(applicant);
         });
         this.isLoading = false;
@@ -113,38 +44,6 @@ export class VolunteerRejectedComponent implements OnInit {
       (error: any) => {
         console.log(error);
         this.isLoading = false;
-      }
-    );
-  }
-
-  private loadArchive(): void
-  {
-    this.isLoading = true;
-    this.test.loadArchivedApplicants()
-    .subscribe(
-      (applicants: VolunteerForm[]) => {
-        this.appList = [];
-        applicants.forEach((applicant: VolunteerForm) => {
-          this.appList.push(applicant);
-        });
-        this.isLoading = false;
-      },
-      (error: any) => {
-        console.log(error);
-        this.isLoading = false;
-      }
-    );
-  }
-
-  private updateApplication(changes: VolunteerForm): void
-  {
-    this.test.updateVolunteer(changes)
-    .subscribe(
-      (status: any) => {
-        this.loadAllApplicants();   //! this line refreshes content after update.
-      },
-      (error: any) => {
-        console.log(error);
       }
     );
   }
