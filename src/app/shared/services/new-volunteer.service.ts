@@ -14,7 +14,8 @@ import { VolunteerApplication } from '../models/volunteer-applications.model';
 export class VolunteerService {
   private REST_API_SERVER = "http://68.66.193.100:8080/CARS/";
   private CTRL_VOLUNTEER_MAPPING = "volunteers/";
-  private CTRL_APPLICATION_MAPPING = "applications/volunteers";
+  private CTRL_APPLICATION_MAPPING = "applications/volunteers/";
+  private NEWVOLUNTEER_MAPPING = "new/";
 
   constructor(private http: HttpClient) {}
 
@@ -210,7 +211,7 @@ export class VolunteerService {
    * HTTP post new Volunteer to server
    */
   private sendPostVolunteerRequest(volunteer: VolunteerForm) {
-    return this.http.post(this.REST_API_SERVER + this.CTRL_VOLUNTEER_MAPPING, volunteer, {
+    return this.http.post(this.REST_API_SERVER + this.CTRL_VOLUNTEER_MAPPING + this.NEWVOLUNTEER_MAPPING + volunteer.id , volunteer, {
       responseType: "text",
     });
   }
