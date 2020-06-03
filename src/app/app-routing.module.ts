@@ -2,14 +2,11 @@ import { FosterRejectedComponent } from "./administrator/foster-applications/fos
 import { ManageCatApplicationComponent } from "./administrator/manage-cat-application/manage-cat-application.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { AuthComponent } from "./auth/auth.component";
 import { AdminContainerComponent } from "./administrator/admin-container/admin-container.component";
 import { ViewEventsComponent } from "./administrator/view-events/view-events.component";
 import { VolunteerPendingComponent } from "./administrator/volunteer-applications/volunteer-pending/volunteer-pending.component";
-import { MyAccountPageComponent } from "./volunteer/my-account-page/my-account-page.component";
 import { VolunteerSideEventsComponent } from "./volunteer/volunteer-side-events/volunteer-side-events.component";
 import { VolunteerContainerComponent } from "./volunteer/volunteer-container/volunteer-container.component";
-import { AnimalManagementComponent } from "./administrator/animal-management/animal-management.component";
 import { ViewVolunteerComponent } from "./administrator/view-volunteer/view-volunteer.component";
 import { ViewAdminProfileComponent } from "./administrator/view-admin-profile/view-admin-profile.component";
 import { ViewVolunteerAccountComponent } from "./volunteer/view-volunteer-account/view-volunteer-account.component";
