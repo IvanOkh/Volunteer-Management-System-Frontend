@@ -4,8 +4,6 @@
 
 ### APP-WIDE:
 
-•	Disabled users can access application. FIX - Ray will adjust backend
-
 •	Implement dynamic and smooth transitions.
 
 •	Handle login responces and errors. [IN-PROGRESS] - Ivan
@@ -13,7 +11,6 @@
 ### FORMS:
 
 •	Resolve multiple issues and error messages on Dog Application Form. Make sure submission is correct.
-
 
 ### ADMIN-SIDE:
 
@@ -24,8 +21,6 @@
 •	We can only delete applications (from archives) that were rejected (don’t forget to add modal asking “Are you sure you want to delete {{name}}?”). [Awaiting back-end implementation] - Albert
 
 •	Create a “Reason for Rejection” text field in all 4 application objects and make sure it is displayed when admin attempts to “Reject” any of these applications. If “Reason for rejection” was provided, then it should be displayed in table in “Archive” tab.
-
-•	Fix user side account that doesn’t load info if user is a foster. - (only edit implementation left)  [In progress] - Ivan
 
 •	Fix login that doesn’t react witch a message to a user if login is invalid or no reply from server has been received. Plus make sure the spinner is working when user awaits from a reply from the server. - [IN-PROGRESS] - Ivan
 
