@@ -10,7 +10,7 @@
 
 ### FORMS:
 
-•	Resolve multiple issues and error messages on Dog Application Form. Make sure submission is correct.
+•	Resolve submission on Dog Application form. Make sure all necessary attributes are filled.
 
 ### ADMIN-SIDE:
 
