@@ -108,7 +108,6 @@ export class ViewFostersComponent implements OnInit
       }
     );
 
-    //ORIGINAL LINE this.delimitFosterType(this.fetched.fosterAnimalType);
     
 
     
@@ -186,7 +185,7 @@ export class ViewFostersComponent implements OnInit
   //Takes FosterType attribute type of string and changes ft attributes to display onto Foster modal.
   private delimitFosterType(fosterType: string)
   {
-    let splitted = fosterType.split(" ", 6);
+    let splitted = fosterType.split(",", 6);
 
     if(splitted[0].match("true"))
     {
