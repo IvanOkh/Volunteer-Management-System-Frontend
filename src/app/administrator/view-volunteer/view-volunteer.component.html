@@ -26,7 +26,7 @@
                 <th class="th">First Name</th>
                 <th class="th">Last Name</th>
                 <th class="th">Email</th>
-                <th class="th">Date of birth</th>
+                <th class="th">Over 18</th>
                 <th class="th">Gender</th>
                 <th class="th">Status</th>
               </tr>
@@ -37,7 +37,7 @@
                 <td [innerText]="item.fname"></td>
                 <td [innerText]="item.lname"></td>
                 <td [innerText]="item.email"></td>
-                <td [innerText]="item.dateOfBirth"></td>
+                <td [innerText]="item.over18 | yesNo"></td>
                 <td [innerText]="item.gender"></td>
                 <td *ngIf="!item.active">
                   <i class="fa fa-user" style="font-size: 20px; color: red;"></i>
@@ -122,7 +122,7 @@
                   <p><strong>Last name:</strong> {{ fetched.lname }}</p>
                   <!-- string interpolation {{DOB}} removed by MAX because DOB doesn't exist. Fix please! -->
                   <p>
-                    <strong>Date of Birth:</strong>{{ fetched.dateOfBirth }}
+                    <strong>Date of Birth:</strong>{{ fetched.over18 | yesNo }}
                   </p>
                   <p><strong>Gender:</strong> {{ fetched.gender }}</p>
                   <p><strong>Address:</strong> {{ fetched.address }}</p>
