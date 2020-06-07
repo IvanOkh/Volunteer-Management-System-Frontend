@@ -126,7 +126,6 @@ export class ViewVolunteerComponent implements OnInit
       (volunteer: VolunteerForm) => {
         this.fetched = volunteer;
         this.fetchLoading = false;
-        console.log("Fetched Volunteer: " + this.fetched.over18);
       },
       (error: any) => {
         console.log(error);

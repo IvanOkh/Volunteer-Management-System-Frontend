@@ -98,7 +98,9 @@ export class ViewFostersComponent implements OnInit
       (foster: FosterModel) => {
         this.fetched = foster;
         this.fetchedLoading = false;
+        console.log(this.fetched);
         this.delimitFosterType(this.fetched.fosterAnimalType);
+        
       },
       (error: any) => {
         console.log(error);
@@ -185,7 +187,6 @@ export class ViewFostersComponent implements OnInit
   private delimitFosterType(fosterType: string)
   {
     let splitted = fosterType.split(" ", 6);
-    console.log(splitted);
 
     if(splitted[0].match("true"))
     {

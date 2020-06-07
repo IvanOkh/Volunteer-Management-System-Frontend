@@ -147,10 +147,10 @@
                             {{ fetched.spayedAndNeutered }}
                           </p>
                           <p>
-                            <strong>Dog Habit </strong> {{ fetched.dogHabit }}
+                            <strong>Dog Habit: </strong> {{ fetched.dogHabit }}
                           </p>
                           <p>
-                            <strong>Cat Habit </strong> {{ fetched.catHabit }}
+                            <strong>Cat Habit: </strong> {{ fetched.catHabit }}
                           </p>
                           <p>
                             <strong>Family Agreeable: </strong>
@@ -316,7 +316,7 @@
                         visible to volunteers
                       </i>
                       <section class="description mt-4">
-                        <p>{{ fetched.adminNotes }}</p>
+                        <p>{{ fetched.note }}</p>
                       </section>
                     </div>
                   </div>
@@ -751,7 +751,7 @@
                             name="adminNotes"
                             id="adminNotes"
                             rows="3"
-                            [(ngModel)]="fetched.adminNotes"
+                            [(ngModel)]="fetched.note"
                           ></textarea>
                         </div>
 
