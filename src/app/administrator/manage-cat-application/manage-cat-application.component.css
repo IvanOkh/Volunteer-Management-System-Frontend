@@ -7,14 +7,15 @@ tr {
   vertical-align: center;
   border-top: 1px solid #dee2e6;
   cursor: pointer;
-  background-color: #dee2e6;
 }
 tr:hover {
-  background-color: #c6c7ca;
+  background-color: #f5d4d9;
+  color:white;
 }
 td {
-  /* padding: 0.75rem; */
+  padding: 0.75rem;
   border-top: 1px solid #dee2e6;
+
 }
 .title {
   text-align: center;

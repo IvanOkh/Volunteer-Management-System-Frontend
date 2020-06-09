@@ -6,18 +6,20 @@
   </div>
 </ng-container>
 
-<ng-container *ngIf="!this.isLoading && this.vList.length == 0">
+<ng-container *ngIf="!this.isLoading && this.volunteers.length == 0">
   <div class="row justify-content-center">
     <p>
-      We don't nave anything to display at this time. Please stand by or check
+      We don't have anything to display at this time. Please stand by or check
       again later
     </p>
   </div>
 </ng-container>
 
-<ng-container *ngIf="!this.isLoading && this.vList.length > 0">
-  <div class="container">
-    <div class="body">
+<!-- <ng-container *ngIf="!this.isLoading && this.volunteers.length > 0"> -->
+<div class="container">
+  <!-- BOOTSTRAP TABLE-->
+  <!-- 
+      <div class="body">
       <div class="pt-2">
         <div class="table-responsive-md">
           <table id="myTable" #dataTable class="table table-hover table-hover" width="100%">
@@ -51,7 +53,57 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+
+  <!-- START MAT TABLE -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-5" matSort width="100%">
+    <ng-container matColumnDef="fname">
+      <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>First name</th>
+      <td mat-cell *matCellDef="let element">{{element.fname}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lname">
+      <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>Last name</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.lname}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Email</th>
+      <td mat-cell *matCellDef="let element">{{element.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="over18">
+      <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Over 18</th>
+      <td mat-cell *matCellDef="let element">{{element.over18}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Gender</th>
+      <td mat-cell *matCellDef="let element">{{element.gender}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Status</th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="element.active" style="color:green;"><em><i class="fa fa-user" style="font-size: 20px;"></i></em>
+        </div>
+        <div *ngIf="!element.active" style="color:red;"><em><i class="fa fa-user" style="font-size: 20px;"></i></em>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="viewVolunteer(row.id)" data-toggle="modal"
+      data-target="#viewVolunteerModal" style="pointer:cursor">
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20,50,100,500]" showFirstLastButtons></mat-paginator>
+
+  <!-- END MAT TABLE -->
+
   <!-- bootstrap pop up modal  -->
   <div class="modal fade" tabindex="-1" id="viewVolunteerModal" role="dialog" aria-labelledby="viewVolunteerModalLabel"
     aria-hidden="true">
@@ -247,6 +299,7 @@
       </ng-container>
     </div>
   </div>
+
   <div class="bootstrapConfirm">
     <div class="modal fade" id="confirmActive" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
       aria-hidden="true">
@@ -614,9 +667,7 @@
                     <textarea class="form-control" name="adminNotes" id="adminNotes" rows="3"
                       [(ngModel)]="fetched.note"></textarea>
                   </div>
-
                 </div>
-
 
                 <div class="mt-4" style="
                     display: flex;
@@ -638,9 +689,9 @@
       </div>
     </div>
   </div>
-</ng-container>
+</div>
 
-<ng-container *ngIf="!this.isLoading && this.vList.length === 0">
+<ng-container *ngIf="!this.isLoading && this.volunteers.length === 0">
   <div class="row justify-content-center">
     <h3>No active volunteers to display!</h3>
   </div>

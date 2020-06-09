@@ -1,9 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&display=swap');
 
-table {
+/* table {
   width: 100%;
   box-shadow: 0px 0px 13px -10px black;
+} */
+/* START MAT TABLE CSS */
+th {
+  background-color: #cd0d2e;
+  color: white;
 }
+tr {
+  padding: 0.5rem;
+  vertical-align: center;
+  border-top: 1px solid #dee2e6;
+  cursor: pointer;
+}
+tr:hover {
+  background-color: #f5d4d9;
+  color:white;
+}
+td {
+  padding: 0.75rem;
+  border-top: 1px solid #dee2e6;
+
+}
+/* END MAT TABLE CSS */
 
 header {
   width: 100%;

@@ -23,7 +23,7 @@ export class ManageCatApplicationComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild("form", { static: false }) form: NgForm;
-  dataSource = new MatTableDataSource(this.adoptionService.loadAllCats());
+  dataSource = new MatTableDataSource();
 
   displayedColumns: string[] = [
     "submissionDate",
