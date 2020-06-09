@@ -15,22 +15,38 @@
   <div class="loginSection">
     <div class="row">
       <div class="col-12">
-        <h3 style="font-family: 'Merriweather', serif;  color: #CE0E2D;text-align: center;">Sign In</h3>
+        <h3 style="color: #ce0e2d; text-align: center;">
+          <b> Sign In </b>
+        </h3>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
-
+        <form
+          #authForm="ngForm"
+          (ngSubmit)="onSubmit(authForm)"
+          *ngIf="!isLoading"
+        >
           <div class="input-group mb-3">
             <div class="col-12 p-0">
               <label for="email"><strong>Email address</strong></label>
             </div>
             <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+              <span class="input-group-text" id="basic-addon1"
+                ><i class="fa fa-envelope" aria-hidden="true"></i
+              ></span>
             </div>
-            <input type="email" id="email" class="form-control" ngModel name="email" required email class="form-control"
-              aria-describedby="basic-addon1">
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              ngModel
+              name="email"
+              required
+              email
+              class="form-control"
+              aria-describedby="basic-addon1"
+            />
           </div>
 
           <div class="input-group mb-3">
@@ -38,18 +54,32 @@
               <label for="email"><strong>Password</strong></label>
             </div>
             <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
+              <span class="input-group-text" id="basic-addon1"
+                ><i class="fa fa-key" aria-hidden="true"></i
+              ></span>
             </div>
-            <input type="password" id="password" class="form-control" minlength="6" ngModel name="password" required
-              class="form-control" aria-describedby="basic-addon1">
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              minlength="6"
+              ngModel
+              name="password"
+              required
+              class="form-control"
+              aria-describedby="basic-addon1"
+            />
           </div>
 
-        
-            <button style="width:100%; background-color:#CE0E2D ; border: none" class="btn btn-success btn-sm mr-2 py-2" type="submit">
-              <!-- (click)="onLoginClick()" -->
-              Login<i class="fa fa-sign-in ml-1" aria-hidden="true"></i>
-            </button>
-            <app-reset-password style="float: right;"></app-reset-password>
+          <button
+            style="width: 100%; background-color: #ce0e2d; border: none;"
+            class="btn btn-success btn-sm mr-2 py-2"
+            type="submit"
+          >
+            <!-- (click)="onLoginClick()" -->
+            Login<i class="fa fa-sign-in ml-1" aria-hidden="true"></i>
+          </button>
+          <app-reset-password style="float: right;"></app-reset-password>
 
           <div class="form-row"></div>
         </form>

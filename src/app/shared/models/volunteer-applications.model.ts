@@ -1,10 +1,10 @@
-export class VolunteerForm {
+export class VolunteerApplication {
 
   constructor(
     public id: number,
-    public active: boolean,
-    public note: string,
-    public hours: string,
+    public submissiondate: string,
+    public rejected: boolean,
+    public rejectionReason: string,
     public fname: string,
     public lname: string,
     public address: string,

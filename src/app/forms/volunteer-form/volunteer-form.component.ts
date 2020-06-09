@@ -85,10 +85,10 @@ export class VolunteerFormComponent {
       console.log(form.value);
 
       const volunteerForm = new VolunteerForm(
-        false, // approved
-        true, // active
-        "", // password
         0, // id
+        true, // active
+        "", // note
+        "", //hours
         form.value.firstname as string, // fname
         form.value.lname as string, // lname
         form.value.address as string, // address
@@ -98,12 +98,10 @@ export class VolunteerFormComponent {
         form.value.cellPhone as string, // cellPhone
         form.value.homePhone as string, // homePhone
         form.value.email as string, // email
-        (form.value.dobMonth +
-          form.value.dobDay +
-          form.value.dobYear) as string, // dateOfBirth
+        (form.value.over18) as string, // over18
         form.value.gender as string, // gender
         form.value.shirtSize as string, // tshirtSize
-        form.value.paragraph as string, // description
+        form.value.paragraph as string, // selfdescription
         form.value.ec1Fname as string, // emg1_fname
         form.value.ec1Lname as string, // emg1_lname
         form.value.ec1Relationship as string, // emg1_relationship
@@ -126,7 +124,6 @@ export class VolunteerFormComponent {
         form.value.r2Email as string, // ref2_email
         false, // emailAllowed
         "false,false,false,false" as string, // emailPref [FALSE,FALSE,FALSE,FALSE] [electric newsletters, recruitment appeals, schedule reminders, checlist reminders]
-        form.value.adminNotes as string // adminNotes
       );
 
       console.log(volunteerForm);

@@ -98,7 +98,9 @@ export class ViewFostersComponent implements OnInit
       (foster: FosterModel) => {
         this.fetched = foster;
         this.fetchedLoading = false;
+        console.log(this.fetched);
         this.delimitFosterType(this.fetched.fosterAnimalType);
+        
       },
       (error: any) => {
         console.log(error);
@@ -106,7 +108,6 @@ export class ViewFostersComponent implements OnInit
       }
     );
 
-    //ORIGINAL LINE this.delimitFosterType(this.fetched.fosterAnimalType);
     
 
     
@@ -184,8 +185,7 @@ export class ViewFostersComponent implements OnInit
   //Takes FosterType attribute type of string and changes ft attributes to display onto Foster modal.
   private delimitFosterType(fosterType: string)
   {
-    let splitted = fosterType.split(" ", 6);
-    console.log(splitted);
+    let splitted = fosterType.split(",", 6);
 
     if(splitted[0].match("true"))
     {

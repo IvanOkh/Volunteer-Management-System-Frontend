@@ -1,16 +1,12 @@
-import { FosterRejectedComponent } from './administrator/foster-applications/foster-rejected/foster-rejected.component';
+import { FosterRejectedComponent } from "./administrator/foster-applications/foster-rejected/foster-rejected.component";
 import { ManageCatApplicationComponent } from "./administrator/manage-cat-application/manage-cat-application.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { AuthComponent } from "./auth/auth.component";
 import { AdminContainerComponent } from "./administrator/admin-container/admin-container.component";
 import { ViewEventsComponent } from "./administrator/view-events/view-events.component";
 import { VolunteerPendingComponent } from "./administrator/volunteer-applications/volunteer-pending/volunteer-pending.component";
-import { MyAccountPageComponent } from "./volunteer/my-account-page/my-account-page.component";
-import { ViewVolunteerInfoComponent } from "./volunteer/view-volunteer-info/view-volunteer-info.component";
 import { VolunteerSideEventsComponent } from "./volunteer/volunteer-side-events/volunteer-side-events.component";
 import { VolunteerContainerComponent } from "./volunteer/volunteer-container/volunteer-container.component";
-import { AnimalManagementComponent } from "./administrator/animal-management/animal-management.component";
 import { ViewVolunteerComponent } from "./administrator/view-volunteer/view-volunteer.component";
 import { ViewAdminProfileComponent } from "./administrator/view-admin-profile/view-admin-profile.component";
 import { ViewVolunteerAccountComponent } from "./volunteer/view-volunteer-account/view-volunteer-account.component";
@@ -25,7 +21,7 @@ import { ResetPasswordComponent } from "./shared/components/reset-password/reset
 import { MainPageComponent } from "./shared/components/main-page/main-page.component";
 import { ManageDogApplicationComponent } from "./administrator/manage-dog-application/manage-dog-application.component";
 import { VolunteerRejectedComponent } from "./administrator/volunteer-applications/volunteer-rejected/volunteer-rejected.component";
-import { FosterPendingComponent } from './administrator/foster-applications/foster-pending/foster-pending.component';
+import { FosterPendingComponent } from "./administrator/foster-applications/foster-pending/foster-pending.component";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
