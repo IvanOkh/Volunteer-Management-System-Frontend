@@ -26,6 +26,16 @@ td {
 }
 /* END MAT TABLE CSS */
 
+/* INPUT FOR SEARCHING  */
+.input-group {
+  width: 60%;
+  margin: auto;
+}
+.form-control {
+  border: 0.5px solid #c5c3c3;
+  padding-left: 15px;
+}
+
 header {
   width: 100%;
   height: 100px;

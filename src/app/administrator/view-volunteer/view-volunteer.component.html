@@ -55,6 +55,20 @@
     </div>
   </div> -->
 
+
+  <!-- START SEARCHING BAR  -->
+  <ng-container *ngIf="!this.isLoading && this.volunteers.length > 0">
+    <div class="input-group mb-3">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search..." type="text"
+        class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <span class="input-group-text"
+          id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i></span>
+      </div>
+    </div>
+  </ng-container>
+  <!-- END SEARCHING BAR  -->
+
   <!-- START MAT TABLE -->
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-5" matSort width="100%">
     <ng-container matColumnDef="fname">

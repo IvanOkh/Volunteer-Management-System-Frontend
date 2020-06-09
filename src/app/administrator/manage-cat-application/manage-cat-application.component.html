@@ -11,7 +11,7 @@
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search..." type="text" class="form-control"
       aria-label="Recipient's username" aria-describedby="basic-addon2">
     <div class="input-group-append">
-      <span style="background-color: #ce0e2d; color: white; padding: 10px 12px;" class="input-group-text"
+      <span  class="input-group-text"
         id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i></span>
     </div>
   </div>
@@ -54,7 +54,7 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row.id)" data-toggle="modal"
+    <tr class="tableRow" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row.id)" data-toggle="modal"
       data-target="#modalCatInfo" style="pointer:cursor">
     </tr>
 

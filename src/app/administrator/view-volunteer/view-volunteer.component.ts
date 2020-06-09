@@ -50,6 +50,7 @@ export class ViewVolunteerComponent implements OnInit {
 
   // THIS IS MAT TABLE VERSION
   ngOnInit() {
+    this.isLoading = true;
     this.test.loadVolunteers().subscribe((volunteer) => {
       console.log(volunteer);
       this.volunteers = volunteer;
@@ -61,7 +62,9 @@ export class ViewVolunteerComponent implements OnInit {
       this.isLoading = false;
     });
   }
-
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
   viewVolunteer(rowId: number) {
     if (!(rowId || rowId === 0)) {
       console.log("viewVolunteer failed because id: " + rowId);
