@@ -9,6 +9,7 @@ export class AnimalModel {
   private _bio: string;
   private _medicalHistory: string;
   private _status: string;
+  
 
   constructor(
       id: number,

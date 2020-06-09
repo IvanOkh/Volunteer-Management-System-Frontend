@@ -14,8 +14,8 @@ export class AdoptionService {
   element: AnimalModel;
 
   private REST_API_SERVER: string = "http://68.66.193.100:8080/CARS/";
-  private CAT_CTRL_MAPPING: string = "cats/";
-  private DOG_CTRL_MAPPING: string = "dogs/";
+  private CAT_CTRL_MAPPING: string = "applications/cats";
+  private DOG_CTRL_MAPPING: string = "applications/dogs";
 
   constructor(private http: HttpClient) {}
 
@@ -44,6 +44,7 @@ export class AdoptionService {
       .pipe(
         tap((dog) => {
           this.dogs = dog;
+          console.log(this.dogs);
         })
       );
   }

@@ -1,44 +1,44 @@
-th{
-    background-color:#cd0d2e;
-    color: white;
+th {
+  background-color: #cd0d2e;
+  color: white;
 }
-tr{
-    padding: .75rem;
-    vertical-align: center;
-    border-top: 1px solid #dee2e6;
-    cursor: pointer;
-    background-color:#dee2e6;
+tr {
+  padding: 0.5rem;
+  vertical-align: center;
+  border-top: 1px solid #dee2e6;
+  cursor: pointer;
+  background-color: #dee2e6;
 }
-tr:hover{
-    background-color:#c6c7ca;
+tr:hover {
+  background-color: #c6c7ca;
 }
-td{
-    padding: .75rem;
-    border-top: 1px solid #dee2e6;
+td {
+  /* padding: 0.75rem; */
+  border-top: 1px solid #dee2e6;
 }
 .title {
-    text-align: center;
-    color: #cd0d2e;
-  }
-  
-  .fa-check {
-    font-size: 20px;
-    color: green;
-  }
-  .fa-times {
-    font-size: 20px;
-    color: red;
-  }
-  .referenceContainer {
-    border: 1px solid #cd0d2e;
-    padding: 2px;
-    border-radius: 2%;
-  }
-  .form-control {
-    border: 0.5px solid #cd0d2e;
-    padding: 7px;
-  }
-  .input-group {
-    width: 60%;
-    margin: auto;
-  }
+  text-align: center;
+  color: #cd0d2e;
+}
+
+.fa-check {
+  font-size: 20px;
+  color: green;
+}
+.fa-times {
+  font-size: 20px;
+  color: red;
+}
+.referenceContainer {
+  border: 1px solid #cd0d2e;
+  padding: 2px;
+  border-radius: 2%;
+}
+.form-control {
+  border: 0.5px solid #cd0d2e;
+  padding: 7px;
+}
+.input-group {
+  width: 60%;
+  margin: auto;
+}

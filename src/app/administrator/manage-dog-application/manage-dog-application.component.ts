@@ -25,7 +25,14 @@ export class ManageDogApplicationComponent implements OnInit {
   @ViewChild("form", { static: false }) form: NgForm;
   dataSource = new MatTableDataSource(this.adoptionService.loadAllCats());
 
-  displayedColumns: string[] = ["nameOfDog", "fname", "lname", "email", "address"];
+  displayedColumns: string[] = [
+    "submissionDate",
+    "nameOfDog",
+    "applicant",
+    "email",
+    "phone",
+    "address",
+  ];
 
   constructor(
     public dialog: MatDialog,
