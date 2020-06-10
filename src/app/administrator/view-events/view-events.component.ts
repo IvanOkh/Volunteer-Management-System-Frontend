@@ -46,7 +46,7 @@ export class ViewEventsComponent implements OnInit {
       // console.log(this.volunteerArray);
     });
     //load active fosters
-    this.fs.loadFosters(true).subscribe((responseData) => {
+    this.fs.loadFosters().subscribe((responseData) => {
       this.fosterArray = responseData;
       // console.log(this.fosterArray);
       this.loadEvents();

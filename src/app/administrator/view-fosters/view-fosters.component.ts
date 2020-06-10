@@ -143,7 +143,7 @@ export class ViewFostersComponent implements OnInit
   private loadActiveFosters(): void
   {
     this.isLoading = true;
-    this.test.loadFosters(true)  // true means active == true fosters are returned
+    this.test.loadFosters()  // true means active == true fosters are returned
     .subscribe(
       (fosters: FosterModel[]) => {  // http success
         this.fosterList = [];
@@ -164,7 +164,7 @@ export class ViewFostersComponent implements OnInit
     const regex = new RegExp('^.+(@calgaryanimalrescue\.com)$');
 
     this.isLoading = true;
-    this.test.loadAllFosters()
+    this.test.loadFosters()
     .subscribe(
       (fosters: FosterModel[]) => {  // http success
         this.fosterList = [];
