@@ -57,7 +57,7 @@ export class VolunteerService {
   }
 
   /**
-   * Send a request to the backend for an array containing all volunteers
+   * Send a request to the backend for an array containing all rejected volunteer applications
    * where their approved AND active properties are BOTH FALSE
    */
   public loadRejectedApplicants(): Observable<VolunteerApplication[]> {
@@ -87,6 +87,7 @@ export class VolunteerService {
       })
     );
   }
+  
 
    /**
    * Sends a request to get a single VolunteerApplication matching the input id.
