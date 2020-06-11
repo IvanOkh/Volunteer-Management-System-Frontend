@@ -1,22 +1,26 @@
 
 #  Project Tasks 					
-## Update: Wednesday, June 3rd, 2020
+## Update: Thursday, June 11th, 2020
 
 ### APP-WIDE:
 
-•	Implement dynamic and smooth transitions.
+•	Implement dynamic and smooth transitionon admin and user side.
 
 •	Handle login responces and errors. [IN-PROGRESS] - Ivan
 
+•	Navbar button in mobile view should not stay highlighted after click. Get rid of any outline in responsive.
+
+•	Debug, debug, and debug.
+
 ### FORMS:
 
-•	Resolve submission on Dog Application form. Make sure all necessary attributes are filled.
+•	Resolve incomplete submission on Dog Application form. Make sure all necessary attributes are filled before user can submit.
+
+•	Double check and test responsive in the forms (test button click and span text).
 
 ### ADMIN-SIDE:
 
 •	Convert Bootstrap tables to Material to enable sorting algorithms. [IN-PROGRESS] -Luat
-
-•	Add “Admin Notes” attribute to both Volunteer and Foster objects and make sure they are displayed in respective modals (this field is only visible to and editable by an admin. Users cannot see its context because it is for admin to make notes about volunteers and fosters). [COMPLETED] - Albert
 
 •	We can only delete applications (from archives) that were rejected (don’t forget to add modal asking “Are you sure you want to delete {{name}}?”). [Awaiting back-end implementation] - Albert
 
@@ -26,6 +30,10 @@
 
 •	Fix “Print Form” button to all submitted applications modals that are displayed to admin in “Applications” and “Adoptions” tabs.
 
+•	In rejected volunteer and foster applications, change reject button to delete (make sure delete works after pressing, with modal asking confirmation to permanently delete rejected application).
+
+•	Fix material tables in responsive https://stackoverflow.com/questions/50824617/angular-material-table-sizing-scroll
+
 ### USER-SIDE:
 
-•	Ready for responsive.
+•	Apply responsive.
