@@ -41,5 +41,42 @@ export class FosterRejectedComponent implements OnInit {
     );
   }
 
+  private sendToPending(fosterID: number): void
+  {
+    // guard condition if the fosterID returend by the DOM is undefiend
+    if (!fosterID) {
+      console.log('ERROR: foster id is' + fosterID);
+      return;
+    }
+
+    this.fs.getFosterApplication(fosterID)
+    .subscribe(
+      (foster: FosterApplication) => {  // http success
+        if (foster) {  // if foster is found
+          foster.rejected = false;
+          this.updateApplication(foster);
+        } else {  // Foster is null (happens when not found)
+          console.log('Foster not found!')
+        }
+      },
+      (error: any) => {  // http error
+        console.log(error);
+      }
+    );
+  }
+
+  private updateApplication(changes: FosterApplication): void
+  {
+    this.fs.updateFosterApplication(changes)
+    .subscribe(
+      (status: any) => {
+        this.loadRejectedApplicants();   //! this line refreshes content after update.
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+
 
 }
