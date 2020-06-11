@@ -6,6 +6,10 @@
   padding: 0px !important;
 }
 
+#togglebutton:focus {
+  outline: none;
+}
+
 .backgroundSection img {
   height: auto;
   width: 100%;
