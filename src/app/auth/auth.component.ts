@@ -17,13 +17,15 @@ export class AuthComponent {
   isLoading = false;
   error: string = null;
   message: string = "";
+  errorMessage = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit(form: NgForm) {
     //RETURN if form is invalid (extra protection)
     if (!form.valid) {
-      return;
+      // return;
+      this.errorMessage = true;
     }
     //get email and pass from the submited form
     const email = form.value.email;
@@ -46,10 +48,11 @@ export class AuthComponent {
       },
       (errorMessage) => {
         //console.log(errorMessage);
-        this.error = errorMessage;
+        // this.error = errorMessage;
+        this.errorMessage = true;
         this.isLoading = false;
       }
     );
-    form.reset();
+    // form.reset();
   }
 }

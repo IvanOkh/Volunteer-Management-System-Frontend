@@ -85,7 +85,7 @@ export class AuthService {
           catchError(this.handleError),
           //observe for response data, and if recieved, pass it to handleAuthentication
           tap((resData) => {
-            //console.log(resData);
+            // console.log(resData);
             if (resData.email === email) {
               //console.log(resData.expiresIn);
               this.handleAuthentication(
@@ -141,7 +141,7 @@ export class AuthService {
     //console.log("in log out");
     //remove "session" data from local storage
     localStorage.removeItem("userData");
-    localStorage.clear;
+    // localStorage.clear;
     // localStorage.clear;
 
     //clear the timer's countdown

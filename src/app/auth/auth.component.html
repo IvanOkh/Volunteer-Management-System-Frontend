@@ -1,12 +1,7 @@
 <div class="container">
   <div class="row pt-3">
     <div class="col-12">
-      <div class="alert alert-danger" *ngIf="error">
-        <p>
-          {{ error }}
-        </p>
-      </div>
-      <div *ngIf="isLoading" style="text-align: center;">
+      <div *ngIf="isLoading" class="row justify-content-center">
         <app-loading-spinner></app-loading-spinner>
       </div>
     </div>
@@ -70,7 +65,12 @@
               aria-describedby="basic-addon1"
             />
           </div>
-
+          <div
+            *ngIf="errorMessage == true"
+            class="text-center alert alert-secondary"
+          >
+            <strong>Invalid email and/or password</strong>
+          </div>
           <button
             style="width: 100%; background-color: #ce0e2d; border: none;"
             class="btn btn-success btn-sm mr-2 py-2"
@@ -79,12 +79,17 @@
             <!-- (click)="onLoginClick()" -->
             Login<i class="fa fa-sign-in ml-1" aria-hidden="true"></i>
           </button>
-          <app-reset-password style="float: right;"></app-reset-password>
+          <app-reset-password
+            class="mt-1"
+            style="float: right;"
+          ></app-reset-password>
 
           <div class="form-row"></div>
         </form>
+        <!-- <p class="mt-5 ml-3 text-center">incorrect</p> -->
+
         <div class="container">
-          <div class="row p-3 w-25">
+          <div class="row justify-content-center">
             <router-outlet></router-outlet>
           </div>
         </div>
@@ -102,12 +107,12 @@
         </span>
       </div>
     </div> -->
-    <div class="row">
+    <!-- <div class="row">
       <div class="col">
         <p style="text-align: center; color: red;">
           {{ message }}
         </p>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
