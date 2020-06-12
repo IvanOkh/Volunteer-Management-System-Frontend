@@ -1,5 +1,4 @@
 export class VolunteerForm {
-
   constructor(
     public id: number,
     public active: boolean,
@@ -17,7 +16,7 @@ export class VolunteerForm {
     public over18: string,
     public gender: string,
     public tshirtSize: string,
-    public selfdescription: string,
+    public description: string,
     public emg1_fname: string,
     public emg1_lname: string,
     public emg1_relationship: string,
@@ -40,5 +39,5 @@ export class VolunteerForm {
     public ref2_email: string,
     public emailAllowed: boolean,
     public emailPref: string
-  ) { }
+  ) {}
 }
