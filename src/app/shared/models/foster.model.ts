@@ -1,5 +1,4 @@
 export class FosterModel {
-
   constructor(
     public id: number,
     public active: boolean,
@@ -24,7 +23,7 @@ export class FosterModel {
     public householdHandling: boolean,
     public anyPets: boolean,
     public petDetails: string,
-    public spayedAndNeutured: string,
+    public spayedAndNeutered: string,
     public dogHabit: string,
     public catHabit: string,
     public familyAgreeable: boolean,
@@ -53,6 +52,6 @@ export class FosterModel {
     public ref3_lname: string,
     public ref3_cellPhone: string,
     public ref3_email: string,
-    public allowHomeVisit: boolean,
-  ) { }
+    public allowHomeVisit: boolean
+  ) {}
 }
