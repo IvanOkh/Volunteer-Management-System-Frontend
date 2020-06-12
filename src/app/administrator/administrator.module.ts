@@ -14,30 +14,26 @@ import {
   MatPaginatorModule,
   MatSortModule,
   MatInputModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
 } from "@angular/material";
-
 
 // COMPONENT IMPORTS
 import { AdminContainerComponent } from "./admin-container/admin-container.component";
 import { ViewEventsComponent } from "./view-events/view-events.component";
 import { AdminSideNavbarComponent } from "./admin-side-navbar/admin-side-navbar.component";
 import { VolunteerPendingComponent } from "./volunteer-applications/volunteer-pending/volunteer-pending.component";
-import { AnimalManagementComponent } from "./animal-management/animal-management.component";
 import { ViewVolunteerComponent } from "./view-volunteer/view-volunteer.component";
-import { VolunteerRejectedComponent } from './volunteer-applications/volunteer-rejected/volunteer-rejected.component';
+import { VolunteerRejectedComponent } from "./volunteer-applications/volunteer-rejected/volunteer-rejected.component";
 
 // ROUTING MODULE IMPORTS
 import { AppRoutingModule } from "../app-routing.module";
-import { ViewAdminProfileComponent } from "./view-admin-profile/view-admin-profile.component";
 import { ViewFostersComponent } from "./view-fosters/view-fosters.component";
-import { YesNoPipe } from '../shared/pipes/yes-no.pipe';
-import { NaPipe } from '../shared/pipes/na.pipe';
-import { ManageCatApplicationComponent } from './manage-cat-application/manage-cat-application.component';
-import { ManageDogApplicationComponent } from './manage-dog-application/manage-dog-application.component';
-import { FosterPendingComponent } from './foster-applications/foster-pending/foster-pending.component';
-import { FosterRejectedComponent } from './foster-applications/foster-rejected/foster-rejected.component';
-
+import { YesNoPipe } from "../shared/pipes/yes-no.pipe";
+import { NaPipe } from "../shared/pipes/na.pipe";
+import { ManageCatApplicationComponent } from "./manage-cat-application/manage-cat-application.component";
+import { ManageDogApplicationComponent } from "./manage-dog-application/manage-dog-application.component";
+import { FosterPendingComponent } from "./foster-applications/foster-pending/foster-pending.component";
+import { FosterRejectedComponent } from "./foster-applications/foster-rejected/foster-rejected.component";
 
 @NgModule({
   declarations: [
@@ -45,8 +41,6 @@ import { FosterRejectedComponent } from './foster-applications/foster-rejected/f
     ViewEventsComponent,
     AdminSideNavbarComponent,
     VolunteerPendingComponent,
-    AnimalManagementComponent,
-    ViewAdminProfileComponent,
     ViewVolunteerComponent,
     ViewFostersComponent,
     VolunteerRejectedComponent,
@@ -57,7 +51,7 @@ import { FosterRejectedComponent } from './foster-applications/foster-rejected/f
     ManageCatApplicationComponent,
     ManageDogApplicationComponent,
     FosterPendingComponent,
-    FosterRejectedComponent
+    FosterRejectedComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,15 +70,13 @@ import { FosterRejectedComponent } from './foster-applications/foster-rejected/f
     MatDialogModule,
     MatProgressSpinnerModule,
 
-    AppRoutingModule
+    AppRoutingModule,
   ],
   exports: [
     AdminContainerComponent,
     ViewEventsComponent,
     AdminSideNavbarComponent,
     VolunteerPendingComponent,
-    AnimalManagementComponent,
-    ViewAdminProfileComponent,
     NaPipe,
     FosterPendingComponent,
     FosterRejectedComponent,
@@ -92,10 +84,10 @@ import { FosterRejectedComponent } from './foster-applications/foster-rejected/f
     ManageCatApplicationComponent,
     ManageDogApplicationComponent,
     FosterPendingComponent,
-    FosterRejectedComponent
-    ],
+    FosterRejectedComponent,
+  ],
   providers: [],
   bootstrap: [],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AdministratorModule {}
