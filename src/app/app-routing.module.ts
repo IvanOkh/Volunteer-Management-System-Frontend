@@ -8,7 +8,7 @@ import { VolunteerPendingComponent } from "./administrator/volunteer-application
 import { VolunteerSideEventsComponent } from "./volunteer/volunteer-side-events/volunteer-side-events.component";
 import { VolunteerContainerComponent } from "./volunteer/volunteer-container/volunteer-container.component";
 import { ViewVolunteerComponent } from "./administrator/view-volunteer/view-volunteer.component";
-import { ViewAdminProfileComponent } from "./administrator/view-admin-profile/view-admin-profile.component";
+
 import { ViewVolunteerAccountComponent } from "./volunteer/view-volunteer-account/view-volunteer-account.component";
 import { ViewFostersComponent } from "./administrator/view-fosters/view-fosters.component";
 import { VolunteerFormComponent } from "./forms/volunteer-form/volunteer-form.component";
@@ -52,7 +52,6 @@ const appRoutes: Routes = [
       { path: "events", component: ViewEventsComponent },
       { path: "fosters", component: ViewFostersComponent },
       { path: "volunteers", component: ViewVolunteerComponent },
-      { path: "profile", component: ViewAdminProfileComponent },
       { path: "", component: AdminContainerComponent },
       //   { path: "", component: AdminHeaderComponent }
     ],
