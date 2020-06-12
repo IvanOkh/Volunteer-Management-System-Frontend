@@ -26,6 +26,7 @@ export class ViewVolunteerComponent implements OnInit {
 
   volunteers = [];
   eachVolunteer: any;
+  activation: boolean;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild("form", { static: false }) form: NgForm;
@@ -37,7 +38,7 @@ export class ViewVolunteerComponent implements OnInit {
     "email",
     "over18",
     "gender",
-    "active"
+    "active",
   ];
 
   constructor(public dialog: MatDialog, private test: VolunteerService) {}
@@ -77,8 +78,8 @@ export class ViewVolunteerComponent implements OnInit {
   activeVolunteer() {
     if (this.fetched.active) this.fetched.active = false;
     else this.fetched.active = true;
-
     this.updateVolunteer(this.fetched);
+    this.ngOnInit();
   }
 
   onDeleteVolunteer(rowId: number) {
