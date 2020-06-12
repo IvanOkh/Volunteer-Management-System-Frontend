@@ -103,7 +103,7 @@ export class ViewVolunteerAccountComponent implements OnInit {
       this.tempvolunteer.cellPhone = this.user.cellPhone;
       this.tempvolunteer.email = this.user.email;
       this.tempvolunteer.tshirtSize = this.user.tshirtSize;
-      this.tempvolunteer.selfdescription = this.user.description;
+      this.tempvolunteer.description = this.user.description;
       this.vs.updateVolunteer(this.tempvolunteer).subscribe(
         () => {
           this.fetchUser(Number(this.user.id));
