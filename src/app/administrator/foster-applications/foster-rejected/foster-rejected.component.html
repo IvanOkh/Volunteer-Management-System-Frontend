@@ -98,13 +98,13 @@
                 </div>
               </div>
             </div>
-            <!-- Accept/Reject -->
+            <!-- Send back to pending/Delete -->
             <div class="container mb-3">
               <div class="row container ml-0 mr-0 pl-0 pr-0">
                 <div class="col-sm-6 pl-1 pr-1 pb-1">
                   <button class="btn btn-outline-success btn-block" data-toggle="modal"
                     attr.data-target="#accept{{ application.id }}">
-                    Accept
+                    Mark as Pending
                   </button>
 
                   <!-- Accept Modal -->
@@ -113,7 +113,7 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title">
-                            Accept {{ application.fname }}
+                            Mark Application to pending
                             {{ application.lname }}?
                           </h5>
                           <button class="close" data-dismiss="modal">
@@ -122,13 +122,12 @@
                         </div>
                         <div class="modal-body">
                           <p>
-                            You are about to accept {{ application.fname }}
-                            {{ application.lname }} as a volunteer.
+                            You are about to send {{ application.fname }} {{ application.lname }}'s application back to the pending list.
                           </p>
                         </div>
                         <div class="modal-footer">
                           <button class="btn btn-success" data-dismiss="modal"
-                            (click)="acceptApplication(application.id)">
+                            (click)="sendToPending(application.id)">
                             Confirm
                           </button>
                           <button class="btn btn-secondary" data-dismiss="modal">
@@ -144,7 +143,7 @@
                 <div class="col-sm-6 pl-1 pr-1 pb-1">
                   <button class="btn btn-outline-danger btn-block" data-toggle="modal"
                     attr.data-target="#reject{{ application.id }}">
-                    Reject
+                    Delete Application
                   </button>
                 </div>
 
@@ -219,6 +218,8 @@
                       <section class="description mt-4">
                         <h4 class="sectionTitle">Description:</h4>
                         <p>{{ application.description }}</p>
+                        <h4 class="sectionTitle">Reason for Rejection: </h4>
+                        <p>{{application.rejectionReason}}</p>
                       </section>
                     </div>
                     <div class="col-8">
