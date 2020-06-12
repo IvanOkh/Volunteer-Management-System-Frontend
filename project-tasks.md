@@ -6,9 +6,9 @@
 
 •	Implement dynamic and smooth transitionon admin and user side.
 
-•	Handle login responces and errors. [IN-PROGRESS] - Ivan
+•	Handle login responces and errors. [DONE] - Ivan
 
-•	Navbar button in mobile view should not stay highlighted after click. Get rid of any outline in responsive.
+•	Navbar button in mobile view should not stay highlighted after click. Get rid of any outline in responsive.[DONE] - Ivan
 
 •	Debug, debug, and debug.
 
@@ -26,7 +26,7 @@
 
 •	Create a “Reason for Rejection” text field in all 4 application objects and make sure it is displayed when admin attempts to “Reject” any of these applications. If “Reason for rejection” was provided, then it should be displayed in table in “Archive” tab. [IN-PROGRESS] - Albert
 
-•	Fix login that doesn’t react witch a message to a user if login is invalid or no reply from server has been received. Plus make sure the spinner is working when user awaits from a reply from the server. - [IN-PROGRESS] - Ivan
+•	Fix login that doesn’t react witch a message to a user if login is invalid or no reply from server has been received. Plus make sure the spinner is working when user awaits from a reply from the server. - [DONE] - Ivan
 
 •	Fix “Print Form” button to all submitted applications modals that are displayed to admin in “Applications” and “Adoptions” tabs.
 
