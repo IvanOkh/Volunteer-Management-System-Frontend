@@ -52,7 +52,7 @@ export class ViewVolunteerComponent implements OnInit {
   ngOnInit() {
     this.isLoading = true;
     this.test.loadVolunteers().subscribe((volunteer) => {
-      console.log(volunteer);
+      // console.log(volunteer);
       this.volunteers = volunteer;
       this.dataSource = new MatTableDataSource(this.volunteers);
       this.dataSource.sort = this.sort;
