@@ -37,7 +37,7 @@ export class ViewVolunteerComponent implements OnInit {
     "email",
     "over18",
     "gender",
-    "status",
+    "active"
   ];
 
   constructor(public dialog: MatDialog, private test: VolunteerService) {}
