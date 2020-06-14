@@ -75,7 +75,6 @@ export class ViewVolunteerComponent implements OnInit {
     if (this.fetched.active) this.fetched.active = false;
     else this.fetched.active = true;
     this.updateVolunteer(this.fetched);
-    // this.ngOnInit();
   }
 
   onDeleteVolunteer(rowId: number) {

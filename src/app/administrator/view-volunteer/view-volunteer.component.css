@@ -38,6 +38,7 @@ td {
 .input-group {
   width: 60%;
   margin: auto;
+  margin-top: 15px;
 }
 .form-control {
   border: 0.5px solid #c5c3c3;
