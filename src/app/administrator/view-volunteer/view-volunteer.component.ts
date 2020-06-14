@@ -24,9 +24,8 @@ export class ViewVolunteerComponent implements OnInit {
   fetched: VolunteerForm; // holds data about selected volunteer
   fetchLoading: boolean = false; // selected volunteer data loading state
 
-  volunteers = [];
-  eachVolunteer: any;
-  activation: boolean;
+  volunteers = []; //initialize an array to hole all volunteer data fetched to mat table
+  
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild("form", { static: false }) form: NgForm;
@@ -49,17 +48,14 @@ export class ViewVolunteerComponent implements OnInit {
   //   this.loadAllVolunteers();
   // }
 
-  // THIS IS MAT TABLE VERSION
+  // MAT TABLE VERSION
   ngOnInit() {
     this.isLoading = true;
     this.test.loadVolunteers().subscribe((volunteer) => {
-      // console.log(volunteer);
       this.volunteers = volunteer;
       this.dataSource = new MatTableDataSource(this.volunteers);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-      this.eachVolunteer = this.volunteers[0];
-
       this.isLoading = false;
     });
   }
@@ -79,7 +75,7 @@ export class ViewVolunteerComponent implements OnInit {
     if (this.fetched.active) this.fetched.active = false;
     else this.fetched.active = true;
     this.updateVolunteer(this.fetched);
-    this.ngOnInit();
+    // this.ngOnInit();
   }
 
   onDeleteVolunteer(rowId: number) {
@@ -89,6 +85,7 @@ export class ViewVolunteerComponent implements OnInit {
     }
 
     this.deleteVolunteer(rowId);
+    // this.ngOnInit();
   }
 
   editVolunteer(form: NgForm) {
@@ -105,6 +102,7 @@ export class ViewVolunteerComponent implements OnInit {
     this.test.removeVolunteer(volID).subscribe(
       () => {
         this.loadAllVolunteers();
+        this.ngOnInit();
       },
       (error: any) => {
         console.log(error);
@@ -116,6 +114,7 @@ export class ViewVolunteerComponent implements OnInit {
     this.test.updateVolunteer(changes).subscribe(
       () => {
         this.loadAllVolunteers();
+        this.ngOnInit();
       },
       (error: any) => {
         console.log(error);
