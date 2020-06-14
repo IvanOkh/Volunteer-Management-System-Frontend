@@ -43,6 +43,7 @@ export class ViewFostersComponent implements OnInit {
   displayedColumns: string[] = [
     "fosterName",
     "email",
+    "hours",
     "over18",
     "active",
   ];

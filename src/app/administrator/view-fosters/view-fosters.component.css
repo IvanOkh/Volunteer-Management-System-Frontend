@@ -22,7 +22,7 @@ tr:hover {
   color:white;
 }
 td {
-  padding: 0.75rem;
+  /* padding: 0.75rem; */
   border-top: 1px solid #dee2e6;
 
 }
@@ -121,13 +121,6 @@ label{
   cursor: pointer;
 }
 
-/* .mat-row:hover {
-  background-color: rgba(241, 187, 85, 0.466);
-  transition: all 0.3s;
-}
-.modal-body {
-  padding: 0px 1rem;
-} */
 .delete-button {
   position: absolute;
   left: 3%;
