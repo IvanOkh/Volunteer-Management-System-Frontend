@@ -16,6 +16,7 @@ export class FosterPendingComponent implements OnInit {
   
   appList: FosterApplication[] = [];
   isLoading: boolean = false;
+  //rejectionNote: string = "";
 
   constructor(private fs: FostersService) { }
 
@@ -50,9 +51,7 @@ export class FosterPendingComponent implements OnInit {
             foster.allowHomeVisit
             );
           this.fs.addFoster(newFoster);
-
-          //Delete application
-          this.deleteApplication(fosterID);
+          this.deleteApplication(fosterID);//Delete application since it is now an official foster
         } else {  // foster is null (happens when not found)
           console.log('Foster not found!')
         }
@@ -62,11 +61,9 @@ export class FosterPendingComponent implements OnInit {
       }
     );
   }
-
-
   
-  //NOTE TO MYSELF(albert): Create functionality for rejection note
-  rejectApplication(fosterID: number): void
+  
+  rejectApplication(fosterID: number, reason: string): void
   {
     // guard condition if the fosterID returend by the DOM is undefiend
     if (!fosterID) {
@@ -79,6 +76,7 @@ export class FosterPendingComponent implements OnInit {
       (foster: FosterApplication) => {  // http success
         if (foster) {  // if foster is found
           foster.rejected = true;
+          foster.rejectionReason = reason;
           this.updateApplication(foster);
         } else {  // Foster is null (happens when not found)
           console.log('Foster not found!')
@@ -88,6 +86,7 @@ export class FosterPendingComponent implements OnInit {
         console.log(error);
       }
     );
+   // this.rejectionNote = "";
   }
 
   private loadPendingApplicants(): void
