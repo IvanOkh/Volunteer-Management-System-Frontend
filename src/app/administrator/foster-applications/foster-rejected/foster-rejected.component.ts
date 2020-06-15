@@ -1,5 +1,10 @@
 // ANGULAR IMPORTS
-import { Component, OnInit, ApplicationInitStatus, ViewChild } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ApplicationInitStatus,
+  ViewChild,
+} from "@angular/core";
 import {
   MatPaginator,
   MatSort,
@@ -20,6 +25,8 @@ import { FostersService } from "src/app/shared/services/new-fosters.service";
 export class FosterRejectedComponent implements OnInit {
   appList: FosterApplication[] = [];
   isLoading: boolean = false;
+
+  //Mat table configuration
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild("form", { static: false }) form: NgForm;
@@ -31,7 +38,6 @@ export class FosterRejectedComponent implements OnInit {
     "actions",
   ];
 
-
   constructor(public dialog: MatDialog, private fs: FostersService) {}
 
   ngOnInit() {
@@ -42,6 +48,9 @@ export class FosterRejectedComponent implements OnInit {
   acceptApplication(application) {}
   rejectApplication(application) {}
 
+  /**
+   * Loads all Foster applications into appList that has the rejection attribute equal to 'true'.
+   */
   private loadRejectedApplicants(): void {
     this.isLoading = true;
     this.fs.loadRejectedApplicants().subscribe(
@@ -59,6 +68,10 @@ export class FosterRejectedComponent implements OnInit {
     );
   }
 
+  /**
+   * Changes the 'rejected' attribute of the foster application from 'false' to 'true'.
+   * @param fosterID
+   */
   private sendToPending(fosterID: number): void {
     // guard condition if the fosterID returend by the DOM is undefiend
     if (!fosterID) {
@@ -68,27 +81,42 @@ export class FosterRejectedComponent implements OnInit {
 
     this.fs.getFosterApplication(fosterID).subscribe(
       (foster: FosterApplication) => {
-        // http success
         if (foster) {
-          // if foster is found
           foster.rejected = false;
           this.updateApplication(foster);
         } else {
-          // Foster is null (happens when not found)
           console.log("Foster not found!");
         }
       },
       (error: any) => {
-        // http error
         console.log(error);
       }
     );
   }
 
+  /**
+   * Takes the passed foster application model and requests an update to the backend with the attributes provided.
+   * @param changes
+   */
   private updateApplication(changes: FosterApplication): void {
     this.fs.updateFosterApplication(changes).subscribe(
       (status: any) => {
-        this.loadRejectedApplicants(); //! this line refreshes content after update.
+        this.loadRejectedApplicants();
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+
+  /**
+   * Permanently deletes the foster application with the passed id. (UNTESTED, AWAITING MORE APPLICATIONS)
+   * @param id
+   */
+  private deleteApplication(id: number): void {
+    this.fs.removeApplication(id).subscribe(
+      (status: any) => {
+        this.loadRejectedApplicants();
       },
       (error: any) => {
         console.log(error);
