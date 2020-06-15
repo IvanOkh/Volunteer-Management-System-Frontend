@@ -1,6 +1,12 @@
 // ANGULAR IMPORTS
-import { Component, OnInit, ApplicationInitStatus } from "@angular/core";
-
+import { Component, OnInit, ApplicationInitStatus, ViewChild } from "@angular/core";
+import {
+  MatPaginator,
+  MatSort,
+  MatTableDataSource,
+  MatDialog,
+} from "@angular/material";
+import { NgForm } from "@angular/forms";
 // CUSTOM COMPONENTS
 import { FosterApplication } from "src/app/shared/models/foster-applications.model";
 import { FostersService } from "src/app/shared/services/new-fosters.service";
@@ -14,8 +20,19 @@ import { FostersService } from "src/app/shared/services/new-fosters.service";
 export class FosterRejectedComponent implements OnInit {
   appList: FosterApplication[] = [];
   isLoading: boolean = false;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild("form", { static: false }) form: NgForm;
 
-  constructor(private fs: FostersService) {}
+  displayedColumns: string[] = [
+    "submissionDate",
+    "applicant",
+    "rejectionNote",
+    "actions",
+  ];
+
+
+  constructor(public dialog: MatDialog, private fs: FostersService) {}
 
   ngOnInit() {
     this.loadRejectedApplicants();

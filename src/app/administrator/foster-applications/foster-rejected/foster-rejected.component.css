@@ -1,3 +1,7 @@
 h1{
     color: #CE0E2D;
 }
+
+.mat-header-cell{
+    padding-right: 0px !important;
+  }
