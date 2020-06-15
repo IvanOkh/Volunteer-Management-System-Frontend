@@ -16,7 +16,6 @@ export class FosterPendingComponent implements OnInit {
   
   appList: FosterApplication[] = [];
   isLoading: boolean = false;
-  //rejectionNote: string = "";
 
   constructor(private fs: FostersService) { }
 
@@ -86,7 +85,6 @@ export class FosterPendingComponent implements OnInit {
         console.log(error);
       }
     );
-   // this.rejectionNote = "";
   }
 
   private loadPendingApplicants(): void
