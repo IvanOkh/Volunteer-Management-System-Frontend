@@ -14,7 +14,7 @@ import { VolunteerForm } from "../models/volunteer-form.model";
   providedIn: "root",
 })
 export class FormsService {
-  private REST_API_SERVER = "http://68.66.193.100:8080/CARS/";
+  private REST_API_SERVER = "http://68.66.193.100:8080/CARS/applications/";
   private VOLUNTEER_FORM_MAPPING = "volunteers/";
   private FOSTER_FORM_MAPPING = "fosters/";
   private DOG_FORM_MAPPING = "dogs/";
