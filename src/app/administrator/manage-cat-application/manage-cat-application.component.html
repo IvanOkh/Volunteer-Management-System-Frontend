@@ -55,7 +55,7 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr class="tableRow" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row.id)" data-toggle="modal"
-      data-target="#modalCatInfo" style="pointer:cursor">
+      data-target="#modalCatInfo">
     </tr>
 
   </table>
