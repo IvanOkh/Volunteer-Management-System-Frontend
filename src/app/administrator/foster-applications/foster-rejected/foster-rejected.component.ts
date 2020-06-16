@@ -25,6 +25,7 @@ import { FostersService } from "src/app/shared/services/new-fosters.service";
 export class FosterRejectedComponent implements OnInit {
   appList: FosterApplication[] = [];
   isLoading: boolean = false;
+  application: FosterApplication;
 
   //Mat table configuration
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -42,6 +43,7 @@ export class FosterRejectedComponent implements OnInit {
 
   ngOnInit() {
     this.loadRejectedApplicants();
+    
   }
 
   //next two methods were added to eliminate prod error requestion to have these methods as they are defined in html. Ivan
@@ -58,6 +60,7 @@ export class FosterRejectedComponent implements OnInit {
         this.appList = [];
         applicants.forEach((applicant: FosterApplication) => {
           this.appList.push(applicant);
+          this.application = this.appList[0];
         });
         this.isLoading = false;
       },
@@ -120,6 +123,22 @@ export class FosterRejectedComponent implements OnInit {
       },
       (error: any) => {
         console.log(error);
+      }
+    );
+  }
+
+  private getRecord(id: number) {
+    this.isLoading = true;
+    this.appList.forEach(
+      (element) => {
+        if (element.id === id) {
+          this.application = element;
+          this.isLoading = false;
+        }
+      },
+      (error: any) => {
+        console.log(error);
+        this.isLoading = false;
       }
     );
   }

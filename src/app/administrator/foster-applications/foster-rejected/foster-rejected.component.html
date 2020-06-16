@@ -129,12 +129,195 @@
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr class="tableRow" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row.id)" data-toggle="modal"
-        data-target="#modalCatInfo" style="pointer:cursor">
+        data-target="#viewApplication" style="pointer:cursor">
       </tr>
   
     </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 20,50,100,500]" showFirstLastButtons></mat-paginator>
   </div>
+
+  <div class="modal fade" id="viewApplication" tabindex="-1" role="dialog" aria-labelledby="modalCatInfo"
+  aria-hidden="true">
+
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="viewApplicationModalLabel" style="color: #fbfbff;">
+          Application Information
+        </h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- this is the personal information of volunteer  -->
+        <div class="row">
+          <div class="col-4 personalInfo">
+            <div class="centerElements">
+              <h3 class="mt-4">Details</h3>
+            </div>
+            <p><strong>ID:</strong> {{ application.id }}</p>
+            <p>
+              <strong>First name:</strong> {{ application.fname }}
+            </p>
+            <p><strong>Last name:</strong> {{ application.lname }}</p>
+            <!-- string interpolation {{DOB}} removed by MAX because DOB doesn't exist. Fix please! -->
+            <p><strong>Date of Birth:</strong>__</p>
+            <p><strong>Address:</strong> {{ application.address }}</p>
+            <p>
+              <strong>Postal Code:</strong>
+              {{ application.postalCode }}
+            </p>
+            <section class="description mt-4">
+              <h4 class="sectionTitle">Rejection Reason:</h4>
+              <p>{{ application.rejectionReason }}</p>
+            </section>
+          </div>
+          <div class="col-8">
+            <h1 class="centerElements mt-4">
+              {{ application.fname
+              }}<span> {{ application.lname }}</span>
+            </h1>
+
+            <hr style="width: 1px black;" />
+            <h5 class="sectionTitle">Contact Information</h5>
+            <hr style="width: 1px black;" />
+            <div style="text-align: center;">
+              <p>
+                <strong>Cell phone:</strong>
+                {{ application.cellPhone }}
+              </p>
+              <p>
+                <strong>Home phone:</strong>
+                {{ application.homePhone }}
+              </p>
+              <p><strong>Email:</strong> {{ application.email }}</p>
+            </div>
+
+            <!-- Emercency contact 1  -->
+            <div class="row contactSection">
+              <div class="col-6">
+                <hr style="width: 1px black;" />
+                <h5 class="sectionTitle">Emergency Contact 1</h5>
+                <hr style="width: 1px black;" />
+                <p>
+                  <strong>First name:</strong>
+                  {{ application.emg1_fname }}
+                </p>
+                <p>
+                  <strong>Last name:</strong>
+                  {{ application.emg1_lname }}
+                </p>
+                <p>
+                  <strong>Relationship:</strong>
+                  {{ application.emg1_relationship }}
+                </p>
+                <p>
+                  <strong>Home Phone:</strong>
+                  {{ application.emg1_homePhone }}
+                </p>
+                <p>
+                  <strong>Cell Phone:</strong>
+                  {{ application.emg1_cellPhone }}
+                </p>
+                <p>
+                  <strong>Email:</strong> {{ application.emg1_email }}
+                </p>
+              </div>
+
+              <div class="col-6">
+                <!-- Emercency contact 2  -->
+                <hr style="width: 1px black;" />
+                <h5 class="sectionTitle">Emergency Contact 2</h5>
+                <hr style="width: 1px black;" />
+                <p>
+                  <strong>First name:</strong>
+                  {{ application.emg2_fname }}
+                </p>
+                <p>
+                  <strong>Last name:</strong>
+                  {{ application.emg2_lname }}
+                </p>
+                <p>
+                  <strong>Relationship:</strong>
+                  {{ application.emg2_relationship }}
+                </p>
+                <p>
+                  <strong>Home Phone:</strong>
+                  {{ application.emg2_homePhone }}
+                </p>
+                <p>
+                  <strong>Cell Phone:</strong>
+                  {{ application.emg2_cellPhone }}
+                </p>
+                <p>
+                  <strong>Email:</strong> {{ application.emg2_email }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Ref contact 1  -->
+            <div class="row contactSection">
+              <div class="col-6">
+                <hr style="width: 1px black;" />
+                <h5 class="sectionTitle">Reference Contact 1</h5>
+                <hr style="width: 1px black;" />
+                <p>
+                  <strong>First name:</strong>
+                  {{ application.ref1_fname }}
+                </p>
+                <p>
+                  <strong>Last name:</strong>
+                  {{ application.ref1_lname }}
+                </p>
+                <p>
+                  <strong>Cell Phone:</strong>
+                  {{ application.ref1_cellPhone }}
+                </p>
+                <p>
+                  <strong>Email:</strong> {{ application.ref1_email }}
+                </p>
+              </div>
+
+              <!-- Ref contact 2  -->
+              <div class="col-6">
+                <hr style="width: 1px black;" />
+                <h5 class="sectionTitle">Reference Contact 2</h5>
+                <hr style="width: 1px black;" />
+                <p>
+                  <strong>First name:</strong>
+                  {{ application.ref2_fname }}
+                </p>
+                <p>
+                  <strong>Last name:</strong>
+                  {{ application.ref2_lname }}
+                </p>
+                <p>
+                  <strong>Cell Phone:</strong>
+                  {{ application.ref2_cellPhone }}
+                </p>
+                <p>
+                  <strong>Email:</strong> {{ application.ref2_email }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-block" data-dismiss="modal" data-toggle="modal"
+          attr.data-target="#accept{{ application.id }}">
+          Accept
+        </button>
+        <button type="button" class="btn btn-danger btn-block" data-dismiss="modal" data-toggle="modal"
+          attr.data-target="#reject{{ application.id }}">
+          Reject
+        </button>
+      </div>
+    </div>
+  </div>
+  
+</div>
 
 
   
