@@ -35,8 +35,8 @@ export class FosterRejectedComponent implements OnInit {
   displayedColumns: string[] = [
     "submissionDate",
     "applicant",
+    "email",
     "rejectionNote",
-    "actions",
   ];
 
   constructor(public dialog: MatDialog, private fs: FostersService) {}

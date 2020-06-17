@@ -36,95 +36,26 @@
 
 
     <table mat-table [dataSource]="appList" class="mat-elevation-z8 mt-5" matSort width="100%">
-      <ng-container matColumnDef="applicant">
-        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>Applicant</th>
-          <td mat-cell *matCellDef="let fetched">{{fetched.fname + ' ' + fetched.lname}}</td>
-      </ng-container>
+      
   
       <ng-container matColumnDef="submissionDate">
         <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Submission date</th>
         <td mat-cell *matCellDef="let fetched">{{fetched.submissionDate}}</td>
       </ng-container>
+
+      <ng-container matColumnDef="applicant">
+        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>Applicant</th>
+          <td mat-cell *matCellDef="let fetched">{{fetched.fname + ' ' + fetched.lname}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>Email</th>
+          <td mat-cell *matCellDef="let fetched">{{fetched.email}}</td>
+      </ng-container>
   
       <ng-container matColumnDef="rejectionNote">
         <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>Reason for Rejection</th>
         <td mat-cell *matCellDef="let fetched">{{fetched.rejectionReason}}</td>
-      </ng-container>
-  
-      <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Actions</th>
-        <td mat-cell *matCellDef="let fetched" class="pre">
-          <button class="btn btn-outline-success ml-1 mr-1" data-toggle="modal"
-          attr.data-target="#accept{{ fetched.id }}">
-          Mark as Pending
-          </button>
-          <!-- Mark as Pending Modal -->
-          <div class="modal" id="accept{{ fetched.id }}">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">
-                    Mark Application to pending
-                    {{ fetched.lname }}?
-                  </h5>
-                  <button class="close" data-dismiss="modal">
-                    &times;
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>
-                    You are about to send {{ fetched.fname }} {{ fetched.lname }}'s application back to the pending list.
-                  </p>
-                </div>
-                <div class="modal-footer">
-                  <button class="btn btn-success" data-dismiss="modal"
-                    (click)="sendToPending(fetched.id)">
-                    Confirm
-                  </button>
-                  <button class="btn btn-secondary" data-dismiss="modal">
-                    Cancel
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Of Modal -->
-          <button class="btn btn-outline-danger ml-1 mr-1" data-toggle="modal"
-          attr.data-target="#reject{{ fetched.id }}">
-                    Delete Application
-          </button>
-          <!-- Delete Modal -->
-          <div class="modal" id="reject{{ fetched.id }}">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">
-                    Delete {{ fetched.fname }}
-                    {{ fetched.lname }}?
-                  </h5>
-                  <button class="close" data-dismiss="modal">
-                    &times;
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>
-                    You are about to PERMANENTLY delete {{ fetched.fname }}
-                    {{ fetched.lname }}'s foster application.
-                  </p>
-                </div>
-                <div class="modal-footer">
-                  <button class="btn btn-danger" data-dismiss="modal" (click)="rejectApplication(fetched.id)">
-                    Delete Application
-                  </button>
-                  <button class="btn btn-secondary" data-dismiss="modal">
-                    Cancel
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Of Modal -->
-        </td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -305,19 +236,84 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success btn-block" data-dismiss="modal" data-toggle="modal"
+        <button class="btn btn-outline-success ml-1 mr-1" data-dismiss="modal" data-toggle="modal"
           attr.data-target="#accept{{ application.id }}">
-          Accept
-        </button>
-        <button type="button" class="btn btn-danger btn-block" data-dismiss="modal" data-toggle="modal"
+          Mark as Pending
+          </button>
+          <button class="btn btn-outline-danger ml-1 mr-1" data-dismiss="modal" data-toggle="modal"
           attr.data-target="#reject{{ application.id }}">
-          Reject
-        </button>
+                    Delete Application
+          </button>
       </div>
     </div>
   </div>
   
 </div>
+
+<!-- Mark as Pending Modal -->
+<div class="modal fade" id="accept{{ application.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          Mark Application to pending
+          {{ application.lname }}?
+        </h5>
+        <button class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          You are about to send {{ application.fname }} {{ application.lname }}'s application back to the pending list.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" data-dismiss="modal"
+          (click)="sendToPending(application.id)">
+          Confirm
+        </button>
+        <button class="btn btn-secondary" data-dismiss="modal">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Of Modal -->
+
+<!-- Delete Modal -->
+<div class="modal" id="reject{{ application.id }}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          Delete {{ application.fname }}
+          {{ application.lname }}?
+        </h5>
+        <button class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          You are about to PERMANENTLY delete {{ application.fname }}
+          {{ application.lname }}'s foster application.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" data-dismiss="modal" (click)="rejectApplication(application.id)">
+          Delete Application
+        </button>
+        <button class="btn btn-secondary" data-dismiss="modal">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Of Modal -->
 
 
   
