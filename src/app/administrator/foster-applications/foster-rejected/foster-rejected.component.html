@@ -67,191 +67,292 @@
     <mat-paginator [pageSizeOptions]="[5, 10, 20,50,100,500]" showFirstLastButtons></mat-paginator>
   </div>
 
-  <div class="modal fade" id="viewApplication" tabindex="-1" role="dialog" aria-labelledby="modalCatInfo"
-  aria-hidden="true">
+  <!-- APPLICATION MODAL -->
 
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="viewApplicationModalLabel" style="color: #fbfbff;">
-          Application Information
-        </h2>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- this is the personal information of volunteer  -->
-        <div class="row">
-          <div class="col-4 personalInfo">
-            <div class="centerElements">
-              <h3 class="mt-4">Details</h3>
-            </div>
-            <p><strong>ID:</strong> {{ application.id }}</p>
-            <p>
-              <strong>First name:</strong> {{ application.fname }}
-            </p>
-            <p><strong>Last name:</strong> {{ application.lname }}</p>
-            <!-- string interpolation {{DOB}} removed by MAX because DOB doesn't exist. Fix please! -->
-            <p><strong>Date of Birth:</strong>__</p>
-            <p><strong>Address:</strong> {{ application.address }}</p>
-            <p>
-              <strong>Postal Code:</strong>
-              {{ application.postalCode }}
-            </p>
-            <section class="description mt-4">
-              <h4 class="sectionTitle">Rejection Reason:</h4>
-              <p>{{ application.rejectionReason }}</p>
-            </section>
-          </div>
-          <div class="col-8">
-            <h1 class="centerElements mt-4">
-              {{ application.fname
-              }}<span> {{ application.lname }}</span>
-            </h1>
-
-            <hr style="width: 1px black;" />
-            <h5 class="sectionTitle">Contact Information</h5>
-            <hr style="width: 1px black;" />
-            <div style="text-align: center;">
-              <p>
-                <strong>Cell phone:</strong>
-                {{ application.cellPhone }}
-              </p>
-              <p>
-                <strong>Home phone:</strong>
-                {{ application.homePhone }}
-              </p>
-              <p><strong>Email:</strong> {{ application.email }}</p>
-            </div>
-
-            <!-- Emercency contact 1  -->
-            <div class="row contactSection">
-              <div class="col-6">
-                <hr style="width: 1px black;" />
-                <h5 class="sectionTitle">Emergency Contact 1</h5>
-                <hr style="width: 1px black;" />
-                <p>
-                  <strong>First name:</strong>
-                  {{ application.emg1_fname }}
-                </p>
-                <p>
-                  <strong>Last name:</strong>
-                  {{ application.emg1_lname }}
-                </p>
-                <p>
-                  <strong>Relationship:</strong>
-                  {{ application.emg1_relationship }}
-                </p>
-                <p>
-                  <strong>Home Phone:</strong>
-                  {{ application.emg1_homePhone }}
-                </p>
-                <p>
-                  <strong>Cell Phone:</strong>
-                  {{ application.emg1_cellPhone }}
-                </p>
-                <p>
-                  <strong>Email:</strong> {{ application.emg1_email }}
-                </p>
-              </div>
-
-              <div class="col-6">
-                <!-- Emercency contact 2  -->
-                <hr style="width: 1px black;" />
-                <h5 class="sectionTitle">Emergency Contact 2</h5>
-                <hr style="width: 1px black;" />
-                <p>
-                  <strong>First name:</strong>
-                  {{ application.emg2_fname }}
-                </p>
-                <p>
-                  <strong>Last name:</strong>
-                  {{ application.emg2_lname }}
-                </p>
-                <p>
-                  <strong>Relationship:</strong>
-                  {{ application.emg2_relationship }}
-                </p>
-                <p>
-                  <strong>Home Phone:</strong>
-                  {{ application.emg2_homePhone }}
-                </p>
-                <p>
-                  <strong>Cell Phone:</strong>
-                  {{ application.emg2_cellPhone }}
-                </p>
-                <p>
-                  <strong>Email:</strong> {{ application.emg2_email }}
-                </p>
-              </div>
-            </div>
-
-            <!-- Ref contact 1  -->
-            <div class="row contactSection">
-              <div class="col-6">
-                <hr style="width: 1px black;" />
-                <h5 class="sectionTitle">Reference Contact 1</h5>
-                <hr style="width: 1px black;" />
-                <p>
-                  <strong>First name:</strong>
-                  {{ application.ref1_fname }}
-                </p>
-                <p>
-                  <strong>Last name:</strong>
-                  {{ application.ref1_lname }}
-                </p>
-                <p>
-                  <strong>Cell Phone:</strong>
-                  {{ application.ref1_cellPhone }}
-                </p>
-                <p>
-                  <strong>Email:</strong> {{ application.ref1_email }}
-                </p>
-              </div>
-
-              <!-- Ref contact 2  -->
-              <div class="col-6">
-                <hr style="width: 1px black;" />
-                <h5 class="sectionTitle">Reference Contact 2</h5>
-                <hr style="width: 1px black;" />
-                <p>
-                  <strong>First name:</strong>
-                  {{ application.ref2_fname }}
-                </p>
-                <p>
-                  <strong>Last name:</strong>
-                  {{ application.ref2_lname }}
-                </p>
-                <p>
-                  <strong>Cell Phone:</strong>
-                  {{ application.ref2_cellPhone }}
-                </p>
-                <p>
-                  <strong>Email:</strong> {{ application.ref2_email }}
-                </p>
-              </div>
+  <div class="modal fade" id="viewApplication" role="dialog" aria-labelledby="viewApplicationLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <ng-container *ngIf="this.applicationLoading">
+          <div class="row justify-content-center">
+            <div class="spinner-border text-danger" role="status">
+              <span class="sr-only">Loading...</span>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-outline-success ml-1 mr-1" data-dismiss="modal" data-toggle="modal"
-          attr.data-target="#accept{{ application.id }}">
-          Mark as Pending
-          </button>
-          <button class="btn btn-outline-danger ml-1 mr-1" data-dismiss="modal" data-toggle="modal"
-          attr.data-target="#reject{{ application.id }}">
-                    Delete Application
-          </button>
+        </ng-container>
+        <ng-container *ngIf="!this.applicationLoading && this.application">
+          <div class="modal-header">
+            <h2 class="modal-title" id="viewFosterModalLabel" style="color: #fbfbff;">
+              Foster Information
+            </h2>
+            <button type="button" class="close">
+              <span aria-hidden="true" data-dismiss="modal">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- this is the personal information of foster  -->
+            <div class="col-12">
+              <!-- Big Name -->
+              <h1 class="text-center mt-1">
+                {{ application.fname }}<span> {{ application.lname }}</span>
+              </h1>
+              <hr style="width: 1px black;" />
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="centerElements">
+                    <h3 class="mb-4">Details</h3>
+                  </div>
+                  <p>
+                    <strong>Status: </strong>
+                    <span [ngStyle]="{
+                                color: application.active ? 'green' : 'red'
+                              }">
+                      <i class="fa fa-user" style="font-size: 20px;"></i>
+                    </span>
+                  </p>
+                  <p><strong>Foster ID: </strong> {{ application.id }}</p>
+                  <p>
+                    <strong>First name: </strong> {{ application.fname }}
+                  </p>
+                  <p>
+                    <strong>Last name: </strong> {{ application.lname }}
+                  </p>
+                </div>
+
+                <div class="col-sm-6">
+                  <!-- Contact Information -->
+                  <h3 class="sectionTitle mb-4">Contact Information</h3>
+                  <div style="text-align: left;">
+                    <p>
+                      <strong>Cell phone:</strong>
+                      {{ application.cellPhone }}
+                    </p>
+                    <p>
+                      <strong>Home phone:</strong>
+                      {{ application.homePhone }}
+                    </p>
+                    <p><strong>Email:</strong> {{ application.email }}</p>
+                    <p>
+                      <strong>Address: </strong> {{ application.address }},
+                      {{ application.city }}, {{ application.province }}
+                    </p>
+                    <p>
+                      <strong>Postal Code: </strong>
+                      {{ application.postalCode }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- Foster background -->
+              <hr style="width: 1px black;" />
+              <h5 class="sectionTitle">Foster Background</h5>
+              <hr style="width: 1px black;" />
+              <div class="row" style="text-align: left;">
+                <div class="col-sm-6">
+                  <p>
+                    <strong>Residence: </strong>
+                    {{ application.typeOfResidence }}
+                  </p>
+                  <p>
+                    <strong>Pet Details: </strong>
+                    {{ application.petDetails }}
+                  </p>
+                  <p>
+                    <strong>Spayed and Neutered: </strong>
+                    {{ application.spayedAndNeutered }}
+                  </p>
+                  <p>
+                    <strong>Dog Habit: </strong> {{ application.dogHabit }}
+                  </p>
+                  <p>
+                    <strong>Cat Habit: </strong> {{ application.catHabit }}
+                  </p>
+                  <p>
+                    <strong>Family Agreeable: </strong>
+                    {{ application.familyAgreeable | yesNo }}
+                  </p>
+                  <p>
+                    <strong>Foster Animal Type: </strong>
+                    <i>
+                      <ng-container *ngIf="this.ftPuppy">
+                        <br />- Puppy
+                      </ng-container>
+
+                      <ng-container *ngIf="this.ftAdultDog">
+                        <br />- Adult Dog
+                      </ng-container>
+
+                      <ng-container *ngIf="this.ftKitten">
+                        <br />- Kitten
+                      </ng-container>
+
+                      <ng-container *ngIf="this.ftAdultCat">
+                        <br />- Adult Cat
+                      </ng-container>
+
+                      <ng-container *ngIf="this.ftMedicalCare">
+                        <br />- Medical Care
+                      </ng-container>
+
+                      <ng-container *ngIf="this.ftQuarantine">
+                        <br />- Quarantine
+                      </ng-container>
+                    </i>
+                  </p>
+                  <p>
+                    <strong>Preferred Animal: </strong>
+                    {{ application.preferredAnimal }}
+                  </p>
+                  <p>
+                    <strong>Keep Cats Indoor: </strong>
+                    {{ application.keepCatsIndoor | yesNo }}
+                  </p>
+                </div>
+
+                <div class="col-sm-6">
+                  <p>
+                    <strong>Fenced Yard: </strong>
+                    {{ application.fencedYard | yesNo }}
+                  </p>
+                  <p>
+                    <strong>Fence Height: </strong>
+                    {{ application.fenceHeight }}
+                  </p>
+                  <p>
+                    <strong>Willing to train: </strong>
+                    {{ application.willingToTrain | yesNo }}
+                  </p>
+                  <p>
+                    <strong>Familiar with crate: </strong>
+                    {{ application.familiarWithCrate | yesNo }}
+                  </p>
+                  <p>
+                    <strong>Use Dog Crate: </strong>
+                    {{ application.useDogCrate | yesNo }}
+                  </p>
+                  <p>
+                    <strong>Past Rescue Experience: </strong>
+                    {{ application.pastRescueExperience }}
+                  </p>
+                  <p>
+                    <strong>Take Animal To Vet: </strong>
+                    {{ application.takeAnimalToVet | yesNo }}
+                  </p>
+                  <p>
+                    <strong>Has Vehicle: </strong>
+                    {{ application.haveVehicle | yesNo }}
+                  </p>
+                  <p>
+                    <strong>Medicate Animal: </strong>
+                    {{ application.medicateAnimal | yesNo }}
+                  </p>
+                  <p>
+                    <strong>Hours left Alone Animal: </strong>
+                    {{ application.hoursLeftAlone }}
+                  </p>
+                </div>
+              </div>
+
+              <!-- Contact Section -->
+              <div class="row contactSection">
+                <!-- Ref contact 1  -->
+                <div class="col-4">
+                  <hr style="width: 1px black;" />
+                  <h5 class="sectionTitle">Reference Contact 1</h5>
+                  <hr style="width: 1px black;" />
+                  <p>
+                    <strong>First name:</strong>
+                    {{ application.ref1_fname }}
+                  </p>
+                  <p>
+                    <strong>Last name:</strong> {{ application.ref1_lname }}
+                  </p>
+                  <p>
+                    <strong>Cell Phone:</strong>
+                    {{ application.ref1_cellPhone }}
+                  </p>
+                  <p>
+                    <strong>Email:</strong> {{ application.ref1_email }}
+                  </p>
+                </div>
+
+                <!-- Ref contact 2  -->
+                <div class="col-4">
+                  <hr style="width: 1px black;" />
+                  <h5 class="sectionTitle">Reference Contact 2</h5>
+                  <hr style="width: 1px black;" />
+                  <p>
+                    <strong>First name:</strong>
+                    {{ application.ref2_fname }}
+                  </p>
+                  <p>
+                    <strong>Last name:</strong> {{ application.ref2_lname }}
+                  </p>
+                  <p>
+                    <strong>Cell Phone:</strong>
+                    {{ application.ref2_cellPhone }}
+                  </p>
+                  <p>
+                    <strong>Email:</strong> {{ application.ref2_email }}
+                  </p>
+                </div>
+
+                <!-- Ref contact 3  -->
+                <div class="col-4">
+                  <hr style="width: 1px black;" />
+                  <h5 class="sectionTitle">Reference Contact 3</h5>
+                  <hr style="width: 1px black;" />
+                  <p>
+                    <strong>First name:</strong>
+                    {{ application.ref3_fname }}
+                  </p>
+                  <p>
+                    <strong>Last name:</strong> {{ application.ref3_lname }}
+                  </p>
+                  <p>
+                    <strong>Cell Phone:</strong>
+                    {{ application.ref3_cellPhone }}
+                  </p>
+                  <p>
+                    <strong>Email:</strong> {{ application.ref3_email }}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <hr />
+
+            <div class="container mb-3">
+              <!-- Admin Notes -->
+              <!-- (Still awaiting backend and service attribute) -->
+              <h3>Reason For Rejection:</h3>
+              <i>
+                This note will only be visible to admins and won't be
+                visible to volunteers
+              </i>
+              <section class="description mt-4">
+                <p>{{ application.rejectionReason }}</p>
+              </section>
+            </div>
+          </div>
+
+          <div class="modal-footer" *ngIf="!adminCheck">
+            <button class="btn btn-outline-success ml-1 mr-1" data-dismiss="modal" data-toggle="modal"
+            attr.data-target="#pending{{ application.id }}">
+              Mark as Pending
+            </button>
+
+            <button class="btn btn-outline-danger ml-1 mr-1" data-dismiss="modal" data-toggle="modal"
+            attr.data-target="#delete{{ application.id }}">
+                      Delete Application
+            </button>
+          </div>
+        </ng-container>
       </div>
     </div>
   </div>
-  
-</div>
 
 <!-- Mark as Pending Modal -->
-<div class="modal fade" id="accept{{ application.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+<div class="modal fade" id="pending{{ application.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
 aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -284,7 +385,7 @@ aria-hidden="true">
 <!-- End Of Modal -->
 
 <!-- Delete Modal -->
-<div class="modal" id="reject{{ application.id }}">
+<div class="modal" id="delete{{ application.id }}">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
