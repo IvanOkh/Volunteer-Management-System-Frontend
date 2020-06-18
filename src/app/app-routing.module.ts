@@ -22,6 +22,7 @@ import { MainPageComponent } from "./shared/components/main-page/main-page.compo
 import { ManageDogApplicationComponent } from "./administrator/manage-dog-application/manage-dog-application.component";
 import { VolunteerRejectedComponent } from "./administrator/volunteer-applications/volunteer-rejected/volunteer-rejected.component";
 import { FosterPendingComponent } from "./administrator/foster-applications/foster-pending/foster-pending.component";
+import { DogRejectedComponent } from './administrator/manage-dog-application/dog-rejected/dog-rejected/dog-rejected.component';
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
       // { path: "adoptions", component: ManageAdoptionsComponent },
       { path: "cat", component: ManageCatApplicationComponent },
       { path: "dog", component: ManageDogApplicationComponent },
+      {path: "dogarchive", component: DogRejectedComponent},
       { path: "volunteerarchive", component: VolunteerRejectedComponent },
       { path: "applications", component: VolunteerPendingComponent },
       { path: "fosterarchive", component: FosterRejectedComponent },

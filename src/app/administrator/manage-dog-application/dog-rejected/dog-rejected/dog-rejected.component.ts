@@ -10,18 +10,18 @@ import { AdoptionService } from "src/app/shared/services/adoption.service";
 import { AnimalModel } from "src/app/shared/models/animal.model";
 
 @Component({
-  selector: "app-manage-dog-application",
-  templateUrl: "./manage-dog-application.component.html",
-  styleUrls: ["./manage-dog-application.component.css"],
-  providers: [AdoptionService],
+  selector: "app-dog-rejected",
+  templateUrl: "./dog-rejected.component.html",
+  styleUrls: ["./dog-rejected.component.css"],
 })
-export class ManageDogApplicationComponent implements OnInit {
+export class DogRejectedComponent implements OnInit {
   dogObj: AnimalModel;
   application: any;
-  dogArray: AnimalModel[] = [];
+  dogArray = [];
   isLoading: boolean = false;
-  applicationID: any;
+  appList: AnimalModel[] = [];
 
+  rejectedDog = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild("form", { static: false }) form: NgForm;
@@ -43,15 +43,22 @@ export class ManageDogApplicationComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
-    this.adoptionService.loadDogs().subscribe((dogs) => {
-      this.dataSource = new MatTableDataSource(dogs);
+    this.appList = [];
+    this.adoptionService.loadDogs().subscribe((rejectedDogApp) => {
+      rejectedDogApp.forEach((element: AnimalModel) => {
+        if (element.rejected) {
+          this.appList.push(element);
+        }
+      });
+      this.dataSource = new MatTableDataSource(this.appList);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-      this.dogArray = dogs;
+      this.dogArray = this.appList;
       this.application = this.dogArray[0];
       this.isLoading = false;
     });
   }
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
@@ -62,7 +69,6 @@ export class ManageDogApplicationComponent implements OnInit {
         if (element.id === id) {
           this.isLoading = false;
           this.application = element;
-          this.applicationID = id;
         }
       },
       (error: any) => {
@@ -70,17 +76,5 @@ export class ManageDogApplicationComponent implements OnInit {
         this.isLoading = false;
       }
     );
-  }
-
-  rejectApplication(id: number) {
-    let i:number;
-    for (i = 0; i < this.dogArray.length; i++) {
-      console.log(this.dogArray);
-      if ( this.dogArray[i].id === id) {
-        this.dogArray[i].rejected = true;
-        this.adoptionService.updateDogApplication(this.dogArray[i]);
-        console.log(this.dogArray[i].id)
-      }
-    }
   }
 }
