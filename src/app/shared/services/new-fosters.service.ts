@@ -111,8 +111,8 @@ export class FostersService {
    * subscibe-able object containing the server success/error response.
    * @param newFoster
    */
-  public addFoster(newFoster: FosterModel): Observable<string> {
-    return this.sendPostFosterRequest(newFoster).pipe(
+  public addFoster(id: number): Observable<Object> {
+    return this.sendPostFosterRequest(id).pipe(
       map((responseData) => {
         return responseData;
       })
@@ -205,8 +205,8 @@ export class FostersService {
     );
   }
 
-  private sendPostFosterRequest(foster: FosterModel) {
-    return this.http.post(this.REST_API_SERVER + this.CTRL_FOSTER_MAPPING, foster, {
+  private sendPostFosterRequest(id: number) {
+    return this.http.post(this.REST_API_SERVER + this.CTRL_FOSTER_MAPPING + this.NEWFOSTER_MAPPING + id, {
       responseType: "text",
     });
   }
