@@ -11,11 +11,9 @@ import { Router } from "@angular/router";
   styleUrls: ["./dog-form.component.css"],
 })
 export class DogFormComponent implements OnInit {
-
   onScroll() {
     document.body.scrollTop = 0;
   }
-
 
   title = "dog-application";
   newDogForm: DogForm;
@@ -28,6 +26,11 @@ export class DogFormComponent implements OnInit {
 
   errorMessages: string[] = [];
   checked: number = 0;
+
+  id: number = 0;
+  submissionDate: string = "";
+  rejected: boolean = false;
+  rejectionReason: string = "";
 
   householdAgreement: boolean;
   membersIntroduced: boolean;
@@ -436,6 +439,10 @@ export class DogFormComponent implements OnInit {
       }
 
       this.newDogForm = new DogForm(
+        this.id,
+        this.submissionDate,
+        this.rejected,
+        this.rejectionReason,
         //APPLICANT
         form.value.dogName, //nameOfDog S
         form.value.firstName, //fname S
@@ -551,11 +558,12 @@ export class DogFormComponent implements OnInit {
         form.value.howFoundTheDog
       );
       //DO PROCESSING HERE (this.newDogForm has been populated)
+      this.validForm = true;
+
       this.sendTheForm(this.newDogForm);
     } else {
       this.checked === 0;
     }
-
 
     //Validation
     if (form.valid) {
