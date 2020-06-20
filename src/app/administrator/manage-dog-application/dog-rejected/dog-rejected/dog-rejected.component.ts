@@ -8,6 +8,7 @@ import {
 import { NgForm } from "@angular/forms";
 import { AdoptionService } from "src/app/shared/services/adoption.service";
 import { AnimalModel } from "src/app/shared/models/animal.model";
+import { DogForm } from 'src/app/forms/dog-form/dog-form.model';
 
 @Component({
   selector: "app-dog-rejected",
@@ -19,7 +20,7 @@ export class DogRejectedComponent implements OnInit {
   application: any;
   dogArray = [];
   isLoading: boolean = false;
-  appList: AnimalModel[] = [];
+  appList: DogForm[] = [];
 
   rejectedDog = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -45,7 +46,7 @@ export class DogRejectedComponent implements OnInit {
     this.isLoading = true;
     this.appList = [];
     this.adoptionService.loadDogs().subscribe((rejectedDogApp) => {
-      rejectedDogApp.forEach((element: AnimalModel) => {
+      rejectedDogApp.forEach((element: DogForm) => {
         if (element.rejected) {
           this.appList.push(element);
         }
