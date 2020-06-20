@@ -166,9 +166,11 @@
                           You are about to reject {{ application.fname }}
                           {{ application.lname }}'s volunteer application.
                         </p>
+                        <i>Please enter the reason for the rejection:</i>
+                        <textarea class="form-control" id="message" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 101px;" [(ngModel)]= application.rejectionReason></textarea>
                       </div>
                       <div class="modal-footer">
-                        <button class="btn btn-danger" data-dismiss="modal" (click)="rejectApplication(application.id)">
+                        <button class="btn btn-danger" data-dismiss="modal" (click)="rejectApplication(application.id, application.rejectionReason)">
                           Confirm
                         </button>
                         <button class="btn btn-secondary" data-dismiss="modal">
