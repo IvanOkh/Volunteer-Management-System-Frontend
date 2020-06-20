@@ -93,7 +93,7 @@
             <div class="col-12">
               <!-- Big Name -->
               <h1 class="text-center mt-1">
-                {{ application.fname }}<span> {{ application.lname }}</span>
+                {{ application?.fname }}<span> {{ application?.lname }}</span>
               </h1>
               <hr style="width: 1px black;" />
               <div class="row">
@@ -104,17 +104,17 @@
                   <p>
                     <strong>Status: </strong>
                     <span [ngStyle]="{
-                                color: application.active ? 'green' : 'red'
+                                color: application?.active ? 'green' : 'red'
                               }">
                       <i class="fa fa-user" style="font-size: 20px;"></i>
                     </span>
                   </p>
-                  <p><strong>Foster ID: </strong> {{ application.id }}</p>
+                  <p><strong>Foster ID: </strong> {{ application?.id }}</p>
                   <p>
-                    <strong>First name: </strong> {{ application.fname }}
+                    <strong>First name: </strong> {{ application?.fname }}
                   </p>
                   <p>
-                    <strong>Last name: </strong> {{ application.lname }}
+                    <strong>Last name: </strong> {{ application?.lname }}
                   </p>
                 </div>
 
@@ -124,20 +124,20 @@
                   <div style="text-align: left;">
                     <p>
                       <strong>Cell phone:</strong>
-                      {{ application.cellPhone }}
+                      {{ application?.cellPhone }}
                     </p>
                     <p>
                       <strong>Home phone:</strong>
-                      {{ application.homePhone }}
+                      {{ application?.homePhone }}
                     </p>
-                    <p><strong>Email:</strong> {{ application.email }}</p>
+                    <p><strong>Email:</strong> {{ application?.email }}</p>
                     <p>
-                      <strong>Address: </strong> {{ application.address }},
-                      {{ application.city }}, {{ application.province }}
+                      <strong>Address: </strong> {{ application?.address }},
+                      {{ application?.city }}, {{ application?.province }}
                     </p>
                     <p>
                       <strong>Postal Code: </strong>
-                      {{ application.postalCode }}
+                      {{ application?.postalCode }}
                     </p>
                   </div>
                 </div>
@@ -150,25 +150,25 @@
                 <div class="col-sm-6">
                   <p>
                     <strong>Residence: </strong>
-                    {{ application.typeOfResidence }}
+                    {{ application?.typeOfResidence }}
                   </p>
                   <p>
                     <strong>Pet Details: </strong>
-                    {{ application.petDetails }}
+                    {{ application?.petDetails }}
                   </p>
                   <p>
                     <strong>Spayed and Neutered: </strong>
-                    {{ application.spayedAndNeutered }}
+                    {{ application?.spayedAndNeutered }}
                   </p>
                   <p>
-                    <strong>Dog Habit: </strong> {{ application.dogHabit }}
+                    <strong>Dog Habit: </strong> {{ application?.dogHabit }}
                   </p>
                   <p>
-                    <strong>Cat Habit: </strong> {{ application.catHabit }}
+                    <strong>Cat Habit: </strong> {{ application?.catHabit }}
                   </p>
                   <p>
                     <strong>Family Agreeable: </strong>
-                    {{ application.familyAgreeable | yesNo }}
+                    {{ application?.familyAgreeable | yesNo }}
                   </p>
                   <p>
                     <strong>Foster Animal Type: </strong>
@@ -200,54 +200,54 @@
                   </p>
                   <p>
                     <strong>Preferred Animal: </strong>
-                    {{ application.preferredAnimal }}
+                    {{ application?.preferredAnimal }}
                   </p>
                   <p>
                     <strong>Keep Cats Indoor: </strong>
-                    {{ application.keepCatsIndoor | yesNo }}
+                    {{ application?.keepCatsIndoor | yesNo }}
                   </p>
                 </div>
 
                 <div class="col-sm-6">
                   <p>
                     <strong>Fenced Yard: </strong>
-                    {{ application.fencedYard | yesNo }}
+                    {{ application?.fencedYard | yesNo }}
                   </p>
                   <p>
                     <strong>Fence Height: </strong>
-                    {{ application.fenceHeight }}
+                    {{ application?.fenceHeight }}
                   </p>
                   <p>
                     <strong>Willing to train: </strong>
-                    {{ application.willingToTrain | yesNo }}
+                    {{ application?.willingToTrain | yesNo }}
                   </p>
                   <p>
                     <strong>Familiar with crate: </strong>
-                    {{ application.familiarWithCrate | yesNo }}
+                    {{ application?.familiarWithCrate | yesNo }}
                   </p>
                   <p>
                     <strong>Use Dog Crate: </strong>
-                    {{ application.useDogCrate | yesNo }}
+                    {{ application?.useDogCrate | yesNo }}
                   </p>
                   <p>
                     <strong>Past Rescue Experience: </strong>
-                    {{ application.pastRescueExperience }}
+                    {{ application?.pastRescueExperience }}
                   </p>
                   <p>
                     <strong>Take Animal To Vet: </strong>
-                    {{ application.takeAnimalToVet | yesNo }}
+                    {{ application?.takeAnimalToVet | yesNo }}
                   </p>
                   <p>
                     <strong>Has Vehicle: </strong>
-                    {{ application.haveVehicle | yesNo }}
+                    {{ application?.haveVehicle | yesNo }}
                   </p>
                   <p>
                     <strong>Medicate Animal: </strong>
-                    {{ application.medicateAnimal | yesNo }}
+                    {{ application?.medicateAnimal | yesNo }}
                   </p>
                   <p>
                     <strong>Hours left Alone Animal: </strong>
-                    {{ application.hoursLeftAlone }}
+                    {{ application?.hoursLeftAlone }}
                   </p>
                 </div>
               </div>
@@ -261,17 +261,17 @@
                   <hr style="width: 1px black;" />
                   <p>
                     <strong>First name:</strong>
-                    {{ application.ref1_fname }}
+                    {{ application?.ref1_fname }}
                   </p>
                   <p>
-                    <strong>Last name:</strong> {{ application.ref1_lname }}
+                    <strong>Last name:</strong> {{ application?.ref1_lname }}
                   </p>
                   <p>
                     <strong>Cell Phone:</strong>
-                    {{ application.ref1_cellPhone }}
+                    {{ application?.ref1_cellPhone }}
                   </p>
                   <p>
-                    <strong>Email:</strong> {{ application.ref1_email }}
+                    <strong>Email:</strong> {{ application?.ref1_email }}
                   </p>
                 </div>
 
@@ -282,17 +282,17 @@
                   <hr style="width: 1px black;" />
                   <p>
                     <strong>First name:</strong>
-                    {{ application.ref2_fname }}
+                    {{ application?.ref2_fname }}
                   </p>
                   <p>
-                    <strong>Last name:</strong> {{ application.ref2_lname }}
+                    <strong>Last name:</strong> {{ application?.ref2_lname }}
                   </p>
                   <p>
                     <strong>Cell Phone:</strong>
-                    {{ application.ref2_cellPhone }}
+                    {{ application?.ref2_cellPhone }}
                   </p>
                   <p>
-                    <strong>Email:</strong> {{ application.ref2_email }}
+                    <strong>Email:</strong> {{ application?.ref2_email }}
                   </p>
                 </div>
 
@@ -303,17 +303,17 @@
                   <hr style="width: 1px black;" />
                   <p>
                     <strong>First name:</strong>
-                    {{ application.ref3_fname }}
+                    {{ application?.ref3_fname }}
                   </p>
                   <p>
-                    <strong>Last name:</strong> {{ application.ref3_lname }}
+                    <strong>Last name:</strong> {{ application?.ref3_lname }}
                   </p>
                   <p>
                     <strong>Cell Phone:</strong>
-                    {{ application.ref3_cellPhone }}
+                    {{ application?.ref3_cellPhone }}
                   </p>
                   <p>
-                    <strong>Email:</strong> {{ application.ref3_email }}
+                    <strong>Email:</strong> {{ application?.ref3_email }}
                   </p>
                 </div>
               </div>
@@ -330,19 +330,19 @@
                 visible to volunteers
               </i>
               <section class="description mt-4">
-                <p>{{ application.rejectionReason }}</p>
+                <p>{{ application?.rejectionReason }}</p>
               </section>
             </div>
           </div>
 
           <div class="modal-footer" *ngIf="!adminCheck">
             <button class="btn btn-outline-success ml-1 mr-1" data-dismiss="modal" data-toggle="modal"
-            attr.data-target="#pending{{ application.id }}">
+            attr.data-target="#pending{{ application?.id }}">
               Mark as Pending
             </button>
 
             <button class="btn btn-outline-danger ml-1 mr-1" data-dismiss="modal" data-toggle="modal"
-            attr.data-target="#delete{{ application.id }}">
+            attr.data-target="#delete{{ application?.id }}">
                       Delete Application
             </button>
           </div>
@@ -352,14 +352,14 @@
   </div>
 
 <!-- Mark as Pending Modal -->
-<div class="modal fade" id="pending{{ application.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+<div class="modal fade" id="pending{{ application?.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
 aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">
           Mark Application to pending
-          {{ application.lname }}?
+          {{ application?.lname }}?
         </h5>
         <button class="close" data-dismiss="modal">
           &times;
@@ -367,12 +367,12 @@ aria-hidden="true">
       </div>
       <div class="modal-body">
         <p>
-          You are about to send {{ application.fname }} {{ application.lname }}'s application back to the pending list.
+          You are about to send {{ application?.fname }} {{ application?.lname }}'s application back to the pending list.
         </p>
       </div>
       <div class="modal-footer">
         <button class="btn btn-success" data-dismiss="modal"
-          (click)="sendToPending(application.id)">
+          (click)="sendToPending(application?.id)">
           Confirm
         </button>
         <button class="btn btn-secondary" data-dismiss="modal">
@@ -385,13 +385,13 @@ aria-hidden="true">
 <!-- End Of Modal -->
 
 <!-- Delete Modal -->
-<div class="modal" id="delete{{ application.id }}">
+<div class="modal" id="delete{{ application?.id }}">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">
-          Delete {{ application.fname }}
-          {{ application.lname }}?
+          Delete {{ application?.fname }}
+          {{ application?.lname }}?
         </h5>
         <button class="close" data-dismiss="modal">
           &times;
@@ -399,12 +399,12 @@ aria-hidden="true">
       </div>
       <div class="modal-body">
         <p>
-          You are about to PERMANENTLY delete {{ application.fname }}
-          {{ application.lname }}'s foster application.
+          You are about to PERMANENTLY delete {{ application?.fname }}
+          {{ application?.lname }}'s foster application?.
         </p>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-danger" data-dismiss="modal" (click)="deleteApplication(application.id)">
+        <button class="btn btn-danger" data-dismiss="modal" (click)="deleteApplication(application?.id)">
           Delete Application
         </button>
         <button class="btn btn-secondary" data-dismiss="modal">
