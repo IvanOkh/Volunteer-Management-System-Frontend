@@ -268,27 +268,83 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-success btn-block"
-            data-dismiss="modal"
-            data-toggle="modal"
-            attr.data-target="#accept{{ application?.id }}"
-          >
-            Accept
-          </button>
-          <button
-            type="button"
-            class="btn btn-danger btn-block"
-            data-dismiss="modal"
-            data-toggle="modal"
-            attr.data-target="#reject{{ application?.id }}"
-          >
-            Reject
-          </button>
+          <button class="btn btn-outline-success ml-1 mr-1" data-dismiss="modal" data-toggle="modal"
+            attr.data-target="#pending{{ application?.id }}">
+              Mark as Pending
+            </button>
+
+            <button class="btn btn-outline-danger ml-1 mr-1" data-dismiss="modal" data-toggle="modal"
+            attr.data-target="#delete{{ application?.id }}">
+                      Delete Application
+            </button>
         </div>
       </div>
     </div>
   </div>
   <!-- End of  Modal-->
+
+  <!-- Mark as Pending Modal -->
+<div class="modal fade" id="pending{{ application?.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          Mark Application to pending
+          {{ application?.lname }}?
+        </h5>
+        <button class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          You are about to send {{ application?.fname }} {{ application?.lname }}'s application back to the pending list.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" data-dismiss="modal"
+          (click)="sendToPending(application?.id)">
+          Confirm
+        </button>
+        <button class="btn btn-secondary" data-dismiss="modal">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Of Modal -->
+
+<!-- Delete Modal -->
+<div class="modal" id="delete{{ application?.id }}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          Delete {{ application?.fname }}
+          {{ application?.lname }}?
+        </h5>
+        <button class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          You are about to PERMANENTLY delete {{ application?.fname }}
+          {{ application?.lname }}'s volunteer application?.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" data-dismiss="modal" (click)="deleteApplication(application?.id)">
+          Delete Application
+        </button>
+        <button class="btn btn-secondary" data-dismiss="modal">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Of Modal -->
 </div>
