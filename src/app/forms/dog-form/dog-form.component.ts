@@ -146,25 +146,25 @@ export class DogFormComponent implements OnInit {
 
     if (this.checked === 3) {
       //householdAgreement
-      if (form.value.familyLovesDogs === "Yes") {
+      if (form.value.familyLovesDogs === "Y") {
         this.householdAgreement = true;
       } else {
         this.householdAgreement = false;
       }
       //membersIntroduced
-      if (form.value.familyKnowsTheDog === "Yes") {
+      if (form.value.familyKnowsTheDog === "Y") {
         this.membersIntroduced = true;
       } else {
         this.membersIntroduced = false;
       }
       //dogAllergies
-      if (form.value.familyHasAllergy === "Yes") {
+      if (form.value.familyHasAllergy === "Y") {
         this.dogAllergies = true;
       } else {
         this.dogAllergies = false;
       }
       //childrenVisiting
-      if (form.value.childrenVisit === "Yes") {
+      if (form.value.childrenVisit === "Y") {
         this.childrenVisiting = true;
       } else {
         this.childrenVisiting = false;
@@ -214,37 +214,37 @@ export class DogFormComponent implements OnInit {
         this.own = false;
       }
       //dogsAllowed
-      if (form.value.landlordAllows === "Yes") {
+      if (form.value.landlordAllows === "Y") {
         this.dogsAllowed = true;
       } else {
         this.dogsAllowed = false;
       }
       //otherDogs
-      if (form.value.otherDogs === "Yes") {
+      if (form.value.otherDogs === "Y") {
         this.otherDogs = true;
       } else {
         this.otherDogs = false;
       }
       //otherPets
-      if (form.value.otherPets === "Yes") {
+      if (form.value.otherPets === "Y") {
         this.otherPets = true;
       } else {
         this.otherPets = false;
       }
       //priorAdoption
-      if (form.value.adoptedBefore === "Yes") {
+      if (form.value.adoptedBefore === "Y") {
         this.priorAdoption = true;
       } else {
         this.priorAdoption = false;
       }
       //surrenderedPet
-      if (form.value.adoptedBefore === "Yes") {
+      if (form.value.adoptedBefore === "Y") {
         this.surrenderedPet = true;
       } else {
         this.surrenderedPet = false;
       }
       //houseBrokenBefore
-      if (form.value.houseBroken === "Yes") {
+      if (form.value.houseBroken === "Y") {
         this.houseBrokenBefore = true;
       } else {
         this.houseBrokenBefore = false;
@@ -408,19 +408,19 @@ export class DogFormComponent implements OnInit {
         this.dogActivities = this.dogActivities.concat(",false");
       }
       //medical
-      if (form.value.buysBoosters === "Yes") {
+      if (form.value.buysBoosters === "Y") {
         this.medical = true;
       } else {
         this.medical = false;
       }
       //insurance
-      if (form.value.buysInsurance === "Yes") {
+      if (form.value.buysInsurance === "Y") {
         this.insurance = true;
       } else {
         this.insurance = false;
       }
       //dogMaturing
-      if (form.value.largeDog === "Yes") {
+      if (form.value.largeDog === "Y") {
         this.dogMaturing = true;
       } else {
         this.dogMaturing = false;
@@ -435,7 +435,7 @@ export class DogFormComponent implements OnInit {
       if (form.value.ownOrRent === "Rent") {
         this.landlordContact = this.landlordContact.concat(form.value.landlord);
       } else {
-        this.landlordContact = " ";
+        this.landlordContact = "";
       }
 
       this.newDogForm = new DogForm(
@@ -559,7 +559,7 @@ export class DogFormComponent implements OnInit {
       );
       //DO PROCESSING HERE (this.newDogForm has been populated)
       this.validForm = true;
-
+      console.log(this.newDogForm);
       this.sendTheForm(this.newDogForm);
     } else {
       this.checked === 0;
@@ -568,14 +568,14 @@ export class DogFormComponent implements OnInit {
     //Validation
     if (form.valid) {
       this.validForm = true;
-      console.log("Validated");
-      console.log(NgForm);
-      console.log(form);
+      // console.log("Validated");
+      // console.log(NgForm);
+      // console.log(form);
       return;
     } else if (!form.valid) {
       this.validForm = false;
-      console.log(NgForm);
-      console.log(form);
+      // console.log(NgForm);
+      // console.log(form);
       return;
     }
   }

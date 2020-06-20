@@ -198,7 +198,7 @@
             <div
               class="col-md-3"
               data-toggle="tooltip"
-              title="Type your postal code"
+              title="Type your postal code in A1A 1A1 format"
             >
               <input
                 type="text"
@@ -206,9 +206,10 @@
                 ngModel
                 name="postal"
                 required
-                minlength="6"
+                minlength="7"
+                maxlength="7"
                 class="form-control"
-                placeholder="Postal Code"
+                placeholder="Postal Code (ex: A1A 1A1)"
                 #postal="ngModel"
               />
               <span class="help-block" *ngIf="!postal.valid && postal.touched"
@@ -229,17 +230,18 @@
             <div
               class="col-md-9"
               data-toggle="tooltip"
-              title="Type your cell phone number"
+              title="Type your cell phone number in 111-111-1111 format"
             >
               <input
                 type="phone"
                 id="cellPhone"
                 ngModel
                 name="cellPhone"
-                minlength="10"
+                minlength="12"
+                maxlength="12"
                 required
                 class="form-control"
-                placeholder="Cell Phone"
+                placeholder="Cell Phone (ex: 111-111-1111)"
                 #cellPhone="ngModel"
               />
               <span
@@ -261,7 +263,7 @@
             <div
               class="col-md-9"
               data-toggle="tooltip"
-              title="Type your home phone number"
+              title="Type your home phone number in 111-111-1111 format"
             >
               <input
                 type="phone"
@@ -269,8 +271,10 @@
                 ngModel
                 name="homePhone"
                 homePhone
+                minlength="12"
+                maxlength="12"
                 class="form-control"
-                placeholder="Home Phone"
+                placeholder="Home Phone (ex: 222-222-2222)"
                 #homePhone="ngModel"
               />
               <!-- <span
@@ -353,7 +357,7 @@
                     type="radio"
                     name="familyLovesDogs"
                     id="gridRadios1"
-                    value="Yes"
+                    value="Y"
                     required
                     ngModel
                   />
@@ -367,7 +371,7 @@
                     type="radio"
                     name="familyLovesDogs"
                     id="gridRadios2"
-                    value="No"
+                    value="N"
                     ngModel
                     required
                   />
@@ -406,7 +410,7 @@
                     type="radio"
                     name="familyKnowsTheDog"
                     id="2gridRadios1"
-                    value="Yes"
+                    value="Y"
                     ngModel
                     required
                   />
@@ -420,7 +424,7 @@
                     type="radio"
                     name="familyKnowsTheDog"
                     id="2gridRadios2"
-                    value="No"
+                    value="N"
                     ngModel
                     required
                   />
@@ -445,7 +449,7 @@
                     type="radio"
                     name="familyHasAllergy"
                     id="3gridRadios1"
-                    value="Yes"
+                    value="Y"
                     ngModel
                     required
                   />
@@ -459,7 +463,7 @@
                     type="radio"
                     name="familyHasAllergy"
                     id="3gridRadios2"
-                    value="No"
+                    value="N"
                     ngModel
                     required
                   />
@@ -560,7 +564,7 @@
             </label>
 
             <textarea
-              maxlength="200"
+              maxlength="100"
               rows="3"
               type="text"
               id="smartKids"
@@ -586,7 +590,7 @@
                     type="radio"
                     name="childrenVisit"
                     id="4gridRadios1"
-                    value="Yes"
+                    value="Y"
                     ngModel
                   />
                   <label class="form-check-label" for="4gridRadios1">
@@ -599,7 +603,7 @@
                     type="radio"
                     name="childrenVisit"
                     id="4gridRadios2"
-                    value="No"
+                    value="N"
                     ngModel
                   />
                   <label class="form-check-label" for="4gridRadios2">
@@ -683,7 +687,7 @@
               boundaries, observe its reactions, and avoid bites? Explain:
             </label>
             <textarea
-              maxlength="200"
+              maxlength="100"
               rows="3"
               type="text"
               id="preparedKids"
@@ -1159,7 +1163,7 @@
                     type="radio"
                     name="landlordAllows"
                     id="11gridRadios1"
-                    value="Yes"
+                    value="Y"
                     #radio11="ngModel"
                     ngModel
                   />
@@ -1173,7 +1177,7 @@
                     type="radio"
                     name="landlordAllows"
                     id="11gridRadios2"
-                    value="No"
+                    value="N"
                     #radio11="ngModel"
                     ngModel
                   />
@@ -1463,7 +1467,7 @@
                     type="radio"
                     name="otherDogs"
                     id="12gridRadios1"
-                    value="Yes"
+                    value="Y"
                     required
                     ngModel
                   />
@@ -1477,7 +1481,7 @@
                     type="radio"
                     name="otherDogs"
                     id="12gridRadios2"
-                    value="No"
+                    value="N"
                     required
                     ngModel
                   />
@@ -1520,7 +1524,7 @@
                     type="radio"
                     name="otherPets"
                     id="99gridRadios1"
-                    value="Yes"
+                    value="Y"
                     required
                     ngModel
                   />
@@ -1534,7 +1538,7 @@
                     type="radio"
                     name="otherPets"
                     id="12gridRadios2"
-                    value="No"
+                    value="N"
                     required
                     ngModel
                   />
@@ -1687,7 +1691,7 @@
                     type="radio"
                     name="adoptedBefore"
                     id="13gridRadios1"
-                    value="Yes"
+                    value="Y"
                     required
                     ngModel
                   />
@@ -1701,7 +1705,7 @@
                     type="radio"
                     name="adoptedBefore"
                     id="13gridRadios2"
-                    value="No"
+                    value="N"
                     required
                     ngModel
                   />
@@ -1744,7 +1748,7 @@
                     type="radio"
                     name="surrendered"
                     id="14gridRadios1"
-                    value="Yes"
+                    value="Y"
                     ngModel
                     required
                   />
@@ -1758,7 +1762,7 @@
                     type="radio"
                     name="surrendered"
                     id="14gridRadios2"
-                    value="No"
+                    value="N"
                     ngModel
                     required
                   />
@@ -1794,7 +1798,7 @@
               previous veterinarian or clinic:
             </label>
             <textarea
-              maxlength="200"
+              maxlength="100"
               rows="3"
               type="text"
               id="veterinarian"
@@ -1848,7 +1852,7 @@
                     type="radio"
                     name="hadDogs"
                     id="15gridRadios1"
-                    value="Yes"
+                    value="Y"
                     ngModel
                     required
                   />
@@ -1862,7 +1866,7 @@
                     type="radio"
                     name="hadDogs"
                     id="15gridRadios2"
-                    value="No"
+                    value="N"
                     ngModel
                     required
                   />
@@ -1887,7 +1891,7 @@
                     type="radio"
                     name="houseBroken"
                     id="16gridRadios1"
-                    value="Yes"
+                    value="Y"
                     ngModel
                     required
                   />
@@ -1901,7 +1905,7 @@
                     type="radio"
                     name="house-broken"
                     id="16gridRadios2"
-                    value="No"
+                    value="N"
                     ngModel
                     required
                   />
@@ -1919,7 +1923,7 @@
               do you plan to use? <b style="color: red;">*</b>
             </label>
             <textarea
-              maxlength="200"
+              maxlength="100"
               rows="3"
               type="text"
               id="correction"
@@ -2827,7 +2831,7 @@
                     type="radio"
                     name="desiredAge"
                     id="19gridRadios1"
-                    value="Puppy (8 weeks to 6 months)"
+                    value="Puppy"
                     #radio19="ngModel"
                     ngModel
                   />
@@ -2841,7 +2845,7 @@
                     type="radio"
                     name="desiredAge"
                     id="19gridRadios2"
-                    value="Adolescent (6 month to 1 year) "
+                    value="Adolescent"
                     #radio19="ngModel"
                     ngModel
                   />
@@ -2855,7 +2859,7 @@
                     type="radio"
                     name="desiredAge"
                     id="19gridRadios3"
-                    value="Adult (1-7 years) "
+                    value="Adult"
                     #radio19="ngModel"
                     ngModel
                   />
@@ -2869,7 +2873,7 @@
                     type="radio"
                     name="desiredAge"
                     id="19gridRadios4"
-                    value="Senior (7+ years)"
+                    value="Senior"
                     #radio19="ngModel"
                     ngModel
                   />
@@ -2905,6 +2909,7 @@
                 type="text"
                 id="breedTypeColor"
                 ngModel
+                maxlength="50"
                 name="breedTypeColor"
                 breedTypeColor
                 class="form-control"
@@ -2940,7 +2945,7 @@
                         class="custom-control-input"
                         id="friendlyWithChildren1"
                         name="frndlyWthChldrn"
-                        value="Yery important"
+                        value="Y"
                         required
                         ngModel
                       />
@@ -2957,7 +2962,7 @@
                         class="custom-control-input"
                         id="friendlyWithChildren2"
                         name="frndlyWthChldrn"
-                        value="Somewhat important"
+                        value="S"
                         required
                         ngModel
                       />
@@ -2974,7 +2979,7 @@
                         class="custom-control-input"
                         id="friendlyWithChildren3"
                         name="frndlyWthChldrn"
-                        value="Not important"
+                        value="N"
                         required
                         ngModel
                       />
@@ -2995,7 +3000,7 @@
                         class="custom-control-input"
                         id="friendlyWithDog1"
                         name="frndlyWthDogs"
-                        value="Very important"
+                        value="V"
                         required
                         ngModel
                       />
@@ -3012,7 +3017,7 @@
                         class="custom-control-input"
                         id="friendlyWithDog2"
                         name="frndlyWthDogs"
-                        value="Somewhat important"
+                        value="S"
                         required
                         ngModel
                       />
@@ -3029,7 +3034,7 @@
                         class="custom-control-input"
                         id="friendlyWithDog3"
                         name="frndlyWthDogs"
-                        value="Not important"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3050,7 +3055,7 @@
                         class="custom-control-input"
                         id="friendlyWithCat1"
                         name="frndlyWthCats"
-                        value="Very important"
+                        value="V"
                         required
                         ngModel
                       />
@@ -3067,7 +3072,7 @@
                         class="custom-control-input"
                         id="friendlyWithCat2"
                         name="frndlyWthCats"
-                        value="Somewhat important"
+                        value="S"
                         required
                         ngModel
                       />
@@ -3084,7 +3089,7 @@
                         class="custom-control-input"
                         id="friendlyWithCat3"
                         name="frndlyWthCats"
-                        value="Not important"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3105,7 +3110,7 @@
                         class="custom-control-input"
                         id="friendlyWithMe1"
                         name="frndlyWthMe"
-                        value="Very important"
+                        value="V"
                         required
                         ngModel
                       />
@@ -3122,7 +3127,7 @@
                         class="custom-control-input"
                         id="friendlyWithMe2"
                         name="frndlyWthMe"
-                        value="Somewhat important"
+                        value="S"
                         required
                         ngModel
                       />
@@ -3139,7 +3144,7 @@
                         class="custom-control-input"
                         id="friendlyWithMe3"
                         name="frndlyWthMe"
-                        value="Not important"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3159,7 +3164,7 @@
                         class="custom-control-input"
                         id="friendlyWithVisitor1"
                         name="frndlyWthVistrs"
-                        value="Very important"
+                        value="V"
                         required
                         ngModel
                       />
@@ -3176,7 +3181,7 @@
                         class="custom-control-input"
                         id="friendlyWithVisitor2"
                         name="frndlyWthVistrs"
-                        value="Somewhat important"
+                        value="S"
                         required
                         ngModel
                       />
@@ -3193,7 +3198,7 @@
                         class="custom-control-input"
                         id="friendlyWithVisitor3"
                         name="frndlyWthVistrs"
-                        value="Not important"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3213,7 +3218,7 @@
                         class="custom-control-input"
                         id="groomed1"
                         name="enjoysGrooming"
-                        value="Very important"
+                        value="V"
                         required
                         ngModel
                       />
@@ -3230,7 +3235,7 @@
                         class="custom-control-input"
                         id="groomed2"
                         name="enjoysGrooming"
-                        value="Somewhat important"
+                        value="S"
                         required
                         ngModel
                       />
@@ -3247,7 +3252,7 @@
                         class="custom-control-input"
                         id="groomed3"
                         name="enjoysGrooming"
-                        value="Not important"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3267,7 +3272,7 @@
                         class="custom-control-input"
                         id="beingHeld1"
                         name="lovesBeingHeld"
-                        value="Very important"
+                        value="V"
                         required
                         ngModel
                       />
@@ -3284,7 +3289,7 @@
                         class="custom-control-input"
                         id="beingHeld2"
                         name="lovesBeingHeld"
-                        value="Somewhat important"
+                        value="S"
                         required
                         ngModel
                       />
@@ -3301,7 +3306,7 @@
                         class="custom-control-input"
                         id="beingHeld3"
                         name="lovesBeingHeld"
-                        value="Not important"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3321,7 +3326,7 @@
                         class="custom-control-input"
                         id="beingPetted1"
                         name="lovesBeingPeted"
-                        value="Very important"
+                        value="V"
                         required
                         ngModel
                       />
@@ -3338,7 +3343,7 @@
                         class="custom-control-input"
                         id="beingPetted2"
                         name="lovesBeingPeted"
-                        value="Somewhat important"
+                        value="S"
                         required
                         ngModel
                       />
@@ -3355,7 +3360,7 @@
                         class="custom-control-input"
                         id="beingPetted3"
                         name="lovesBeingPeted"
-                        value="Not important"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3375,7 +3380,7 @@
                         class="custom-control-input"
                         id="beCalm1"
                         name="beCalm"
-                        value="Very important"
+                        value="V"
                         required
                         ngModel
                       />
@@ -3389,7 +3394,7 @@
                         class="custom-control-input"
                         id="beCalm2"
                         name="beCalm"
-                        value="Somewhat important"
+                        value="S"
                         required
                         ngModel
                       />
@@ -3403,7 +3408,7 @@
                         class="custom-control-input"
                         id="beCalm3"
                         name="beCalm"
-                        value="Not important"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3420,7 +3425,7 @@
                         class="custom-control-input"
                         id="beActive1"
                         name="beActive"
-                        value="Very important"
+                        value="V"
                         required
                         ngModel
                       />
@@ -3437,7 +3442,7 @@
                         class="custom-control-input"
                         id="beActive2"
                         name="beActive"
-                        value="Somewhat important"
+                        value="S"
                         required
                         ngModel
                       />
@@ -3454,7 +3459,7 @@
                         class="custom-control-input"
                         id="beActive3"
                         name="beActive"
-                        value="Not important"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3474,7 +3479,7 @@
                         class="custom-control-input"
                         id="bePlayful1"
                         name="bePlayful"
-                        value="Very important"
+                        value="V"
                         required
                         ngModel
                       />
@@ -3491,7 +3496,7 @@
                         class="custom-control-input"
                         id="bePlayful2"
                         name="bePlayful"
-                        value="Somewhat important"
+                        value="S"
                         required
                         ngModel
                       />
@@ -3508,7 +3513,7 @@
                         class="custom-control-input"
                         id="bePlayful3"
                         name="bePlayful"
-                        value="Not important"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3528,7 +3533,7 @@
                         class="custom-control-input"
                         id="beQuiet1"
                         name="beQuiet"
-                        value="Very important"
+                        value="V"
                         required
                         ngModel
                       />
@@ -3545,7 +3550,7 @@
                         class="custom-control-input"
                         id="beQuiet2"
                         name="beQuiet"
-                        value="Somewhat important"
+                        value="S"
                         required
                         ngModel
                       />
@@ -3562,7 +3567,7 @@
                         class="custom-control-input"
                         id="beQuiet3"
                         name="beQuiet"
-                        value="Not important"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3583,7 +3588,7 @@
                         class="custom-control-input"
                         id="beIndependent1"
                         name="beIndependent"
-                        value="Very important"
+                        value="V"
                         required
                         ngModel
                       />
@@ -3600,7 +3605,7 @@
                         class="custom-control-input"
                         id="beIndependent2"
                         name="beIndependent"
-                        value="Somewhat important"
+                        value="S"
                         required
                         ngModel
                       />
@@ -3617,7 +3622,7 @@
                         class="custom-control-input"
                         id="beIndependent3"
                         name="beIndependent"
-                        value="Not important"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3637,7 +3642,7 @@
                         class="custom-control-input"
                         id="neverWakeUp1"
                         name="neverWakeMe"
-                        value="Very important"
+                        value="V"
                         required
                         ngModel
                       />
@@ -3654,7 +3659,7 @@
                         class="custom-control-input"
                         id="neverWakeUp2"
                         name="neverWakeMe"
-                        value="Somewhat important"
+                        value="S"
                         required
                         ngModel
                       />
@@ -3671,7 +3676,7 @@
                         class="custom-control-input"
                         id="neverWakeUp3"
                         name="neverWakeMe"
-                        value="Not important"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3691,7 +3696,7 @@
                         class="custom-control-input"
                         id="aggressive1"
                         name="neverShowAggr"
-                        value="Very important"
+                        value="V"
                         required
                         ngModel
                       />
@@ -3708,7 +3713,7 @@
                         class="custom-control-input"
                         id="aggressive2"
                         name="neverShowAggr"
-                        value="Somewhat important"
+                        value="S"
                         required
                         ngModel
                       />
@@ -3725,7 +3730,7 @@
                         class="custom-control-input"
                         id="aggressive3"
                         name="neverShowAggr"
-                        value="Not important"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3745,7 +3750,7 @@
                         class="custom-control-input"
                         id="protective1"
                         name="beProtective"
-                        value="Very important"
+                        value="V"
                         required
                         ngModel
                       />
@@ -3762,7 +3767,7 @@
                         class="custom-control-input"
                         id="protective2"
                         name="beProtective"
-                        value="Somewhat important"
+                        value="S"
                         required
                         ngModel
                       />
@@ -3779,7 +3784,7 @@
                         class="custom-control-input"
                         id="protective3"
                         name="beProtective"
-                        value="Not important"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3822,7 +3827,7 @@
                         class="custom-control-input"
                         id="houseTrained1"
                         name="houseTrained"
-                        value="Yes"
+                        value="Y"
                         required
                         ngModel
                       />
@@ -3839,7 +3844,7 @@
                         class="custom-control-input"
                         id="houseTrained2"
                         name="houseTrained"
-                        value="No"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3856,7 +3861,7 @@
                         class="custom-control-input"
                         id="houseTrained3"
                         name="houseTrained"
-                        value="Not Sure"
+                        value="X"
                         required
                         ngModel
                       />
@@ -3878,7 +3883,7 @@
                         class="custom-control-input"
                         id="obedienceTrained1"
                         name="obedienceTrained"
-                        value="Yes"
+                        value="Y"
                         required
                         ngModel
                       />
@@ -3895,7 +3900,7 @@
                         class="custom-control-input"
                         id="obedienceTrained2"
                         name="obedienceTrained"
-                        value="No"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3912,7 +3917,7 @@
                         class="custom-control-input"
                         id="obedienceTrained3"
                         name="obedienceTrained"
-                        value="Not Sure"
+                        value="X"
                         required
                         ngModel
                       />
@@ -3933,7 +3938,7 @@
                         class="custom-control-input"
                         id="firstTimeOwner1"
                         name="firstTimeOwner"
-                        value="Yes"
+                        value="Y"
                         required
                         ngModel
                       />
@@ -3950,7 +3955,7 @@
                         class="custom-control-input"
                         id="firstTimeOwner2"
                         name="firstTimeOwner"
-                        value="No"
+                        value="N"
                         required
                         ngModel
                       />
@@ -3967,7 +3972,7 @@
                         class="custom-control-input"
                         id="firstTimeOwner3"
                         name="firstTimeOwner"
-                        value="Not Sure"
+                        value="X"
                         required
                         ngModel
                       />
@@ -3987,7 +3992,7 @@
                         class="custom-control-input"
                         id="ownerIsTrained1"
                         name="ownerIsTrained"
-                        value="Yes"
+                        value="Y"
                         required
                         ngModel
                       />
@@ -4004,7 +4009,7 @@
                         class="custom-control-input"
                         id="ownerIsTrained2"
                         name="ownerIsTrained"
-                        value="No"
+                        value="N"
                         required
                         ngModel
                       />
@@ -4021,7 +4026,7 @@
                         class="custom-control-input"
                         id="ownerIsTrained3"
                         name="ownerIsTrained"
-                        value="Not Sure"
+                        value="X"
                         required
                         ngModel
                       />
@@ -4043,7 +4048,7 @@
                         class="custom-control-input"
                         id="expWthDiffcltDog1"
                         name="expWthDiffcltDog"
-                        value="Yes"
+                        value="Y"
                         required
                         ngModel
                       />
@@ -4060,7 +4065,7 @@
                         class="custom-control-input"
                         id="expWthDiffcltDog2"
                         name="expWthDiffcltDog"
-                        value="No"
+                        value="N"
                         required
                         ngModel
                       />
@@ -4077,7 +4082,7 @@
                         class="custom-control-input"
                         id="expWthDiffcltDog3"
                         name="expWthDiffcltDog"
-                        value="Not Sure"
+                        value="X"
                         required
                         ngModel
                       />
@@ -4097,7 +4102,7 @@
                         class="custom-control-input"
                         id="willingToTrain1"
                         name="willingToTrain"
-                        value="Yes"
+                        value="Y"
                         required
                         ngModel
                       />
@@ -4114,7 +4119,7 @@
                         class="custom-control-input"
                         id="willingToTrain2"
                         name="willingToTrain"
-                        value="No"
+                        value="N"
                         required
                         ngModel
                       />
@@ -4131,7 +4136,7 @@
                         class="custom-control-input"
                         id="willingToTrain3"
                         name="willingToTrain"
-                        value="Not Sure"
+                        value="X"
                         ngModel
                       />
                       <label
@@ -4186,7 +4191,7 @@
                     type="radio"
                     name="buysBoosters"
                     id="20gridRadios1"
-                    value="Yes"
+                    value="Y"
                     ngModel
                     required
                   />
@@ -4200,7 +4205,7 @@
                     type="radio"
                     name="buysBoosters"
                     id="20gridRadios2"
-                    value="No"
+                    value="N"
                     ngModel
                     required
                   />
@@ -4264,7 +4269,7 @@
                     type="radio"
                     name="buysInsurance"
                     id="21gridRadios1"
-                    value="Yes"
+                    value="Y"
                     ngModel
                     required
                   />
@@ -4278,7 +4283,7 @@
                     type="radio"
                     name="buysInsurance"
                     id="21gridRadios2"
-                    value="No"
+                    value="N"
                     ngModel
                     required
                   />
@@ -4319,7 +4324,7 @@
                     type="radio"
                     name="largeDog"
                     id="22gridRadios1"
-                    value="Yes"
+                    value="Y"
                     ngModel
                     required
                   />
@@ -4333,7 +4338,7 @@
                     type="radio"
                     name="largeDog"
                     id="22gridRadios2"
-                    value="No"
+                    value="N"
                     ngModel
                     required
                   />
@@ -4469,6 +4474,8 @@
               type="phone"
               id="firstRefPhone"
               ngModel
+              minlength="12"
+              maxlength="12"
               name="firstRefPhone"
               firstRefPhone
               required
@@ -4580,6 +4587,8 @@
               type="phone"
               id="secondRefPhone"
               ngModel
+              minlength="12"
+              maxlength="12"
               name="secondtRefPhone"
               secondRefPhone
               required
