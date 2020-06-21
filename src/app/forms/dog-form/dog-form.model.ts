@@ -120,7 +120,7 @@ export class DogForm {
   constructor(
     public id: number,
     public submissionDate: string,
-    public rejected: false,
+    public rejected: boolean,
     public rejectionReason: string,
     public nameOfDog: string,
     public fname: string,
