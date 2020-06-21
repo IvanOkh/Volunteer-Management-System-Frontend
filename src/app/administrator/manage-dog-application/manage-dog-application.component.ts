@@ -8,6 +8,7 @@ import {
 import { NgForm } from "@angular/forms";
 import { AdoptionService } from "src/app/shared/services/adoption.service";
 import { AnimalModel } from "src/app/shared/models/animal.model";
+import { DogForm } from 'src/app/forms/dog-form/dog-form.model';
 
 @Component({
   selector: "app-manage-dog-application",
@@ -18,7 +19,7 @@ import { AnimalModel } from "src/app/shared/models/animal.model";
 export class ManageDogApplicationComponent implements OnInit {
   dogObj: AnimalModel;
   application: any;
-  dogArray: AnimalModel[] = [];
+  dogArray: DogForm[] = [];
   isLoading: boolean = false;
   applicationID: any;
 
@@ -76,7 +77,7 @@ export class ManageDogApplicationComponent implements OnInit {
     let i:number;
     for (i = 0; i < this.dogArray.length; i++) {
       console.log(this.dogArray);
-      if ( this.dogArray[i].id === id) {
+      if ( this.dogArray[i].id == id) {
         this.dogArray[i].rejected = true;
         this.adoptionService.updateDogApplication(this.dogArray[i]);
         console.log(this.dogArray[i].id)

@@ -66,7 +66,7 @@ export class VolunteerPendingComponent implements OnInit
 
 
   //NOTE TO MYSELF(albert): Create functionality for rejection note
-  rejectApplication(volunteerID: number): void
+  rejectApplication(volunteerID: number, reason:string): void
   {
     // guard condition if the volunteerID returend by the DOM is undefiend
     if (!volunteerID) {
@@ -79,6 +79,7 @@ export class VolunteerPendingComponent implements OnInit
       (volunteer: VolunteerApplication) => {  // http success
         if (volunteer) {  // if volunteer is found
           volunteer.rejected = true;
+          volunteer.rejectionReason = reason;
           this.updateApplication(volunteer);
         } else {  // volunteer is null (happens when not found)
           console.log('Volunteer not found!')

@@ -30,70 +30,13 @@ export class FosterPendingComponent implements OnInit {
   acceptApplication(fosterID: number): void {
     // guard condition if the fosterID returend by the DOM is undefiend
     if (!fosterID) {
-      console.log("ERROR: volunteer id is" + fosterID);
+      console.log("ERROR: foster id is" + fosterID);
       return;
     }
 
      this.fs.getFosterApplication(fosterID).subscribe(
       (foster: FosterApplication) => {
          if (foster) {
-
-          //Create new Volunteer and add to system
-          // const newFoster: FosterModel = new FosterModel(
-          //   foster.id,
-          //   true,
-          //   "Notes: ",
-          //   0,
-          //   foster.fname,
-          //   foster.lname,
-          //   foster.address,
-          //   foster.city,
-          //   foster.province,
-          //   foster.postalCode,
-          //   foster.homePhone,
-          //   foster.cellPhone,
-          //   foster.over18,
-          //   foster.email,
-          //   foster.typeOfResidence,
-          //   foster.own,
-          //   foster.landlordContact,
-          //   foster.childrenInHome,
-          //   foster.household,
-          //   foster.allergies,
-          //   foster.householdHandling,
-          //   foster.anyPets,
-          //   foster.petDetails,
-          //   foster.spayedAndNeutured,
-          //   foster.dogHabit,
-          //   foster.catHabit,
-          //   foster.familyAgreeable,
-          //   foster.fosterAnimalType,
-          //   foster.preferredAnimal,
-          //   foster.keepCatsIndoor,
-          //   foster.fencedYard,
-          //   foster.fenceHeight,
-          //   foster.willingToTrain,
-          //   foster.familiarWithCrate,
-          //   foster.useDogCrate,
-          //   foster.pastRescueExperience,
-          //   foster.takeAnimalToVet,
-          //   foster.haveVehicle,
-          //   foster.medicateAnimal,
-          //   foster.hoursLeftAlone,
-          //   foster.ref1_fname,
-          //   foster.ref1_lname,
-          //   foster.ref1_cellPhone,
-          //   foster.ref1_email,
-          //   foster.ref2_fname,
-          //   foster.ref2_lname,
-          //   foster.ref2_cellPhone,
-          //   foster.ref2_email,
-          //   foster.ref3_fname,
-          //   foster.ref3_lname,
-          //   foster.ref3_cellPhone,
-          //   foster.ref3_email,
-          //   foster.allowHomeVisit
-          // );
           this.fs.addFoster(fosterID);
         } else {
           // foster is null (happens when not found)

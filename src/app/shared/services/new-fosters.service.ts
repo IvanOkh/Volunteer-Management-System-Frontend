@@ -111,9 +111,9 @@ export class FostersService {
    * subscibe-able object containing the server success/error response.
    * @param newFoster
    */
-  public addFoster(id: number): Observable<Object> {
+  public addFoster(id: number): Observable<string> {
     return this.sendPostFosterRequest(id).pipe(
-      map((responseData) => {
+      map((responseData: string) => {
         return responseData;
       })
     );
@@ -206,7 +206,7 @@ export class FostersService {
   }
 
   private sendPostFosterRequest(id: number) {
-    return this.http.post(this.REST_API_SERVER + this.CTRL_FOSTER_MAPPING + this.NEWFOSTER_MAPPING + id, {
+    return this.http.post("http://68.66.193.100:8080/CARS/fosters/new/"+ id, {
       responseType: "text",
     });
   }
