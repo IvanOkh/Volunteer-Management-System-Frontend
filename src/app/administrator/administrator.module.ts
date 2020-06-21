@@ -35,6 +35,7 @@ import { ManageDogApplicationComponent } from "./manage-dog-application/manage-d
 import { FosterPendingComponent } from "./foster-applications/foster-pending/foster-pending.component";
 import { FosterRejectedComponent } from "./foster-applications/foster-rejected/foster-rejected.component";
 import { DogRejectedComponent } from './manage-dog-application/dog-rejected/dog-rejected/dog-rejected.component';
+import { CatRejectedComponent } from './manage-cat-application/cat-rejected/cat-rejected/cat-rejected.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { DogRejectedComponent } from './manage-dog-application/dog-rejected/dog-
     FosterPendingComponent,
     FosterRejectedComponent,
     DogRejectedComponent,
+    CatRejectedComponent,
     // CatRejectedComponent,
   ],
   imports: [

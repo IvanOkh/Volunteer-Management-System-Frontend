@@ -1,3 +1,4 @@
+// import { CatForm } from 'src/app/forms/cat-form/cat-model';
 import { Component, OnInit, ViewChild } from "@angular/core";
 import {
   MatPaginator,
@@ -7,52 +8,48 @@ import {
 } from "@angular/material";
 import { NgForm } from "@angular/forms";
 import { AdoptionService } from "src/app/shared/services/adoption.service";
-import { AnimalModel } from "src/app/shared/models/animal.model";
-import { DogForm } from "src/app/forms/dog-form/dog-form.model";
+import { CatForm } from 'src/app/forms/cat-form/cat-model';
 
 @Component({
-  selector: "app-dog-rejected",
-  templateUrl: "./dog-rejected.component.html",
-  styleUrls: ["./dog-rejected.component.css"],
+  selector: "app-cat-rejected",
+  templateUrl: "./cat-rejected.component.html",
+  styleUrls: ["./cat-rejected.component.css"],
 })
-export class DogRejectedComponent implements OnInit {
-  dogObj: DogForm;
+export class CatRejectedComponent implements OnInit {
   application: any;
-  dogArray = [];
+  catArray = [];
   isLoading: boolean = false;
-
-  rejectedDog = [];
-  applicationID: number;
+  applicationID: any;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild("form", { static: false }) form: NgForm;
+
   dataSource = new MatTableDataSource();
 
   displayedColumns: string[] = [
     "submissionDate",
-    "nameOfDog",
+    "nameOfCat",
     "applicant",
     "email",
     "phone",
     "address",
-    "rejectedReason",
     "rejected",
   ];
-
   constructor(
     public dialog: MatDialog,
     private adoptionService: AdoptionService
   ) {}
 
+  //Load table
   ngOnInit() {
     this.isLoading = true;
-    this.dogArray = [];
-    this.adoptionService.loadDogs().subscribe((rejectedDogApp) => {
-      rejectedDogApp.forEach((dogs: DogForm) => {
-        if (dogs.rejected) {
-          this.dogArray.push(dogs);
-          this.dataSource = new MatTableDataSource(this.dogArray);
+    this.catArray = [];
+    this.adoptionService.loadCats().subscribe((rejectedCatApp) => {
+      rejectedCatApp.forEach((cats: CatForm) => {
+        if (cats.rejected) {
+          this.catArray.push(cats);
+          this.dataSource = new MatTableDataSource(this.catArray);
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
           this.isLoading = false;
@@ -60,13 +57,15 @@ export class DogRejectedComponent implements OnInit {
       });
     });
   }
-
+  //Using Angular material to apply filter for every applications
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  //Method to get data when a person click on a row (passing catID)
   getRecord(id: number) {
     this.isLoading = true;
-    this.dogArray.forEach(
+    this.catArray.forEach(
       (element) => {
         if (element.id === id) {
           this.isLoading = false;
@@ -80,16 +79,14 @@ export class DogRejectedComponent implements OnInit {
       }
     );
   }
-
   deleteApplication() {
     this.adoptionService
-      .getDogApplication(this.applicationID)
-      .subscribe((dog: DogForm) => {
-        if (dog != null) {
+      .getCatApplication(this.applicationID)
+      .subscribe((cat: CatForm) => {
+        if (cat != null) {
           this.adoptionService
             .deleteApplication(this.applicationID)
             .subscribe((result: any) => {
-              // this.loa
               this.ngOnInit();
             });
         }

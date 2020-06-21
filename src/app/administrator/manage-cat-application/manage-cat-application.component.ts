@@ -8,6 +8,7 @@ import {
 import { NgForm } from "@angular/forms";
 import { AdoptionService } from "src/app/shared/services/adoption.service";
 import { AnimalModel } from "src/app/shared/models/animal.model";
+import { CatForm } from 'src/app/forms/cat-form/cat-model';
 
 @Component({
   selector: "app-manage-cat-application",
@@ -32,7 +33,9 @@ export class ManageCatApplicationComponent implements OnInit {
     "email",
     "phone",
     "address",
+    "rejected"
   ];
+  applicationID: number;
 
   constructor(
     public dialog: MatDialog,
@@ -58,8 +61,9 @@ export class ManageCatApplicationComponent implements OnInit {
     this.catArray.forEach(
       (element) => {
         if (element.id === id) {
-          this.application = element;
           this.isLoading = false;
+          this.application = element;
+          this.applicationID = id;
         }
       },
       (error: any) => {
@@ -68,4 +72,19 @@ export class ManageCatApplicationComponent implements OnInit {
       }
     );
   }
+      //Method to reject an application
+      rejectApplication(id: number, reason: string) {
+        console.log(id);
+        this.adoptionService.getCatApplication(id).subscribe((cat: CatForm) => {
+          if (cat) {
+            cat.rejected = true;
+            cat.rejectionReason = reason;
+            this.adoptionService
+              .updateCatApplication(cat)
+              .subscribe((result: any) => {
+                this.ngOnInit(); //re-load the table to update new information
+              });
+          }
+        });
+      }
 }

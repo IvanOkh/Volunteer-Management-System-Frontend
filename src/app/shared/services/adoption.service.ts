@@ -51,20 +51,44 @@ export class AdoptionService {
       );
   }
 
-  public getApplication(dogID: number): Observable<DogForm> {
-    return this.sendGetApplicationRequest(dogID).pipe(
+  public getDogApplication(dogID: number): Observable<DogForm> {
+    return this.sendGetDogApplicationRequest(dogID).pipe(
       map((responseData: DogForm[]) => {
         const application: DogForm = responseData[0];
         return application;
       })
     );
   }
-  private sendGetApplicationRequest(id: number) {
+
+  public getCatApplication(catID: number): Observable<CatForm> {
+    return this.sendGetCatApplicationRequest(catID).pipe(
+      map((responseData: CatForm[]) => {
+        const application: CatForm = responseData[0];
+        return application;
+      })
+    );
+  }
+  private sendGetCatApplicationRequest(id: number) {
+    return this.http.get<CatForm[]>(
+      this.REST_API_SERVER + this.CAT_CTRL_MAPPING + id
+    );
+  }
+  private sendGetDogApplicationRequest(id: number) {
     return this.http.get<DogForm[]>(
       this.REST_API_SERVER + this.DOG_CTRL_MAPPING + id
     );
   }
-
+  updateCatApplication(catChanges: CatForm): Observable<String> {
+    return this.http
+      .patch(this.REST_API_SERVER + this.CAT_CTRL_MAPPING, catChanges, {
+        responseType: "text",
+      })
+      .pipe(
+        map((response: string) => {
+          return response;
+        })
+      );
+  }
   updateDogApplication(dogChanges: DogForm): Observable<String> {
     return this.http
       .patch(this.REST_API_SERVER + this.DOG_CTRL_MAPPING, dogChanges, {
