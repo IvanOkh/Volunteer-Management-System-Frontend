@@ -20,7 +20,8 @@ export class DogRejectedComponent implements OnInit {
   application: any;
   dogArray = [];
   isLoading: boolean = false;
-  appList: DogForm[] = [];
+  appList = [];
+  
 
   rejectedDog = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -35,6 +36,7 @@ export class DogRejectedComponent implements OnInit {
     "email",
     "phone",
     "address",
+    "rejected"
   ];
 
   constructor(
@@ -46,17 +48,23 @@ export class DogRejectedComponent implements OnInit {
     this.isLoading = true;
     this.appList = [];
     this.adoptionService.loadDogs().subscribe((rejectedDogApp) => {
-      rejectedDogApp.forEach((element: DogForm) => {
-        if (element.rejected) {
-          this.appList.push(element);
+      rejectedDogApp.forEach((dogs: DogForm) => {
+        if (dogs.rejected) {
+          this.dogArray.push(dogs);
+          // this.dogArray = dogs;
+          this.dataSource = new MatTableDataSource(this.dogArray);
+          this.dataSource.sort = this.sort;
+          this.dataSource.paginator = this.paginator;
+          this.application = this.dogArray[0];
+          this.isLoading = false;
         }
       });
-      this.dataSource = new MatTableDataSource(this.appList);
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-      this.dogArray = this.appList;
-      this.application = this.dogArray[0];
-      this.isLoading = false;
+      // this.dataSource = new MatTableDataSource(this.appList);
+      // this.dataSource.sort = this.sort;
+      // this.dataSource.paginator = this.paginator;
+      // this.dogArray = this.appList;
+      // this.application = this.dogArray[0];
+      // this.isLoading = false;
     });
   }
 
