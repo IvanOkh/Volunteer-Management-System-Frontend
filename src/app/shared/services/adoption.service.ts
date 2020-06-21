@@ -14,10 +14,6 @@ export class AdoptionService {
   cats: CatForm[] = [];
   dogs: DogForm[] = [];
 
-  rejectedDog: DogForm[] = [];
-  dog2: DogForm[] = [];
-  element: DogForm;
-
   private REST_API_SERVER: string =
     "http://68.66.193.100:8080/CARS/applications/";
   private CAT_CTRL_MAPPING: string = "cats/";
@@ -103,7 +99,7 @@ export class AdoptionService {
 
   deleteApplication(applicationID) {
     return this.http
-      .delete(this.REST_API_SERVER + this.DOG_CTRL_MAPPING + applicationID, {
+      .delete(this.REST_API_SERVER + this.CAT_CTRL_MAPPING + applicationID, {
         responseType: "text",
       })
       .pipe(map((response: string) => response));

@@ -34,7 +34,7 @@ export class CatRejectedComponent implements OnInit {
     "email",
     "phone",
     "address",
-    "rejected",
+    "rejectedReason",
   ];
   constructor(
     public dialog: MatDialog,
