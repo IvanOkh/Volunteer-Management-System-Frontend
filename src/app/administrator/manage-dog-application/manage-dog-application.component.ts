@@ -11,6 +11,7 @@ import { AnimalModel } from "src/app/shared/models/animal.model";
 import {
   DogForm,
 } from "src/app/forms/dog-form/dog-form.model";
+// import * as console from 'console';
 
 @Component({
   selector: "app-manage-dog-application",
@@ -24,6 +25,8 @@ export class ManageDogApplicationComponent implements OnInit {
   dogArray= [];
   isLoading: boolean = false;
   applicationID: any;
+  
+
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -81,12 +84,14 @@ export class ManageDogApplicationComponent implements OnInit {
     );
   }
 
-
+  
   //Method to reject an application
-  rejectApplication(id: number) {
+  rejectApplication(id: number, reason: string) {
+    console.log(id);
     this.adoptionService.getApplication(id).subscribe((dog: DogForm) => {
       if (dog) {
         dog.rejected = true;
+        dog.rejectionReason = reason;
         this.adoptionService
           .updateDogApplication(dog)
           .subscribe((result: any) => {

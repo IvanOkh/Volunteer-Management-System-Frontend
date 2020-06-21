@@ -45,3 +45,11 @@ td {
   border: 0.5px solid #c5c3c3;
   padding-left: 15px;
 }
+
+.modal-header {
+  background-color: #cd0d2e;
+  color:white;
+}
+#confirmReject{
+  color:red;
+}
