@@ -69,6 +69,7 @@
     <!-- END SEARCHING BAR  -->
 
     <!-- START MAT TABLE -->
+
     <table mat-table [dataSource]="dataSource" class=" mt-5" matSort width="100%">
       <ng-container matColumnDef="fname">
         <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
@@ -131,7 +132,6 @@
         data-target="#viewVolunteerModal" style="pointer: cursor;"></tr>
     </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100, 500]" showFirstLastButtons></mat-paginator>
-
     <!-- END MAT TABLE -->
 
     <!-- bootstrap pop up modal  -->

@@ -40,7 +40,7 @@ export class ManageDogApplicationComponent implements OnInit {
     "email",
     "phone",
     "address",
-    // "rejected"
+    "rejected"
   ];
 
   constructor(
