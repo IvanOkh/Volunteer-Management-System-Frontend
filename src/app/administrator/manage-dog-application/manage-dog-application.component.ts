@@ -8,7 +8,9 @@ import {
 import { NgForm } from "@angular/forms";
 import { AdoptionService } from "src/app/shared/services/adoption.service";
 import { AnimalModel } from "src/app/shared/models/animal.model";
-import { DogForm } from 'src/app/forms/dog-form/dog-form.model';
+import {
+  DogForm,
+} from "src/app/forms/dog-form/dog-form.model";
 
 @Component({
   selector: "app-manage-dog-application",
@@ -17,9 +19,9 @@ import { DogForm } from 'src/app/forms/dog-form/dog-form.model';
   providers: [AdoptionService],
 })
 export class ManageDogApplicationComponent implements OnInit {
-  dogObj: AnimalModel;
+  dogObj: DogForm;
   application: any;
-  dogArray: DogForm[] = [];
+  dogArray= [];
   isLoading: boolean = false;
   applicationID: any;
 
@@ -35,6 +37,7 @@ export class ManageDogApplicationComponent implements OnInit {
     "email",
     "phone",
     "address",
+    // "rejected"
   ];
 
   constructor(
@@ -42,20 +45,25 @@ export class ManageDogApplicationComponent implements OnInit {
     private adoptionService: AdoptionService
   ) {}
 
+  //Load table
   ngOnInit() {
     this.isLoading = true;
     this.adoptionService.loadDogs().subscribe((dogs) => {
-      this.dataSource = new MatTableDataSource(dogs);
+      this.dogArray = dogs;
+      this.dataSource = new MatTableDataSource(this.dogArray);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-      this.dogArray = dogs;
       this.application = this.dogArray[0];
       this.isLoading = false;
     });
   }
+
+  //Using Angular material to apply filter for every applications 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  //Method to get data when a person click on a row (passing dogID)
   getRecord(id: number) {
     this.isLoading = true;
     this.dogArray.forEach(
@@ -73,15 +81,18 @@ export class ManageDogApplicationComponent implements OnInit {
     );
   }
 
+
+  //Method to reject an application
   rejectApplication(id: number) {
-    let i:number;
-    for (i = 0; i < this.dogArray.length; i++) {
-      console.log(this.dogArray);
-      if ( this.dogArray[i].id == id) {
-        this.dogArray[i].rejected = true;
-        this.adoptionService.updateDogApplication(this.dogArray[i]);
-        console.log(this.dogArray[i].id)
+    this.adoptionService.getApplication(id).subscribe((dog: DogForm) => {
+      if (dog) {
+        dog.rejected = true;
+        this.adoptionService
+          .updateDogApplication(dog)
+          .subscribe((result: any) => {
+            this.ngOnInit(); //re-load the table to update new information
+          });
       }
-    }
+    });
   }
 }

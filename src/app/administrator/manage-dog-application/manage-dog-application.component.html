@@ -31,28 +31,28 @@
       </div>
     </div>
   </ng-container>
-  <ng-container *ngIf="!this.isLoading && this.dogArray.length === 0; else haveData">
+  <!-- <ng-container *ngIf="!this.isLoading && this.dogArray.length === 0; else haveData">
     <div class="row justify-content-center">
       <h3>No new applications to display!</h3>
     </div>
-  </ng-container>
+  </ng-container> -->
 
-  <ng-template #haveData>
+ 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-5" matSort width="100%">
       <ng-container matColumnDef="nameOfDog">
         <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>Dog name</th>
         <td mat-cell *matCellDef="let element">
-          <div *ngIf="element.nameOfDog == ''" style="color:red;"><em>*Dog is not named*</em></div>
-          <div *ngIf="element.nameOfDog != ''">{{element.nameOfDog}}</div>
+          <div *ngIf="element.nameOfDog == '' || element.nameOfDog == null" style="color:red;"><em>*Dog is not named*</em></div>
+          <div *ngIf="element.nameOfDog != '' || element.nameOfDog == null">{{element.nameOfDog}}</div>
         </td>
       </ng-container>
 
       <ng-container matColumnDef="submissionDate">
         <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Submission date</th>
         <td mat-cell *matCellDef="let element">{{element.submissionDate}}</td>
-      </ng-container>
+      </ng-container> 
 
-      <ng-container matColumnDef="applicant">
+     <ng-container matColumnDef="applicant">
         <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Applicant's name</th>
         <td mat-cell *matCellDef="let element">{{element.fname + ' ' + element.lname}}</td>
       </ng-container>
@@ -63,7 +63,7 @@
       </ng-container>
 
       <ng-container matColumnDef="phone">
-        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Phone</th>
+        <th mat-header-cell *matHeaderCellDef class="th"> Phone</th>
         <td mat-cell *matCellDef="let element"><strong>Home: </strong>{{element?.homePhone}} <br> <strong>Cell:
           </strong>{{element?.cellPhone}}</td>
       </ng-container>
@@ -74,13 +74,20 @@
         </td>
       </ng-container>
 
+
+      <!-- <ng-container matColumnDef="rejected">
+        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Reject</th>
+        <td mat-cell *matCellDef="let element">{{element?.rejected}}
+        </td>
+      </ng-container> -->
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr class="tableRow" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row.id)"
         data-toggle="modal" data-target="#modalDogInfo" style="pointer:cursor">
       </tr>
     </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 20,50,100,500]" showFirstLastButtons></mat-paginator>
-  </ng-template>
+
 
   <!-- POPUP MODAL FOR Dog INFO  -->
   <div class="modal fade" id="modalDogInfo" tabindex="-1" role="dialog" aria-labelledby="modalDogInfo"
