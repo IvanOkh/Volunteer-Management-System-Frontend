@@ -1,6 +1,6 @@
 
 #  Project Tasks 					
-## Update: Thursday, June 11th, 2020
+## Update: Sunday, June 21th, 2020
 
 ### APP-WIDE:
 
