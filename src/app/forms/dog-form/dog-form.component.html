@@ -74,6 +74,7 @@
               />
               <span
                 class="help-block"
+                style="color: red;"
                 *ngIf="!firstName.valid && firstName.touched"
                 >Enter your first name!</span
               >
@@ -96,6 +97,7 @@
               />
               <span
                 class="help-block"
+                style="color: red;"
                 *ngIf="!lastName.valid && lastName.touched"
                 >Enter your last name!</span
               >
@@ -126,7 +128,10 @@
                 placeholder="Street Address"
                 #street="ngModel"
               />
-              <span class="help-block" *ngIf="!street.valid && street.touched"
+              <span
+                class="help-block"
+                style="color: red;"
+                *ngIf="!street.valid && street.touched"
                 >Enter your street address!</span
               >
 
@@ -155,7 +160,10 @@
                 placeholder="City"
                 #city="ngModel"
               />
-              <span class="help-block" *ngIf="!city.valid && city.touched"
+              <span
+                class="help-block"
+                style="color: red;"
+                *ngIf="!city.valid && city.touched"
                 >Enter the city name!</span
               >
               <!-- helper valid check -->
@@ -212,8 +220,11 @@
                 placeholder="Postal Code (ex: A1A 1A1)"
                 #postal="ngModel"
               />
-              <span class="help-block" *ngIf="!postal.valid && postal.touched"
-                >Enter the postal code!</span
+              <span
+                class="help-block"
+                style="color: red;"
+                *ngIf="!postal.valid && postal.touched"
+                >Enter your postal code! (ex: A1A 1A1)</span
               >
               <!-- helper valid check -->
               <!-- <span class="help-block" *ngIf="!postal.valid"
@@ -246,8 +257,9 @@
               />
               <span
                 class="help-block"
+                style="color: red;"
                 *ngIf="!cellPhone.valid && cellPhone.touched"
-                >Enter your cell phone!</span
+                >Enter your cell phone! (ex: 111-111-1111)</span
               >
               <!-- helper valid check -->
               <!-- <span class="help-block" *ngIf="!cellPhone.valid"
@@ -277,11 +289,12 @@
                 placeholder="Home Phone (ex: 222-222-2222)"
                 #homePhone="ngModel"
               />
-              <!-- <span
-              class="help-block"
-              *ngIf="!homePhone.valid && homePhone.touched"
-              >Enter your home phone!</span
-            > -->
+              <span
+                class="help-block"
+                style="color: red;"
+                *ngIf="!homePhone.valid && homePhone.touched"
+                >Enter your home phone! (ex: 222-222-2222)</span
+              >
             </div>
           </div>
           <!-- email -->
@@ -306,7 +319,10 @@
                 placeholder="example@example.com"
                 #email="ngModel"
               />
-              <span class="help-block" *ngIf="!email.valid && email.touched"
+              <span
+                class="help-block"
+                style="color: red;"
+                *ngIf="!email.valid && email.touched"
                 >Enter your email!</span
               >
             </div>
@@ -330,7 +346,10 @@
                 placeholder="Age"
                 #age="ngModel"
               />
-              <span class="help-block" *ngIf="!age.valid && age.touched"
+              <span
+                class="help-block"
+                style="color: red;"
+                *ngIf="!age.valid && age.touched"
                 >Enter your age!</span
               >
             </div>
@@ -533,6 +552,7 @@
             <div class="col-md-4">
               <span
                 class="help-block"
+                style="color: red;"
                 *ngIf="!children.valid && children.touched"
                 >Enter number of children in your household!</span
               >
@@ -896,6 +916,7 @@
             ></textarea>
             <span
               class="help-block"
+              style="color: red;"
               *ngIf="!familyPerosonality.valid && familyPerosonality.touched"
               >Please answer the question!</span
             >
@@ -1362,6 +1383,7 @@
               />
               <span
                 class="help-block"
+                style="color: red;"
                 *ngIf="!fenceType.valid && fenceType.touched"
                 >Please enter the type of fence!</span
               >
@@ -4417,6 +4439,7 @@
             />
             <span
               class="help-block"
+              style="color: red;"
               *ngIf="!firstRefFirstName.valid && firstRefFirstName.touched"
               >Enter reference's first name!</span
             >
@@ -4435,6 +4458,7 @@
             />
             <span
               class="help-block"
+              style="color: red;"
               *ngIf="!firstRefLastName.valid && firstRefLastName.touched"
               >Enter reference's last name!</span
             >
@@ -4485,8 +4509,9 @@
             />
             <span
               class="help-block"
+              style="color: red;"
               *ngIf="!firstRefPhone.valid && firstRefPhone.touched"
-              >Enter reference's phone!</span
+              >Enter reference's phone! (ex: 111-111-1111)</span
             >
           </div>
         </div>
@@ -4529,6 +4554,7 @@
             />
             <span
               class="help-block"
+              style="color: red;"
               *ngIf="!secondRefFirstName.valid && secondRefFirstName.touched"
               >Enter reference's first name!</span
             >
@@ -4547,6 +4573,7 @@
             />
             <span
               class="help-block"
+              style="color: red;"
               *ngIf="!secondRefLastName.valid && secondRefLastName.touched"
               >Enter reference's last name!</span
             >
@@ -4598,8 +4625,9 @@
             />
             <span
               class="help-block"
+              style="color: red;"
               *ngIf="!secondRefPhone.valid && firstRefPhone.touched"
-              >Enter reference's phone!</span
+              >Enter reference's phone! (ex: 222-222-2222)</span
             >
           </div>
         </div>
@@ -4812,7 +4840,7 @@
                   <button class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                  submission successful! Thanks for taking the time to fill out
+                  Submission successful! Thanks for taking the time to fill out
                   our Dog application.
                 </div>
                 <div class="modal-footer">
