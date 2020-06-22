@@ -68,6 +68,13 @@ export class DogFormComponent implements OnInit {
     this.router.navigate(["/login"]);
   }
 
+  refresh() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl("/", { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
+  }
+
   //If form has submitted
   validForm: boolean = false;
 

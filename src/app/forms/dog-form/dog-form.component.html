@@ -4844,13 +4844,17 @@
                   our Dog application.
                 </div>
                 <div class="modal-footer">
+                  <!-- target="_top" (click)="onScroll() data-dismiss="modal""   
+                      (click)="errorMessages.length = 0" target="_top" [routerLink]="['/dog-application/new']"-->
+
                   <button
                     class="btn btn-outline-secondary"
-                    data-dismiss="modal"
-                    (click)="errorMessages.length = 0"
+                    
+                    (click)="refresh()"
                   >
                     Fill another Application
                   </button>
+
                   <button
                     class="btn btn-primary"
                     data-dismiss="modal"
