@@ -128,6 +128,7 @@ export class CatForm {
   constructor(
     public id: number,
     public submissionDate: string,
+    public approved: boolean,
     public rejected: boolean,
     public rejectionReason: string,
     public nameOfCat: String,
