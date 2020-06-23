@@ -45,6 +45,12 @@ export class FormLayoutComponent implements OnInit {
 
   parentForm: FormGroup;
   catForm: CatForm;
+
+  id: number = 0;
+  submissionDate: string = "";
+  rejected: boolean = false;
+  rejectionReason: string = "";
+
   //variables for living places validation
   numberOfPetCheck: any;
   sizeWeightCheck: any;
@@ -334,6 +340,10 @@ export class FormLayoutComponent implements OnInit {
       this.formService.notifyRunValidate();
     } else {
       this.catForm = new CatForm(
+        this.id,
+        this.submissionDate,
+        this.rejected,
+        this.rejectionReason,
         this.parentForm.get("basicInfo").get("catName").value,
         this.parentForm.get("basicInfo").get("fname").value,
         this.parentForm.get("basicInfo").get("lname").value,
