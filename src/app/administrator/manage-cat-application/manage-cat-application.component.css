@@ -22,7 +22,9 @@ td {
   text-align: center;
   color: #cd0d2e;
 }
-
+.tableContainer{
+  overflow-x: scroll;
+}
 .fa-check {
   font-size: 20px;
   color: green;

@@ -50,3 +50,6 @@ th {
     background-color: #cd0d2e;
     color: white;
   }
+  .tableContainer{
+    overflow-x: scroll;
+  }

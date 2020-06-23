@@ -2,6 +2,9 @@ th {
   background-color: #cd0d2e;
   color: white;
 }
+.tableContainer{
+  overflow-x: scroll;
+}
 tr {
   padding: 0.5rem;
   vertical-align: center;
