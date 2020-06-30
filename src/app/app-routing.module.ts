@@ -1,3 +1,4 @@
+import { DogApprovedComponent } from './administrator/manage-dog-application/dog-approved/dog-approved/dog-approved.component';
 import { FosterRejectedComponent } from "./administrator/foster-applications/foster-rejected/foster-rejected.component";
 import { ManageCatApplicationComponent } from "./administrator/manage-cat-application/manage-cat-application.component";
 import { NgModule } from "@angular/core";
@@ -47,8 +48,11 @@ const appRoutes: Routes = [
       // { path: "adoptions", component: ManageAdoptionsComponent },
       { path: "cat", component: ManageCatApplicationComponent },
       { path: "dog", component: ManageDogApplicationComponent },
-      {path: "dogarchive", component: DogRejectedComponent},
-      {path: "catarchive", component: CatRejectedComponent},
+      {path: "rejectedDog", component: DogRejectedComponent},
+      {path: "acceptedDog", component: DogApprovedComponent},
+
+
+      {path: "rejectedCat", component: CatRejectedComponent},
       { path: "volunteerarchive", component: VolunteerRejectedComponent },
       { path: "applications", component: VolunteerPendingComponent },
       { path: "fosterarchive", component: FosterRejectedComponent },

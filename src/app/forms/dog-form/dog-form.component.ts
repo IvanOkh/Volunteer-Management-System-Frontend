@@ -31,6 +31,8 @@ export class DogFormComponent implements OnInit {
   submissionDate: string = "";
   rejected: boolean = false;
   rejectionReason: string = "";
+  approved: false;
+
 
   householdAgreement: boolean;
   membersIntroduced: boolean;
@@ -449,6 +451,7 @@ export class DogFormComponent implements OnInit {
         this.id,
         this.submissionDate,
         this.rejected,
+        this.approved,
         this.rejectionReason,
         //APPLICANT
         form.value.dogName, //nameOfDog S

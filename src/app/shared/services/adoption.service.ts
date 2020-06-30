@@ -13,6 +13,7 @@ import { DogForm } from "src/app/forms/dog-form/dog-form.model";
 export class AdoptionService {
   cats: CatForm[] = [];
   dogs: DogForm[] = [];
+  dogArray: DogForm[] = [];
 
   private REST_API_SERVER: string =
     "http://68.66.193.100:8080/CARS/applications/";
@@ -36,13 +37,12 @@ export class AdoptionService {
       .get<DogForm[]>(this.REST_API_SERVER + this.DOG_CTRL_MAPPING)
       .pipe(
         tap((dog: DogForm[]) => {
-          const dogArray: DogForm[] = [];
           if (dog != null) {
             dog.forEach((dog: DogForm) => {
-              dogArray.push(dog);
+              this.dogArray.push(dog);
             });
           }
-          return dogArray;
+          return this.dogArray;
         })
       );
   }
@@ -54,6 +54,22 @@ export class AdoptionService {
         return application;
       })
     );
+  }
+  private sendGetDogApplicationRequest(id: number) {
+    return this.http.get<DogForm[]>(
+      this.REST_API_SERVER + this.DOG_CTRL_MAPPING + id
+    );
+  }
+  
+  public getDOG(dogID: number): Observable<DogForm> {
+    return this.http
+      .get<DogForm>(this.REST_API_SERVER + this.DOG_CTRL_MAPPING + dogID)
+      .pipe(
+        tap((dog: DogForm) => {
+          console.log(dog)
+          return dog;
+        })
+      );
   }
 
   public getCatApplication(catID: number): Observable<CatForm> {
@@ -69,11 +85,7 @@ export class AdoptionService {
       this.REST_API_SERVER + this.CAT_CTRL_MAPPING + id
     );
   }
-  private sendGetDogApplicationRequest(id: number) {
-    return this.http.get<DogForm[]>(
-      this.REST_API_SERVER + this.DOG_CTRL_MAPPING + id
-    );
-  }
+
   updateCatApplication(catChanges: CatForm): Observable<String> {
     return this.http
       .patch(this.REST_API_SERVER + this.CAT_CTRL_MAPPING, catChanges, {
@@ -86,6 +98,8 @@ export class AdoptionService {
       );
   }
   updateDogApplication(dogChanges: DogForm): Observable<String> {
+    // debugger
+    console.log(dogChanges);
     return this.http
       .patch(this.REST_API_SERVER + this.DOG_CTRL_MAPPING, dogChanges, {
         responseType: "text",

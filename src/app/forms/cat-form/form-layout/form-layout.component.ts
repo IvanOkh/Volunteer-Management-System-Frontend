@@ -50,6 +50,7 @@ export class FormLayoutComponent implements OnInit {
   submissionDate: string = "";
   rejected: boolean = false;
   rejectionReason: string = "";
+  approved: false;
 
   //variables for living places validation
   numberOfPetCheck: any;
@@ -342,6 +343,7 @@ export class FormLayoutComponent implements OnInit {
       this.catForm = new CatForm(
         this.id,
         this.submissionDate,
+        this.approved,
         this.rejected,
         this.rejectionReason,
         this.parentForm.get("basicInfo").get("catName").value,

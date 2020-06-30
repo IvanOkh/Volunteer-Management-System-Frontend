@@ -2,7 +2,7 @@ th {
   background-color: #cd0d2e;
   color: white;
 }
-.tableContainer{
+.tableContainer {
   overflow-x: scroll;
 }
 tr {
@@ -10,7 +10,7 @@ tr {
   vertical-align: center;
   border-top: 1px solid #dee2e6;
 }
-.tableRow{
+.tableRow {
   cursor: pointer;
 }
 .tableRow:hover {
@@ -19,7 +19,6 @@ tr {
 td {
   /* padding: 0.75rem; */
   border-top: 1px solid #dee2e6;
-
 }
 .title {
   text-align: center;
@@ -51,8 +50,19 @@ td {
 
 .modal-header {
   background-color: #cd0d2e;
-  color:white;
+  color: white;
 }
-#confirmReject{
-  color:red;
+#confirmReject {
+  color: red;
+}
+
+.modal-footer {
+  display: unset;
+  flex-wrap: unset;
+  align-items: unset;
+  justify-content: unset;
+  padding: 0.75rem;
+  border-top: 1px solid #dee2e6;
+  border-bottom-right-radius: calc(0.3rem - 1px);
+  border-bottom-left-radius: calc(0.3rem - 1px);
 }

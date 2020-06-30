@@ -89,10 +89,28 @@ export class DogRejectedComponent implements OnInit {
           this.adoptionService
             .deleteApplication(this.applicationID)
             .subscribe((result: any) => {
-              // this.loa
               this.ngOnInit();
             });
         }
       });
   }
+
+
+  markPendingApplication(id: number) {
+    console.log(id);
+    this.adoptionService.getDogApplication(id).subscribe((dog: DogForm) => {
+      if (dog) {
+        dog.rejected = false;
+        // dog.rejectionReason = reason;
+        this.adoptionService
+          .updateDogApplication(dog)
+          .subscribe((result: any) => {
+            this.ngOnInit(); //re-load the table to update new information
+          });
+      }
+    });
+  }
+
+
+
 }

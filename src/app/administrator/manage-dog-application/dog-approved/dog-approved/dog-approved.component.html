@@ -1,23 +1,25 @@
 <div class="tableContainer">
-  <div class="container">
+  <div class="container pt-2">
     <h1 style="color: #ce0e2d">Dog Applications</h1>
+    <!-- Pending and Archived tabs -->
     <div class="mb-5 mt-3">
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <!-- <a class="nav-link" href="#">Archived</a> -->
-          <a class="nav-link" routerLink="/admin/dog" routerLinkActive="active">
-            Pending Applications
-          </a>
+          <a class="nav-link" routerLink="/admin/dog" routerLinkActive="active">Pending Applications </a>
         </li>
         <li class="nav-item">
           <!-- <a class="nav-link" href="#">Archived</a> -->
-          <a class="nav-link" routerLink="/admin/acceptedDog" routerLinkActive="active">
+          <a class="nav-link active" routerLink="/admin/acceptedDog" routerLinkActive="active">
             Accepted Applications
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active">Rejected Applications </a>
+          <!-- <a class="nav-link" href="#">Archived</a> -->
+          <a style="color: red" class="nav-link" routerLink="/admin/rejectedDog" routerLinkActive="active">
+            Rejected Applications
+          </a>
         </li>
+
       </ul>
     </div>
 
@@ -28,8 +30,6 @@
         </div>
       </div>
     </ng-container>
-
-
     <ng-container *ngIf="!this.isLoading && this.dogArray.length > 0">
       <div class="input-group mb-3">
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search..." type="text"
@@ -39,72 +39,61 @@
         </div>
       </div>
     </ng-container>
-
     <ng-container *ngIf="!this.isLoading && this.dogArray.length === 0;">
       <div class="row justify-content-center">
-        <h3>No rejected applications to display!</h3>
+        <h3>No new applications to display!</h3>
       </div>
     </ng-container>
 
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-5" matSort width="100%">
-      <ng-container matColumnDef="nameOfDog">
-        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>Dog name</th>
-        <td mat-cell *matCellDef="let element">
-          <div *ngIf="element.nameOfDog == ''" style="color:red;"><em>*Dog is not named*</em></div>
-          <div *ngIf="element.nameOfDog != ''">{{element.nameOfDog}}</div>
-        </td>
-      </ng-container>
+    <div *ngIf="!this.isLoading && this.dogArray.length != 0;">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-3" matSort width="100%">
+        <ng-container matColumnDef="nameOfDog">
+          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>Dog name</th>
 
-      <ng-container matColumnDef="submissionDate">
-        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Submission date</th>
-        <td mat-cell *matCellDef="let element">{{element.submissionDate}}</td>
-      </ng-container>
+          <td mat-cell *matCellDef="let element">
+            <div *ngIf="element.nameOfDog == '' || element.nameOfDog == null" style="color:red;"><em>*Dog is not
+                named*</em>
+            </div>
+            <div *ngIf="element.nameOfDog != '' || element.nameOfDog == null">{{element.nameOfDog}}</div>
+          </td>
+        </ng-container>
 
-      <ng-container matColumnDef="applicant">
-        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Applicant's name</th>
-        <td mat-cell *matCellDef="let element">{{element.fname + ' ' + element.lname}}</td>
-      </ng-container>
+        <ng-container matColumnDef="submissionDate">
+          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Submission date</th>
+          <td mat-cell *matCellDef="let element">{{element.submissionDate}}</td>
+        </ng-container>
 
-      <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Email</th>
-        <td mat-cell *matCellDef="let element">{{element?.email}}</td>
-      </ng-container>
+        <ng-container matColumnDef="applicant">
+          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Applicant's name</th>
+          <td mat-cell *matCellDef="let element">{{element.fname + ' ' + element.lname}}</td>
+        </ng-container>
 
-      <ng-container matColumnDef="phone">
-        <th mat-header-cell *matHeaderCellDef class="th"> Phone</th>
-        <td mat-cell *matCellDef="let element">{{element?.cellPhone}}
-      </ng-container>
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Email</th>
+          <td mat-cell *matCellDef="let element">{{element?.email}}</td>
+        </ng-container>
 
-      <ng-container matColumnDef="address">
-        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Address</th>
-        <td mat-cell *matCellDef="let element">{{element?.address + ', ' + element?.city + ', ' + element?.province}}
-        </td>
-      </ng-container>
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef class="th"> Phone</th>
+          <td mat-cell *matCellDef="let element">{{element?.cellPhone}}
+        </ng-container>
 
-      <ng-container matColumnDef="rejectedReason">
-        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Rejection Reason</th>
-        <td mat-cell *matCellDef="let element">{{element?.rejectionReason}}
-        </td>
-      </ng-container>
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Address</th>
+          <td mat-cell *matCellDef="let element">{{element?.address + ', ' + element?.city + ', ' + element?.province}}
+          </td>
+        </ng-container>
 
-      <ng-container matColumnDef="rejected">
-        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
-          Approval
-        </th>
-        <td mat-cell *matCellDef="let element">
-          Rejected: {{ element?.rejected}}<br> Approval: {{ element?.approved}}
-        </td>
-      </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr class="tableRow" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row.id)"
-        data-toggle="modal" data-target="#modalDogInfo" style="pointer:cursor">
-      </tr>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="tableRow" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row.id)"
+          data-toggle="modal" data-target="#modalDogInfo" style="pointer:cursor">
+        </tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20,50,100,500]" showFirstLastButtons></mat-paginator>
 
-    </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20,50,100,500]" showFirstLastButtons></mat-paginator>
-
+    </div>
 
 
     <!-- POPUP MODAL FOR Dog INFO  -->
@@ -141,6 +130,8 @@
                         application?.city + ', ' + application?.province + ', ' + application?.postalCode}}</p>
                     </div>
                   </div>
+
+
 
                   <hr>
                   <h4 class="title">Family and Lifestyle</h4>
@@ -606,49 +597,9 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal" data-dismiss="modal"
-              data-target="#confirmDelete" data-toggle="modal">Delete Application</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"
+              style="float:right">Close</button>
 
-
-            
-            <button class="btn btn-success" data-dismiss="modal"
-              (click)="markPendingApplication(applicationID)">
-              Mark as Pending
-            </button>
-
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- confirm delete  -->
-    <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">
-              Confirm Delete
-            </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body ml-2" style="padding: 4% 0px;">
-            Are you sure you want to permanently delete
-            <span style="color: orangered;">{{ application?.fname + " " + application?.lname }}'s application
-            </span>
-            ?
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-danger" data-dismiss="modal" (click)="deleteApplication()">
-              Delete
-            </button>
-            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
-              Cancel
-            </button>
           </div>
         </div>
       </div>
@@ -662,5 +613,6 @@
         </p>
       </div>
     </ng-container>
+
   </div>
 </div>
