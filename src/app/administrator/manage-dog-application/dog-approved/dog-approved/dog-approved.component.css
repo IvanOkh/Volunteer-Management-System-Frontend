@@ -1,0 +1,55 @@
+th {
+    background-color: #cd0d2e;
+    color: white;
+  }
+  .tableContainer {
+    overflow-x: scroll;
+  }
+  tr {
+    padding: 0.5rem;
+    vertical-align: center;
+    border-top: 1px solid #dee2e6;
+  }
+  .tableRow {
+    cursor: pointer;
+  }
+  .tableRow:hover {
+    background-color: #f5d4d9;
+  }
+  td {
+    /* padding: 0.75rem; */
+    border-top: 1px solid #dee2e6;
+  }
+  .title {
+    text-align: center;
+    color: #cd0d2e;
+  }
+  
+  .fa-check {
+    font-size: 20px;
+    color: green;
+  }
+  .fa-times {
+    font-size: 20px;
+    color: red;
+  }
+  .referenceContainer {
+    border: 1px solid #cd0d2e;
+    padding: 2px;
+    border-radius: 2%;
+  }
+  /* INPUT FOR SEARCHING  */
+  .input-group {
+    width: 60%;
+    margin: auto;
+  }
+  .form-control {
+    border: 0.5px solid #c5c3c3;
+    padding-left: 15px;
+  }
+  
+  .modal-header {
+    background-color: #cd0d2e;
+    color: white;
+  }
+  

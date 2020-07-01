@@ -35,7 +35,7 @@ export class ManageDogApplicationComponent implements OnInit {
     "email",
     "phone",
     "address",
-    "rejected",
+    // "rejected"
   ];
   rejectedDog: DogForm;
 
@@ -51,7 +51,7 @@ export class ManageDogApplicationComponent implements OnInit {
       this.pendingDogArray = [];
       this.dogArray = dogs;
       this.dogArray.forEach((pendingDog: DogForm) => {
-        if (!pendingDog.rejected && !pendingDog.approved) {
+        if (pendingDog.approved == false && pendingDog.rejected == false) {
           this.pendingDogArray.push(pendingDog);
           this.dataSource = new MatTableDataSource(this.pendingDogArray);
           this.dataSource.sort = this.sort;
@@ -90,31 +90,32 @@ export class ManageDogApplicationComponent implements OnInit {
   rejectApplication(id: number, reason: string) {
     console.log(id);
     this.adoptionService.getDogApplication(id).subscribe((dog: DogForm) => {
-      dog.rejected = true;
-      dog.rejectionReason = reason;
-      dog.approved = false;
+        dog.rejected = true;
+        dog.rejectionReason = reason;
+        dog.approved = false;
+        this.adoptionService
+          .updateDogApplication(dog)
+          .subscribe((result: any) => {
+            console.log(result);
+          this.ngOnInit();
+
+          });
+
+    });
+  }
+
+  acceptApplication(id: number) {
+    console.log(id);
+    this.adoptionService.getDogApplication(id).subscribe((dog: DogForm) => {
+      dog.approved = true;
+      dog.rejected = false;
+      console.log(dog);
       this.adoptionService
         .updateDogApplication(dog)
         .subscribe((result: any) => {
           console.log(result);
+          this.ngOnInit(); //re-load the table to update new information
         });
-      this.ngOnInit();
     });
   }
-
-  // acceptApplication(id: number) {
-  //   console.log(id);
-  //   this.adoptionService.getDogApplication(id).subscribe((dog: DogForm) => {
-  //     // if (dog) {
-  //       dog.approved = false;
-  //       dog.rejected = true;
-  //       console.log(dog)
-  //       this.adoptionService
-  //         .updateDogApplication(dog)
-  //         .subscribe((result: any) => {
-  //           this.ngOnInit(); //re-load the table to update new information
-  //         });
-
-  //   });
-  // }
 }

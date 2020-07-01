@@ -1,13 +1,18 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/material';
-import { NgForm } from '@angular/forms';
-import { AdoptionService } from 'src/app/shared/services/adoption.service';
-import { DogForm } from 'src/app/forms/dog-form/dog-form.model';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import {
+  MatPaginator,
+  MatSort,
+  MatTableDataSource,
+  MatDialog,
+} from "@angular/material";
+import { NgForm } from "@angular/forms";
+import { AdoptionService } from "src/app/shared/services/adoption.service";
+import { DogForm } from "src/app/forms/dog-form/dog-form.model";
 
 @Component({
-  selector: 'app-dog-approved',
-  templateUrl: './dog-approved.component.html',
-  styleUrls: ['./dog-approved.component.css']
+  selector: "app-dog-approved",
+  templateUrl: "./dog-approved.component.html",
+  styleUrls: ["./dog-approved.component.css"],
 })
 export class DogApprovedComponent implements OnInit {
   application: any;
@@ -77,5 +82,19 @@ export class DogApprovedComponent implements OnInit {
       }
     );
   }
-
+  //Method to reject an application
+  rejectApplication(id: number, reason: string) {
+    console.log(id);
+    this.adoptionService.getDogApplication(id).subscribe((dog: DogForm) => {
+      dog.rejected = true;
+      dog.rejectionReason = reason;
+      dog.approved = false;
+      this.adoptionService
+        .updateDogApplication(dog)
+        .subscribe((result: any) => {
+          console.log(result);
+          this.ngOnInit();
+        });
+    });
+  }
 }

@@ -37,24 +37,28 @@ export class DogRejectedComponent implements OnInit {
     "phone",
     "address",
     "rejectedReason",
-    "rejected",
+    // "rejected",
   ];
+  pendingDogArray: any[];
 
   constructor(
     public dialog: MatDialog,
     private adoptionService: AdoptionService
   ) {}
 
-  ngOnInit() {
+   //Load table
+   ngOnInit() {
     this.isLoading = true;
-    this.dogArray = [];
-    this.adoptionService.loadDogs().subscribe((rejectedDogApp) => {
-      rejectedDogApp.forEach((dogs: DogForm) => {
-        if (dogs.rejected) {
-          this.dogArray.push(dogs);
-          this.dataSource = new MatTableDataSource(this.dogArray);
+    this.adoptionService.loadDogs().subscribe((dogs) => {
+      this.pendingDogArray = [];
+      this.dogArray = dogs;
+      this.dogArray.forEach((pendingDog: DogForm) => {
+        if (pendingDog.rejected == true) {
+          this.pendingDogArray.push(pendingDog);
+          this.dataSource = new MatTableDataSource(this.pendingDogArray);
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
+          this.application = this.dogArray[0];
           this.isLoading = false;
         }
       });
@@ -101,6 +105,7 @@ export class DogRejectedComponent implements OnInit {
     this.adoptionService.getDogApplication(id).subscribe((dog: DogForm) => {
       if (dog) {
         dog.rejected = false;
+        dog.approved = false;
         // dog.rejectionReason = reason;
         this.adoptionService
           .updateDogApplication(dog)
