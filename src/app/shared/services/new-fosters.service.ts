@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
 import { FosterModel } from "../models/foster.model";
-import { FosterApplication } from '../models/foster-applications.model';
+import { FosterApplication } from "../models/foster-applications.model";
 
 /******************************************************************************/
 @Injectable({
@@ -30,7 +30,7 @@ export class FostersService {
         const fosterArray: FosterModel[] = [];
         if (responseData != null) {
           responseData.forEach((foster: FosterModel) => {
-              fosterArray.push(foster);
+            fosterArray.push(foster);
           });
         }
         return fosterArray;
@@ -49,14 +49,13 @@ export class FostersService {
         const fosterAppArray: FosterApplication[] = [];
         if (responseData != null) {
           responseData.forEach((fosterApp: FosterApplication) => {
-              fosterAppArray.push(fosterApp);
+            fosterAppArray.push(fosterApp);
           });
         }
         return fosterAppArray;
       })
     );
   }
-
 
   /**
    * Send a request to the backend for an array containing all rejected foster applications
@@ -76,7 +75,6 @@ export class FostersService {
     );
   }
 
-
   /**
    * Sends a request to get a single Foster matching the input id.
    * Returns a subscribe-able object containing the found Foster.
@@ -91,7 +89,7 @@ export class FostersService {
     );
   }
 
-    /**
+  /**
    * Sends a request to get a single FosterApplication matching the input id.
    * Returns a subscribe-able object containing the found Foster.
    * @param fosterID
@@ -111,22 +109,24 @@ export class FostersService {
    * subscibe-able object containing the server success/error response.
    * @param newFoster
    */
-  public addFoster(id: number): Observable<string> {
-    return this.sendPostFosterRequest(id).pipe(
-      map((responseData: string) => {
+  public addFoster(fostr: FosterApplication): Observable<string> {
+    return this.sendPostFosterRequest(fostr).pipe(
+      map((responseData) => {
+        console.log(responseData);
         return responseData;
       })
     );
   }
 
-
-   /**
+  /**
    * Sends a request to add a new Foster to the backend database. The
    * input is the new Foster to persist to the backend. Returns a
    * subscibe-able object containing the server success/error response.
    * @param newFoster
    */
-  public addFosterApplication(newFosterApplication: FosterApplication): Observable<string> {
+  public addFosterApplication(
+    newFosterApplication: FosterApplication
+  ): Observable<string> {
     return this.sendPostApplicationRequest(newFosterApplication).pipe(
       map((responseData) => {
         return responseData;
@@ -149,14 +149,16 @@ export class FostersService {
     );
   }
 
-   /**
+  /**
    * Sends a request to update a foster. The input is a Foster
    * with the same ID as the one we want to update in the backend.
    * Returns a subscibe-able object containing the server success/error
    * response.
    * @param changes
    */
-  public updateFosterApplication(changes: FosterApplication): Observable<string> {
+  public updateFosterApplication(
+    changes: FosterApplication
+  ): Observable<string> {
     return this.sendUpdateApplicationRequest(changes).pipe(
       map((responseData: string) => {
         return responseData;
@@ -178,7 +180,7 @@ export class FostersService {
     );
   }
 
-    /**
+  /**
    * Sends a delete request to the backend. Input ID is used in the
    * backend to delete a foster with a matching ID. Returns a subscribe-
    * able object containing the server success/error response.
@@ -205,22 +207,31 @@ export class FostersService {
     );
   }
 
-  private sendPostFosterRequest(id: number) {
-    return this.http.post("http://68.66.193.100:8080/CARS/fosters/new/"+ id, {
+  private sendPostFosterRequest(fostr: FosterApplication) {
+    console.log("Sending foster with id " + fostr.id);
+    console.log("Foster himself: " + fostr);
+    return this.http.post("http://68.66.193.100:8080/CARS/fosters", fostr, {
       responseType: "text",
     });
   }
 
   private sendUpdateFosterRequest(foster: FosterModel) {
-    return this.http.patch(this.REST_API_SERVER + this.CTRL_FOSTER_MAPPING, foster, {
-      responseType: "text",
-    });
+    return this.http.patch(
+      this.REST_API_SERVER + this.CTRL_FOSTER_MAPPING,
+      foster,
+      {
+        responseType: "text",
+      }
+    );
   }
 
   private sendDeleteFosterRequest(id: number) {
-    return this.http.delete(this.REST_API_SERVER + this.CTRL_FOSTER_MAPPING + id, {
-      responseType: "text",
-    });
+    return this.http.delete(
+      this.REST_API_SERVER + this.CTRL_FOSTER_MAPPING + id,
+      {
+        responseType: "text",
+      }
+    );
   }
 
   /*************************************Applications*****************************************/
@@ -237,20 +248,31 @@ export class FostersService {
   }
 
   private sendPostApplicationRequest(application: FosterApplication) {
-    return this.http.post(this.REST_API_SERVER + this.CTRL_APPLICATION_MAPPING, application, {
-      responseType: "text",
-    });
+    return this.http.post(
+      this.REST_API_SERVER + this.CTRL_APPLICATION_MAPPING,
+      application,
+      {
+        responseType: "text",
+      }
+    );
   }
 
   private sendUpdateApplicationRequest(application: FosterApplication) {
-    return this.http.patch(this.REST_API_SERVER + this.CTRL_APPLICATION_MAPPING, application, {
-      responseType: "text",
-    });
+    return this.http.patch(
+      this.REST_API_SERVER + this.CTRL_APPLICATION_MAPPING,
+      application,
+      {
+        responseType: "text",
+      }
+    );
   }
 
   private sendDeleteApplicationRequest(id: number) {
-    return this.http.delete(this.REST_API_SERVER + this.CTRL_APPLICATION_MAPPING + id, {
-      responseType: "text",
-    });
+    return this.http.delete(
+      this.REST_API_SERVER + this.CTRL_APPLICATION_MAPPING + id,
+      {
+        responseType: "text",
+      }
+    );
   }
 }
