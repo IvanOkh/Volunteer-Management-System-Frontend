@@ -5,6 +5,7 @@ import { Component, OnInit, ApplicationInitStatus } from "@angular/core";
 import { FosterApplication } from "src/app/shared/models/foster-applications.model";
 import { FosterModel } from "src/app/shared/models/foster.model";
 import { FostersService } from "src/app/shared/services/new-fosters.service";
+import { FosterRejectedComponent } from "../foster-rejected/foster-rejected.component";
 
 @Component({
   selector: "app-foster-pending",
@@ -25,27 +26,23 @@ export class FosterPendingComponent implements OnInit {
   /**
    * Turns foster application into an official foster in the system. Takes attributes that were provided in the
    * application model as attributes for the new FosterModel and DELETES the foster application.
-   * @param fosterID
+   * @param fostr
    */
-  acceptApplication(fosterID: number): void {
+  acceptApplication(fostr: FosterApplication): void {
     // guard condition if the fosterID returend by the DOM is undefiend
-    if (!fosterID) {
-      console.log("ERROR: foster id is" + fosterID);
+    if (!fostr.id) {
+      console.log("ERROR: foster id is" + fostr.id);
       return;
     }
-
-     this.fs.getFosterApplication(fosterID).subscribe(
-      (foster: FosterApplication) => {
-         if (foster) {
-          this.fs.addFoster(fosterID);
-        } else {
-          // foster is null (happens when not found)
-          console.log("Foster not found!");
-        }
+    // always subscribe if service class returns observable, which it does in this case
+    this.fs.addFoster(fostr).subscribe(
+      () => {
+        //success
+        this.loadPendingApplicants();
       },
       (error: any) => {
-        // http error
-        console.log(error);
+        //error
+        console.log("Add foster HTTP response failed.");
       }
     );
   }
