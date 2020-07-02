@@ -28,14 +28,14 @@ export class FosterPendingComponent implements OnInit {
    * application model as attributes for the new FosterModel and DELETES the foster application.
    * @param fostr
    */
-  acceptApplication(fostr: FosterApplication): void {
-    // guard condition if the fosterID returend by the DOM is undefiend
-    if (!fostr.id) {
-      console.log("ERROR: foster id is" + fostr.id);
+  acceptApplication(foster: FosterApplication): void {
+    // guard condition if the foster.id returend by the DOM is undefiend
+    if (!foster.id) {
+      console.log("ERROR: foster id is" + foster.id);
       return;
     }
-    // always subscribe if service class returns observable, which it does in this case
-    this.fs.addFoster(fostr).subscribe(
+    
+    this.fs.addFoster(foster).subscribe(
       () => {
         //success
         this.loadPendingApplicants();

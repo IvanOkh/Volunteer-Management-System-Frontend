@@ -107,10 +107,10 @@ export class FostersService {
    * Sends a request to add a new Foster to the backend database. The
    * input is the new Foster to persist to the backend. Returns a
    * subscibe-able object containing the server success/error response.
-   * @param newFoster
+   * @param fosterFoster
    */
-  public addFoster(fostr: FosterApplication): Observable<string> {
-    return this.sendPostFosterRequest(fostr).pipe(
+  public addFoster(foster: FosterApplication): Observable<string> {
+    return this.sendPostFosterRequest(foster).pipe(
       map((responseData) => {
         console.log(responseData);
         return responseData;
@@ -207,10 +207,8 @@ export class FostersService {
     );
   }
 
-  private sendPostFosterRequest(fostr: FosterApplication) {
-    console.log("Sending foster with id " + fostr.id);
-    console.log("Foster himself: " + fostr);
-    return this.http.post("http://68.66.193.100:8080/CARS/fosters", fostr, {
+  private sendPostFosterRequest(foster: FosterApplication) {
+    return this.http.post("http://68.66.193.100:8080/CARS/fosters", foster, {
       responseType: "text",
     });
   }

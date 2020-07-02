@@ -17,7 +17,7 @@ export class VolunteerPendingComponent implements OnInit
   appList: VolunteerApplication[] = [];
   isLoading: boolean = false;
 
-  constructor(private test: VolunteerService) {}
+  constructor(private vs: VolunteerService) {}
 
   ngOnInit()
   {
@@ -25,47 +25,28 @@ export class VolunteerPendingComponent implements OnInit
     this.loadPendingApplicants();     // this one loads all applicants regardless of active status
   }
 
-  acceptApplication(volunteerID: number): void
+  acceptApplication(volunteer: VolunteerApplication): void
   {
-    // guard condition if the volunteerID returend by the DOM is undefiend
-    if (!volunteerID) {
-      console.log('ERROR: volunteer id is' + volunteerID);
+    // guard condition if the volunteer.id returend by the DOM is undefiend
+    if (!volunteer.id) {
+      console.log('ERROR: volunteer id is' + volunteer.id);
       return;
     }
-
-    this.test.getVolunteerApplication(volunteerID)
-    .subscribe(
-      (volunteer: VolunteerApplication) => {  // http success
-        console.log(volunteer);
-        if (volunteer) {  // if volunteer is found
-          
-          //Create new Volunteer and add to system
-          const newVolunteer: VolunteerForm = new VolunteerForm(
-            volunteer.id, true, "", "", volunteer.fname, volunteer.lname, volunteer.address, volunteer.city,
-            volunteer.province, volunteer.postalCode, volunteer.cellPhone, volunteer.homePhone, volunteer.email, 
-            volunteer.over18, volunteer.gender, volunteer.tshirtSize, volunteer.selfdescription, volunteer.emg1_fname,
-            volunteer.emg1_lname, volunteer.emg1_relationship, volunteer.emg1_homePhone, volunteer.emg1_cellPhone, 
-            volunteer.emg1_email, volunteer.emg2_fname, volunteer.emg2_lname, volunteer.emg2_relationship, 
-            volunteer.emg2_homePhone, volunteer.emg2_cellPhone, volunteer.emg2_email, volunteer.ref1_fname,
-            volunteer.ref1_lname, volunteer.ref1_cellPhone, volunteer.ref1_email, volunteer.ref2_fname, 
-            volunteer.ref2_lname, volunteer.ref2_cellPhone, volunteer.ref2_email, volunteer.emailAllowed, volunteer.emailPref
-            );
-          this.test.addVolunteer(newVolunteer);
-
-          //Delete application
-          this.deleteApplication(volunteerID);
-        } else {  // volunteer is null (happens when not found)
-          console.log('Volunteer not found!')
-        }
+    
+      this.vs.addVolunteer(volunteer).subscribe(
+      () => {
+        //success
+        this.loadPendingApplicants();
       },
-      (error: any) => {  // http error
+      (error: any) => {
+        //error
         console.log(error);
       }
     );
   }
 
 
-  //NOTE TO MYSELF(albert): Create functionality for rejection note
+
   rejectApplication(volunteerID: number, reason:string): void
   {
     // guard condition if the volunteerID returend by the DOM is undefiend
@@ -74,7 +55,7 @@ export class VolunteerPendingComponent implements OnInit
       return;
     }
 
-    this.test.getVolunteerApplication(volunteerID)
+    this.vs.getVolunteerApplication(volunteerID)
     .subscribe(
       (volunteer: VolunteerApplication) => {  // http success
         if (volunteer) {  // if volunteer is found
@@ -94,7 +75,7 @@ export class VolunteerPendingComponent implements OnInit
   private loadPendingApplicants(): void
   {
     this.isLoading = true;
-    this.test.loadApplicants()
+    this.vs.loadApplicants()
     .subscribe(
       (applicants: VolunteerApplication[]) => {
         this.appList = [];
@@ -114,7 +95,7 @@ export class VolunteerPendingComponent implements OnInit
 
   private updateApplication(changes: VolunteerApplication): void
   {
-    this.test.updateVolunteerApplication(changes)
+    this.vs.updateVolunteerApplication(changes)
     .subscribe(
       (status: any) => {
         this.loadPendingApplicants();   //! this line refreshes content after update.
@@ -126,7 +107,7 @@ export class VolunteerPendingComponent implements OnInit
   }
 
   private deleteApplication(id: number): void{
-    this.test.removeApplication(id)
+    this.vs.removeApplication(id)
     .subscribe(
       (status: any) => {
         this.loadPendingApplicants();   //! this line refreshes content after update.

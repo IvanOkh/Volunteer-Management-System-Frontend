@@ -107,11 +107,12 @@ export class VolunteerService {
    * Sends a request to add a new Volunteer to the backend database. The
    * input is the new Volunteer to persist to the backend. Returns a
    * subscibe-able object containing the server success/error response.
-   * @param newVolunteer
+   * @param volunteer
    */
-  public addVolunteer(newVolunteer: VolunteerForm): Observable<string> {
-    return this.sendPostVolunteerRequest(newVolunteer).pipe(
+  public addVolunteer(volunteer: VolunteerApplication): Observable<string> {
+    return this.sendPostVolunteerRequest(volunteer).pipe(
       map((responseData) => {
+        console.log(responseData);
         return responseData;
       })
     );
@@ -211,8 +212,8 @@ export class VolunteerService {
   /**
    * HTTP post new Volunteer to server
    */
-  private sendPostVolunteerRequest(volunteer: VolunteerForm) {
-    return this.http.post(this.REST_API_SERVER + this.CTRL_VOLUNTEER_MAPPING + this.NEWVOLUNTEER_MAPPING + volunteer.id , volunteer, {
+  private sendPostVolunteerRequest(volunteer: VolunteerApplication) {
+    return this.http.post("http://68.66.193.100:8080/CARS/volunteers", volunteer, {
       responseType: "text",
     });
   }
