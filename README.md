@@ -1,4 +1,4 @@
-# CARS Managemenet System
+# CARS Management System
 ![login page image](images/Login-Page-1.1.jpg)
 
   ## Problem
