@@ -1,8 +1,10 @@
 
 #  Project Tasks 					
-## Update: Sunday, June 21th, 2020
+## Update: Sunday, July 5th, 2020
 
 ### APP-WIDE:
+
+•	Get images/preferences from the client.
 
 •	Implement dynamic and smooth transitionon admin and user side.
 
@@ -24,6 +26,10 @@
 
 •	In rejected volunteer and foster applications, change reject button to delete (make sure delete works after pressing, with modal asking confirmation to permanently delete rejected application).
 
+•	Apply responsive.
+
 ### USER-SIDE:
+
+•	Handle event case with 0 items.
 
 •	Apply responsive.
