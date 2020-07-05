@@ -1,29 +1,21 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import {
-  MatPaginator,
-  MatSort,
-  MatTableDataSource,
-  MatDialog,
-} from "@angular/material";
-import { NgForm } from "@angular/forms";
-import { AdoptionService } from "src/app/shared/services/adoption.service";
-import { AnimalModel } from "src/app/shared/models/animal.model";
-import { CatForm } from "src/app/forms/cat-form/cat-model";
+import { CatForm } from './../../../../forms/cat-form/cat-model';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/material';
+import { NgForm } from '@angular/forms';
+import { AdoptionService } from 'src/app/shared/services/adoption.service';
 
 @Component({
-  selector: "app-manage-cat-application",
-  templateUrl: "./manage-cat-application.component.html",
-  styleUrls: ["./manage-cat-application.component.css"],
-  providers: [AdoptionService],
+  selector: 'app-cat-approved',
+  templateUrl: './cat-approved.component.html',
+  styleUrls: ['./cat-approved.component.css']
 })
-export class ManageCatApplicationComponent implements OnInit {
-  catObj: AnimalModel;
+export class CatApprovedComponent implements OnInit {
+
   application: any;
   catArray = [];
-  isLoading: boolean = false;
-  applicationID: number;
-  pending: any[];
   pendingCatArray = [];
+  isLoading: boolean = false;
+  applicationID: any;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -37,6 +29,7 @@ export class ManageCatApplicationComponent implements OnInit {
     "email",
     "phone",
     "address",
+
   ];
 
   constructor(
@@ -44,13 +37,14 @@ export class ManageCatApplicationComponent implements OnInit {
     private adoptionService: AdoptionService
   ) {}
 
+  //Load table
   ngOnInit() {
     this.isLoading = true;
     this.adoptionService.loadCats().subscribe((cats) => {
-      this.pending = [];
+      this.pendingCatArray = [];
       this.catArray = cats;
       this.catArray.forEach((pendingCat: CatForm) => {
-        if (pendingCat.approved == false && pendingCat.rejected == false) {
+        if (pendingCat.approved == true && pendingCat.rejected == false) {
           this.pendingCatArray.push(pendingCat);
           this.dataSource = new MatTableDataSource(this.pendingCatArray);
           this.dataSource.sort = this.sort;
@@ -61,9 +55,13 @@ export class ManageCatApplicationComponent implements OnInit {
       });
     });
   }
+
+  //Using Angular material to apply filter for every applications
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  //Method to get data when a person click on a row (passing dogID)
   getRecord(id: number) {
     this.isLoading = true;
     this.catArray.forEach(
@@ -84,29 +82,16 @@ export class ManageCatApplicationComponent implements OnInit {
   rejectApplication(id: number, reason: string) {
     console.log(id);
     this.adoptionService.getCatApplication(id).subscribe((cat: CatForm) => {
-      if (cat) {
-        cat.rejected = true;
-        cat.rejectionReason = reason;
-        this.adoptionService
-          .updateCatApplication(cat)
-          .subscribe((result: any) => {
-            this.ngOnInit(); //re-load the table to update new information
-          });
-      }
-    });
-  }
-  acceptApplication(id: number) {
-    console.log(id);
-    this.adoptionService.getCatApplication(id).subscribe((cat: CatForm) => {
-      cat.approved = true;
-      cat.rejected = false;
-      console.log(cat);
+      cat.rejected = true;
+      cat.rejectionReason = reason;
+      cat.approved = false;
       this.adoptionService
         .updateCatApplication(cat)
         .subscribe((result: any) => {
           console.log(result);
-          this.ngOnInit(); //re-load the table to update new information
+          this.ngOnInit();
         });
     });
   }
+
 }

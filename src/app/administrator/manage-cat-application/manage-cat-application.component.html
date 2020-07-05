@@ -8,7 +8,13 @@
         </li>
         <li class="nav-item">
           <!-- <a class="nav-link" href="#">Archived</a> -->
-          <a class="nav-link" routerLink="/admin/rejectedCat" routerLinkActive="active">
+          <a class="nav-link" routerLink="/admin/acceptedCat" routerLinkActive="active">
+            Accepted Applications
+          </a>
+        </li>
+        <li class="nav-item">
+          <!-- <a class="nav-link" href="#">Archived</a> -->
+          <a class="nav-link" routerLink="/admin/rejectedCat" routerLinkActive="active" style="color: red;">
             Rejected Applications
           </a>
         </li>
@@ -22,7 +28,6 @@
         </div>
       </div>
     </ng-container>
-
     <ng-container *ngIf="!this.isLoading && this.catArray.length > 0">
       <div class="input-group mb-3">
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search..." type="text"
@@ -32,14 +37,11 @@
         </div>
       </div>
     </ng-container>
-
     <ng-container *ngIf="!this.isLoading && this.catArray.length === 0;">
       <div class="row justify-content-center">
         <h3>No new applications to display!</h3>
       </div>
     </ng-container>
-
-    <p style="color: red;"><em>*Note: Highlighted row indicates rejected applications*</em></p>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-3" matSort width="100%">
       <ng-container matColumnDef="nameOfCat">
@@ -76,20 +78,6 @@
         </td>
       </ng-container>
 
-
-      <ng-container matColumnDef="rejected">
-        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
-          Approval
-        </th>
-        <td mat-cell *matCellDef="let element">
-          <div *ngIf="element.rejected; else pending">
-            <i class="fa fa-times-circle" aria-hidden="true" style="color:red; font: size 20px; margin-left:15px"></i>
-          </div>
-          <ng-template #pending>
-            <i class="fa fa-spinner" aria-hidden="true" style="color:orangered; font: size 25px;margin-left:15px"></i>
-          </ng-template>
-        </td>
-      </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr class="tableRow" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row.id)"
@@ -639,8 +627,10 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-danger" data-toggle="modal" [disabled]="application?.rejected"
-                data-target="#modalRejected" data-dismiss="modal" style="pointer:cursor">Reject Application</button>
+                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalRejected"
+                data-dismiss="modal" style="pointer:cursor;">Reject</button>
+                <button type="button" class="btn btn-outline-success" data-toggle="modal"
+                data-dismiss="modal" style="pointer:cursor;"(click)="acceptApplication(applicationID)" style="float: right;">Approve</button>
             </div>
           </div>
         </div>

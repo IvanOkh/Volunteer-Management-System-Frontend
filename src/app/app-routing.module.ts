@@ -1,4 +1,4 @@
-import { DogApprovedComponent } from './administrator/manage-dog-application/dog-approved/dog-approved/dog-approved.component';
+import { DogApprovedComponent } from "./administrator/manage-dog-application/dog-approved/dog-approved/dog-approved.component";
 import { FosterRejectedComponent } from "./administrator/foster-applications/foster-rejected/foster-rejected.component";
 import { ManageCatApplicationComponent } from "./administrator/manage-cat-application/manage-cat-application.component";
 import { NgModule } from "@angular/core";
@@ -23,8 +23,9 @@ import { MainPageComponent } from "./shared/components/main-page/main-page.compo
 import { ManageDogApplicationComponent } from "./administrator/manage-dog-application/manage-dog-application.component";
 import { VolunteerRejectedComponent } from "./administrator/volunteer-applications/volunteer-rejected/volunteer-rejected.component";
 import { FosterPendingComponent } from "./administrator/foster-applications/foster-pending/foster-pending.component";
-import { DogRejectedComponent } from './administrator/manage-dog-application/dog-rejected/dog-rejected/dog-rejected.component';
-import { CatRejectedComponent } from './administrator/manage-cat-application/cat-rejected/cat-rejected/cat-rejected.component';
+import { DogRejectedComponent } from "./administrator/manage-dog-application/dog-rejected/dog-rejected/dog-rejected.component";
+import { CatRejectedComponent } from "./administrator/manage-cat-application/cat-rejected/cat-rejected/cat-rejected.component";
+import { CatApprovedComponent } from './administrator/manage-cat-application/cat-approved/cat-approved/cat-approved.component';
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -47,12 +48,13 @@ const appRoutes: Routes = [
       // { path: "animals", component: AnimalManagementComponent },
       // { path: "adoptions", component: ManageAdoptionsComponent },
       { path: "cat", component: ManageCatApplicationComponent },
+      { path: "rejectedCat", component: CatRejectedComponent },
+      { path: "acceptedCat", component: CatApprovedComponent },
+
       { path: "dog", component: ManageDogApplicationComponent },
-      {path: "rejectedDog", component: DogRejectedComponent},
-      {path: "acceptedDog", component: DogApprovedComponent},
+      { path: "rejectedDog", component: DogRejectedComponent },
+      { path: "acceptedDog", component: DogApprovedComponent },
 
-
-      {path: "rejectedCat", component: CatRejectedComponent},
       { path: "volunteerarchive", component: VolunteerRejectedComponent },
       { path: "applications", component: VolunteerPendingComponent },
       { path: "fosterarchive", component: FosterRejectedComponent },
