@@ -6,6 +6,8 @@
 
 •	Implement dynamic and smooth transitionon admin and user side.
 
+•	Resolve password recovery.
+
 •	Debug, debug, and debug.
 
 ### FORMS:
