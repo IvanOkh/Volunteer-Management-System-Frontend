@@ -1,9 +1,9 @@
 import { Component, OnInit, ElementRef } from "@angular/core";
 import { NgForm } from "@angular/forms";
-import { VolunteerForm } from "../../shared/models/volunteer-form.model";
 import { HttpClient } from "@angular/common/http";
 import { FormsService } from "src/app/shared/services/forms.service";
 import { Router } from "@angular/router";
+import { VolunteerApplication } from 'src/app/shared/models/volunteer-applications.model';
 
 @Component({
   selector: "app-volunteer-form",
@@ -70,12 +70,6 @@ export class VolunteerFormComponent {
         this.newsLetters = this.newsLetters.concat(", false");
       }
 
-      if (form.value.checkReminders === true) {
-        this.newsLetters = this.newsLetters.concat(", true");
-      } else {
-        this.newsLetters = this.newsLetters.concat(", false");
-      }
-
       //agreeeee
       if (form.value.agreementCheck === true) {
         this.agreementCheckbox = this.agreementCheckbox.concat(", true");
@@ -84,11 +78,7 @@ export class VolunteerFormComponent {
       }
       console.log(form.value);
 
-      const volunteerForm = new VolunteerForm(
-        0, // id
-        true, // active
-        "", // note
-        "", //hours
+      const volunteerForm = new VolunteerApplication(
         form.value.firstname as string, // fname
         form.value.lastname as string, // lname
         form.value.street1 as string, // address
@@ -98,7 +88,7 @@ export class VolunteerFormComponent {
         form.value.cellPhone as string, // cellPhone
         form.value.homePhone as string, // homePhone
         form.value.email as string, // email
-        (form.value.over18) as string, // over18
+        form.value.over18 as string, // over18
         form.value.gender as string, // gender
         form.value.shirtSize as string, // tshirtSize
         form.value.paragraph as string, // selfdescription
@@ -123,7 +113,7 @@ export class VolunteerFormComponent {
         form.value.r2Cphone as string, // ref2_cellPhone
         form.value.r2Email as string, // ref2_email
         false, // emailAllowed
-        "false,false,false,false" as string, // emailPref [FALSE,FALSE,FALSE,FALSE] [electric newsletters, recruitment appeals, schedule reminders, checlist reminders]
+        "false,false,false" as string, // emailPref [FALSE,FALSE,FALSE,FALSE] [electric newsletters, recruitment appeals, schedule reminders]
       );
 
       console.log(volunteerForm);
@@ -148,7 +138,7 @@ export class VolunteerFormComponent {
     this.router.navigate(["/login"]);
   }
 
-  private sendTheForm(volForm: VolunteerForm): void {
+  private sendTheForm(volForm: VolunteerApplication): void {
     this.FS.sendVolunteerForm(volForm).subscribe(
       () => {
         // success
@@ -160,17 +150,4 @@ export class VolunteerFormComponent {
       }
     );
   }
-
-  // onCreatePost(form: VolunteerForm) {
-  //   this.http
-  //     .post(
-  //       'http://localhost:8080/CapstoneTest2/volunteerform',
-  //       form
-  //     )
-  //     .subscribe(
-  //       responseData => {
-  //         console.log(responseData);
-  //       }
-  //     );
-  // }
 }

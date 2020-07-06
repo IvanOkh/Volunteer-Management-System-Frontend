@@ -1,10 +1,10 @@
 export class VolunteerApplication {
+  public id: number;
+  public submissiondate: string;
+  public rejected: boolean;
+  public rejectionReason: string;
 
   constructor(
-    public id: number,
-    public submissiondate: string,
-    public rejected: boolean,
-    public rejectionReason: string,
     public fname: string,
     public lname: string,
     public address: string,
@@ -40,5 +40,10 @@ export class VolunteerApplication {
     public ref2_email: string,
     public emailAllowed: boolean,
     public emailPref: string
-  ) { }
+  ) { 
+    this.id = 0;
+    this.submissiondate = "D";
+    this.rejected = false;
+    this.rejectionReason = "";
+  }
 }
