@@ -213,7 +213,7 @@ export class VolunteerService {
    * HTTP post new Volunteer to server
    */
   private sendPostVolunteerRequest(volunteer: VolunteerApplication) {
-    return this.http.post("http://68.66.193.100:8080/CARS/volunteers", volunteer, {
+    return this.http.post(this.REST_API_SERVER + this.CTRL_VOLUNTEER_MAPPING, volunteer, {
       responseType: "text",
     });
   }

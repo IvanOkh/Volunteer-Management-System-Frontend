@@ -32,7 +32,6 @@ export class VolunteerPendingComponent implements OnInit
       console.log('ERROR: volunteer id is' + volunteer.id);
       return;
     }
-    
       this.vs.addVolunteer(volunteer).subscribe(
       () => {
         //success

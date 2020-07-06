@@ -20,7 +20,7 @@ export class ViewFostersComponent implements OnInit {
   fosterList: FosterModel[] = [];
   isLoading: boolean = false;
   fetched: FosterModel;
-  fetchedLoading: boolean = false;
+  fetchLoading: boolean = false;
 
   // //Boolean to determine if foster is an admin or not
   adminCheck: boolean = false;
@@ -87,7 +87,7 @@ export class ViewFostersComponent implements OnInit {
   }
 
   activateFoster() {
-    this.fetchedLoading = true;
+    this.fetchLoading = true;
     if (!this.fetched) {
       console.log("fetched is still undefined");
       return;
@@ -123,17 +123,17 @@ export class ViewFostersComponent implements OnInit {
   }
 
   private fetchFoster(fosterID: number): void {
-    this.fetchedLoading = true;
+    this.fetchLoading = true;
     this.test.getFoster(fosterID).subscribe(
       (foster: FosterModel) => {
         this.fetched = foster;
-        this.fetchedLoading = false;
+        this.fetchLoading = false;
         console.log(this.fetched);
         this.delimitFosterType(this.fetched.fosterAnimalType);
       },
       (error: any) => {
         console.log(error);
-        this.fetchedLoading = false;
+        this.fetchLoading = false;
       }
     );
   }

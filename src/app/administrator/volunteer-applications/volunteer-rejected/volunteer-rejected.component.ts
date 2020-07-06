@@ -71,7 +71,7 @@ export class VolunteerRejectedComponent implements OnInit {
    * Changes the 'rejected' attribute of the volunteer application from 'false' to 'true'.
    * @param fosterID
    */
-  private sendToPending(volunteerID: number): void {
+  public sendToPending(volunteerID: number): void {
     // guard condition if the volunteerID returend by the DOM is undefiend
     if (!volunteerID) {
       console.log("ERROR: volunteer id is" + volunteerID);
@@ -112,7 +112,7 @@ export class VolunteerRejectedComponent implements OnInit {
    * Permanently deletes the volunteer application with the passed id. 
    * @param id
    */
-  private deleteApplication(id: number): void {
+  public deleteApplication(id: number): void {
     this.vs.removeApplication(id).subscribe(
       (status: any) => {
         this.loadRejectedApplicants();
@@ -123,7 +123,7 @@ export class VolunteerRejectedComponent implements OnInit {
     );
   }
 
-  private getRecord(id: number) {
+  public getRecord(id: number) {
     this.isLoading = true;
     this.appList.forEach(
       (element) => {

@@ -90,8 +90,8 @@ export class VolunteerFormComponent {
         "", // note
         "", //hours
         form.value.firstname as string, // fname
-        form.value.lname as string, // lname
-        form.value.address as string, // address
+        form.value.lastname as string, // lname
+        form.value.street1 as string, // address
         form.value.city as string, // city
         form.value.province as string, // province
         form.value.postalCode as string, // postalCode

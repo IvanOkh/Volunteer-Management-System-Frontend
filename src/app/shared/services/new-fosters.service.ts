@@ -208,7 +208,7 @@ export class FostersService {
   }
 
   private sendPostFosterRequest(foster: FosterApplication) {
-    return this.http.post("http://68.66.193.100:8080/CARS/fosters", foster, {
+    return this.http.post(this.REST_API_SERVER + this.CTRL_FOSTER_MAPPING, foster, {
       responseType: "text",
     });
   }

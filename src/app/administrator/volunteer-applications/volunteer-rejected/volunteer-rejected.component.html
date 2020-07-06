@@ -42,11 +42,11 @@
       matSort
       width="100%"
     >
-      <ng-container matColumnDef="submissionDate">
+      <ng-container matColumnDef="submissiondate">
         <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
           Submission date
         </th>
-        <td mat-cell *matCellDef="let fetched">{{ application?.submissionDate }}</td>
+        <td mat-cell *matCellDef="let fetched">{{ application?.submissiondate }}</td>
       </ng-container>
 
       <ng-container matColumnDef="applicant">
@@ -119,15 +119,11 @@
           </button>
         </div>
         <div class="modal-body">
-          <!-- displays loading circle in body while things get ready -->
-          <ng-container *ngIf="this.fetchLoading">
             <div class="row justify-content-center">
               <div class="spinner-border text-danger" role="status">
                 <span class="sr-only">Loading...</span>
               </div>
             </div>
-          </ng-container>
-          <!-- displays fetched edit information if it is defined  -->
 
           <div class="container">
             <h1 class="centerElements mt-3">
@@ -149,7 +145,7 @@
 
                 <h4 class="leftElements">Description:</h4>
                 <section class="description mt-4">
-                  <p>{{ application?.description }}</p>
+                  <p>{{ application?.selfdescription }}</p>
                 </section>
               </div>
 
@@ -157,12 +153,6 @@
                 <div class="leftElements">
                   <h3>Details</h3>
                 </div>
-                <p>
-                  <strong>Status: </strong>
-                  <span [ngStyle]="{ color: application?.active ? 'green' : 'red' }">
-                    <i class="fa fa-user" style="font-size: 20px;"></i>
-                  </span>
-                </p>
                 <p><strong>First name:</strong> {{ application?.fname }}</p>
                 <p><strong>Last name:</strong> {{ application?.lname }}</p>
                 <!-- string interpolation {{DOB}} removed by MAX because DOB doesn't exist. Fix please! -->
