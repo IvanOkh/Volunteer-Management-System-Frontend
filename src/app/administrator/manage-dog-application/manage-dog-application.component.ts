@@ -19,7 +19,6 @@ import { DogForm } from "src/app/forms/dog-form/dog-form.model";
 export class ManageDogApplicationComponent implements OnInit {
   application: any;
   dogArray = [];
-  pendingDogArray = [];
   isLoading: boolean = false;
   applicationID: any;
 
@@ -48,17 +47,17 @@ export class ManageDogApplicationComponent implements OnInit {
   ngOnInit() {
     this.isLoading = true;
     this.adoptionService.loadDogs().subscribe((dogs) => {
-      this.pendingDogArray = [];
+      let pendingDogArray = [];
       this.dogArray = dogs;
       this.dogArray.forEach((pendingDog: DogForm) => {
         if (pendingDog.approved == false && pendingDog.rejected == false) {
-          this.pendingDogArray.push(pendingDog);
-          this.dataSource = new MatTableDataSource(this.pendingDogArray);
-          this.dataSource.sort = this.sort;
-          this.dataSource.paginator = this.paginator;
-          this.application = this.dogArray[0];
-          this.isLoading = false;
+          pendingDogArray.push(pendingDog);
         }
+        this.dataSource = new MatTableDataSource(pendingDogArray);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+        this.application = this.dogArray[0];
+        this.isLoading = false;
       });
     });
   }
@@ -90,17 +89,15 @@ export class ManageDogApplicationComponent implements OnInit {
   rejectApplication(id: number, reason: string) {
     console.log(id);
     this.adoptionService.getDogApplication(id).subscribe((dog: DogForm) => {
-        dog.rejected = true;
-        dog.rejectionReason = reason;
-        dog.approved = false;
-        this.adoptionService
-          .updateDogApplication(dog)
-          .subscribe((result: any) => {
-            console.log(result);
+      dog.rejected = true;
+      dog.rejectionReason = reason;
+      dog.approved = false;
+      this.adoptionService
+        .updateDogApplication(dog)
+        .subscribe((result: any) => {
+          console.log(result);
           this.ngOnInit();
-
-          });
-
+        });
     });
   }
 
