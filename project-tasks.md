@@ -14,6 +14,8 @@
 
 ### FORMS:
 
+•	Add error handling for the case when backend returns "Error adding application."
+
 •	Do testing on all 4 forms for incomlete submission.
 
 •	Make sure every form refreshes if user choose to fill another form.
