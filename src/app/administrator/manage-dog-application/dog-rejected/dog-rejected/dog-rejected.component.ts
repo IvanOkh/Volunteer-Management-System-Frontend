@@ -55,12 +55,12 @@ export class DogRejectedComponent implements OnInit {
       this.dogArray.forEach((pendingDog: DogForm) => {
         if (pendingDog.rejected == true) {
           this.pendingDogArray.push(pendingDog);
-          this.dataSource = new MatTableDataSource(this.pendingDogArray);
-          this.dataSource.sort = this.sort;
-          this.dataSource.paginator = this.paginator;
-          this.application = this.dogArray[0];
-          this.isLoading = false;
         }
+        this.dataSource = new MatTableDataSource(this.pendingDogArray);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+        this.application = this.dogArray[0];
+        this.isLoading = false;
       });
     });
   }

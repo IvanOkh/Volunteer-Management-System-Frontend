@@ -45,9 +45,6 @@
       </div>
     </ng-container>
 
-
-
-    <div *ngIf="!this.isLoading && this.dogArray.length != 0;">
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-3" matSort width="100%">
         <ng-container matColumnDef="nameOfDog">
           <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>Dog name</th>
@@ -94,7 +91,6 @@
       </table>
       <mat-paginator [pageSizeOptions]="[5, 10, 20,50,100,500]" showFirstLastButtons></mat-paginator>
 
-    </div>
 
 
     <!-- POPUP MODAL FOR Dog INFO  -->
