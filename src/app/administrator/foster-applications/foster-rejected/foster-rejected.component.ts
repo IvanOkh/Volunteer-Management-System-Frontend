@@ -27,6 +27,14 @@ export class FosterRejectedComponent implements OnInit {
   isLoading: boolean = false;
   application: FosterApplication;
 
+  // Extra variables to delimit fosterAnimalType attribute
+  ftPuppy: boolean = false;
+  ftAdultDog: boolean = false;
+  ftKitten: boolean = false;
+  ftAdultCat: boolean = false;
+  ftMedicalCare: boolean = false;
+  ftQuarantine: boolean = false;
+
   //Mat table configuration
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -53,7 +61,7 @@ export class FosterRejectedComponent implements OnInit {
   /**
    * Loads all Foster applications into appList that has the rejection attribute equal to 'true'.
    */
-  private loadRejectedApplicants(): void {
+  loadRejectedApplicants(): void {
     this.isLoading = true;
     this.fs.loadRejectedApplicants().subscribe(
       (applicants: FosterApplication[]) => {
@@ -75,7 +83,7 @@ export class FosterRejectedComponent implements OnInit {
    * Changes the 'rejected' attribute of the foster application from 'false' to 'true'.
    * @param fosterID
    */
-  private sendToPending(fosterID: number): void {
+  sendToPending(fosterID: number): void {
     // guard condition if the fosterID returend by the DOM is undefiend
     if (!fosterID) {
       console.log("ERROR: foster id is" + fosterID);
@@ -101,7 +109,7 @@ export class FosterRejectedComponent implements OnInit {
    * Takes the passed foster application model and requests an update to the backend with the attributes provided.
    * @param changes
    */
-  private updateApplication(changes: FosterApplication): void {
+  updateApplication(changes: FosterApplication): void {
     this.fs.updateFosterApplication(changes).subscribe(
       (status: any) => {
         this.loadRejectedApplicants();
@@ -116,7 +124,7 @@ export class FosterRejectedComponent implements OnInit {
    * Permanently deletes the foster application with the passed id. (UNTESTED, AWAITING MORE APPLICATIONS)
    * @param id
    */
-  private deleteApplication(id: number): void {
+  deleteApplication(id: number): void {
     this.fs.removeApplication(id).subscribe(
       (status: any) => {
         this.loadRejectedApplicants();
@@ -127,7 +135,7 @@ export class FosterRejectedComponent implements OnInit {
     );
   }
 
-  private getRecord(id: number) {
+  getRecord(id: number) {
     this.isLoading = true;
     this.appList.forEach(
       (element) => {
@@ -141,5 +149,46 @@ export class FosterRejectedComponent implements OnInit {
         this.isLoading = false;
       }
     );
+  }
+
+  //Takes FosterType attribute type of string and changes ft attributes to display onto Foster modal.
+  private delimitFosterType(fosterType: string) {
+    let splitted = fosterType.split(",", 6);
+
+    if (splitted[0].match("true")) {
+      this.ftPuppy = true;
+    } else {
+      this.ftPuppy = false;
+    }
+
+    if (splitted[1].match("true")) {
+      this.ftAdultDog = true;
+    } else {
+      this.ftAdultDog = false;
+    }
+
+    if (splitted[2].match("true")) {
+      this.ftKitten = true;
+    } else {
+      this.ftKitten = false;
+    }
+
+    if (splitted[3].match("true")) {
+      this.ftAdultCat = true;
+    } else {
+      this.ftAdultCat = false;
+    }
+
+    if (splitted[4].match("true")) {
+      this.ftMedicalCare = true;
+    } else {
+      this.ftMedicalCare = false;
+    }
+
+    if (splitted[5].match("true")) {
+      this.ftQuarantine = true;
+    } else {
+      this.ftQuarantine = false;
+    }
   }
 }

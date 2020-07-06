@@ -16,7 +16,7 @@ import { FosterRejectedComponent } from "../foster-rejected/foster-rejected.comp
 export class FosterPendingComponent implements OnInit {
   appList: FosterApplication[] = [];
   isLoading: boolean = false;
-  fetched: FosterModel;
+  fetched: FosterApplication;
 
    // Extra variables to delimit fosterAnimalType attribute
    ftPuppy: boolean = false;
@@ -103,10 +103,11 @@ export class FosterPendingComponent implements OnInit {
   }
 
   private fetchFoster(fosterID: number): void {
-    this.fs.getFoster(fosterID).subscribe(
-      (foster: FosterModel) => {
+    this.fs.getFosterApplication(fosterID).subscribe(
+      (foster: FosterApplication) => {
         this.fetched = foster;
-        this.delimitFosterType(this.fetched.fosterAnimalType);
+        console.log(this.fetched);
+        this.delimitFosterType(this.fetched.preferredAnimal);
       },
       (error: any) => {
         console.log(error);

@@ -1,10 +1,9 @@
 export class FosterApplication {
-
+  public id: number;
+  public submissiondate: string;
+  public rejected: boolean;
+  public rejectionReason: string;
     constructor(
-      public id: number,
-      public submissiondate: string,
-      public rejected: boolean,
-      public rejectionReason: string,
       public fname: string,
       public lname: string,
       public address: string,
@@ -54,6 +53,11 @@ export class FosterApplication {
       public ref3_cellPhone: string,
       public ref3_email: string,
       public allowHomeVisit: boolean,
-    ) { }
+    ) {
+      this.id = 0;
+      this.submissiondate = "date";
+      this.rejected = false;
+      this.rejectionReason = "Reason for Rejection: ";
+     }
   }
   

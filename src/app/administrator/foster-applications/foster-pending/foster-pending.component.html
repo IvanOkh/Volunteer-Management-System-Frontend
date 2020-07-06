@@ -57,7 +57,6 @@
             <!-- Card Body -->
             <div
               data-toggle="modal"
-              (click)="viewFoster(application.id)"
               attr.data-target="#viewApplication{{ application.id }}"
             >
               <!-- Picture -->
@@ -238,7 +237,7 @@
           >
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
-                <ng-container *ngIf="this.applicationLoading">
+                <ng-container *ngIf="this.isLoading">
                   <div class="row justify-content-center">
                     <div class="spinner-border text-danger" role="status">
                       <span class="sr-only">Loading...</span>
@@ -246,7 +245,7 @@
                   </div>
                 </ng-container>
                 <ng-container
-                  *ngIf="!this.applicationLoading && this.application"
+                  *ngIf="!this.isLoading && this.application"
                 >
                   <div class="modal-header">
                     <h2
@@ -511,7 +510,7 @@
                     </div>
                   </div>
 
-                  <div class="modal-footer" *ngIf="!adminCheck">
+                  <div class="modal-footer">
                     <button
                       class="btn btn-outline-success ml-1 mr-1"
                       data-dismiss="modal"
