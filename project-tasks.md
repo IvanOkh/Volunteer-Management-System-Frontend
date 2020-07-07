@@ -17,7 +17,7 @@
 
 ### FORMS:
 
-•	I am able to submit forms with incorrect phone number and postal code lengths. While backend returns "Error adding application" message, the front end indicates to client that form has been successfully submitted. This is the last major task on forms and tt is our priority to resolve it as soon as possible.
+•	I am able to submit forms with incorrect phone number and postal code lengths. While backend returns "Error adding application" message, the front end indicates to client that form has been successfully submitted. This is the last major task on forms and tt is our priority to resolve it as soon as possible. [In-progress] - Luat
 
 •	When user chooses to fill "another application" make sure every form refreshes, turnes clean, and takes user to the top of the screen.
 
@@ -28,7 +28,7 @@
 
 ### ADMIN-SIDE:
 
-•	Hide all mat tables if they are empty and display appropriate message instead. [DONE FOR DOG,CAT ADOPTION TABS] - Luat
+•	Hide all mat tables if they are empty and display appropriate message instead. [Done for Cat, Dog adoption applications] - Luat
 
 •	Sort events based on the date.
 
