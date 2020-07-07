@@ -126,6 +126,7 @@ export class FosterPendingComponent implements OnInit {
         applicants.forEach((applicant: FosterApplication) => {
           if (!applicant.rejected) {
             this.appList.push(applicant);
+            console.log(applicant);
           }
         });
         this.isLoading = false;

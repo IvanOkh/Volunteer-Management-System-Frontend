@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild } from "@angular/core";
 import { NgForm } from "@angular/forms";
-import { ModifiedFosterForm } from "./modified-foster-form.model";
+import { FosterApplication } from "src/app/shared/models/foster-applications.model";
 import { HttpClient } from "@angular/common/http";
 import { FamilyMember } from "./family-members/familymember.model";
 import { FormsService } from "src/app/shared/services/forms.service";
@@ -85,9 +85,9 @@ export class FosterFormComponent {
       this.validForm = false;
       return;
     }
-    let formatForm: ModifiedFosterForm;
+    let formatForm: FosterApplication;
 
-    formatForm = new ModifiedFosterForm(
+    formatForm = new FosterApplication(
       f.value.fname as string,
       f.value.lname as string,
       f.value.street as string,
@@ -150,7 +150,7 @@ export class FosterFormComponent {
     }
   }
 
-  private sendTheForm(fosForm: ModifiedFosterForm): void {
+  private sendTheForm(fosForm: FosterApplication): void {
     this.FS.sendFosterForm(fosForm).subscribe(
       () => {
         // success

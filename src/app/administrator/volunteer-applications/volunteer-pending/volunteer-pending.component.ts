@@ -83,6 +83,7 @@ export class VolunteerPendingComponent implements OnInit
             this.appList.push(applicant);
           }
         });
+        console.log(this.appList);
         this.isLoading = false;
       },
       (error: any) => {

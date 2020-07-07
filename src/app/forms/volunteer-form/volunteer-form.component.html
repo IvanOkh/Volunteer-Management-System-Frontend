@@ -15,33 +15,73 @@
   </p>
   <br />
   <hr />
-  <form class="mb-5" #volunteerForm="ngForm" (ngSubmit)="onSubmit(volunteerForm)">
+  <form
+    class="mb-5"
+    #volunteerForm="ngForm"
+    (ngSubmit)="onSubmit(volunteerForm)"
+  >
     <div>
       <h3>Name and Address</h3>
       <div class="row">
         <div class="col-sm-6">
           <label for="firstname">First name:</label>
-          <input type="text" id="firstname" class="form-control" placeholder="First name" ngModel name="firstname"
-            required />
+          <input
+            type="text"
+            id="firstname"
+            class="form-control"
+            placeholder="First name"
+            ngModel
+            name="firstname"
+            required
+          />
         </div>
         <div class="col-sm-6">
           <label for="lastname">Last name:</label>
-          <input type="text" id="lastname" class="form-control" placeholder="Last name" ngModel name="lastname"
-            required />
+          <input
+            type="text"
+            id="lastname"
+            class="form-control"
+            placeholder="Last name"
+            ngModel
+            name="lastname"
+            required
+          />
         </div>
       </div>
 
       <label for="street1">Street 1:</label>
-      <input type="text" id="street1" class="form-control" placeholder="Street 1" ngModel name="street1" required />
+      <input
+        type="text"
+        id="street1"
+        class="form-control"
+        placeholder="Street 1"
+        ngModel
+        name="street1"
+        required
+      />
       <br />
       <div class="row">
         <div class="col-sm-6">
           <label for="city">City:</label>
-          <input type="text" id="city" class="form-control" placeholder="City" ngModel name="city" required />
+          <input
+            type="text"
+            id="city"
+            class="form-control"
+            placeholder="City"
+            ngModel
+            name="city"
+            required
+          />
         </div>
         <div class="col-sm-2">
           <label for="province">Province: </label>
-          <select id="province" class="form-control" [ngModel]="defaultProvince" name="province" required>
+          <select
+            id="province"
+            class="form-control"
+            [ngModel]="defaultProvince"
+            name="province"
+            required
+          >
             <option value="choose">
               Choose
             </option>
@@ -88,8 +128,15 @@
         </div>
         <div class="col-sm-4">
           <label for="postalCode">Postal code:</label>
-          <input type="text" id="postalCode" class="form-control" placeholder="Postal Code" ngModel name="postalCode"
-            required />
+          <input
+            type="text"
+            id="postalCode"
+            class="form-control"
+            placeholder="Postal Code"
+            ngModel
+            name="postalCode"
+            required
+          />
         </div>
       </div>
 
@@ -97,18 +144,40 @@
       <div class="row">
         <div class="col-sm-6">
           <label for="homePhone">Home Phone:</label>
-          <input type="text" id="homePhone" class="form-control" placeholder="XXX-XXX-XXXX" ngModel name="homePhone"
-            required />
+          <input
+            type="text"
+            id="homePhone"
+            class="form-control"
+            placeholder="XXX-XXX-XXXX"
+            ngModel
+            name="homePhone"
+            required
+          />
         </div>
         <div class="col-sm-6">
           <label for="cellPhone">Cell Phone:</label>
-          <input type="text" id="cellPhone" class="form-control" placeholder="XXX-XXX-XXXX" ngModel name="cellPhone"
-            required />
+          <input
+            type="text"
+            id="cellPhone"
+            class="form-control"
+            placeholder="XXX-XXX-XXXX"
+            ngModel
+            name="cellPhone"
+            required
+          />
         </div>
       </div>
 
       <label for="email">Email Address:</label>
-      <input type="text" id="email" class="form-control" placeholder="abc@mail.com" ngModel name="email" required />
+      <input
+        type="text"
+        id="email"
+        class="form-control"
+        placeholder="abc@mail.com"
+        ngModel
+        name="email"
+        required
+      />
     </div>
     <br />
     <hr />
@@ -117,19 +186,19 @@
       <label for="over18">Are you over the age of 18?</label>
       <div class="radio" id="over18" *ngFor="let choice of choices">
         <label>
-          <input
-            type="radio"
-            [value]="choice"
-            ngModel
-            name="over18"
-            required
-          />
+          <input type="radio" [value]="choice" ngModel name="over18" required />
           {{ choice }}
         </label>
       </div>
-        <br>
+      <br />
       <label for="gender">Gender</label>
-      <select id="gender" class="form-control" [ngModel]="defaultGender" name="gender" required>
+      <select
+        id="gender"
+        class="form-control"
+        [ngModel]="defaultGender"
+        name="gender"
+        required
+      >
         <option>
           Gender
         </option>
@@ -142,32 +211,41 @@
       </select>
 
       <label for="shirtSize">T-Shirt size: </label>
-      <select id="shirtSize" class="form-control" [ngModel]="defaultShirtSize" name="shirtSize" required>
+      <select
+        id="shirtSize"
+        class="form-control"
+        [ngModel]="defaultShirtSize"
+        name="shirtSize"
+        required
+      >
         <option>
-          Choose
+          XXL
         </option>
         <option>
-          Extra Extra Large
+          XL
         </option>
         <option>
-          Extra Large
+          L
         </option>
         <option>
-          Large
+          M
         </option>
         <option>
-          Medium
-        </option>
-        <option>
-          Small
+          S
         </option>
       </select>
 
-      <label for="paragraph">Please tell us in a paragraph (or two!) about yourself.
+      <label for="paragraph"
+        >Please tell us in a paragraph (or two!) about yourself.
       </label>
-      <textarea id="paragraph" class="form-control"
+      <textarea
+        id="paragraph"
+        class="form-control"
         placeholder="How would you benefit us by being a volunteer? What motivated you to become a volunteer with us?"
-        ngModel name="paragraph" required></textarea>
+        ngModel
+        name="paragraph"
+        required
+      ></textarea>
     </div>
 
     <br />
@@ -178,23 +256,63 @@
         <div class="col-sm-6">
           <h5>Contact 1</h5>
           <label for="ec1Fname">First name:</label>
-          <input type="text" id="ec1Fname" class="form-control" ngModel name="ec1Fname" required />
+          <input
+            type="text"
+            id="ec1Fname"
+            class="form-control"
+            ngModel
+            name="ec1Fname"
+            required
+          />
 
           <label for="ec1Lname">Last name:</label>
-          <input type="text" id="ec1Lname" class="form-control" ngModel name="ec1Lname" required />
+          <input
+            type="text"
+            id="ec1Lname"
+            class="form-control"
+            ngModel
+            name="ec1Lname"
+            required
+          />
 
           <label for="ec1Hphone">Home Phone:</label>
-          <input type="text" id="ec1Hphone" class="form-control" ngModel name="ec1Hphone" required />
+          <input
+            type="text"
+            id="ec1Hphone"
+            class="form-control"
+            ngModel
+            name="ec1Hphone"
+            required
+          />
 
           <label for="ec1Cphone">Cell Phone:</label>
-          <input type="text" id="ec1Cphone" class="form-control" ngModel name="ec1Cphone" required />
+          <input
+            type="text"
+            id="ec1Cphone"
+            class="form-control"
+            ngModel
+            name="ec1Cphone"
+            required
+          />
 
           <label for="ec1Email">Email address:</label>
-          <input type="email" id="ec1Email" class="form-control" ngModel name="ec1Email" required />
+          <input
+            type="email"
+            id="ec1Email"
+            class="form-control"
+            ngModel
+            name="ec1Email"
+            required
+          />
 
           <label for="ec1Relationship">Relationship:</label>
-          <select id="ec1Relationship" class="form-control" [ngModel]="defaultec1Relationship" name="ec1Relationship"
-            required>
+          <select
+            id="ec1Relationship"
+            class="form-control"
+            [ngModel]="defaultec1Relationship"
+            name="ec1Relationship"
+            required
+          >
             <option>
               Choose
             </option>
@@ -233,23 +351,63 @@
         <div class="col-sm-6">
           <h5>Contact 2</h5>
           <label for="ec2Fname">First name:</label>
-          <input type="text" id="ec2Fname" class="form-control" ngModel name="ec2Fname" required />
+          <input
+            type="text"
+            id="ec2Fname"
+            class="form-control"
+            ngModel
+            name="ec2Fname"
+            required
+          />
 
           <label for="ec2Lname">Last name:</label>
-          <input type="text" id="ec2Lname" class="form-control" ngModel name="ec2Lname" required />
+          <input
+            type="text"
+            id="ec2Lname"
+            class="form-control"
+            ngModel
+            name="ec2Lname"
+            required
+          />
 
           <label for="ec2Hphone">Home Phone:</label>
-          <input type="text" id="ec2Hphone" class="form-control" ngModel name="ec2Hphone" required />
+          <input
+            type="text"
+            id="ec2Hphone"
+            class="form-control"
+            ngModel
+            name="ec2Hphone"
+            required
+          />
 
           <label for="ec2Cphone">Cell Phone:</label>
-          <input type="text" id="ec2Cphone" class="form-control" ngModel name="ec2Cphone" required />
+          <input
+            type="text"
+            id="ec2Cphone"
+            class="form-control"
+            ngModel
+            name="ec2Cphone"
+            required
+          />
 
           <label for="ec2Email">Email address:</label>
-          <input type="email" id="ec2Email" class="form-control" ngModel name="ec2Email" required />
+          <input
+            type="email"
+            id="ec2Email"
+            class="form-control"
+            ngModel
+            name="ec2Email"
+            required
+          />
 
           <label for="ec2Relationship">Relationship:</label>
-          <select id="ec2Relationship" class="form-control" [ngModel]="defaultec2Relationship" name="ec2Relationship"
-            required>
+          <select
+            id="ec2Relationship"
+            class="form-control"
+            [ngModel]="defaultec2Relationship"
+            name="ec2Relationship"
+            required
+          >
             <option>
               Choose
             </option>
@@ -296,30 +454,86 @@
         <div class="col-sm-6">
           <h5>Reference 1</h5>
           <label for="r1Fname">First name:</label>
-          <input type="text" id="r1Fname" class="form-control" ngModel name="r1Fname" required />
+          <input
+            type="text"
+            id="r1Fname"
+            class="form-control"
+            ngModel
+            name="r1Fname"
+            required
+          />
 
           <label for="r1Lname">Last name:</label>
-          <input type="text" id="r1Lname" class="form-control" ngModel name="r1Lname" required />
+          <input
+            type="text"
+            id="r1Lname"
+            class="form-control"
+            ngModel
+            name="r1Lname"
+            required
+          />
 
           <label for="r1Cphone">Cell Phone:</label>
-          <input type="text" id="r1Cphone" class="form-control" ngModel name="r1Cphone" required />
+          <input
+            type="text"
+            id="r1Cphone"
+            class="form-control"
+            ngModel
+            name="r1Cphone"
+            required
+          />
 
           <label for="r1Email">Email address:</label>
-          <input type="email" id="r1Email" class="form-control" ngModel name="r1Email" required />
+          <input
+            type="email"
+            id="r1Email"
+            class="form-control"
+            ngModel
+            name="r1Email"
+            required
+          />
         </div>
         <div class="col-sm-6">
           <h5>Reference 2</h5>
           <label for="r2Fname">First name:</label>
-          <input type="text" id="r2Fname" class="form-control" ngModel name="r2Fname" required />
+          <input
+            type="text"
+            id="r2Fname"
+            class="form-control"
+            ngModel
+            name="r2Fname"
+            required
+          />
 
           <label for="r2Lname">Last name:</label>
-          <input type="text" id="r2Lname" class="form-control" ngModel name="r2Lname" required />
+          <input
+            type="text"
+            id="r2Lname"
+            class="form-control"
+            ngModel
+            name="r2Lname"
+            required
+          />
 
           <label for="r2Cphone">Cell Phone:</label>
-          <input type="text" id="r2Cphone" class="form-control" ngModel name="r2Cphone" required />
+          <input
+            type="text"
+            id="r2Cphone"
+            class="form-control"
+            ngModel
+            name="r2Cphone"
+            required
+          />
 
           <label for="r2Email">Email address:</label>
-          <input type="email" id="r2Email" class="form-control" ngModel name="r2Email" required />
+          <input
+            type="email"
+            id="r2Email"
+            class="form-control"
+            ngModel
+            name="r2Email"
+            required
+          />
         </div>
       </div>
     </div>
@@ -335,23 +549,44 @@
       </p>
 
       <label>Volunteer Week letter allowed?</label>
-      <input type="checkbox" class="custom-check-input ml-2 mr-1" id="weekLetter" name="weekLetter" value="Week Letters"
-        ngModel />
+      <input
+        type="checkbox"
+        class="custom-check-input ml-2 mr-1"
+        id="weekLetter"
+        name="weekLetter"
+        value="Week Letters"
+        ngModel
+      />
       <br />
       <hr />
       <label>If yes, what kinds of email would you like to receive?</label>
       <br />
-      <input type="checkbox" class="custom-check-input ml-2 mr-1" id="eNewsletters" name="eNewsLetters"
-        value="Electric Newsletters" ngModel />Electric newletters
+      <input
+        type="checkbox"
+        class="custom-check-input ml-2 mr-1"
+        id="eNewsletters"
+        name="eNewsLetters"
+        value="Electric Newsletters"
+        ngModel
+      />Electric newletters
       <br />
-      <input type="checkbox" class="custom-check-input ml-2 mr-1" id="recAppeals" name="recAppeals"
-        value="Recruitment Appeals" ngModel />Recruitment appeals
+      <input
+        type="checkbox"
+        class="custom-check-input ml-2 mr-1"
+        id="recAppeals"
+        name="recAppeals"
+        value="Recruitment Appeals"
+        ngModel
+      />Recruitment appeals
       <br />
-      <input type="checkbox" class="custom-check-input ml-2 mr-1" id="schedReminders" name="schedReminders"
-        value="Schedule Reminders" ngModel />Schedule reminders
-      <br />
-      <input type="checkbox" class="custom-check-input ml-2 mr-1" id="checkReminders" name="checkReminders"
-        value="Checklist Reminders" ngModel />Checklist reminders
+      <input
+        type="checkbox"
+        class="custom-check-input ml-2 mr-1"
+        id="schedReminders"
+        name="schedReminders"
+        value="Schedule Reminders"
+        ngModel
+      />Schedule reminders
     </div>
 
     <br />
@@ -363,15 +598,29 @@
       Calgary Animal Rescue Society (CARS) Volunteer Agreement, Waiver, Code of
       Conduct, Confidentially Agreement, and Social Media Policy. The conditions
       of each can be viewed
-      <a href="https://drive.google.com/file/d/1AVqRerM-LY0LFtRX-RGD-i4WMb9pM0Cb/view?usp=sharing">here</a>
+      <a
+        href="https://drive.google.com/file/d/1AVqRerM-LY0LFtRX-RGD-i4WMb9pM0Cb/view?usp=sharing"
+        >here</a
+      >
     </p>
 
     <br />
     <div class="form-group-row">
-      <input type="checkbox" class="custom-check-input ml-2 mr-1" id="agreementCheck" name="agreementCheck"
-        value="I Agree" ngModel required />I Agree
+      <input
+        type="checkbox"
+        class="custom-check-input ml-2 mr-1"
+        id="agreementCheck"
+        name="agreementCheck"
+        value="I Agree"
+        ngModel
+        required
+      />I Agree
 
-      <button class="btn btn-primary ml-2" data-toggle="modal" data-target="#submissionModal">
+      <button
+        class="btn btn-primary ml-2"
+        data-toggle="modal"
+        data-target="#submissionModal"
+      >
         Submit
       </button>
     </div>
@@ -391,10 +640,18 @@
               submission has successfully been sent, we hope to see you soon!
             </div>
             <div class="modal-footer">
-              <button class="btn btn-outline-secondary" data-dismiss="modal" (click)="reset()">
+              <button
+                class="btn btn-outline-secondary"
+                data-dismiss="modal"
+                (click)="reset()"
+              >
                 Fill another Application
               </button>
-              <button class="btn btn-primary" data-dismiss="modal" (click)="onOkClick()">
+              <button
+                class="btn btn-primary"
+                data-dismiss="modal"
+                (click)="onOkClick()"
+              >
                 Back to Home Page
               </button>
             </div>
@@ -422,5 +679,7 @@
 </div>
 
 <div id="btn">
-  <a (click)="onScroll()" id="button-top"><i class="fa fa-angle-double-up"></i></a>
+  <a (click)="onScroll()" id="button-top"
+    ><i class="fa fa-angle-double-up"></i
+  ></a>
 </div>

@@ -131,7 +131,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="viewVolunteer(row.id)" data-toggle="modal"
         data-target="#viewVolunteerModal" style="pointer: cursor;"></tr>
     </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100, 500]" showFirstLastButtons></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[20, 10, 30, 40, 50]" showFirstLastButtons></mat-paginator>
     <!-- END MAT TABLE -->
 
     <!-- bootstrap pop up modal  -->
