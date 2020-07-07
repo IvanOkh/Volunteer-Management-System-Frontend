@@ -27,6 +27,12 @@ body {
   min-width: 683;
 }
 
+/* No Items Message for mat tables */
+.noItems {
+  margin-bottom: 20rem;
+  margin-top: 15rem;
+}
+
 
 /* SECTION FOR SCROLL-TOP BUTTON  */
 #button-top{

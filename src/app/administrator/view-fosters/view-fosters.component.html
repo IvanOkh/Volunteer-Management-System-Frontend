@@ -7,7 +7,7 @@
     </div>
   </ng-container>
   <ng-container *ngIf="!this.isLoading && this.fosters.length == 0">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center noItems">
       <p>
         We don't have anything to display at this time. Please stand by or check
         again later
@@ -16,75 +16,77 @@
   </ng-container>
 
   <div class="container">
-    <!-- START SEARCHING BAR  -->
     <ng-container *ngIf="!this.isLoading && this.fosters.length > 0">
-      <div class="input-group mb-3">
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search..." type="text"
-          class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-        <div class="input-group-append">
-          <span class="input-group-text" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i></span>
+      <!-- START SEARCHING BAR  -->
+      <ng-container *ngIf="!this.isLoading && this.fosters.length > 0">
+        <div class="input-group mb-3">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search..." type="text"
+            class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i></span>
+          </div>
         </div>
-      </div>
+      </ng-container>
+      <!-- END SEARCHING BAR  -->
+
+      <!-- START MAT TABLE -->
+      <table mat-table [dataSource]="dataSource" class=" mt-5" matSort width="100%">
+        <ng-container matColumnDef="fosterName">
+          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
+            Name
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.fname + ' ' + element.lname}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
+            Email
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="hours">
+          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
+            Hours
+          </th>
+          <td mat-cell *matCellDef="let element" style="padding-left: 10px;">{{ element.hours | number}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="over18">
+          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
+            Over 18
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <div *ngIf="element.over18; else tooYoung">
+              <i class="fa fa-check-circle" aria-hidden="true" style="color:green; font: size 20px; margin-left:15px"></i>
+            </div>
+            <ng-template #tooYoung>
+              <i class="fa fa-times-circle" aria-hidden="true" style="color:red; font: size 20px;margin-left:15px"></i>
+            </ng-template>
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="active">
+          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
+            Status
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <div style="margin-left:10px" [ngStyle]="{ color: element.active ? 'green' : 'red' }">
+              <i class="fa fa-user" style="font-size: 20px;"></i>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns" data-toggle="modal" (click)="viewFoster(row.id)"
+          data-toggle="modal" data-target="#viewFosterModal" style="pointer: cursor;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[20, 10, 30, 40, 50]" showFirstLastButtons></mat-paginator>
+
+      <!-- END MAT TABLE -->
     </ng-container>
-    <!-- END SEARCHING BAR  -->
-
-    <!-- START MAT TABLE -->
-    <table mat-table [dataSource]="dataSource" class=" mt-5" matSort width="100%">
-      <ng-container matColumnDef="fosterName">
-        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
-          Name
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.fname + ' ' + element.lname}}</td>
-      </ng-container>
-
-
-      <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
-          Email
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="hours">
-        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
-          Hours
-        </th>
-        <td mat-cell *matCellDef="let element" style="padding-left: 10px;">{{ element.hours | number}}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="over18">
-        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
-          Over 18
-        </th>
-        <td mat-cell *matCellDef="let element">
-          <div *ngIf="element.over18; else tooYoung">
-            <i class="fa fa-check-circle" aria-hidden="true" style="color:green; font: size 20px; margin-left:15px"></i>
-          </div>
-          <ng-template #tooYoung>
-            <i class="fa fa-times-circle" aria-hidden="true" style="color:red; font: size 20px;margin-left:15px"></i>
-          </ng-template>
-        </td>
-      </ng-container>
-
-
-      <ng-container matColumnDef="active">
-        <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
-          Status
-        </th>
-        <td mat-cell *matCellDef="let element">
-          <div style="margin-left:10px" [ngStyle]="{ color: element.active ? 'green' : 'red' }">
-            <i class="fa fa-user" style="font-size: 20px;"></i>
-          </div>
-        </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns" data-toggle="modal" (click)="viewFoster(row.id)"
-        data-toggle="modal" data-target="#viewFosterModal" style="pointer: cursor;"></tr>
-    </table>
-    <mat-paginator [pageSizeOptions]="[20, 10, 30, 40, 50]" showFirstLastButtons></mat-paginator>
-
-    <!-- END MAT TABLE -->
 
   </div>
 
