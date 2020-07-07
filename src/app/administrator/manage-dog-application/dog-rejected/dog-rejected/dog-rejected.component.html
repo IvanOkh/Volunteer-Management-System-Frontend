@@ -604,15 +604,14 @@
               </div>
             </div>
           </div>
-          <div class="modal-footer">
-
+          <div class="modal-footer" style="display: unset;">
+        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalDelete"
+              data-dismiss="modal" style="pointer:cursor; float: left;" >Delete</button>
             <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"
               style="float:right">Close</button>
-            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalDelete"
-              data-dismiss="modal" style="pointer:cursor;">Delete</button>
+    
             <button type="button" class="btn btn-outline-success" data-toggle="modal" data-dismiss="modal"
-              style="pointer:cursor;" (click)="markPendingApplication(applicationID)">Mark as Pending (for testing
-              only)</button>
+              style="pointer:cursor; float: right;" (click)="markPendingApplication(applicationID)">Mark as pending</button>
           </div>
         </div>
       </div>
