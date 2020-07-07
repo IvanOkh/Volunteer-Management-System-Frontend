@@ -25,9 +25,9 @@ export class FormComponent extends BaseForm implements OnInit {
       province: ['', Validators.required],
       postalCode: ['', Validators.required],
       // homeAreaCode: ['', [Validators.required,Validators.pattern('[0-9]*')]],
-      homephone: ['', [Validators.pattern('[0-9]*'),Validators.required]],
+      homephone: ['', [Validators.required,Validators.minLength(12), Validators.maxLength(12)]],
       // cellAreaCode: ['', [Validators.pattern('[0-9]*'),Validators.required]],
-      cellphone: ['', [Validators.required,Validators.pattern('[0-9]*')]],
+      cellphone: ['', [Validators.required,Validators.minLength(12), Validators.maxLength(12)]],
       email: ['', [Validators.required,Validators.email]],
       age: ['', [Validators.required]]
     });

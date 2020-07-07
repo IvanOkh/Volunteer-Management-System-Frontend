@@ -31,7 +31,7 @@
         </div>
       </div>
     </ng-container>
-    <ng-container *ngIf="!this.isLoading && this.dogArray.length > 0">
+    <ng-container *ngIf="!this.isLoading && this.pendingDogArray.length > 0">
       <div class="input-group mb-3">
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search..." type="text"
           class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -42,13 +42,15 @@
     </ng-container>
 
 
-    <ng-container *ngIf="!this.isLoading && this.dogArray.length === 0;">
+    <ng-container *ngIf="!this.isLoading && this.pendingDogArray.length === 0;">
       <div class="row justify-content-center">
         <h3>No new applications to display!</h3>
       </div>
     </ng-container>
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-3" matSort width="100%">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-3" matSort width="100%" [ngStyle]="{
+      'display': this.pendingDogArray.length > 0 ? '' : 'none'
+    }">
       <ng-container matColumnDef="nameOfDog">
         <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>Dog name</th>
 
@@ -94,9 +96,9 @@
 
     </table>
 
-    <mat-paginator [pageSizeOptions]="[20,40,60,80]" showFirstLastButtons></mat-paginator>
-
-
+    <mat-paginator [pageSizeOptions]="[20,40,60,80]" showFirstLastButtons [ngStyle]="{
+      'display': this.pendingDogArray.length > 0 ? '' : 'none'
+    }"></mat-paginator>
 
     <!-- POPUP MODAL FOR Dog INFO  -->
     <div class="modal fade" id="modalDogInfo" tabindex="-1" role="dialog" aria-labelledby="modalDogInfo"
@@ -644,14 +646,6 @@
         </div>
       </div>
     </div>
-    <ng-container *ngIf="!this.isLoading && this.dogArray.length == 0">
-      <div class="row justify-content-center">
-        <p>
-          We don't have anything to display at this time. Please stand by or check
-          again later
-        </p>
-      </div>
-    </ng-container>
 
   </div>
 </div>

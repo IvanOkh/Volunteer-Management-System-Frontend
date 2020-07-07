@@ -17,9 +17,9 @@ import { DogForm } from "src/app/forms/dog-form/dog-form.model";
 export class DogApprovedComponent implements OnInit {
   application: any;
   dogArray = [];
-  pendingDogArray = [];
   isLoading: boolean = false;
   applicationID: any;
+  pendingDogArray:any[];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;

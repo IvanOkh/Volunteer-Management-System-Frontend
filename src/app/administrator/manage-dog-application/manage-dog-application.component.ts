@@ -21,6 +21,7 @@ export class ManageDogApplicationComponent implements OnInit {
   dogArray = [];
   isLoading: boolean = false;
   applicationID: any;
+  pendingDogArray:any[];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -46,11 +47,11 @@ export class ManageDogApplicationComponent implements OnInit {
   ngOnInit() {
     this.isLoading = true;
     this.adoptionService.loadDogs().subscribe((dogs) => {
-      let pendingDogArray = [];
+      this.pendingDogArray = [];
       this.dogArray = dogs;
       this.dogArray.forEach((pendingDog: DogForm) => {
-        if (pendingDog.approved == false && pendingDog.rejected == false)  pendingDogArray.push(pendingDog);    
-        this.dataSource = new MatTableDataSource(pendingDogArray);
+        if (pendingDog.approved == false && pendingDog.rejected == false)  this.pendingDogArray.push(pendingDog);    
+        this.dataSource = new MatTableDataSource(this.pendingDogArray);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
         this.application = this.dogArray[0];

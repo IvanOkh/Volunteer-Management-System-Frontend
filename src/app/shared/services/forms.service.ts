@@ -56,6 +56,7 @@ export class FormsService {
   public sendCatForm(catForm: CatForm): Observable<string> {
     return this.sendCatPostRequest(catForm).pipe(
       map((responseData) => {
+        console.log(responseData);                                                              
         return responseData;
       })
     );

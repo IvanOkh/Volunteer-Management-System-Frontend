@@ -20,6 +20,7 @@ export class DogRejectedComponent implements OnInit {
   application: any;
   dogArray = [];
   isLoading: boolean = false;
+  pendingDogArray: any[];
 
   rejectedDog = [];
   applicationID: number;
@@ -39,7 +40,6 @@ export class DogRejectedComponent implements OnInit {
     "rejectedReason",
     // "rejected",
   ];
-  pendingDogArray: any[];
 
   constructor(
     public dialog: MatDialog,
@@ -53,8 +53,7 @@ export class DogRejectedComponent implements OnInit {
       this.pendingDogArray = [];
       this.dogArray = dogs;
       this.dogArray.forEach((pendingDog: DogForm) => {
-        if (pendingDog.rejected == true)
-          this.pendingDogArray.push(pendingDog);
+        if (pendingDog.rejected == true) this.pendingDogArray.push(pendingDog);
         this.dataSource = new MatTableDataSource(this.pendingDogArray);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;

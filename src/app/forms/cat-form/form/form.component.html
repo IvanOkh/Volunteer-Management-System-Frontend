@@ -75,26 +75,28 @@
             <label>Home Phone: <span class="star">*</span></label>
           </div>
           <div class="col-md-3">
-            <input type="tel" pattern="[0-9]*" maxlength="10" class="form-control mt-3" placeholder="Phone Number"
+            <input type="text" minlength="12" maxlength="12" class="form-control mt-3" placeholder="Ex: 111-111-1111"
               formControlName="homephone" [ngClass]="{'is-invalid': form.homephone.errors && form.homephone.touched}">
             <!-- validation  -->
             <div *ngIf="form.homephone.errors && form.homephone.touched" class="col-12">
               <div *ngIf="form.homephone.hasError('required')"><em class="errorMsg">*Phone number is required*</em>
               </div>
-              <div *ngIf="form.homephone.hasError('pattern')"><em class="errorMsg">*Must be number*</em></div>
+              <div *ngIf="form.homephone.hasError('pattern')"><em class="errorMsg">*Invalid format*</em></div>
             </div>
           </div>
           <div class="col-9"></div>
+
+
           <div class="col-md-4 mt-3">
             <label>Cell Phone: <span class="star">*</span></label>
           </div>
           <div class="col-md-3">
-            <input type="text" class="form-control mt-3" placeholder="Phone Number" formControlName="cellphone"
+            <input type="text" minlength="12" maxlength="12" class="form-control mt-3" placeholder="Phone Number" formControlName="cellphone" placeholder="Ex: 111-111-1111"
               [ngClass]="{'is-invalid': form.cellphone.errors && form.cellphone.touched}">
             <div *ngIf="form.cellphone.errors && form.cellphone.touched" class="col-12">
               <div *ngIf="form.cellphone.hasError('required')"><em class="errorMsg">*Phone number is required*</em>
               </div>
-              <div *ngIf="form.cellphone.hasError('pattern')"><em class="errorMsg">*Must be number*</em></div>
+              <div *ngIf="form.cellphone.hasError('minlength')"><em class="errorMsg">*Invalid format*</em></div>
             </div>
           </div>
           <div class="col-9"></div>

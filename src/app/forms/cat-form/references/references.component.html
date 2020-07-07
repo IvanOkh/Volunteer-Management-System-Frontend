@@ -62,7 +62,7 @@
                 <label>Phone Number <span class="star">*</span></label>
               </div>
               <div class="col-md-6">
-                <input type="text" class="form-control mt-3" placeholder="Phone Number"
+                <input type="text" minlength="12" maxlength="12" class="form-control mt-3" placeholder="Ex: 111-111-1111"
                   formControlName="phoneNumReference"
                   [ngClass]="{'is-invalid': form.phoneNumReference.errors && form.phoneNumReference.touched}">
                 <!-- validation  -->
@@ -140,7 +140,7 @@
                 <label>Phone Number <span class="star">*</span></label>
               </div>
               <div class="col-md-6">
-                <input type="text" class="form-control mt-3" formControlName="phoneNumReference2"
+                <input placeholder="Ex: 111-111-1111" type="text" minlength="12" maxlength="12" class="form-control mt-3" formControlName="phoneNumReference2"
                   [ngClass]="{'is-invalid': form.phoneNumReference2.errors && form.phoneNumReference2.touched}">
                 <div *ngIf="form.phoneNumReference2.errors && form.phoneNumReference2.touched" class="col-12">
                   <div *ngIf="form.phoneNumReference2.hasError('required')"><em class="errorMsg">*Phone number is
@@ -183,16 +183,6 @@
                       required*</em></div>
                 </div>
               </div>
-            </div>
-
-            <div class="hover">
-              <div class="col-4 mt-3">
-                <label for="">Signature <span class="star">*</span></label>
-              </div>
-              <div class="col-6">
-                <textarea class="form-control textArea-width" rows="5"></textarea>
-              </div>
-
             </div>
           </div>
         </form>
