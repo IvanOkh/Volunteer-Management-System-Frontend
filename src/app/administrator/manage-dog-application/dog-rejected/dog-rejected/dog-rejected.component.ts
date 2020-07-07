@@ -53,9 +53,8 @@ export class DogRejectedComponent implements OnInit {
       this.pendingDogArray = [];
       this.dogArray = dogs;
       this.dogArray.forEach((pendingDog: DogForm) => {
-        if (pendingDog.rejected == true) {
+        if (pendingDog.rejected == true)
           this.pendingDogArray.push(pendingDog);
-        }
         this.dataSource = new MatTableDataSource(this.pendingDogArray);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;

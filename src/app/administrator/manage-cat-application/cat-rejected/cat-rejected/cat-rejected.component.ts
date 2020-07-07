@@ -47,13 +47,12 @@ export class CatRejectedComponent implements OnInit {
     this.catArray = [];
     this.adoptionService.loadCats().subscribe((rejectedCatApp) => {
       rejectedCatApp.forEach((cats: CatForm) => {
-        if (cats.rejected) {
-          this.catArray.push(cats);
-          this.dataSource = new MatTableDataSource(this.catArray);
-          this.dataSource.sort = this.sort;
-          this.dataSource.paginator = this.paginator;
-          this.isLoading = false;
-        }
+        if (cats.rejected) this.catArray.push(cats);
+        
+        this.dataSource = new MatTableDataSource(this.catArray);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+        this.isLoading = false;
       });
     });
   }
@@ -79,6 +78,7 @@ export class CatRejectedComponent implements OnInit {
       }
     );
   }
+
   deleteApplication() {
     this.adoptionService
       .getCatApplication(this.applicationID)

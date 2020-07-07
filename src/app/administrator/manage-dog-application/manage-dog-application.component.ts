@@ -30,13 +30,12 @@ export class ManageDogApplicationComponent implements OnInit {
   displayedColumns: string[] = [
     "submissionDate",
     "nameOfDog",
-    "applicant",
     "email",
     "phone",
     "address",
-    // "rejected"
+    "applicationName",
+
   ];
-  rejectedDog: DogForm;
 
   constructor(
     public dialog: MatDialog,
@@ -50,9 +49,7 @@ export class ManageDogApplicationComponent implements OnInit {
       let pendingDogArray = [];
       this.dogArray = dogs;
       this.dogArray.forEach((pendingDog: DogForm) => {
-        if (pendingDog.approved == false && pendingDog.rejected == false) {
-          pendingDogArray.push(pendingDog);
-        }
+        if (pendingDog.approved == false && pendingDog.rejected == false)  pendingDogArray.push(pendingDog);    
         this.dataSource = new MatTableDataSource(pendingDogArray);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;

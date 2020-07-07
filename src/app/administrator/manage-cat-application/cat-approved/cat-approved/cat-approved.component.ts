@@ -44,14 +44,13 @@ export class CatApprovedComponent implements OnInit {
       this.pendingCatArray = [];
       this.catArray = cats;
       this.catArray.forEach((pendingCat: CatForm) => {
-        if (pendingCat.approved == true && pendingCat.rejected == false) {
-          this.pendingCatArray.push(pendingCat);
+        if (pendingCat.approved == true && pendingCat.rejected == false) this.pendingCatArray.push(pendingCat);
           this.dataSource = new MatTableDataSource(this.pendingCatArray);
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
           this.application = this.catArray[0];
           this.isLoading = false;
-        }
+        
       });
     });
   }
