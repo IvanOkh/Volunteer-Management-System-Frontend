@@ -3,7 +3,7 @@ import { NgForm } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 import { FormsService } from "src/app/shared/services/forms.service";
 import { Router } from "@angular/router";
-import { VolunteerApplication } from 'src/app/shared/models/volunteer-applications.model';
+import { VolunteerApplication } from "src/app/shared/models/volunteer-applications.model";
 
 @Component({
   selector: "app-volunteer-form",
@@ -22,7 +22,7 @@ export class VolunteerFormComponent {
   defaultec1Relationship: string = "";
   defaultec2Relationship: string = "";
   defaultProvince = "choose";
-  choices = ["Yes", "No"];
+  choices = [true, false];
 
   constructor(
     private http: HttpClient,
@@ -36,7 +36,6 @@ export class VolunteerFormComponent {
   onScroll() {
     document.body.scrollTop = 0;
   }
-
 
   onSubmit(form: NgForm) {
     //Validation check
@@ -88,7 +87,7 @@ export class VolunteerFormComponent {
         form.value.cellPhone as string, // cellPhone
         form.value.homePhone as string, // homePhone
         form.value.email as string, // email
-        form.value.over18 as string, // over18
+        form.value.over18 as boolean, // over18
         form.value.gender as string, // gender
         form.value.shirtSize as string, // tshirtSize
         form.value.paragraph as string, // selfdescription
@@ -113,7 +112,7 @@ export class VolunteerFormComponent {
         form.value.r2Cphone as string, // ref2_cellPhone
         form.value.r2Email as string, // ref2_email
         false, // emailAllowed
-        "false,false,false" as string, // emailPref [FALSE,FALSE,FALSE,FALSE] [electric newsletters, recruitment appeals, schedule reminders]
+        "false,false,false" as string // emailPref [FALSE,FALSE,FALSE,FALSE] [electric newsletters, recruitment appeals, schedule reminders]
       );
 
       console.log(volunteerForm);
