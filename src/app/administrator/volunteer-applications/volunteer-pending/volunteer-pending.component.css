@@ -1,63 +1,69 @@
-table {
-  width: 100%;
-}
-/* .th {
-   text-align: center;
-} */
-header {
-  width: 100%;
-  height: 100px;
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-}
-
 h1 {
-  color: #ce0e2d;
+  color: #cd0d2e;
 }
 
-h5 {
-  color: #fbfbff;
+i {
+  color: #0d0106;
 }
 
-.personalInfo {
-  background-color: rgb(245, 234, 234);
+th {
+  background-color: #cd0d2e;
+  color: white;
 }
 
-.modal-body {
-  padding: 0px 1rem;
+tr {
+  padding: 0.5rem;
+  vertical-align: center;
+  border-top: 1px solid #dee2e6;
 }
 
-.accept-button {
-  position: absolute;
-  left: 1%;
+.tableRow {
+  cursor: pointer;
 }
 
-.sectionTitle,
-.centerElements {
-  text-align: left;
-  color: #ce0e2d;
+.tableRow:hover {
+  background-color: #f5d4d9;
 }
 
-.contactSection {
-  padding: 0px 16px;
+td {
+  /* padding: 0.75rem; */
+  border-top: 1px solid #dee2e6;
 }
+
+.title {
+  text-align: center;
+  color: #cd0d2e;
+}
+
+.fa-check {
+  font-size: 20px;
+  color: green;
+}
+
+.fa-times {
+  font-size: 20px;
+  color: red;
+}
+
+.referenceContainer {
+  border: 1px solid #cd0d2e;
+  padding: 2px;
+  border-radius: 2%;
+}
+
+/* INPUT FOR SEARCHING  */
+.input-group {
+  width: 60%;
+  margin: auto;
+}
+
+.form-control {
+  border: 0.5px solid #c5c3c3;
+  padding-left: 15px;
+}
+
 
 .modal-header {
   background-color: #ce0e2d;
-}
-
-.table-danger,
-.table-danger > td,
-.table-danger > th {
-  background-color: #ce0e2d;
-  color: #fbfbff;
-}
-
-.modal {
-  overflow-y: auto;
-}
-
-.card {
-  box-shadow: 0px 0px 10px -7px black;
+  color: white;
 }
