@@ -57,6 +57,7 @@ export class VolunteerRejectedComponent implements OnInit {
         this.appList = [];
         applicants.forEach((applicant: VolunteerApplication) => {
           this.appList.push(applicant);
+          this.application = this.appList[0];
         });
         this.isLoading = false;
       },
