@@ -20,6 +20,7 @@ export class CatRejectedComponent implements OnInit {
   catArray = [];
   isLoading: boolean = false;
   applicationID: any;
+  pendingCatArray:any[];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -44,14 +45,15 @@ export class CatRejectedComponent implements OnInit {
   //Load table
   ngOnInit() {
     this.isLoading = true;
-    this.catArray = [];
+    this.pendingCatArray = [];
     this.adoptionService.loadCats().subscribe((rejectedCatApp) => {
+    this.catArray = rejectedCatApp;
       rejectedCatApp.forEach((cats: CatForm) => {
-        if (cats.rejected) this.catArray.push(cats);
-        
-        this.dataSource = new MatTableDataSource(this.catArray);
+        if (cats.rejected) this.pendingCatArray.push(cats);
+        this.dataSource = new MatTableDataSource(this.pendingCatArray);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
+        this.application = this.catArray[0];
         this.isLoading = false;
       });
     });
@@ -91,5 +93,19 @@ export class CatRejectedComponent implements OnInit {
             });
         }
       });
+  }
+  markPendingApplication(id){
+    console.log(id);
+    this.adoptionService.getCatApplication(id).subscribe((cat: CatForm) => {
+      if (cat) {
+        cat.rejected = false;
+        cat.approved = false;
+        this.adoptionService
+          .updateCatApplication(cat)
+          .subscribe((result: any) => {
+            this.ngOnInit(); //re-load the table to update new information
+          });
+      }
+    });
   }
 }

@@ -1,3 +1,6 @@
+.modal-footer{
+  display: unset;
+}
 th {
     background-color: #cd0d2e;
     color: white;

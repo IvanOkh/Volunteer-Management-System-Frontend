@@ -13,7 +13,7 @@ export class CatApprovedComponent implements OnInit {
 
   application: any;
   catArray = [];
-  pendingCatArray = [];
+  pendingCatArray:any[];
   isLoading: boolean = false;
   applicationID: any;
 

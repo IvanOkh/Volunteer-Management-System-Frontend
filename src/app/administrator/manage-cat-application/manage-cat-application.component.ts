@@ -22,7 +22,7 @@ export class ManageCatApplicationComponent implements OnInit {
   catArray = [];
   isLoading: boolean = false;
   applicationID: number;
-  pending: any[];
+  pendingCatArray: any[];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -46,18 +46,17 @@ export class ManageCatApplicationComponent implements OnInit {
   ngOnInit() {
     this.isLoading = true;
     this.adoptionService.loadCats().subscribe((cats) => {
-      let pendingCatArray = [];
-      this.pending = [];
+      this.pendingCatArray = [];
       this.catArray = cats;
       this.catArray.forEach((pendingCat: CatForm) => {
-        if (pendingCat.approved == false && pendingCat.rejected == false)
-          pendingCatArray.push(pendingCat);
-        {
-          this.dataSource = new MatTableDataSource(pendingCatArray);
+        if (pendingCat.approved == false && pendingCat.rejected == false) this.pendingCatArray.push(pendingCat);
+          this.dataSource = new MatTableDataSource(this.pendingCatArray);
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
           this.application = this.catArray[0];
           this.isLoading = false;
+        {
+
         }
       });
     });
