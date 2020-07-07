@@ -1,28 +1,34 @@
 
 #  Project Tasks 					
-## Update: Sunday, July 5th, 2020
+## Update: Tuesday, July 7th, 2020
 
 ### APP-WIDE:
 
-•	Get images/preferences from the client.
+•	Get images/preferences from the client. [Received] - Ivan
 
 •	Implement dynamic and smooth transitionon admin and user side.
 
-•	Resolve password recovery.
+•	Resolve password recovery. [In-progress] - Ivan, Raymond
 
-•	Debug, debug, and debug.
+•	Enable GWT security on both sides. [In-progress] - Ivan, Raymond
+
+•	Debug, debug, and debug. [In-progress] - Everyone
+
 
 ### FORMS:
 
-•	Add error handling for the case when backend returns "Error adding application."
+•	I am able to submit forms with incorrect phone number and postal code lengths. While backend returns "Error adding application" message, the front end indicates to client that form has been successfully submitted. This is the last major task on forms and tt is our priority to resolve it as soon as possible.
 
-•	Do testing on all 4 forms for incomlete submission.
+•	When user chooses to fill "another application" make sure every form refreshes, turnes clean, and takes user to the top of the screen.
 
-•	Make sure every form refreshes if user choose to fill another form.
+•	After filling an application, if user chooses to go to login page, they end up at the bottom of login page. User needs to be scrolled all the way up when they land on login page.
 
-•	Double check and test responsive in the forms (test button click and span text).
+•	Do testing on all 4 forms for incomlete submission. Double check and test responsive in the forms (test button click and span text).
+
 
 ### ADMIN-SIDE:
+
+•	Sort events based on the date.
 
 •	Fix “Print Form” button to all submitted applications modals that are displayed to admin in “Applications” and “Adoptions” tabs.
 
@@ -31,6 +37,8 @@
 •	Apply responsive.
 
 ### USER-SIDE:
+
+•	Sort events based on the date.
 
 •	Handle event case with 0 items.
 
