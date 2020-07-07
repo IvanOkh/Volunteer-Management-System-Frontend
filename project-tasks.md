@@ -28,6 +28,8 @@
 
 ### ADMIN-SIDE:
 
+•	Hide all mat tables if they are empty and display appropriate message instead.
+
 •	Sort events based on the date.
 
 •	Fix “Print Form” button to all submitted applications modals that are displayed to admin in “Applications” and “Adoptions” tabs.
