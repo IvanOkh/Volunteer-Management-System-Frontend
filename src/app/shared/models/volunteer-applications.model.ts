@@ -14,7 +14,7 @@ export class VolunteerApplication {
     public cellPhone: string,
     public homePhone: string,
     public email: string,
-    public over18: string,
+    public over18: boolean,
     public gender: string,
     public tshirtSize: string,
     public selfdescription: string,
@@ -40,7 +40,7 @@ export class VolunteerApplication {
     public ref2_email: string,
     public emailAllowed: boolean,
     public emailPref: string
-  ) { 
+  ) {
     this.id = 0;
     this.submissiondate = "D";
     this.rejected = false;
