@@ -17,7 +17,7 @@ export class VolunteerApplication {
     public over18: boolean,
     public gender: string,
     public tshirtSize: string,
-    public selfdescription: string,
+    public description: string,
     public emg1_fname: string,
     public emg1_lname: string,
     public emg1_relationship: string,
