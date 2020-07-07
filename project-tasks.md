@@ -28,7 +28,7 @@
 
 ### ADMIN-SIDE:
 
-•	Hide all mat tables if they are empty and display appropriate message instead.
+•	Hide all mat tables if they are empty and display appropriate message instead. [DONE FOR DOG,CAT ADOPTION TABS] - Luat
 
 •	Sort events based on the date.
 
