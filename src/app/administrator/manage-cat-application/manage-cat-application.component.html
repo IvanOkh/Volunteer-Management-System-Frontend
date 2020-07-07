@@ -39,7 +39,7 @@
       </div>
     </ng-container>
 
-    
+
     <ng-container *ngIf="!this.isLoading && this.catArray.length === 0;">
       <div class="row justify-content-center">
         <h3>No new applications to display!</h3>
@@ -88,7 +88,7 @@
         [ngStyle]="{background: row.rejected ? '#cd0e2e38' : 'none'}">
       </tr>
     </table>
-    <mat-paginator [pageSizeOptions]="[20, 10, 30, 40, 50]" showFirstLastButtons></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[20,40, 60, 80]" showFirstLastButtons></mat-paginator>
 
     <!-- POPUP MODAL FOR CAT INFO  -->
     <div class="modal fade" id="modalCatInfo" tabindex="-1" role="dialog" aria-labelledby="modalCatInfo"
@@ -630,10 +630,11 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalRejected"
+              <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalRejected"
                 data-dismiss="modal" style="pointer:cursor;">Reject</button>
-                <button type="button" class="btn btn-outline-success" data-toggle="modal"
-                data-dismiss="modal" style="pointer:cursor;"(click)="acceptApplication(applicationID)" style="float: right;">Approve</button>
+              <button type="button" class="btn btn-outline-success" data-toggle="modal" data-dismiss="modal"
+                style="pointer:cursor;" (click)="acceptApplication(applicationID)"
+                style="float: right;">Approve</button>
             </div>
           </div>
         </div>
