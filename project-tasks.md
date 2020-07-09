@@ -25,6 +25,8 @@
 
 •	Do testing on all 4 forms for incomlete submission. Double check and test responsive in the forms (test button click and span text).
 
+•	Add lazy loading to dog/cat forms [DONE] - Ivan
+
 
 ### ADMIN-SIDE:
 
