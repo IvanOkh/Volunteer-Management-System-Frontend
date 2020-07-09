@@ -25,14 +25,21 @@ import { VolunteerRejectedComponent } from "./administrator/volunteer-applicatio
 import { FosterPendingComponent } from "./administrator/foster-applications/foster-pending/foster-pending.component";
 import { DogRejectedComponent } from "./administrator/manage-dog-application/dog-rejected/dog-rejected/dog-rejected.component";
 import { CatRejectedComponent } from "./administrator/manage-cat-application/cat-rejected/cat-rejected/cat-rejected.component";
-import { CatApprovedComponent } from './administrator/manage-cat-application/cat-approved/cat-approved/cat-approved.component';
+import { CatApprovedComponent } from "./administrator/manage-cat-application/cat-approved/cat-approved/cat-approved.component";
 
 const appRoutes: Routes = [
-  { path: "", redirectTo: "/login", pathMatch: "full" },
   { path: "volunteer-application", component: VolunteerFormComponent },
   { path: "foster-application", component: FosterFormComponent },
-  { path: "dog-application", component: DogFormComponent },
-  { path: "cat-application", component: FormLayoutComponent },
+  {
+    path: "dog-application",
+    loadChildren: () =>
+      import("./forms/dog-form/dog.module").then((m) => m.DogFormModule),
+  },
+  {
+    path: "cat-application",
+    loadChildren: () =>
+      import("./forms/cat-form/cat-form.module").then((m) => m.CatFormModule),
+  },
   { path: "reset-password", component: ResetPasswordComponent },
 
   {
@@ -81,6 +88,7 @@ const appRoutes: Routes = [
       //   { path: "", component: AdminHeaderComponent }
     ],
   },
+  { path: "", redirectTo: "/login", pathMatch: "full" },
   { path: "**", redirectTo: "/login" },
 ];
 
