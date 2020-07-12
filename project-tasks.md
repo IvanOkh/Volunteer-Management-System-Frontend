@@ -30,13 +30,13 @@
 
 ### ADMIN-SIDE:
 
-•	Hide all mat tables if they are empty and display appropriate message instead. [Done for Cat, Dog adoption applications] - Luat
+•	Hide all mat tables if they are empty and display appropriate message instead. (Note from Albert: had to add noItems class names for spacing. Changes have been made and is now totally completed.)[DONE] - Luat
 
 •	Sort events based on the date.
 
 •	Fix “Print Form” button to all submitted applications modals that are displayed to admin in “Applications” and “Adoptions” tabs.
 
-•	In rejected volunteer and foster applications, change reject button to delete (make sure delete works after pressing, with modal asking confirmation to permanently delete rejected application).
+•	In rejected volunteer and foster applications, change reject button to delete (make sure delete works after pressing, with modal asking confirmation to permanently delete rejected application). [DONE] - Albert
 
 •	Apply responsive.
 
