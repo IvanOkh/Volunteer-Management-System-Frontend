@@ -17,7 +17,7 @@ import { DogForm } from "src/app/forms/dog-form/dog-form.model";
   providers: [AdoptionService],
 })
 export class ManageDogApplicationComponent implements OnInit {
-  application: any;
+  application: DogForm;
   dogArray = [];
   isLoading: boolean = false;
   applicationID: any;

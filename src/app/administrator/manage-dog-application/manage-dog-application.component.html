@@ -31,7 +31,8 @@
         </div>
       </div>
     </ng-container>
-    <ng-container *ngIf="!this.isLoading && this.pendingDogArray.length > 0">
+
+    <ng-container *ngIf="!this.isLoading && this.pendingDogArray?.length > 0">
       <div class="input-group mb-3">
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search..." type="text"
           class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -42,14 +43,14 @@
     </ng-container>
 
 
-    <ng-container *ngIf="!this.isLoading && this.pendingDogArray.length === 0;">
+    <ng-container *ngIf="!this.isLoading && this.pendingDogArray?.length === 0;">
       <div class="row justify-content-center noItems">
         <h3>No new applications to display!</h3>
       </div>
     </ng-container>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-3" matSort width="100%" [ngStyle]="{
-      'display': this.pendingDogArray.length > 0 ? '' : 'none'
+      'display': this.pendingDogArray?.length > 0 ? '' : 'none'
     }">
       <ng-container matColumnDef="nameOfDog">
         <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>Dog name</th>
@@ -97,7 +98,7 @@
     </table>
 
     <mat-paginator [pageSizeOptions]="[20,40,60,80]" showFirstLastButtons [ngStyle]="{
-      'display': this.pendingDogArray.length > 0 ? '' : 'none'
+      'display': this.pendingDogArray?.length > 0 ? '' : 'none'
     }"></mat-paginator>
 
     <!-- POPUP MODAL FOR Dog INFO  -->
@@ -213,11 +214,11 @@
                       {{application?.typeOfResidence}}
                     </p>
                     <p><strong>Do you own or rent? </strong>
-                      <span [ngStyle]="{ display: !application?.own ? 'none' : 'inline' }">
-                        <i class="fa fa-check" aria-hidden="true"></i>
+                      <span *ngIf=application?.own>
+                        Own
                       </span>
-                      <span [ngStyle]="{ display: application?.own ? 'none' : 'inline' }">
-                        <i class="fa fa-times" aria-hidden="true"></i>
+                      <span *ngIf=!application?.own>
+                        Rent
                       </span>
                     </p>
                     <p><strong>Are there any restrictions from your landlord or subdivision? </strong>

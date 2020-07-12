@@ -2,7 +2,6 @@ export class DogForm {
   // nameOfDog: string;
   // fname: string;
   // lname: string;
-
   // address: string;
   // city: string;
   // province: string; // 2 letter abbreviation

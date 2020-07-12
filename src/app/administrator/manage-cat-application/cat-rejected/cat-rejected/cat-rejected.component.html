@@ -211,11 +211,11 @@
                         {{application?.typeOfResidence}}
                       </p>
                       <p><strong>Do you own or rent? </strong>
-                        <span [ngStyle]="{ display: !application?.own ? 'none' : 'inline' }">
-                          <i class="fa fa-check" aria-hidden="true"></i>
+                        <span *ngIf=application?.own>
+                          Own
                         </span>
-                        <span [ngStyle]="{ display: application?.own ? 'none' : 'inline' }">
-                          <i class="fa fa-times" aria-hidden="true"></i>
+                        <span *ngIf=!application?.own>
+                          Rent
                         </span>
                       </p>
                       <p><strong>If rent, provide name and phone number of landlord: </strong>
