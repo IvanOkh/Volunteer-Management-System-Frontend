@@ -40,6 +40,8 @@
 
 •	Apply responsive.
 
+•	Avoid True False displayed in popup-modal. [In-progress] - Luat
+
 ### USER-SIDE:
 
 •	Sort events based on the date.
