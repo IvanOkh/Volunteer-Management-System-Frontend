@@ -40,7 +40,7 @@
 
 •	Apply responsive.
 
-•	Avoid True False displayed in popup-modal. [In-progress] - Luat
+•	Avoid True False and "Own-Rent" displayed in popup-modal. [In-progress] - Luat
 
 ### USER-SIDE:
 
