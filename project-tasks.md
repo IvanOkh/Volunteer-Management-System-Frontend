@@ -27,6 +27,22 @@
 
 •	Add lazy loading to dog/cat forms [DONE] - Ivan
 
+•	In volunteer form, for the over 18 question change options from 'true' and 'false' into 'Yes' or 'No'. [In-progress] - Albert
+
+•	In volunteer form add 'Other' and 'Prefer not to say' options for gender. [In-progress] - Albert
+
+•	In volunteer form change Boyfriend/Girlfriend option to something less than 20 characters. [In-progress] - Albert
+
+•	In volunteer form, disable or hide newsletter options when Email preferences is unchecked.
+
+
+## Volunteer Form Unit Testing (In-progress) - Albert
+
+•	Invalid postal code can pass through.
+
+
+
+
 
 ### ADMIN-SIDE:
 
@@ -41,6 +57,12 @@
 •	Apply responsive.
 
 •	Avoid True False and "Own-Rent" displayed in popup-modal. [In-progress] - Luat
+
+•	Present submission date on foster application modal in pending. [In-progress] - Albert 
+
+•	Present submission date on both volunteer application card and modal in pending. [In-progress] - Albert
+
+•	Present submission date on modals for rejected applications (foster and volunteer). [In-progress] - Albert
 
 ### USER-SIDE:
 
