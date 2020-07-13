@@ -33,7 +33,11 @@
             ngModel
             name="firstname"
             required
+            #firstname="ngModel"
           />
+          <span class="help-block text-danger" *ngIf="!firstname.valid && firstname.touched"
+            >Please enter a first name.</span
+          >
         </div>
         <div class="col-sm-6">
           <label for="lastname">Last name:</label>
@@ -45,7 +49,11 @@
             ngModel
             name="lastname"
             required
+            #lastname="ngModel"
           />
+          <span class="help-block text-danger" *ngIf="!lastname.valid && lastname.touched"
+            >Please enter a last name.</span
+          >
         </div>
       </div>
 
@@ -58,7 +66,11 @@
         ngModel
         name="street1"
         required
+        #street="ngModel"
       />
+      <span class="help-block text-danger" *ngIf="!street.valid && street.touched"
+        >Please enter a Street address.</span
+      >
       <br />
       <div class="row">
         <div class="col-sm-6">
@@ -71,7 +83,11 @@
             ngModel
             name="city"
             required
+            #city="ngModel"
           />
+          <span class="help-block text-danger" *ngIf="!city.valid && city.touched"
+            >Please enter a City.</span
+          >
         </div>
         <div class="col-sm-2">
           <label for="province">Province: </label>
@@ -81,6 +97,7 @@
             [ngModel]="defaultProvince"
             name="province"
             required
+            #province="ngModel"
           >
             <option value="choose">
               Choose
@@ -125,6 +142,11 @@
               YT
             </option>
           </select>
+          <span
+            class="help-block text-danger"
+            *ngIf="province.value === 'choose' && province.touched"
+            >Please enter a valid province.</span
+          >
         </div>
         <div class="col-sm-4">
           <label for="postalCode">Postal code:</label>
@@ -136,7 +158,15 @@
             ngModel
             name="postalCode"
             required
+            #postalcode="ngModel"
+            ngModel
+            pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]"
           />
+          <span
+            class="help-block text-danger"
+            *ngIf="!postalcode.valid && postalcode.touched">
+            Please enter a valid province (A1A 1A1).</span
+          >
         </div>
       </div>
 
@@ -152,7 +182,13 @@
             ngModel
             name="homePhone"
             required
+            #hphone="ngModel"
+            ngModel
+            pattern="\d{3}[\-]\d{3}[\-]\d{4}"
           />
+          <span class="help-block text-danger" *ngIf="!hphone.valid && hphone.touched">
+            Please enter a valid phone number. Make sure to add dashes! (-)
+          </span>
         </div>
         <div class="col-sm-6">
           <label for="cellPhone">Cell Phone:</label>
@@ -164,7 +200,13 @@
             ngModel
             name="cellPhone"
             required
+            #cphone="ngModel"
+            ngModel
+            pattern="\d{3}[\-]\d{3}[\-]\d{4}"
           />
+          <span class="help-block text-danger" *ngIf="!cphone.valid && cphone.touched">
+            Please enter a valid phone number. Make sure to add dashes! (-)
+          </span>
         </div>
       </div>
 
@@ -177,19 +219,25 @@
         ngModel
         name="email"
         required
+        #email="ngModel"
+        type="email"
       />
+      <span class="help-block text-danger" *ngIf="!email.valid && email.touched">
+        Please enter a email address.
+      </span>
     </div>
     <br />
     <hr />
     <div>
       <h3>Demographic Information</h3>
       <label for="over18">Are you over the age of 18?</label>
-      <div class="radio" id="over18" *ngFor="let choice of choices">
-        <label>
-          <input type="radio" [value]="choice" ngModel name="over18" required />
-          {{ choice }}
-        </label>
-      </div>
+        <input
+          type="checkbox"
+          class="custom-check-input ml-2 mr-1"
+          id="over18"
+          name="over18"
+          ngModel
+        />
       <br />
       <label for="gender">Gender</label>
       <select
@@ -198,9 +246,10 @@
         [ngModel]="defaultGender"
         name="gender"
         required
+        #gender="ngModel"
       >
-        <option>
-          Gender
+        <option value="choose">
+          Choose
         </option>
         <option>
           Male
@@ -208,7 +257,18 @@
         <option>
           Female
         </option>
+        <option>
+          Other
+        </option>
+        <option>
+          Prefer not to say
+        </option>
       </select>
+      <span class="help-block text-danger" *ngIf="gender.value === 'choose' && gender.touched">
+        Please choose an option.
+      </span>
+
+      <br>
 
       <label for="shirtSize">T-Shirt size: </label>
       <select
@@ -217,7 +277,11 @@
         [ngModel]="defaultShirtSize"
         name="shirtSize"
         required
+        #shirtsize="ngModel"
       >
+      <option value="choose">
+        Choose
+      </option>
         <option>
           XXL
         </option>
@@ -234,6 +298,10 @@
           S
         </option>
       </select>
+      <span class="help-block text-danger" *ngIf="shirtsize.value === 'choose' && shirtsize.touched">
+        Please choose an option.
+      </span>
+      <br>
 
       <label for="paragraph"
         >Please tell us in a paragraph (or two!) about yourself.
@@ -245,7 +313,11 @@
         ngModel
         name="paragraph"
         required
+        #paragraph="ngModel"
       ></textarea>
+      <span class="help-block text-danger" *ngIf="!paragraph.valid && paragraph.touched">
+        Please write a short description of yourself.
+      </span>
     </div>
 
     <br />
@@ -263,8 +335,12 @@
             ngModel
             name="ec1Fname"
             required
+            #ec1Fname="ngModel"
           />
-
+          <span class="help-block text-danger" *ngIf="!ec1Fname.valid && ec1Fname.touched">
+            Please enter a name.
+          </span>
+          <br>
           <label for="ec1Lname">Last name:</label>
           <input
             type="text"
@@ -273,7 +349,12 @@
             ngModel
             name="ec1Lname"
             required
+            #ec1Lname="ngModel"
           />
+          <span class="help-block text-danger" *ngIf="!ec1Lname.valid && ec1Lname.touched">
+            Please enter a name.
+          </span>
+          <br>
 
           <label for="ec1Hphone">Home Phone:</label>
           <input
@@ -283,8 +364,12 @@
             ngModel
             name="ec1Hphone"
             required
+            #ec1Hphone="ngModel"
           />
-
+          <span class="help-block text-danger" *ngIf="!ec1Hphone.valid && ec1Hphone.touched">
+            Please enter a valid phone number. Make sure to add dashes! (-)
+          </span>
+          <br>
           <label for="ec1Cphone">Cell Phone:</label>
           <input
             type="text"
@@ -293,8 +378,15 @@
             ngModel
             name="ec1Cphone"
             required
+            #ec1Cphone="ngModel"
+            placeholder="XXX-XXX-XXXX"
+            ngModel
+            pattern="\d{3}[\-]\d{3}[\-]\d{4}"
           />
-
+          <span class="help-block text-danger" *ngIf="!ec1Cphone.valid && ec1Cphone.touched">
+            Please enter a valid phone number. Make sure to add dashes! (-)
+          </span>
+          <br>
           <label for="ec1Email">Email address:</label>
           <input
             type="email"
@@ -303,7 +395,14 @@
             ngModel
             name="ec1Email"
             required
+            #ec1Email="ngModel"
+            type="email"
+            placeholder="abc@email.com"
           />
+          <span class="help-block text-danger" *ngIf="!ec1Email.valid && ec1Email.touched">
+            Please enter a valid email.
+          </span>
+          <br>
 
           <label for="ec1Relationship">Relationship:</label>
           <select
@@ -312,12 +411,13 @@
             [ngModel]="defaultec1Relationship"
             name="ec1Relationship"
             required
+            #ec1Relationship="ngModel"
           >
-            <option>
+            <option value="choose">
               Choose
             </option>
             <option>
-              Boyfriend/ Girlfriend
+              Boyfriend/Girlfriend
             </option>
             <option>
               Co-worker
@@ -347,6 +447,9 @@
               Supervisor
             </option>
           </select>
+          <span class="help-block text-danger" *ngIf="ec1Relationship.value === 'choose' && ec1Relationship.touched">
+            Please choose an option.
+          </span>
         </div>
         <div class="col-sm-6">
           <h5>Contact 2</h5>
@@ -358,7 +461,12 @@
             ngModel
             name="ec2Fname"
             required
+            #ec2Fname="ngModel"
           />
+          <span class="help-block text-danger" *ngIf="!ec2Fname.valid && ec2Fname.touched">
+            Please enter a name.
+          </span>
+          <br>
 
           <label for="ec2Lname">Last name:</label>
           <input
@@ -368,7 +476,12 @@
             ngModel
             name="ec2Lname"
             required
+            #ec2Lname="ngModel"
           />
+          <span class="help-block text-danger" *ngIf="!ec2Lname.valid && ec2Lname.touched">
+            Please enter a name.
+          </span>
+          <br>
 
           <label for="ec2Hphone">Home Phone:</label>
           <input
@@ -378,7 +491,15 @@
             ngModel
             name="ec2Hphone"
             required
+            #ec2Hphone="ngModel"
+            placeholder="XXX-XXX-XXXX"
+            ngModel
+            pattern="\d{3}[\-]\d{3}[\-]\d{4}"
           />
+          <span class="help-block text-danger" *ngIf="!ec2Hphone.valid && ec2Hphone.touched">
+            Please enter a valid phone number. Make sure to add dashes! (-)
+          </span>
+          <br>
 
           <label for="ec2Cphone">Cell Phone:</label>
           <input
@@ -388,7 +509,15 @@
             ngModel
             name="ec2Cphone"
             required
+            #ec2Cphone="ngModel"
+            placeholder="XXX-XXX-XXXX"
+            ngModel
+            pattern="\d{3}[\-]\d{3}[\-]\d{4}"
           />
+          <span class="help-block text-danger" *ngIf="!ec2Cphone.valid && ec2Cphone.touched">
+            Please enter a valid phone number. Make sure to add dashes! (-)
+          </span>
+          <br>
 
           <label for="ec2Email">Email address:</label>
           <input
@@ -398,7 +527,14 @@
             ngModel
             name="ec2Email"
             required
+            #ec2Email="ngModel"
+            type="email"
+            placeholder="abc@email.com"
           />
+          <span class="help-block text-danger" *ngIf="!ec2Email.valid && ec2Email.touched">
+            Please enter a valid email.
+          </span>
+          <br>
 
           <label for="ec2Relationship">Relationship:</label>
           <select
@@ -407,12 +543,13 @@
             [ngModel]="defaultec2Relationship"
             name="ec2Relationship"
             required
+            #ec2Relationship="ngModel"
           >
-            <option>
+            <option value="choose">
               Choose
             </option>
             <option>
-              Boyfriend/ Girlfriend
+              Boyfriend/Girlfriend
             </option>
             <option>
               Co-worker
@@ -442,6 +579,9 @@
               Supervisor
             </option>
           </select>
+          <span class="help-block text-danger" *ngIf="ec2Relationship.value === 'choose' && ec2Relationship.touched">
+            Please choose an option.
+          </span>
         </div>
       </div>
     </div>
@@ -461,7 +601,12 @@
             ngModel
             name="r1Fname"
             required
+            #r1Fname="ngModel"
           />
+          <span class="help-block text-danger" *ngIf="!r1Fname.valid && r1Fname.touched">
+            Please enter a name.
+          </span>
+          <br>
 
           <label for="r1Lname">Last name:</label>
           <input
@@ -471,7 +616,12 @@
             ngModel
             name="r1Lname"
             required
+            #r1Lname="ngModel"
           />
+          <span class="help-block text-danger" *ngIf="!r1Lname.valid && r1Lname.touched">
+            Please enter a name.
+          </span>
+          <br>
 
           <label for="r1Cphone">Cell Phone:</label>
           <input
@@ -481,7 +631,15 @@
             ngModel
             name="r1Cphone"
             required
+            #r1Cphone="ngModel"
+            placeholder="XXX-XXX-XXXX"
+            ngModel
+            pattern="\d{3}[\-]\d{3}[\-]\d{4}"
           />
+          <span class="help-block text-danger" *ngIf="!r1Cphone.valid && r1Cphone.touched">
+            Please enter a valid phone number. Make sure to add dashes! (-)
+          </span>
+          <br>
 
           <label for="r1Email">Email address:</label>
           <input
@@ -491,7 +649,13 @@
             ngModel
             name="r1Email"
             required
+            #r1Email="ngModel"
+            type="email"
+            placeholder="abc@email.com"
           />
+          <span class="help-block text-danger" *ngIf="!r1Email.valid && r1Email.touched">
+            Please enter a valid email.
+          </span>
         </div>
         <div class="col-sm-6">
           <h5>Reference 2</h5>
@@ -503,7 +667,12 @@
             ngModel
             name="r2Fname"
             required
+            #r2Fname="ngModel"
           />
+          <span class="help-block text-danger" *ngIf="!r2Fname.valid && r2Fname.touched">
+            Please enter a name.
+          </span>
+          <br>
 
           <label for="r2Lname">Last name:</label>
           <input
@@ -513,7 +682,12 @@
             ngModel
             name="r2Lname"
             required
+            #r2Lname="ngModel"
           />
+          <span class="help-block text-danger" *ngIf="!r2Lname.valid && r2Lname.touched">
+            Please enter a name.
+          </span>
+          <br>
 
           <label for="r2Cphone">Cell Phone:</label>
           <input
@@ -523,7 +697,15 @@
             ngModel
             name="r2Cphone"
             required
+            #r2Cphone="ngModel"
+            placeholder="XXX-XXX-XXXX"
+            ngModel
+            pattern="\d{3}[\-]\d{3}[\-]\d{4}"
           />
+          <span class="help-block text-danger" *ngIf="!r2Cphone.valid && r2Cphone.touched">
+            Please enter a valid phone number. Make sure to add dashes! (-)
+          </span>
+          <br>
 
           <label for="r2Email">Email address:</label>
           <input
@@ -533,7 +715,13 @@
             ngModel
             name="r2Email"
             required
+            #r2Email="ngModel"
+            type="email"
+            placeholder="abc@email.com"
           />
+          <span class="help-block text-danger" *ngIf="!r2Email.valid && r2Email.touched">
+            Please enter a valid email.
+          </span>
         </div>
       </div>
     </div>

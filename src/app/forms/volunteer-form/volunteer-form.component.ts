@@ -17,12 +17,11 @@ export class VolunteerFormComponent {
   defaultdobMonth: string = "";
   defaultdobDay: string = "";
   defaultdobYear: string = "";
-  defaultGender: string = "";
-  defaultShirtSize: string = "";
-  defaultec1Relationship: string = "";
-  defaultec2Relationship: string = "";
+  defaultGender: string = "choose";
+  defaultShirtSize: string = "choose";
+  defaultec1Relationship: string = "choose";
+  defaultec2Relationship: string = "choose";
   defaultProvince = "choose";
-  choices = [true, false];
 
   constructor(
     private http: HttpClient,
@@ -30,12 +29,12 @@ export class VolunteerFormComponent {
     private router: Router
   ) {}
 
-  //If form has submitted
-  validForm: boolean = false;
-
   onScroll() {
     document.body.scrollTop = 0;
   }
+
+  //To check if form has been submitted successfully without any errors within values
+  validForm: boolean = false;
 
   onSubmit(form: NgForm) {
     //Validation check
@@ -69,12 +68,18 @@ export class VolunteerFormComponent {
         this.newsLetters = this.newsLetters.concat(", false");
       }
 
-      //agreeeee
+      //agreement
       if (form.value.agreementCheck === true) {
         this.agreementCheckbox = this.agreementCheckbox.concat(", true");
       } else {
         this.agreementCheckbox = this.agreementCheckbox.concat(", false");
       }
+
+      //province
+      if(form.value.province === 'choose') {
+        form.control.setErrors({ invalid: true });
+      }
+
       console.log(form.value);
 
       const volunteerForm = new VolunteerApplication(

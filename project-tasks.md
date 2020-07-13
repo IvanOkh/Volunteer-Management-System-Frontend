@@ -29,16 +29,16 @@
 
 •	In volunteer form, for the over 18 question change options from 'true' and 'false' into 'Yes' or 'No'. [In-progress] - Albert
 
-•	In volunteer form add 'Other' and 'Prefer not to say' options for gender. [In-progress] - Albert
+•	In volunteer form add 'Other' and 'Prefer not to say' options for gender. [DONE] - Albert
 
-•	In volunteer form change Boyfriend/Girlfriend option to something less than 20 characters. [In-progress] - Albert
+•	In volunteer form change Boyfriend/Girlfriend option to something less than 20 characters. [DONE] - Albert
 
 •	In volunteer form, disable or hide newsletter options when Email preferences is unchecked.
 
 
 ## Volunteer Form Unit Testing (In-progress) - Albert
 
-•	Invalid postal code can pass through.
+•	Invalid postal code can pass through. - [CORRECTED]
 
 
 
