@@ -6,14 +6,14 @@ import { Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-admin-container",
   templateUrl: "./admin-container.component.html",
-  styleUrls: ["./admin-container.component.css"]
+  styleUrls: ["./admin-container.component.css"],
 })
 export class AdminContainerComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {}
 
-  ngAfterContentInit() {
-    this.router.navigate(["events"], { relativeTo: this.route });
-  }
+  // ngAfterContentInit() {
+  //   // this.router.navigate(["events"], { relativeTo: this.route });
+  // }
 }
