@@ -26,6 +26,7 @@ import { FosterPendingComponent } from "./administrator/foster-applications/fost
 import { DogRejectedComponent } from "./administrator/manage-dog-application/dog-rejected/dog-rejected/dog-rejected.component";
 import { CatRejectedComponent } from "./administrator/manage-cat-application/cat-rejected/cat-rejected/cat-rejected.component";
 import { CatApprovedComponent } from "./administrator/manage-cat-application/cat-approved/cat-approved/cat-approved.component";
+import { ChangePasswordComponent } from "./shared/components/change-password/change-password.component";
 
 const appRoutes: Routes = [
   { path: "volunteer-application", component: VolunteerFormComponent },
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
       import("./forms/cat-form/cat-form.module").then((m) => m.CatFormModule),
   },
   { path: "reset-password", component: ResetPasswordComponent },
+  { path: "change-password/:id", component: ChangePasswordComponent },
 
   { path: "login", component: MainPageComponent },
   {
@@ -78,8 +80,8 @@ const appRoutes: Routes = [
       { path: "**", component: VolunteerSideEventsComponent },
     ],
   },
-  { path: "", redirectTo: "/login", pathMatch: "full" },
-  { path: "**", redirectTo: "/login" },
+  { path: "", redirectTo: "login", pathMatch: "full" },
+  { path: "**", redirectTo: "login" },
 ];
 
 @NgModule({
