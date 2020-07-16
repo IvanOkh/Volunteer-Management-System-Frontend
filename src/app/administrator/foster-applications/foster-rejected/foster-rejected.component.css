@@ -68,4 +68,6 @@ td {
   color: white;
 }
 
-
+.mat-row, .mat-header-row{
+  width: 100%;
+}

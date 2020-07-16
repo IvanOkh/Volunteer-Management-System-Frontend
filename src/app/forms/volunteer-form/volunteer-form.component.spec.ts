@@ -71,6 +71,6 @@ describe('VolunteerFormComponent', () => {
         };
         
         component.onSubmit(testForm);
-        expect(component.validForm).toBeFalsy();
+        expect(component.validForm).toBeTruthy();
     });
 });

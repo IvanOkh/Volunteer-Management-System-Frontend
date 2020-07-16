@@ -34,9 +34,10 @@
             name="firstname"
             required
             #firstname="ngModel"
+            pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
           <span class="help-block text-danger" *ngIf="!firstname.valid && firstname.touched"
-            >Please enter a first name.</span
+            >Please enter a first name.(Maximum characters: 25)</span
           >
         </div>
         <div class="col-sm-6">
@@ -50,9 +51,10 @@
             name="lastname"
             required
             #lastname="ngModel"
+            pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
           <span class="help-block text-danger" *ngIf="!lastname.valid && lastname.touched"
-            >Please enter a last name.</span
+            >Please enter a last name.(Maximum characters: 25)</span
           >
         </div>
       </div>
@@ -83,7 +85,8 @@
             ngModel
             name="city"
             required
-            #city="ngModel"
+            #city="ngModel"            
+            pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$"
           />
           <span class="help-block text-danger" *ngIf="!city.valid && city.touched"
             >Please enter a City.</span

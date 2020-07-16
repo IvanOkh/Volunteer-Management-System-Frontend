@@ -26,7 +26,7 @@ import { FosterPendingComponent } from "./administrator/foster-applications/fost
 import { DogRejectedComponent } from "./administrator/manage-dog-application/dog-rejected/dog-rejected/dog-rejected.component";
 import { CatRejectedComponent } from "./administrator/manage-cat-application/cat-rejected/cat-rejected/cat-rejected.component";
 import { CatApprovedComponent } from "./administrator/manage-cat-application/cat-approved/cat-approved/cat-approved.component";
-
+import { FormsModule }   from '@angular/forms';
 const appRoutes: Routes = [
   { path: "volunteer-application", component: VolunteerFormComponent },
   { path: "foster-application", component: FosterFormComponent },
@@ -98,6 +98,6 @@ const appRoutes: Routes = [
       scrollPositionRestoration: "enabled",
     }),
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, FormsModule],
 })
 export class AppRoutingModule {}
