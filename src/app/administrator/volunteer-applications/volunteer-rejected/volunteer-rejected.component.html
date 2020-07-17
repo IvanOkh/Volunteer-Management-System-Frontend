@@ -122,7 +122,7 @@
         </div>
         <div class="modal-body">
           <!-- displays loading circle in body while things get ready -->	
-          <ng-container *ngIf="this.fetchLoading">
+          <ng-container *ngIf="this.isLoading">
             <div class="row justify-content-center">
                 <div class="spinner-border text-danger" role="status">
                   <span class="sr-only">Loading...</span>
@@ -151,7 +151,7 @@
 
                 <h4 class="leftElements">Description:</h4>
                 <section class="description mt-4">
-                  <p>{{ application?.selfdescription }}</p>
+                  <p>{{ application?.description }}</p>
                 </section>
               </div>
 
