@@ -104,7 +104,6 @@ export class DogRejectedComponent implements OnInit {
       if (dog) {
         dog.rejected = false;
         dog.approved = false;
-        // dog.rejectionReason = reason;
         this.adoptionService
           .updateDogApplication(dog)
           .subscribe((result: any) => {

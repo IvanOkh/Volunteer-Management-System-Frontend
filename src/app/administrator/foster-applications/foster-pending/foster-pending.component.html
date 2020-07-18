@@ -8,11 +8,7 @@
       </li>
       <li class="nav-item">
         <!-- <a class="nav-link" href="#">Archived</a> -->
-        <a
-          class="nav-link"
-          routerLink="/admin/fosterarchive"
-          routerLinkActive="active"
-        >
+        <a class="nav-link" routerLink="/admin/fosterarchive" routerLinkActive="active">
           Rejected Applications
         </a>
       </li>
@@ -55,23 +51,16 @@
             </div>
 
             <!-- Card Body -->
-            <div
-              data-toggle="modal"
-              attr.data-target="#viewApplication{{ application.id }}"
-            >
+            <div data-toggle="modal" attr.data-target="#viewApplication{{ application.id }}">
               <!-- Picture -->
               <!-- Separated into 3 columns to center image -->
               <div class="container">
                 <div class="row">
                   <div class="col-sm-3"></div>
                   <div class="col-sm-6">
-                    <img
-                      class="card-img-top img-fluid rounded-circle mt-3"
-                      src="https://source.unsplash.com/collection/895539/300x300?sig={{
+                    <img class="card-img-top img-fluid rounded-circle mt-3" src="https://source.unsplash.com/collection/895539/300x300?sig={{
                         application.id
-                      }}"
-                      alt=""
-                    />
+                      }}" alt="" />
                   </div>
                   <div class="col-sm-3"></div>
                 </div>
@@ -113,11 +102,8 @@
             <div class="container mb-3">
               <div class="row container ml-0 mr-0 pl-0 pr-0">
                 <div class="col-sm-6 pl-1 pr-1 pb-1">
-                  <button
-                    class="btn btn-outline-success btn-block"
-                    data-toggle="modal"
-                    attr.data-target="#accept{{ application.id }}"
-                  >
+                  <button class="btn btn-outline-success btn-block" data-toggle="modal"
+                    attr.data-target="#accept{{ application.id }}">
                     Accept
                   </button>
 
@@ -141,17 +127,10 @@
                           </p>
                         </div>
                         <div class="modal-footer">
-                          <button
-                            class="btn btn-success"
-                            data-dismiss="modal"
-                            (click)="acceptApplication(application)"
-                          >
+                          <button class="btn btn-success" data-dismiss="modal" (click)="acceptApplication(application)">
                             Confirm
                           </button>
-                          <button
-                            class="btn btn-secondary"
-                            data-dismiss="modal"
-                          >
+                          <button class="btn btn-secondary" data-dismiss="modal">
                             Cancel
                           </button>
                         </div>
@@ -162,11 +141,8 @@
                 </div>
 
                 <div class="col-sm-6 pl-1 pr-1 pb-1">
-                  <button
-                    class="btn btn-outline-danger btn-block"
-                    data-toggle="modal"
-                    attr.data-target="#reject{{ application.id }}"
-                  >
+                  <button class="btn btn-outline-danger btn-block" data-toggle="modal"
+                    attr.data-target="#reject{{ application.id }}">
                     Reject
                   </button>
                 </div>
@@ -190,29 +166,19 @@
                           {{ application.lname }}'s foster application.
                         </p>
                         <i>Please enter the reason for the rejection:</i>
-                        <textarea
-                          class="form-control"
-                          id="message"
-                          rows="3"
-                          style="
+                        <textarea class="form-control" id="message" rows="3" style="
                             margin-top: 0px;
                             margin-bottom: 0px;
                             height: 101px;
-                          "
-                          [(ngModel)]="application.rejectionReason"
-                        ></textarea>
+                          " [(ngModel)]="application.rejectionReason"></textarea>
                       </div>
                       <div class="modal-footer">
-                        <button
-                          class="btn btn-danger"
-                          data-dismiss="modal"
-                          (click)="
+                        <button class="btn btn-danger" data-dismiss="modal" (click)="
                             rejectApplication(
                               application.id,
                               application.rejectionReason
                             )
-                          "
-                        >
+                          ">
                           Confirm
                         </button>
                         <button class="btn btn-secondary" data-dismiss="modal">
@@ -228,13 +194,8 @@
           </div>
 
           <!-- View Application -->
-          <div
-            class="modal fade"
-            id="viewApplication{{ application.id }}"
-            role="dialog"
-            aria-labelledby="viewApplicationLabel"
-            aria-hidden="true"
-          >
+          <div class="modal fade" id="viewApplication{{ application.id }}" role="dialog"
+            aria-labelledby="viewApplicationLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <ng-container *ngIf="this.isLoading">
@@ -244,21 +205,13 @@
                     </div>
                   </div>
                 </ng-container>
-                <ng-container
-                  *ngIf="!this.isLoading && this.application"
-                >
+                <ng-container *ngIf="!this.isLoading && this.application">
                   <div class="modal-header">
-                    <h2
-                      class="modal-title"
-                      id="viewFosterModalLabel"
-                      style="color: #fbfbff;"
-                    >
+                    <h2 class="modal-title" id="viewFosterModalLabel" style="color: #fbfbff;">
                       Foster Information
                     </h2>
                     <button type="button" class="close">
-                      <span aria-hidden="true" data-dismiss="modal"
-                        >&times;</span
-                      >
+                      <span aria-hidden="true" data-dismiss="modal">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
@@ -277,15 +230,10 @@
                           </div>
                           <p>
                             <strong>Status: </strong>
-                            <span
-                              [ngStyle]="{
+                            <span [ngStyle]="{
                                 color: application.active ? 'green' : 'red'
-                              }"
-                            >
-                              <i
-                                class="fa fa-user"
-                                style="font-size: 20px;"
-                              ></i>
+                              }">
+                              <i class="fa fa-user" style="font-size: 20px;"></i>
                             </span>
                           </p>
                           <p>
@@ -511,21 +459,13 @@
                   </div>
 
                   <div class="modal-footer">
-                    <button
-                      class="btn btn-outline-success ml-1 mr-1"
-                      data-dismiss="modal"
-                      data-toggle="modal"
-                      attr.data-target="#accept{{ application.id }}"
-                    >
+                    <button class="btn btn-outline-success ml-1 mr-1" data-dismiss="modal" data-toggle="modal"
+                      attr.data-target="#accept{{ application.id }}">
                       Accept
                     </button>
 
-                    <button
-                      class="btn btn-outline-danger ml-1 mr-1"
-                      data-dismiss="modal"
-                      data-toggle="modal"
-                      attr.data-target="#reject{{ application.id }}"
-                    >
+                    <button class="btn btn-outline-danger ml-1 mr-1" data-dismiss="modal" data-toggle="modal"
+                      attr.data-target="#reject{{ application.id }}">
                       Reject
                     </button>
                   </div>

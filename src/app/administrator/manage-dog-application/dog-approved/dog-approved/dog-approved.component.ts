@@ -20,6 +20,7 @@ export class DogApprovedComponent implements OnInit {
   isLoading: boolean = false;
   applicationID: any;
   pendingDogArray:any[];
+  reason: string;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -88,6 +89,7 @@ export class DogApprovedComponent implements OnInit {
     this.adoptionService.getDogApplication(id).subscribe((dog: DogForm) => {
       dog.rejected = true;
       dog.rejectionReason = reason;
+      this.reason = reason;
       dog.approved = false;
       this.adoptionService
         .updateDogApplication(dog)

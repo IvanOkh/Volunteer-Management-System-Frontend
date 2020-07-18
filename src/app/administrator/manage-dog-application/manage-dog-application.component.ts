@@ -22,6 +22,7 @@ export class ManageDogApplicationComponent implements OnInit {
   isLoading: boolean = false;
   applicationID: any;
   pendingDogArray:any[];
+  reason:string;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -84,11 +85,11 @@ export class ManageDogApplicationComponent implements OnInit {
   }
 
   //Method to reject an application
-  rejectApplication(id: number, reason: string) {
-    console.log(id);
+  rejectApplication(id: number, reason) {
     this.adoptionService.getDogApplication(id).subscribe((dog: DogForm) => {
       dog.rejected = true;
       dog.rejectionReason = reason;
+      this.reason = reason;
       dog.approved = false;
       this.adoptionService
         .updateDogApplication(dog)
