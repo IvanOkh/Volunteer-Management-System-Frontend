@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { VolunteerEventsService } from "src/app/shared/services/volunteer-events.service";
 import { EventModel } from "src/app/shared/models/event.model";
 import { EventStaffModel } from "src/app/shared/models/event-staff.model";
-import { MatTreeFlatDataSource } from "@angular/material";
 
 @Component({
   selector: "app-volunteer-side-events",
@@ -13,32 +12,34 @@ export class VolunteerSideEventsComponent implements OnInit {
   numberArray = []; //array to iterate "less/more details"
   activeEvents: EventModel[] = []; //array of active user specific events
   eventArrayHolder: EventStaffModel[] = []; //array of user specific event subscriptions
+  public isLoading = false; // loading status
+  public isLoading2 = false;
 
   constructor(private VES: VolunteerEventsService) {}
 
-  //subscribe to two observables to keep updated events and event-registration arrays
   ngOnInit() {
     //start up service
     this.VES.initializeData();
-    //subscribe to keep up to date events
-    this.VES.backEndEvents.subscribe((data) => {
-      this.activeEvents = data;
-    });
-    //subscribe to keep up to date event staff
+    this.isLoading = true;
+    this.isLoading2 = true;
+    //subscribe to two observables to keep updated events and event-registration arrays
     this.VES.eventStaffData.subscribe((data) => {
-      // if (data != null) {
-      // this.eventArrayHolder = [];
-      this.eventArrayHolder = data;
-      // }
+      if (data != null) {
+        this.eventArrayHolder = data;
+        this.isLoading = false;
+      }
+    });
+    //subscribe to keep up to date events
+    this.VES.backEndEvents.subscribe((idata) => {
+      if (idata != null) {
+        this.activeEvents = idata;
+        this.isLoading2 = false;
+      }
     });
   }
 
-  //Method which checks if user is registered for event in a currently displayed event card.
+  //Method that checks if user is registered for event in a currently displayed event card.
   defineStatus(eventID): boolean {
-    // if (this.eventArrayHolder.length == 0) {
-    //   return false;
-    // }
-    //check if events array contains the given eventID
     if (this.eventArrayHolder.find((e) => e.eventid == eventID)) {
       setTimeout(() => {
         return true;
@@ -52,23 +53,10 @@ export class VolunteerSideEventsComponent implements OnInit {
   }
 
   unregisterForEvent(idEvent: number) {
-    //find idEvent in array of events
-    // for (let ev of this.eventArrayHolder) {
-    //   if (ev.eventid === idEvent) {
-    //     this.VES.unregisterExistingEvent(idEvent);
-    //   }
-    // }
     this.VES.unregisterExistingEvent(idEvent);
   }
 
   registerForEvent(idEvent: number) {
-    //   for (let ev of this.eventArrayHolder) {
-    //     if (ev.eventid === idEvent) {
-    //       return false;
-    //     }
-    //   }
-    //   this.VES.registerNewEvent(idEvent);
-    // }
     this.VES.registerNewEvent(idEvent);
   }
 }

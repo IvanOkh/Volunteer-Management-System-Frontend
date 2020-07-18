@@ -38,10 +38,14 @@ export class VolunteerEventsService {
   initializeData() {
     //load user ID
     this.userid = +this.authService.user.getValue().id;
-    //push into subject
-    this.EventStaffSource.next(this.getEventStaff());
     //load list of user specific events
-    this.backEndEvents.next(this.loadActiveEvents());
+    if (this.loadActiveEvents != null) {
+      this.backEndEvents.next(this.loadActiveEvents());
+    }
+    //push into subject
+    if (this.getEventStaff() != null) {
+      this.EventStaffSource.next(this.getEventStaff());
+    }
   }
 
   //Method which loads all event staff data
@@ -90,15 +94,17 @@ export class VolunteerEventsService {
     this.events = [];
     this.sendGetLoadEventsRequest().subscribe((response) => {
       // this.events.splice(0, this.events.length);  // clear array
-      response.body.forEach((e) => {
-        let eventDate = new Date(e.date).getTime();
-        if (eventDate > this.todayDate) {
-          this.events.push(e);
-        }
-      });
+      if (response.body != null) {
+        response.body.forEach((e) => {
+          let eventDate = new Date(e.date).getTime();
+          if (eventDate > this.todayDate) {
+            this.events.push(e);
+          }
+          return true;
+        });
+      }
     });
-
-    return true;
+    return false;
   }
   //Method that gets array of all events from back end.
   public sendGetLoadEventsRequest() {

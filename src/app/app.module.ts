@@ -26,6 +26,7 @@ import { FamilyMembersComponent } from "./forms/foster-form/family-members/famil
 // import { CatFormModule } from "./forms/cat-form/cat-form.module";
 import { VolunteerModule } from "./volunteer/volunteer.module";
 import { AdministratorModule } from "./administrator/administrator.module";
+import { ChangePasswordComponent } from './shared/components/change-password/change-password.component';
 // import { NaPipe } from "./shared/pipes/na.pipe";
 // import { Router } from "@angular/router";
 
@@ -40,6 +41,7 @@ import { AdministratorModule } from "./administrator/administrator.module";
     FooterComponent,
     ResetPasswordComponent,
     MainPageComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     // ANGULAR IMPORTS

@@ -17,14 +17,11 @@ import { VolunteerContainerComponent } from "./volunteer-container/volunteer-con
 // ROUTING MODULE IMPORT
 import { AppRoutingModule } from "../app-routing.module";
 import { ViewVolunteerAccountComponent } from "./view-volunteer-account/view-volunteer-account.component";
-import { NaPipe } from "../shared/pipes/na.pipe";
-import { MyAccountPageComponent } from "./my-account-page/my-account-page.component";
 
 // MODULE DEFINITION
 @NgModule({
   declarations: [
     VolunteerSideEventsComponent,
-    MyAccountPageComponent,
     VolunteerSideNavbarComponent,
     VolunteerContainerComponent,
     ViewVolunteerAccountComponent,

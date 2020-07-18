@@ -26,6 +26,7 @@ import { FosterPendingComponent } from "./administrator/foster-applications/fost
 import { DogRejectedComponent } from "./administrator/manage-dog-application/dog-rejected/dog-rejected/dog-rejected.component";
 import { CatRejectedComponent } from "./administrator/manage-cat-application/cat-rejected/cat-rejected/cat-rejected.component";
 import { CatApprovedComponent } from "./administrator/manage-cat-application/cat-approved/cat-approved/cat-approved.component";
+import { ChangePasswordComponent } from "./shared/components/change-password/change-password.component";
 
 const appRoutes: Routes = [
   { path: "volunteer-application", component: VolunteerFormComponent },
@@ -41,19 +42,14 @@ const appRoutes: Routes = [
       import("./forms/cat-form/cat-form.module").then((m) => m.CatFormModule),
   },
   { path: "reset-password", component: ResetPasswordComponent },
+  { path: "change-password/:id", component: ChangePasswordComponent },
 
-  {
-    path: "login",
-    // component: AuthComponent
-    component: MainPageComponent,
-  },
+  { path: "login", component: MainPageComponent },
   {
     path: "admin",
     component: AdminContainerComponent,
     canActivate: [AuthGuard],
     children: [
-      // { path: "animals", component: AnimalManagementComponent },
-      // { path: "adoptions", component: ManageAdoptionsComponent },
       { path: "cat", component: ManageCatApplicationComponent },
       { path: "rejectedCat", component: CatRejectedComponent },
       { path: "acceptedCat", component: CatApprovedComponent },
@@ -69,33 +65,29 @@ const appRoutes: Routes = [
       { path: "events", component: ViewEventsComponent },
       { path: "fosters", component: ViewFostersComponent },
       { path: "volunteers", component: ViewVolunteerComponent },
-      { path: "", component: AdminContainerComponent },
-      //   { path: "", component: AdminHeaderComponent }
+      { path: "", redirectTo: "admin/events", pathMatch: "full" },
+      { path: "**", component: ViewEventsComponent },
     ],
   },
   {
     path: "volunteer",
     component: VolunteerContainerComponent,
     canActivate: [AuthUserGuard],
-    // component:
     children: [
       { path: "account", component: ViewVolunteerAccountComponent },
-      { path: "sideevents", component: VolunteerSideEventsComponent },
-      // { path: "volunteerinfo", component: ViewVolunteerInfoComponent },
-      { path: "", component: VolunteerContainerComponent },
-      //   { path: "applications", component: ManageApplicationsComponent },
-      //   { path: "events", component: ViewEventsComponent }
-      //   { path: "", component: AdminHeaderComponent }
+      { path: "events", component: VolunteerSideEventsComponent },
+      { path: "", redirectTo: "volunteer/events", pathMatch: "full" },
+      { path: "**", component: VolunteerSideEventsComponent },
     ],
   },
-  { path: "", redirectTo: "/login", pathMatch: "full" },
-  { path: "**", redirectTo: "/login" },
+  { path: "", redirectTo: "login", pathMatch: "full" },
+  { path: "**", redirectTo: "login" },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes, {
-      scrollPositionRestoration: "enabled",
+      scrollPositionRestoration: "top",
     }),
   ],
   exports: [RouterModule],

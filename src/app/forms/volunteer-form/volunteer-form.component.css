@@ -1,13 +1,8 @@
-table.Availability td {
-  padding-right: 2rem;
-  padding-left: 2rem;
-  padding-bottom: 1rem;
-  text-align: center;
-  vertical-align: middle;
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
 }
 
-input,
-select {
-  margin-bottom: 1rem;
+label{
+  margin-top: 1rem;
 }
-

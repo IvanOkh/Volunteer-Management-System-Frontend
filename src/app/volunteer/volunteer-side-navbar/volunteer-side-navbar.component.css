@@ -5,18 +5,19 @@ GREY -       #6d7275
 LIGHT GREY - #c7d6d5
 WHITE -      #ecebf3
 */
- .navbar {
+.navbar {
   background-color: #cd0d2e;
   color: #ecebf3;
   width: 100%;
 }
 
-.dropdown-item.active, .dropdown-item:active {
+.dropdown-item.active,
+.dropdown-item:active {
   color: #fff;
   text-decoration: none;
   background-color: #cd0d2e;
 }
-.dropdown-item:hover{
+.dropdown-item:hover {
   background-color: #cd0d2e;
 }
 
@@ -42,13 +43,12 @@ WHITE -      #ecebf3
 }
 
 .nav-item a:hover {
-  color: #ecebf3
+  color: #ecebf3;
 }
 
 .active {
   border-bottom: 2px solid #ecebf3;
   color: #ecebf3;
-
 }
 
 .row {
@@ -58,4 +58,8 @@ WHITE -      #ecebf3
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+#logo {
+  height: 60px;
 }

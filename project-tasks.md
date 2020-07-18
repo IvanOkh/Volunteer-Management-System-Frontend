@@ -1,6 +1,6 @@
 
 #  Project Tasks 					
-## Update: Tuesday, July 7th, 2020
+## Update: Friday, July 17, 2020
 
 ### APP-WIDE:
 
@@ -8,7 +8,7 @@
 
 •	Implement dynamic and smooth transitionon admin and user side.
 
-•	Resolve password recovery. [In-progress] - Ivan, Raymond
+•	Resolve password recovery. [Waiting for back-end update(Ivan)] - Ivan, Raymond
 
 •	Enable GWT security on both sides. [In-progress] - Ivan, Raymond
 
@@ -25,25 +25,33 @@
 
 •	Do testing on all 4 forms for incomlete submission. Double check and test responsive in the forms (test button click and span text).
 
-•	Add lazy loading to dog/cat forms [DONE] - Ivan
+•	In volunteer form, for the over 18 question change options from 'true' and 'false' into 'Yes' or 'No'. [In-progress] - Albert
+
+•	In volunteer form, disable or hide newsletter options when Email preferences is unchecked.
 
 
 ### ADMIN-SIDE:
 
-•	Hide all mat tables if they are empty and display appropriate message instead. (Note from Albert: had to add noItems class names for spacing. Changes have been made and is now totally completed.)[DONE] - Luat
-
-•	Sort events based on the date.
+•	Sort events based on the date.  [In-progress]- Ivan
 
 •	Fix “Print Form” button to all submitted applications modals that are displayed to admin in “Applications” and “Adoptions” tabs.
 
-•	In rejected volunteer and foster applications, change reject button to delete (make sure delete works after pressing, with modal asking confirmation to permanently delete rejected application). [DONE] - Albert
-
 •	Apply responsive.
+
+•	Avoid True False and "Own-Rent" displayed in popup-modal. [In-progress] - Luat
+
+•	Present submission date on foster application modal in pending. [In-progress] - Albert 
+
+•	Present submission date on both volunteer application card and modal in pending. [In-progress] - Albert
+
+•	Present submission date on modals for rejected applications (foster and volunteer). [In-progress] - Albert
 
 ### USER-SIDE:
 
-•	Sort events based on the date.
+•	Sort events based on the date.  [In-progress] - Ivan
 
-•	Handle event case with 0 items.
+•	Handle event case with 0 items.  [DONE]- Ivan
+
+•	Handle empty/late http responses [DONE]- Ivan
 
 •	Apply responsive.

@@ -4,18 +4,18 @@ import { Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-volunteer-container",
   templateUrl: "./volunteer-container.component.html",
-  styleUrls: ["./volunteer-container.component.css"]
+  styleUrls: ["./volunteer-container.component.css"],
 })
 export class VolunteerContainerComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {}
 
-  ngAfterContentInit() {
-    this.router.navigate(["sideevents"], { relativeTo: this.route });
-  }
+  // ngAfterContentInit() {
+  //   this.router.navigate(["sideevents"], { relativeTo: this.route });
+  // }
 
-  onBackToLogin() {
-    this.router.navigate(["/login"]);
-  }
+  // onBackToLogin() {
+  //   this.router.navigate(["/login"]);
+  // }
 }
