@@ -50,6 +50,8 @@
 
 •	Sort events based on the date.  [In-progress] - Ivan
 
-•	Handle event case with 0 items.  [In-progress]- Ivan
+•	Handle event case with 0 items.  [DONE]- Ivan
+
+•	Handle empty/late http responses [DONE]- Ivan
 
 •	Apply responsive.
