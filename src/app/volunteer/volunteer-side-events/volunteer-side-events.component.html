@@ -1,3 +1,20 @@
+<ng-container *ngIf="this.isLoading && this.isLoading2">
+  <div class="row justify-content-center">
+    <div class="spinner-border text-danger" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</ng-container>
+<!-- SPINNER -->
+<ng-container
+  *ngIf="this.activeEvents.length <= 0 && !this.isLoading && !this.isLoading2"
+>
+  <div class="row justify-content-center">
+    <p>
+      No events to display! Try to refresh the page or check back again later.
+    </p>
+  </div>
+</ng-container>
 <div class="container">
   <div class="row">
     <!-- This div Loops through array of events and loads each into a separate card -->
@@ -11,7 +28,9 @@
           <div class="media">
             <img
               class="mr-3 align-self-center"
-              src="https://source.unsplash.com/collection/201009/90x90?sig={{ event.id }}"
+              src="https://source.unsplash.com/collection/201009/90x90?sig={{
+                event.id
+              }}"
             />
             <div class="media-body">
               <div class="row">
