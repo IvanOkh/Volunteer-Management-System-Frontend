@@ -45,9 +45,12 @@ export class ViewVolunteerAccountComponent implements OnInit {
     private a: AuthService
   ) {}
 
+  session: BehaviorSubject<User> = this.a.user;
+
   ngOnInit() {
-    const session: BehaviorSubject<User> = this.a.user;
-    this.fetchUser(Number(session.value.id));
+    if (this.fetchUser(Number(this.session.value.id)) === true) {
+      this.fetchUser(Number(this.session.value.id));
+    }
   }
 
   onSubmit(myForm: NgForm) {
@@ -55,7 +58,7 @@ export class ViewVolunteerAccountComponent implements OnInit {
   }
 
   //Adding foster to volunteer - IN PROGRESS
-  private fetchUser(id: number) {
+  private fetchUser(id: number): boolean {
     this.isLoading = true;
     this.vs.getVolunteer(id).subscribe(
       (vol: VolunteerForm) => {
@@ -64,12 +67,15 @@ export class ViewVolunteerAccountComponent implements OnInit {
           // console.log(this.tempvolunteer);
           this.user = vol;
           // console.log(this.user);
+
           this.isLoading = false;
+          return true;
         }
       },
       (error: any) => {
+        this.fetchUser(Number(this.session.value.id));
         // console.log(error);
-        this.isLoading = false;
+        // this.isLoading = false;
       }
     );
 
@@ -81,13 +87,16 @@ export class ViewVolunteerAccountComponent implements OnInit {
           this.user = fos;
           // console.log(this.user);
           this.isLoading = false;
+          return true;
         }
       },
       (error: any) => {
+        this.fetchUser(Number(this.session.value.id));
         // console.log(error);
-        this.isLoading = false;
+        // this.isLoading = false;
       }
     );
+    return false;
   }
 
   private updateUser() {
