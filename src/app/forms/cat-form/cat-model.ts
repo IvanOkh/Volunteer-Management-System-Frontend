@@ -186,7 +186,7 @@ export class CatForm {
     public circumstances: String,
     public vetInfo: String,
 
-    //new pet constructor
+    //new pet 
     public expectations: String,
     public purpose: String,
     public primaryCaretaker: String,
@@ -202,9 +202,9 @@ export class CatForm {
     public boardingExpenses: number,
 
     //characteristics constructor
-    public gender: String,
+    public gender: boolean,
     public typeOfCoat: String,
-    public catAge: number,
+    public catAge: string,
     public breedTypeColour: String,
 
     //table 1
