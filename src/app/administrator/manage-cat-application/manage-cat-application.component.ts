@@ -23,6 +23,7 @@ export class ManageCatApplicationComponent implements OnInit {
   isLoading: boolean = false;
   applicationID: number;
   pendingCatArray: any[];
+  reason : string;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -87,6 +88,7 @@ export class ManageCatApplicationComponent implements OnInit {
       if (cat) {
         cat.rejected = true;
         cat.rejectionReason = reason;
+        this.reason = reason;
         this.adoptionService
           .updateCatApplication(cat)
           .subscribe((result: any) => {

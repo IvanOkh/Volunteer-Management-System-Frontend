@@ -661,12 +661,12 @@
             <i>Please enter the reason for the rejection:</i>
             <textarea class="form-control" id="message" rows="3"
               style="margin-top: 0px; margin-bottom: 0px; height: 101px;"
-              [(ngModel)]="application.rejectionReason"></textarea>
+              [(ngModel)]="reason"></textarea>
 
           </div>
           <div class="modal-footer">
             <button class="btn btn-danger" data-dismiss="modal"
-              (click)="rejectApplication(applicationID, application.rejectionReason)">
+              (click)="rejectApplication(applicationID, reason)">
               Confirm
             </button>
             <button class="btn btn-secondary" data-dismiss="modal">

@@ -16,6 +16,7 @@ export class CatApprovedComponent implements OnInit {
   pendingCatArray:any[];
   isLoading: boolean = false;
   applicationID: any;
+  reason:string;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -83,6 +84,7 @@ export class CatApprovedComponent implements OnInit {
     this.adoptionService.getCatApplication(id).subscribe((cat: CatForm) => {
       cat.rejected = true;
       cat.rejectionReason = reason;
+      this.reason = reason;
       cat.approved = false;
       this.adoptionService
         .updateCatApplication(cat)
