@@ -56,9 +56,6 @@ export class ManageCatApplicationComponent implements OnInit {
           this.dataSource.paginator = this.paginator;
           this.application = this.catArray[0];
           this.isLoading = false;
-        {
-
-        }
       });
     });
   }

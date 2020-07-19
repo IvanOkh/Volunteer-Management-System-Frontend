@@ -18,7 +18,7 @@ export class FormComponent extends BaseForm implements OnInit {
   ngOnInit(): void {
     this.formGroup = this.fb.group({
       catName: ['', Validators.nullValidator],
-      fname: ['', Validators.required],
+      fname: ['', Validators.required,],
       lname: ['', Validators.required],
       address: ['', Validators.required],
       city: ['', Validators.required],

@@ -12,7 +12,7 @@
               <label>Why do you want this rescue cat and what are your expectations? <span class="star">*</span></label>
             </div>
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" formControlName="rescueOrExpectation"
+              <input type="text" class="form-control" formControlName="rescueOrExpectation" maxlength="100"
                 [ngClass]="{'is-invalid': form.rescueOrExpectation.errors && form.rescueOrExpectation.touched}">
               <!-- validation  -->
               <div *ngIf="form.rescueOrExpectation.errors && form.rescueOrExpectation.touched" class="col-12">
@@ -51,7 +51,7 @@
               <label>Who will be the catʼs primary caretaker? <span class="star">*</span></label>
             </div>
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" formControlName="primaryCaretaker"
+              <input type="text" class="form-control" formControlName="primaryCaretaker" maxlength="20"
                 [ngClass]="{'is-invalid': form.primaryCaretaker.errors && form.primaryCaretaker.touched}">
               <!-- validation  -->
               <div *ngIf="form.primaryCaretaker.errors && form.primaryCaretaker.touched" class="col-12">
@@ -106,7 +106,7 @@
                   class="star">*</span></label>
             </div>
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" formControlName="catLeftAloneWeek"
+              <input type="number" class="form-control" formControlName="catLeftAloneWeek" min="0" max="99"
                 [ngClass]="{'is-invalid': form.catLeftAloneWeek.errors && form.catLeftAloneWeek.touched}">
               <!-- validation  -->
               <div *ngIf="form.catLeftAloneWeek.errors && form.catLeftAloneWeek.touched" class="col-12">
@@ -123,7 +123,7 @@
                   class="star">*</span></label>
             </div>
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" formControlName="catLeftAloneWeekend"
+              <input type="text" class="form-control" formControlName="catLeftAloneWeekend" min="0" max="99"
                 [ngClass]="{'is-invalid': form.catLeftAloneWeekend.errors && form.catLeftAloneWeekend.touched}">
               <!-- validation  -->
               <div *ngIf="form.catLeftAloneWeekend.errors && form.catLeftAloneWeekend.touched" class="col-12">
@@ -139,7 +139,7 @@
               <label>How much Daily exercise can you give your cat? (eg Active Play) <span class="star">*</span></label>
             </div>
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" formControlName="dailyExercise"
+              <input type="text" class="form-control" formControlName="dailyExercise" min="0" max="99"
                 [ngClass]="{'is-invalid': form.dailyExercise.errors && form.dailyExercise.touched}">
               <!-- validation  -->
               <div *ngIf="form.dailyExercise.errors && form.dailyExercise.touched" class="col-12">
@@ -155,7 +155,7 @@
                   class="star">*</span></label>
             </div>
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" formControlName="lengthOfTimeAdjustToNewHome"
+              <input type="text" class="form-control" formControlName="lengthOfTimeAdjustToNewHome" min="0" max="99"
                 [ngClass]="{'is-invalid': form.lengthOfTimeAdjustToNewHome.errors && form.lengthOfTimeAdjustToNewHome.touched}">
               <!-- validation  -->
               <div *ngIf="form.lengthOfTimeAdjustToNewHome.errors && form.lengthOfTimeAdjustToNewHome.touched"
@@ -174,7 +174,7 @@
               <label>Food expenses <span class="star">*</span></label>
             </div>
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" formControlName="foodExpense"
+              <input type="text" class="form-control" formControlName="foodExpense" min="0" max="99999"
                 [ngClass]="{'is-invalid': form.foodExpense.errors && form.foodExpense.touched}">
               <!-- validation  -->
               <div *ngIf="form.foodExpense.errors && form.foodExpense.touched" class="col-12">
@@ -190,7 +190,7 @@
               <label>Veterinarian expenses <span class="star">*</span></label>
             </div>
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" formControlName="veterinarianExpense"
+              <input type="text" class="form-control" formControlName="veterinarianExpense" min="0" max="99999"
                 [ngClass]="{'is-invalid': form.veterinarianExpense.errors && form.veterinarianExpense.touched}">
               <!-- validation  -->
               <div *ngIf="form.veterinarianExpense.errors && form.veterinarianExpense.touched" class="col-12">
@@ -204,7 +204,7 @@
               <label>Grooming expenses <span class="star">*</span></label>
             </div>
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" formControlName="groomingExpense"
+              <input type="text" class="form-control" formControlName="groomingExpense" min="0" max="99999"
                 [ngClass]="{'is-invalid': form.groomingExpense.errors && form.groomingExpense.touched}">
               <!-- validation  -->
               <div *ngIf="form.groomingExpense.errors && form.groomingExpense.touched" class="col-12">
@@ -219,7 +219,7 @@
               <label>Boarding expenses <span class="star">*</span></label>
             </div>
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" formControlName="boardingExpense"
+              <input type="text" class="form-control" formControlName="boardingExpense" min="0" max="99999"
                 [ngClass]="{'is-invalid': form.boardingExpense.errors && form.boardingExpense.touched}">
 
               <!-- validation  -->

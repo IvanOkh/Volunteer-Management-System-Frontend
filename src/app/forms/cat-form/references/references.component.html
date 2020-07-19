@@ -16,10 +16,10 @@
               </div>
               <div class="col-md-3">
                 <input type="text" class="form-control mt-3" placeholder="First name"
-                  formControlName="firstNameReference"
-                  [ngClass]="{'is-invalid': form.firstNameReference.errors && form.firstNameReference.touched}">
+                  formControlName="firstNameReference" maxlength="25"
+                  [ngClass]="{'is-invalid': form.firstNameReference?.errors && form.firstNameReference.touched}">
                 <!-- validation  -->
-                <div *ngIf="form.firstNameReference.errors && form.firstNameReference.touched" class="col-12">
+                <div *ngIf="form.firstNameReference?.errors && form.firstNameReference.touched" class="col-12">
                   <div *ngIf="form.firstNameReference.hasError('required')"><em class="errorMsg">*First name reference
                       is required*</em></div>
                 </div>
@@ -28,9 +28,10 @@
 
               <div class="col-md-3">
                 <input type="text" class="form-control mt-3" placeholder="Last name" formControlName="lastNameReference"
-                  [ngClass]="{'is-invalid': form.lastNameReference.errors && form.lastNameReference.touched}">
+                  maxlength="25"
+                  [ngClass]="{'is-invalid': form.lastNameReference?.errors && form.lastNameReference.touched}">
                 <!-- validation  -->
-                <div *ngIf="form.lastNameReference.errors && form.lastNameReference.touched" class="col-12">
+                <div *ngIf="form.lastNameReference?.errors && form.lastNameReference.touched" class="col-12">
                   <div *ngIf="form.lastNameReference.hasError('required')"><em class="errorMsg">*Last name reference is
                       required*</em></div>
                 </div>
@@ -50,7 +51,7 @@
                   <mat-radio-button value="Landlord">Landlord</mat-radio-button>
                 </mat-radio-group>
                 <!-- validation  -->
-                <div *ngIf="form.relationshipRef.errors && form.relationshipRef.touched" class="col-12">
+                <div *ngIf="form.relationshipRef?.errors && form.relationshipRef.touched" class="col-12">
                   <div *ngIf="form.relationshipRef.hasError('required')"><em class="errorMsg">*Relationship is
                       required*</em></div>
                 </div>
@@ -62,13 +63,15 @@
                 <label>Phone Number <span class="star">*</span></label>
               </div>
               <div class="col-md-6">
-                <input type="text" minlength="12" maxlength="12" class="form-control mt-3" placeholder="Ex: 111-111-1111"
-                  formControlName="phoneNumReference"
-                  [ngClass]="{'is-invalid': form.phoneNumReference.errors && form.phoneNumReference.touched}">
+                <input type="text" minlength="12" maxlength="12" class="form-control mt-3"
+                  placeholder="Ex: 111-111-1111" formControlName="phoneNumReference"
+                  [ngClass]="{'is-invalid': form.phoneNumReference?.errors && form.phoneNumReference.touched}">
                 <!-- validation  -->
-                <div *ngIf="form.phoneNumReference.errors && form.phoneNumReference.touched" class="col-12">
+                <div *ngIf="form.phoneNumReference?.errors && form.phoneNumReference.touched" class="col-12">
                   <div *ngIf="form.phoneNumReference.hasError('required')"><em class="errorMsg">*Phone number is
                       required*</em></div>
+                  <div *ngIf="form.homephone?.errors.maxlength"><em class="errorMsg">*Invalid format*</em></div>
+                  <div *ngIf="form.homephone?.errors.minlength"><em class="errorMsg">*Invalid format*</em></div>
                 </div>
               </div>
             </div>
@@ -79,11 +82,11 @@
               </div>
               <div class="col-md-6">
                 <input type="email" class="form-control mt-3" placeholder="example@example.com"
-                  formControlName="emailReference"
+                  formControlName="emailReference" maxlength="50"
                   [ngClass]="{'is-invalid': form.emailReference.errors && form.emailReference.touched}">
                 <!-- validation  -->
-                <div *ngIf="form.emailReference.errors && form.emailReference.touched" class="col-12">
-                  <div *ngIf="form.emailReference.hasError('required')"><em class="errorMsg">*Email is
+                <div *ngIf="form.emailReference?.errors && form.emailReference.touched" class="col-12">
+                  <div *ngIf="form.emailReference?.hasError('required')"><em class="errorMsg">*Email is
                       required*</em></div>
                 </div>
               </div>
@@ -95,9 +98,9 @@
               </div>
               <div class="col-md-3">
                 <input type="text" class="form-control mt-3" placeholder="First name"
-                  formControlName="firstNameReference2"
+                  formControlName="firstNameReference2" maxlength="25"
                   [ngClass]="{'is-invalid': form.firstNameReference2.errors && form.firstNameReference2.touched}">
-                <div *ngIf="form.firstNameReference2.errors && form.firstNameReference2.touched" class="col-12">
+                <div *ngIf="form.firstNameReference2?.errors && form.firstNameReference2.touched" class="col-12">
                   <div *ngIf="form.firstNameReference2.hasError('required')"><em class="errorMsg">*First name is
                       required*</em></div>
                 </div>
@@ -105,9 +108,9 @@
 
               <div class="col-md-3">
                 <input type="text" class="form-control mt-3" placeholder="Last name"
-                  formControlName="lastNameReference2"
-                  [ngClass]="{'is-invalid': form.lastNameReference2.errors && form.lastNameReference2.touched}">
-                <div *ngIf="form.lastNameReference2.errors && form.lastNameReference2.touched" class="col-12">
+                  formControlName="lastNameReference2" maxlength="25"
+                  [ngClass]="{'is-invalid': form.lastNameReference2?.errors && form.lastNameReference2.touched}">
+                <div *ngIf="form.lastNameReference2?.errors && form.lastNameReference2.touched" class="col-12">
                   <div *ngIf="form.lastNameReference2.hasError('required')"><em class="errorMsg">*Last name reference
                       is
                       required*</em></div>
@@ -128,7 +131,7 @@
                   <mat-radio-button value="Manager">Manager</mat-radio-button>
                   <mat-radio-button value="Landlord">Landlord</mat-radio-button>
                 </mat-radio-group>
-                <div *ngIf="form.relationshipRef2.errors && form.relationshipRef2.touched" class="col-12">
+                <div *ngIf="form.relationshipRef2?.errors && form.relationshipRef2.touched" class="col-12">
                   <div *ngIf="form.relationshipRef2.hasError('required')"><em class="errorMsg">*Relationship is
                       required*</em></div>
                 </div>
@@ -140,11 +143,14 @@
                 <label>Phone Number <span class="star">*</span></label>
               </div>
               <div class="col-md-6">
-                <input placeholder="Ex: 111-111-1111" type="text" minlength="12" maxlength="12" class="form-control mt-3" formControlName="phoneNumReference2"
+                <input placeholder="Ex: 111-111-1111" type="text" minlength="12" maxlength="12"
+                  class="form-control mt-3" formControlName="phoneNumReference2"
                   [ngClass]="{'is-invalid': form.phoneNumReference2.errors && form.phoneNumReference2.touched}">
-                <div *ngIf="form.phoneNumReference2.errors && form.phoneNumReference2.touched" class="col-12">
+                <div *ngIf="form.phoneNumReference2?.errors && form.phoneNumReference2.touched" class="col-12">
                   <div *ngIf="form.phoneNumReference2.hasError('required')"><em class="errorMsg">*Phone number is
                       required*</em></div>
+                      <div *ngIf="form.homephone?.errors.maxlength"><em class="errorMsg">*Invalid format*</em></div>
+                      <div *ngIf="form.homephone?.errors.minlength"><em class="errorMsg">*Invalid format*</em></div>
                 </div>
               </div>
             </div>
@@ -154,9 +160,9 @@
             </div>
             <div class="col-md-6">
               <input type="email" class="form-control mt-3" placeholder="example@example.com"
-                formControlName="emailReference2"
-                [ngClass]="{'is-invalid': form.emailReference2.errors && form.emailReference2.touched}">
-              <div *ngIf="form.emailReference2.errors && form.emailReference2.touched" class="col-12">
+                formControlName="emailReference2" maxlength="50"
+                [ngClass]="{'is-invalid': form.emailReference2?.errors && form.emailReference2.touched}">
+              <div *ngIf="form.emailReference2?.errors && form.emailReference2.touched" class="col-12">
                 <div *ngIf="form.emailReference2.hasError('required')"><em class="errorMsg">*Email is
                     required*</em></div>
               </div>
@@ -177,7 +183,7 @@
                   <mat-radio-button value="CARS website">CARS website</mat-radio-button>
                   <mat-radio-button value="findOutByOther">Other</mat-radio-button>
                 </mat-radio-group>
-                <div *ngIf="form.howFindOutThisAnimal.errors && form.howFindOutThisAnimal.touched" class="col-12">
+                <div *ngIf="form.howFindOutThisAnimal?.errors && form.howFindOutThisAnimal.touched" class="col-12">
                   <div *ngIf="form.howFindOutThisAnimal.hasError('required')"><em class="errorMsg">*Animal infomation
                       is
                       required*</em></div>

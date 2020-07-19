@@ -30,7 +30,7 @@
               <label>If yes, how many and how old are they?</label>
             </div>
             <div class="col-md-6">
-              <input type="text" class="form-control" formControlName="catsinfo">
+              <input type="text" class="form-control" maxlength="20" formControlName="catsinfo">
             </div>
           </div>
   
@@ -56,7 +56,7 @@
                 <mat-radio-button value=true>Yes</mat-radio-button>
                 <mat-radio-button value=false>No</mat-radio-button>
               </mat-radio-group>
-              <input type="text" class="form-control" formControlName="otherpetinfo">
+              <input type="text" class="form-control" maxlength="50" formControlName="otherpetinfo">
               <!-- validation  -->
               <div *ngIf="form.otherpet.errors && form.otherpet.touched" class="col-12">
                 <div *ngIf="form.otherpet.hasError('required')"><em class="errorMsg">*Other pet is
@@ -72,7 +72,7 @@
               <label>How many of these pets are spayed/neutered?</label>
             </div>
             <div class="col-md-6">
-              <input type="number" min="0" formControlName="numberPetSpayed" class="form-control small-input">
+              <input type="number" min="0" max="999" formControlName="numberPetSpayed" class="form-control small-input">
             </div>
           </div>
   
@@ -81,7 +81,7 @@
               <label for="">Where are these animals now?</label>
             </div>
             <div class="col-12">
-              <textarea class="form-control textArea-width" formControlName="animalLocation" rows="5"></textarea>
+              <textarea class="form-control textArea-width" maxlength="30" formControlName="animalLocation" rows="5"></textarea>
             </div>
           </div>
   
@@ -106,7 +106,7 @@
               <label>If yes, what group?</label>
             </div>
             <div class="col-md-6">
-              <input type="text" formControlName="adoptedBeforeValue" class="form-control">
+              <input type="text" formControlName="adoptedBeforeValue" maxlength="20" class="form-control">
             </div>
           </div>
   
@@ -132,7 +132,7 @@
               <label for="">If yes, what were the circumstances?</label>
             </div>
             <div class="col-12">
-              <textarea class="form-control textArea-width" formControlName="circumstancesValue" rows="5"></textarea>
+              <textarea class="form-control textArea-width" formControlName="circumstancesValue" maxlength="200" rows="5"></textarea>
             </div>
           </div>
   
@@ -142,7 +142,7 @@
                 clinic:</label>
             </div>
             <div class="col-12">
-              <textarea class="form-control textArea-width" formControlName="petInfoPrivious" rows="5"></textarea>
+              <textarea class="form-control textArea-width" formControlName="petInfoPrivious" maxlength="100" rows="5"></textarea>
             </div>
           </div>
         </div>
