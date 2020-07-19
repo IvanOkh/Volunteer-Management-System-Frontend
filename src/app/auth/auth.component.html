@@ -67,15 +67,15 @@
           </div>
           <div
             *ngIf="errorMessage == true"
-            class="text-center alert alert-secondary"
+            class="rounded-pill border-danger text-center alert alert-secondary bg-white"
           >
             <strong style="width: 100%; color: #ce0e2d;"
               >Invalid email and/or password</strong
             >
           </div>
           <button
-            style="width: 100%; background-color: #ce0e2d; border: none;"
-            class="btn btn-success btn-sm mr-2 py-2"
+            id="loginBtn"
+            class="rounded-pill btn btn-outline-none mr-2 py-2"
             type="submit"
           >
             <!-- (click)="onLoginClick()" -->
