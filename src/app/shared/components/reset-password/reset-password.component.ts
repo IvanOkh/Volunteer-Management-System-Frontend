@@ -26,7 +26,7 @@ export class ResetPasswordComponent implements OnInit {
 
   onSubmit(resetForm: NgForm) {
     this.message = "";
-    console.log(resetForm.value.recoveremail);
+    // console.log(resetForm.value.recoveremail);
     this.email = resetForm.value.recoveremail;
     if (!(this.email === "" || this.email === null)) {
       // this.passwordService.sendRecovery(this.email).pipe(
