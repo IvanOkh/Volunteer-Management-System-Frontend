@@ -87,7 +87,7 @@ export class ManageCatApplicationComponent implements OnInit {
     this.adoptionService.getCatApplication(id).subscribe((cat: CatForm) => {
       if (cat) {
         cat.rejected = true;
-        cat.rejectionReason = reason;
+        cat.rejectionreason = reason;
         this.reason = reason;
         this.adoptionService
           .updateCatApplication(cat)
