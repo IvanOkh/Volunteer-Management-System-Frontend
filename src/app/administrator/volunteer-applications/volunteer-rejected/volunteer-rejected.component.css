@@ -67,3 +67,7 @@ td {
   background-color: #ce0e2d;
   color: white;
 }
+
+.tableContainer {
+  overflow-x: scroll;
+}
