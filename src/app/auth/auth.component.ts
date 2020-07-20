@@ -22,9 +22,9 @@ export class AuthComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit(form: NgForm) {
-    //RETURN if form is invalid (extra protection)
+    var serchfind: boolean;
+    //return if form is invalid
     if (!form.valid) {
-      // return;
       this.errorMessage = true;
     }
     //get email and pass from the submited form
@@ -33,26 +33,37 @@ export class AuthComponent {
     //observable for the login response data
     let authObservable: Observable<AuthResponseData>;
 
-    this.isLoading = true;
-    authObservable = this.authService.login(email, password);
-
-    authObservable.subscribe(
-      (responseData) => {
-        //console.log(responseData);
-        this.isLoading = false;
-        if (responseData.role === "admin") {
-          this.router.navigate(["/admin"]);
-        } else {
-          this.router.navigate(["/volunteer"]);
-        }
-      },
-      (errorMessage) => {
-        //console.log(errorMessage);
-        // this.error = errorMessage;
-        this.errorMessage = true;
-        this.isLoading = false;
-      }
+    //EMAIL REGEX
+    let regexp = new RegExp(
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
-    // form.reset();
+    //test user input
+    serchfind = regexp.test(email);
+
+    if (serchfind === true) {
+      this.isLoading = true;
+      authObservable = this.authService.login(email, password);
+
+      authObservable.subscribe(
+        (responseData) => {
+          //console.log(responseData);
+          this.isLoading = false;
+          if (responseData.role === "admin") {
+            this.router.navigate(["/admin"]);
+          } else {
+            this.router.navigate(["/volunteer"]);
+          }
+        },
+        (errorMessage) => {
+          //console.log(errorMessage);
+          // this.error = errorMessage;
+          this.errorMessage = true;
+          this.isLoading = false;
+        }
+      );
+      // form.reset();
+    } else {
+      this.errorMessage = true;
+    }
   }
 }
