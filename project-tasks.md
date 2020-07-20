@@ -29,7 +29,7 @@
 
 •	In volunteer form, disable or hide newsletter options when Email preferences is unchecked.
 
-•	Finish up regex patterns for the remaining inputs in volunteer form.
+•	Finish up regex patterns for the remaining inputs in volunteer form. [DONE] - Albert
 
 •	Error handling for http response in volunteer form.
 
