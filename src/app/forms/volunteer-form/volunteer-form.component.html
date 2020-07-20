@@ -69,9 +69,10 @@
         name="street1"
         required
         #street="ngModel"
+        pattern="^.{1,50}$"
       />
       <span class="help-block text-danger" *ngIf="!street.valid && street.touched"
-        >Please enter a Street address.</span
+        >Please enter a Street address. (Maximum characters: 50)</span
       >
       <br />
       <div class="row">
@@ -224,9 +225,10 @@
         required
         #email="ngModel"
         type="email"
+        pattern="^.{1,50}$"
       />
       <span class="help-block text-danger" *ngIf="!email.valid && email.touched">
-        Please enter a email address.
+        Please enter a email address. (Maximum characters: 50)
       </span>
     </div>
     <br />
@@ -317,9 +319,10 @@
         name="paragraph"
         required
         #paragraph="ngModel"
+        pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,200}$"
       ></textarea>
       <span class="help-block text-danger" *ngIf="!paragraph.valid && paragraph.touched">
-        Please write a short description of yourself.
+        Please write a short description of yourself. (Maximum characters: 200)
       </span>
     </div>
 
@@ -339,9 +342,10 @@
             name="ec1Fname"
             required
             #ec1Fname="ngModel"
+            pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
           <span class="help-block text-danger" *ngIf="!ec1Fname.valid && ec1Fname.touched">
-            Please enter a name.
+            Please enter a name. (Maximum characters: 25)
           </span>
           <br>
           <label for="ec1Lname">Last name:</label>
@@ -353,9 +357,10 @@
             name="ec1Lname"
             required
             #ec1Lname="ngModel"
+            pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
           <span class="help-block text-danger" *ngIf="!ec1Lname.valid && ec1Lname.touched">
-            Please enter a name.
+            Please enter a name. (Maximum characters:25)
           </span>
           <br>
 
@@ -401,9 +406,10 @@
             #ec1Email="ngModel"
             type="email"
             placeholder="abc@email.com"
+            pattern="^.{1,50}$"
           />
           <span class="help-block text-danger" *ngIf="!ec1Email.valid && ec1Email.touched">
-            Please enter a valid email.
+            Please enter a valid email. (Maximum characters: 50)
           </span>
           <br>
 
@@ -465,9 +471,10 @@
             name="ec2Fname"
             required
             #ec2Fname="ngModel"
+            pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
           <span class="help-block text-danger" *ngIf="!ec2Fname.valid && ec2Fname.touched">
-            Please enter a name.
+            Please enter a name. (Maximum characters: 25)
           </span>
           <br>
 
@@ -480,9 +487,10 @@
             name="ec2Lname"
             required
             #ec2Lname="ngModel"
+            pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
           <span class="help-block text-danger" *ngIf="!ec2Lname.valid && ec2Lname.touched">
-            Please enter a name.
+            Please enter a name. (Maximum characters: 25)
           </span>
           <br>
 
@@ -533,9 +541,10 @@
             #ec2Email="ngModel"
             type="email"
             placeholder="abc@email.com"
+            pattern="^.{1,50}$"
           />
           <span class="help-block text-danger" *ngIf="!ec2Email.valid && ec2Email.touched">
-            Please enter a valid email.
+            Please enter a valid email. (Maximum characters: 50)
           </span>
           <br>
 
@@ -605,9 +614,10 @@
             name="r1Fname"
             required
             #r1Fname="ngModel"
+            pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
           <span class="help-block text-danger" *ngIf="!r1Fname.valid && r1Fname.touched">
-            Please enter a name.
+            Please enter a name. (Maximum characters: 25)
           </span>
           <br>
 
@@ -620,9 +630,10 @@
             name="r1Lname"
             required
             #r1Lname="ngModel"
+            pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
           <span class="help-block text-danger" *ngIf="!r1Lname.valid && r1Lname.touched">
-            Please enter a name.
+            Please enter a name. (Maximum characters: 25)
           </span>
           <br>
 
@@ -655,9 +666,10 @@
             #r1Email="ngModel"
             type="email"
             placeholder="abc@email.com"
+            pattern="^.{1,50}$"
           />
           <span class="help-block text-danger" *ngIf="!r1Email.valid && r1Email.touched">
-            Please enter a valid email.
+            Please enter a valid email. (Maximum characters: 50)
           </span>
         </div>
         <div class="col-sm-6">
@@ -671,9 +683,10 @@
             name="r2Fname"
             required
             #r2Fname="ngModel"
+            pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
           <span class="help-block text-danger" *ngIf="!r2Fname.valid && r2Fname.touched">
-            Please enter a name.
+            Please enter a name. (Maximum characters: 25)
           </span>
           <br>
 
@@ -686,9 +699,10 @@
             name="r2Lname"
             required
             #r2Lname="ngModel"
+            pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
           <span class="help-block text-danger" *ngIf="!r2Lname.valid && r2Lname.touched">
-            Please enter a name.
+            Please enter a name. (Maximum characters: 25)
           </span>
           <br>
 
@@ -721,9 +735,10 @@
             #r2Email="ngModel"
             type="email"
             placeholder="abc@email.com"
+            pattern="^.{1,50}$"
           />
           <span class="help-block text-danger" *ngIf="!r2Email.valid && r2Email.touched">
-            Please enter a valid email.
+            Please enter a valid email. (Maximum characters: 50)
           </span>
         </div>
       </div>
