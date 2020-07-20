@@ -17,7 +17,7 @@
 
 ### FORMS:
 
-•	I am able to submit forms with incorrect phone number and postal code lengths. While backend returns "Error adding application" message, the front end indicates to client that form has been successfully submitted. This is the last major task on forms and tt is our priority to resolve it as soon as possible. [In-progress] - Luat
+•	I am able to submit forms with incorrect phone number and postal code lengths. While backend returns "Error adding application" message, the front end indicates to client that form has been successfully submitted. This is the last major task on forms and tt is our priority to resolve it as soon as possible. [DONE] - Luat
 
 •	When user chooses to fill "another application" make sure every form refreshes, turnes clean, and takes user to the top of the screen.
 
