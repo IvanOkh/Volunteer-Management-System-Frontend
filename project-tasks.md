@@ -29,6 +29,10 @@
 
 •	In volunteer form, disable or hide newsletter options when Email preferences is unchecked.
 
+•	Finish up regex patterns for the remaining inputs in volunteer form.
+
+•	Error handling for http response in volunteer form.
+
 
 ### ADMIN-SIDE:
 
@@ -45,6 +49,8 @@
 •	Present submission date on both volunteer application card and modal in pending. [In-progress] - Albert
 
 •	Present submission date on modals for rejected applications (foster and volunteer). [In-progress] - Albert
+
+•	Horizontal scroll for rejected volunteer and foster applications . [DONE] - Albert
 
 ### USER-SIDE:
 
