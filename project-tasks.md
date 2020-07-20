@@ -50,9 +50,9 @@
 
 •	Present submission date on foster application modal in pending. [DONE] - Albert 
 
-•	Present submission date on both volunteer application card and modal in pending. [In-progress] - Albert
+•	Present submission date on both volunteer application card and modal in pending. [DONE] - Albert
 
-•	Present submission date on modals for rejected applications (foster and volunteer). [In-progress] - Albert
+•	Present submission date on modals for rejected applications (foster and volunteer). [DONE] - Albert
 
 •	Horizontal scroll for rejected volunteer and foster applications . [DONE] - Albert
 
