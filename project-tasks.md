@@ -1,6 +1,6 @@
 
 #  Project Tasks 					
-## Update: Friday, July 17, 2020
+## Update: Sunday, July 19, 2020
 
 ### APP-WIDE:
 
@@ -38,7 +38,7 @@
 
 •	Apply responsive.
 
-•	Avoid True False and "Own-Rent" displayed in popup-modal. [In-progress] - Luat
+•	Avoid True False and "Own-Rent" displayed in popup-modal. [DONE] - Luat
 
 •	Present submission date on foster application modal in pending. [In-progress] - Albert 
 
