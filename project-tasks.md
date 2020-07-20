@@ -38,9 +38,9 @@
 
 •	Sort events based on the date.  [In-progress]- Ivan
 
-•	Fix “Print Form” button to all submitted applications modals that are displayed to admin in “Applications” and “Adoptions” tabs.
+•	Fix “Print Form” button to all submitted applications modals that are displayed to admin in “Applications” and “Adoptions” tabs. [In-progress] - Luat
 
-•	Apply responsive.
+•	Apply responsive. [In-progress] - Luat
 
 •	Avoid True False and "Own-Rent" displayed in popup-modal. [DONE] - Luat
 
