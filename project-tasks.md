@@ -12,6 +12,10 @@
 
 •	Enable GWT security on both sides. [In-progress] - Ivan, Raymond
 
+•	Replace unsplash pictures with new personalized pictures. One for Events, one for volunteers/fosters.
+
+•	For modals, when an attribute is left blank, add "N/A"
+
 •	Debug, debug, and debug. [In-progress] - Everyone
 
 
@@ -25,7 +29,7 @@
 
 •	Do testing on all 4 forms for incomlete submission. Double check and test responsive in the forms (test button click and span text).
 
-•	In volunteer form, for the over 18 question change options from 'true' and 'false' into 'Yes' or 'No'. [In-progress] - Albert
+•	In volunteer form, for the over 18 question change options from 'true' and 'false' into a checkbox. [DONE] - Albert
 
 •	In volunteer form, disable or hide newsletter options when Email preferences is unchecked.
 
@@ -44,13 +48,18 @@
 
 •	Avoid True False and "Own-Rent" displayed in popup-modal. [DONE] - Luat
 
-•	Present submission date on foster application modal in pending. [In-progress] - Albert 
+•	Present submission date on foster application modal in pending. [DONE] - Albert 
 
 •	Present submission date on both volunteer application card and modal in pending. [In-progress] - Albert
 
 •	Present submission date on modals for rejected applications (foster and volunteer). [In-progress] - Albert
 
 •	Horizontal scroll for rejected volunteer and foster applications . [DONE] - Albert
+
+•	Add box outline to reason for rejection field in rejected application tabs.
+
+•	Add box outline to selfdescription in modals for Volunteers.
+
 
 ### USER-SIDE:
 
