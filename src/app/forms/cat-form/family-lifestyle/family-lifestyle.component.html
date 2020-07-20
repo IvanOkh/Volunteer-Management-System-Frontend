@@ -83,7 +83,7 @@
             <label for="">How many adults are in your household? <span class="star">*</span></label>
           </div>
           <div class="col-md-8 mt-3">
-            <input min="0" type="number" class="form-control small-input" placeholder="ex: 23" formControlName="howmanyadults"
+            <input min="0" max="99" type="number" class="form-control small-input" placeholder="ex: 23" formControlName="howmanyadults"
               [ngClass]="{'is-invalid': form.howmanyadults.errors && form.howmanyadults.touched}">
             <!-- validation  -->
             <div *ngIf="form.howmanyadults.errors && form.howmanyadults.touched" class="col-12">
@@ -99,7 +99,7 @@
             <label for="">How many children are in your household? <span class="star">*</span></label>
           </div>
           <div class="col-md-8 mt-4">
-            <input min="0" type="number" class="form-control small-input" placeholder="ex: 23" formControlName="howmanychild"
+            <input min="0" max="99" type="number" class="form-control small-input" placeholder="ex: 23" formControlName="howmanychild"
               [ngClass]="{'is-invalid': form.howmanychild.errors && form.howmanychild.touched}">
             <!-- validation  -->
             <div *ngIf="form.howmanychild.errors && form.howmanychild.touched" class="col-12">
@@ -114,7 +114,7 @@
             <label for="">If children, what are their ages?</label>
           </div>
           <div class="col-md-6 mt-3">
-            <input min="0" type="text" class="form-control" placeholder="ex: 11,21,31" formControlName="childrenages">
+            <input maxlength="25" type="text" class="form-control" placeholder="ex: 11,21,31" formControlName="childrenages">
           </div>
         </div>
 
@@ -122,7 +122,7 @@
           <label for="">Have your children been taught the correct way to handle a cat? Please explain:</label>
         </div>
         <div class="col-12">
-          <textarea class="form-control textArea-width" id="" rows="5" formControlName="childrenhandling"></textarea>
+          <textarea class="form-control textArea-width" id="" rows="5" maxlength="100" formControlName="childrenhandling"></textarea>
         </div>
 
         <div class="hover">
@@ -167,7 +167,7 @@
             avoid bites? Explain:</label>
         </div>
         <div class="col-12">
-          <textarea class="form-control textArea-width" id="" rows="5" formControlName="childrenprepared"></textarea>
+          <textarea class="form-control textArea-width" maxlength="100" rows="5" formControlName="childrenprepared"></textarea>
         </div>
 
 
@@ -231,7 +231,7 @@
             etc. <span class="star">*</span></label>
         </div>
         <div class="col-12">
-          <textarea class="form-control textArea-width" id="" rows="5" formControlName="familypersonality"
+          <textarea class="form-control textArea-width" maxlength="50" rows="5" formControlName="familypersonality"
             [ngClass]="{'is-invalid': form.howmanyadults.errors && form.howmanyadults.touched}"></textarea>
           <!-- validation  -->
           <div *ngIf="form.familypersonality.errors && form.familypersonality.touched" class="col-12">

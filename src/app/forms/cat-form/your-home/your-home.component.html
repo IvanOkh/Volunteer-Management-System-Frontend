@@ -38,6 +38,7 @@
               </div>
               <div class="col-md-9 mt-3">
                 <mat-radio-group formControlName="own">
+
                   <mat-radio-button value=true>Own</mat-radio-button>
                   <mat-radio-button value=false>Rent</mat-radio-button>
                 </mat-radio-group>
@@ -54,7 +55,7 @@
                 <label>If rent, provide name and phone number of landlord:</label>
               </div>
               <div class="col-md-6 mt-3">
-                <input type="text" class="form-control" formControlName="landlordcontact">
+                <input type="text" class="form-control" maxlength="50" formControlName="landlordcontact">
               </div>
             </div>
   
@@ -162,7 +163,7 @@
                   home? If your landlord or condo board reverses their decision to allow pets?</label>
               </div>
               <div class="col-12">
-                <textarea class="form-control textArea-width" formControlName="livingsituationchanges"
+                <textarea class="form-control textArea-width" maxlength="200" formControlName="livingsituationchanges"
                   rows="5"></textarea>
               </div>
             </div>

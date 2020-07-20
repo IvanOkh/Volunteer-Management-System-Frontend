@@ -57,10 +57,10 @@ export class FormLayoutComponent implements OnInit {
   sizeWeightCheck: any;
   breedCheck: any;
 
-  petRestrictions: String;
-  sizeWeightRestrictions: String;
-  breedRestriction: String;
-  restrictions: String;
+  petRestrictions: string;
+  sizeWeightRestrictions: string;
+  breedRestriction: string;
+  restrictions: string;
 
   indoorCheck: any;
   combinationCheck: any;

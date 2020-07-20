@@ -56,9 +56,6 @@ export class ManageCatApplicationComponent implements OnInit {
           this.dataSource.paginator = this.paginator;
           this.application = this.catArray[0];
           this.isLoading = false;
-        {
-
-        }
       });
     });
   }
@@ -87,7 +84,7 @@ export class ManageCatApplicationComponent implements OnInit {
     this.adoptionService.getCatApplication(id).subscribe((cat: CatForm) => {
       if (cat) {
         cat.rejected = true;
-        cat.rejectionReason = reason;
+        cat.rejectionreason = reason;
         this.reason = reason;
         this.adoptionService
           .updateCatApplication(cat)

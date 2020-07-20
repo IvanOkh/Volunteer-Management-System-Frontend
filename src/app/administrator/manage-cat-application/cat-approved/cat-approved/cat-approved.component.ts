@@ -83,7 +83,7 @@ export class CatApprovedComponent implements OnInit {
     console.log(id);
     this.adoptionService.getCatApplication(id).subscribe((cat: CatForm) => {
       cat.rejected = true;
-      cat.rejectionReason = reason;
+      cat.rejectionreason = reason;
       this.reason = reason;
       cat.approved = false;
       this.adoptionService
