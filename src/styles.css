@@ -79,3 +79,9 @@ body {
 
 }
 
+.description{
+  border: .5px solid #c5c3c3;
+  padding: 1rem;
+  border-radius: 3px;
+}
+

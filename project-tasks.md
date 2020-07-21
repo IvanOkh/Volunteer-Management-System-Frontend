@@ -1,6 +1,6 @@
 
 #  Project Tasks 					
-## Update: Monday, July 20, 2020
+## Update: Monday, July 21, 2020
 
 ### APP-WIDE:
 
@@ -25,9 +25,9 @@
 
 •	After filling an application, if user chooses to go to login page, they end up at the bottom of login page. User needs to be scrolled all the way up when they land on login page.
 
-•	Do testing on all 4 forms for incomlete submission. Double check and test responsive in the forms (test button click and span text).
+•	Do testing on all 4 forms for incomplete submission. Double check and test responsive in the forms (test button click and span text).
 
-•	In volunteer form, disable or hide newsletter options when Email preferences is unchecked.
+•	In volunteer form, disable or hide newsletter options when Email preferences is unchecked. [In- Progress] - Albert
 
 •	Implement regex patterns for Foster, Dog, Cat forms (see volunteer form and login email pattern).
 
@@ -42,9 +42,11 @@
 
 •	Apply responsive. [In-progress] - Luat
 
-•	Add box outline to reason for rejection field in rejected application tabs.
+•	Add box outline to reason for rejection field in rejected application tabs. [DONE] - Albert
 
-•	Add box outline to selfdescription in modals for Volunteers.
+•	Add box outline to selfdescription in modals for Volunteers. [DONE] - Albert
+
+•	Double check if animal type works properlly [In-progress] - Albert
 
 
 ### USER-SIDE:

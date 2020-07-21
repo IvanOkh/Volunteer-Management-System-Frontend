@@ -82,13 +82,7 @@ label{
 .personalInfo {
   background-color: rgb(245, 234, 234);
 }
-.flag,
-.description {
-  margin-top: 5px;
-  padding: 13px;
-  border: 1px solid black;
-  border-radius: 8px;
-}
+
 .noteSection {
   margin: 3px 5px;
   padding: 13px;
