@@ -31,7 +31,7 @@
 
 •	Implement regex patterns for Foster, Dog, Cat forms (see volunteer form and login email pattern).
 
-•	Implement booletproof error handling for http response in volunteer form.
+•	Implement booletproof error handling for http response in volunteer form AND foster form.
 
 
 ### ADMIN-SIDE:
