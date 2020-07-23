@@ -161,23 +161,23 @@ export class ViewEventsComponent implements OnInit {
     );
   }
 
-  private fetchEvent(eventID: number): EventModel {
-    let event: EventModel;
-    this.es.getEvent(eventID).subscribe(
-      (responseEvent: EventModel) => {
-        // success
-        event = responseEvent;
-      },
-      (error: any) => {
-        // error
-        console.log("Events single_fetch HTTP response failed.");
-        event = null;
-        console.log(error);
-      }
-    );
+  // private fetchEvent(eventID: number): EventModel {
+  //   let event: EventModel;
+  //   this.es.getEvent(eventID).subscribe(
+  //     (responseEvent: EventModel) => {
+  //       // success
+  //       event = responseEvent;
+  //     },
+  //     (error: any) => {
+  //       // error
+  //       console.log("Events single_fetch HTTP response failed.");
+  //       event = null;
+  //       console.log(error);
+  //     }
+  //   );
 
-    return event;
-  }
+  //   return event;
+  // }
 
   private addEvent(newEvent: EventModel): void {
     this.es.addEvent(newEvent).subscribe(
