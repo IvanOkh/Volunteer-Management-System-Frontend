@@ -4,6 +4,8 @@
 
 ### APP-WIDE:
 
+•	Add 404 page to the routing [In-progress] - Ivan
+
 •	Implement dynamic and smooth transitionon admin and user side.
 
 •	Resolve password recovery. [Waiting for back-end update(Ivan)] - Ivan, Raymond
@@ -35,6 +37,8 @@
 
 
 ### ADMIN-SIDE:
+
+•	Implement lazy loading on the entire admin side (make sure that no service class logic is present in the module [In-progress] - Ivan
 
 •	Sort events based on the date.  [In-progress]- Ivan
 
