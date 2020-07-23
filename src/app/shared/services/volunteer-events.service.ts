@@ -100,6 +100,9 @@ export class VolunteerEventsService {
           if (eventDate > this.todayDate) {
             this.events.push(e);
           }
+          this.events.sort((a: EventModel, b: EventModel) => {
+            return +new Date(a.date) - +new Date(b.date);
+          });
           return true;
         });
       }
