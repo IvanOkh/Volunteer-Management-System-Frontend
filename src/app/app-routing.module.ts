@@ -65,7 +65,7 @@ const appRoutes: Routes = [
       { path: "events", component: ViewEventsComponent },
       { path: "fosters", component: ViewFostersComponent },
       { path: "volunteers", component: ViewVolunteerComponent },
-      { path: "", redirectTo: "admin/events", pathMatch: "full" },
+      { path: "", redirectTo: "events", pathMatch: "full" },
       { path: "**", component: ViewEventsComponent },
     ],
   },
@@ -76,7 +76,7 @@ const appRoutes: Routes = [
     children: [
       { path: "account", component: ViewVolunteerAccountComponent },
       { path: "events", component: VolunteerSideEventsComponent },
-      { path: "", redirectTo: "volunteer/events", pathMatch: "full" },
+      { path: "", redirectTo: "events", pathMatch: "full" },
       { path: "**", component: VolunteerSideEventsComponent },
     ],
   },
