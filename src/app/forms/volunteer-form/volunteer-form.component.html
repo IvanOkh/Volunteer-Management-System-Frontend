@@ -760,13 +760,17 @@
         class="custom-check-input ml-2 mr-1"
         id="weekLetter"
         name="weekLetter"
-        value="Week Letters"
+        value="weekLetters"
+        #weekLetter="ngModel"
         ngModel
+        (click)="nlToggle();"
       />
       <br />
-      <hr />
 
+      <ng-container *ngIf="nlVisible">
+      <hr />
       
+
       <label>If yes, What kinds of email would you like to receive?</label>
       <br />
       <input
@@ -795,6 +799,8 @@
         value="Schedule Reminders"
         ngModel
       />Schedule reminders
+
+    </ng-container>
     </div>
 
     <br />
