@@ -50,6 +50,10 @@
 
 • Double check if animal type works properlly [In-progress] - Albert
 
+• Disable sysouts in application components. [Done]- Ivan
+
+• Make application routerlink directive reacting to child tabs. [Done]- Ivan
+
 ### USER-SIDE:
 
 • Sort events based on the date. [Done] - Ivan
