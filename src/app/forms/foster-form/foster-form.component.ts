@@ -55,6 +55,7 @@ export class FosterFormComponent {
 
   //If form has submitted
   validForm: boolean = false;
+  addingSuccess: boolean = false;
 
   stringifyFamilyList(familyList: FamilyMember[]) {
     console.log(familyList);
@@ -152,9 +153,14 @@ export class FosterFormComponent {
 
   private sendTheForm(fosForm: FosterApplication): void {
     this.FS.sendFosterForm(fosForm).subscribe(
-      () => {
+      (responseData) => {
         // success
         console.log("Events add HTTP response succeeded.");
+        console.log(responseData);
+
+        if(responseData === "Error adding application."){
+            this.validForm = false;
+        }
       },
       () => {
         // error
