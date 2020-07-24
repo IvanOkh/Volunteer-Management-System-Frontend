@@ -18,13 +18,13 @@ export class FosterPendingComponent implements OnInit {
   isLoading: boolean = false;
   fetched: FosterApplication;
 
-   // Extra variables to delimit fosterAnimalType attribute
-   ftPuppy: boolean = false;
-   ftAdultDog: boolean = false;
-   ftKitten: boolean = false;
-   ftAdultCat: boolean = false;
-   ftMedicalCare: boolean = false;
-   ftQuarantine: boolean = false;
+  // Extra variables to delimit fosterAnimalType attribute
+  ftPuppy: boolean = false;
+  ftAdultDog: boolean = false;
+  ftKitten: boolean = false;
+  ftAdultCat: boolean = false;
+  ftMedicalCare: boolean = false;
+  ftQuarantine: boolean = false;
 
   constructor(private fs: FostersService) {}
 
@@ -55,7 +55,7 @@ export class FosterPendingComponent implements OnInit {
       console.log("ERROR: foster id is" + foster.id);
       return;
     }
-    
+
     this.fs.addFoster(foster).subscribe(
       () => {
         //success
@@ -106,11 +106,11 @@ export class FosterPendingComponent implements OnInit {
     this.fs.getFosterApplication(fosterID).subscribe(
       (foster: FosterApplication) => {
         this.fetched = foster;
-        console.log(this.fetched);
+        // console.log(this.fetched);
         this.delimitFosterType(this.fetched.preferredAnimal);
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
       }
     );
   }
@@ -126,13 +126,13 @@ export class FosterPendingComponent implements OnInit {
         applicants.forEach((applicant: FosterApplication) => {
           if (!applicant.rejected) {
             this.appList.push(applicant);
-            console.log(applicant);
+            // console.log(applicant);
           }
         });
         this.isLoading = false;
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
         this.isLoading = false;
       }
     );
@@ -148,7 +148,7 @@ export class FosterPendingComponent implements OnInit {
         this.loadPendingApplicants();
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
       }
     );
   }
@@ -163,49 +163,49 @@ export class FosterPendingComponent implements OnInit {
         this.loadPendingApplicants();
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
       }
     );
   }
 
-    //Takes FosterType attribute type of string and changes ft attributes to display onto Foster modal.
-    private delimitFosterType(fosterType: string) {
-      let splitted = fosterType.split(",", 6);
-  
-      if (splitted[0].match("true")) {
-        this.ftPuppy = true;
-      } else {
-        this.ftPuppy = false;
-      }
-  
-      if (splitted[1].match("true")) {
-        this.ftAdultDog = true;
-      } else {
-        this.ftAdultDog = false;
-      }
-  
-      if (splitted[2].match("true")) {
-        this.ftKitten = true;
-      } else {
-        this.ftKitten = false;
-      }
-  
-      if (splitted[3].match("true")) {
-        this.ftAdultCat = true;
-      } else {
-        this.ftAdultCat = false;
-      }
-  
-      if (splitted[4].match("true")) {
-        this.ftMedicalCare = true;
-      } else {
-        this.ftMedicalCare = false;
-      }
-  
-      if (splitted[5].match("true")) {
-        this.ftQuarantine = true;
-      } else {
-        this.ftQuarantine = false;
-      }
+  //Takes FosterType attribute type of string and changes ft attributes to display onto Foster modal.
+  private delimitFosterType(fosterType: string) {
+    let splitted = fosterType.split(",", 6);
+
+    if (splitted[0].match("true")) {
+      this.ftPuppy = true;
+    } else {
+      this.ftPuppy = false;
     }
+
+    if (splitted[1].match("true")) {
+      this.ftAdultDog = true;
+    } else {
+      this.ftAdultDog = false;
+    }
+
+    if (splitted[2].match("true")) {
+      this.ftKitten = true;
+    } else {
+      this.ftKitten = false;
+    }
+
+    if (splitted[3].match("true")) {
+      this.ftAdultCat = true;
+    } else {
+      this.ftAdultCat = false;
+    }
+
+    if (splitted[4].match("true")) {
+      this.ftMedicalCare = true;
+    } else {
+      this.ftMedicalCare = false;
+    }
+
+    if (splitted[5].match("true")) {
+      this.ftQuarantine = true;
+    } else {
+      this.ftQuarantine = false;
+    }
+  }
 }
