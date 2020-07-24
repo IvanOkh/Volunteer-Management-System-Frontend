@@ -165,6 +165,7 @@
             #postalcode="ngModel"
             ngModel
             pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]"
+           
           />
           <span
             class="help-block text-danger"
@@ -314,12 +315,11 @@
       <textarea
         id="paragraph"
         class="form-control"
-        placeholder="How would you benefit us by being a volunteer? What motivated you to become a volunteer with us?"
+        placeholder="How would you benefit us by being a volunteer? What motivated you to become a volunteer with us? (Maximum characters: 200)"
         ngModel
         name="paragraph"
         required
         #paragraph="ngModel"
-        pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,200}$"
       ></textarea>
       <span class="help-block text-danger" *ngIf="!paragraph.valid && paragraph.touched">
         Please write a short description of yourself. (Maximum characters: 200)
@@ -878,7 +878,8 @@
               <button class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-              Please make sure to fill out every required field.
+              Please make sure to fill out every required field.<br>
+              Try restarting the form if you continue to receive this message OR contact us.
             </div>
             <div class="modal-footer">
               <button class="btn btn-danger" data-dismiss="modal">

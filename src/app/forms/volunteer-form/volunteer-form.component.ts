@@ -37,7 +37,7 @@ export class VolunteerFormComponent {
 
   //To check if form has been submitted successfully without any errors within values
   validForm: boolean = false;
-
+  addingSuccess: boolean = false;
   onSubmit(form: NgForm) {
     //Validation check
     if (!form.valid) {
@@ -146,9 +146,14 @@ export class VolunteerFormComponent {
 
   private sendTheForm(volForm: VolunteerApplication): void {
     this.FS.sendVolunteerForm(volForm).subscribe(
-      () => {
+      (responseData) => {
         // success
         console.log("Events add HTTP response succeeded.");
+        console.log(responseData);
+        
+        if(responseData === "Error adding application."){
+          this.validForm = false;
+      }
       },
       () => {
         // error
