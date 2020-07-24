@@ -23,6 +23,8 @@ export class VolunteerFormComponent {
   defaultec2Relationship: string = "choose";
   defaultProvince = "choose";
 
+  nlVisible: boolean = false;
+
   constructor(
     private http: HttpClient,
     private FS: FormsService,
@@ -153,5 +155,14 @@ export class VolunteerFormComponent {
         console.log("Events add HTTP response failed.");
       }
     );
+  }
+
+  private nlToggle(){
+    if(this.nlVisible === true){
+      this.nlVisible = false;
+    }
+    else{
+      this.nlVisible = true;
+    }
   }
 }

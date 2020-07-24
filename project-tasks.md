@@ -28,7 +28,7 @@
 
 • Do testing on all 4 forms for incomplete submission. Double check and test responsive in the forms (test button click and span text).
 
-• In volunteer form, disable or hide newsletter options when Email preferences is unchecked. [In- Progress] - Albert
+• In volunteer form, disable or hide newsletter options when Email preferences is unchecked. [DONE] - Albert
 
 • Implement regex patterns for Foster, Dog, Cat forms (see volunteer form and login email pattern).
 
