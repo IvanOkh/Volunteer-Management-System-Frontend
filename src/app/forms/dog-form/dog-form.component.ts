@@ -79,6 +79,7 @@ export class DogFormComponent implements OnInit {
 
   //If form has submitted
   validForm: boolean = false;
+  addingSuccess: boolean = false;
 
   onSubmit(form: NgForm) {
     // this.errorMessages.length = 0;
@@ -591,9 +592,14 @@ export class DogFormComponent implements OnInit {
   }
   private sendTheForm(dogForm: DogForm): void {
     this.FS.sendDogForm(dogForm).subscribe(
-      () => {
+      (responseData) => {
         // success
         console.log("Events add HTTP response succeeded.");
+        console.log(responseData);
+
+        if(responseData === "Error adding application."){
+            this.validForm = false;
+        }
       },
       () => {
         // error
