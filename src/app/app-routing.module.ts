@@ -47,27 +47,11 @@ const appRoutes: Routes = [
   { path: "login", component: MainPageComponent },
   {
     path: "admin",
-    component: AdminContainerComponent,
+    loadChildren: () =>
+      import("./administrator/administrator.module").then(
+        (m) => m.AdministratorModule
+      ),
     canActivate: [AuthGuard],
-    children: [
-      { path: "cat", component: ManageCatApplicationComponent },
-      { path: "rejectedCat", component: CatRejectedComponent },
-      { path: "acceptedCat", component: CatApprovedComponent },
-
-      { path: "dog", component: ManageDogApplicationComponent },
-      { path: "rejectedDog", component: DogRejectedComponent },
-      { path: "acceptedDog", component: DogApprovedComponent },
-
-      { path: "volunteerarchive", component: VolunteerRejectedComponent },
-      { path: "applications", component: VolunteerPendingComponent },
-      { path: "fosterarchive", component: FosterRejectedComponent },
-      { path: "fosterapplications", component: FosterPendingComponent },
-      { path: "events", component: ViewEventsComponent },
-      { path: "fosters", component: ViewFostersComponent },
-      { path: "volunteers", component: ViewVolunteerComponent },
-      { path: "", redirectTo: "events", pathMatch: "full" },
-      { path: "**", component: ViewEventsComponent },
-    ],
   },
   {
     path: "volunteer",
