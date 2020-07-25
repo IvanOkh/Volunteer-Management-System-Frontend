@@ -24,15 +24,14 @@ export class DogFormComponent implements OnInit {
   selectedRelationship = "Friend";
   selectedProvince = "AB";
 
-  errorMessages: string[] = [];
+  // errorMessages: string[] = [];
   checked: number = 0;
 
   id: number = 0;
   submissionDate: string = "";
-  rejected: boolean = false;
+  // rejected: boolean = false;
   rejectionReason: string = "";
-  approved: false;
-
+  // approved: false;
 
   householdAgreement: boolean;
   membersIntroduced: boolean;
@@ -67,6 +66,7 @@ export class DogFormComponent implements OnInit {
    * Function to navigate the user back to home page (used for back button)
    */
   onOkClick() {
+    this.onScroll();
     this.router.navigate(["/login"]);
   }
 
@@ -83,7 +83,7 @@ export class DogFormComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     // this.errorMessages.length = 0;
-    this.errorMessages.splice(0, this.errorMessages.length);
+    // this.errorMessages.splice(0, this.errorMessages.length);
     // console.log(this.sgnForm.value.staysInHouse);
     // Where will your dog stay during the day
 
@@ -98,14 +98,15 @@ export class DogFormComponent implements OnInit {
       form.value.staysWith === true
     ) {
       this.checked++;
-    } else {
-      // this.errorMessages.push(
-      //   "<a href='#daylink'>You must check at least one checkbox for 'Where will your dog stay during the day'</a>"
-      // );
-      this.errorMessages.push(
-        " <b>You must check at least one checkbox for 'Where will your dog stay during the day'</b>"
-      );
     }
+    // else {
+    //   // this.errorMessages.push(
+    //   //   "<a href='#daylink'>You must check at least one checkbox for 'Where will your dog stay during the day'</a>"
+    //   // );
+    //   this.errorMessages.push(
+    //     " <b>You must check at least one checkbox for 'Where will your dog stay during the day'</b>"
+    //   );
+    // }
     // Where will your dog stay during the night
     if (
       form.value.staysInHouseN === true ||
@@ -118,14 +119,15 @@ export class DogFormComponent implements OnInit {
       form.value.staysWithN === true
     ) {
       this.checked++;
-    } else {
-      // this.errorMessages.push(
-      //   "<a href='#nightlink'>You must check at least one checkbox for 'Where will your dog stay during the night'</a>"
-      // );
-      this.errorMessages.push(
-        "<b>You must check at least one checkbox for 'Where will your dog stay during the night'</b>"
-      );
     }
+    //  else {
+    //   // this.errorMessages.push(
+    //   //   "<a href='#nightlink'>You must check at least one checkbox for 'Where will your dog stay during the night'</a>"
+    //   // );
+    //   this.errorMessages.push(
+    //     "<b>You must check at least one checkbox for 'Where will your dog stay during the night'</b>"
+    //   );
+    // }
     //activities with the dog
     if (
       form.value.activities1 === true ||
@@ -145,14 +147,15 @@ export class DogFormComponent implements OnInit {
       form.value.activities15 === true
     ) {
       this.checked++;
-    } else {
-      // this.errorMessages.push(
-      //   "<a href='#activitieslink'>You must check at least one checkbox for 'What activities do you plan to do with your dog'</a>"
-      // );
-      this.errorMessages.push(
-        "<b>You must check at least one checkbox for 'What activities do you plan to do with your dog'</b>"
-      );
     }
+    // else {
+    //   // this.errorMessages.push(
+    //   //   "<a href='#activitieslink'>You must check at least one checkbox for 'What activities do you plan to do with your dog'</a>"
+    //   // );
+    //   this.errorMessages.push(
+    //     "<b>You must check at least one checkbox for 'What activities do you plan to do with your dog'</b>"
+    //   );
+    // }
 
     if (this.checked === 3) {
       //householdAgreement
@@ -451,8 +454,8 @@ export class DogFormComponent implements OnInit {
       this.newDogForm = new DogForm(
         this.id,
         this.submissionDate,
-        this.rejected,
-        this.approved,
+        false,
+        false,
         this.rejectionReason,
         //APPLICANT
         form.value.dogName, //nameOfDog S
@@ -571,34 +574,47 @@ export class DogFormComponent implements OnInit {
       //DO PROCESSING HERE (this.newDogForm has been populated)
       this.validForm = true;
       console.log(this.newDogForm);
-      this.sendTheForm(this.newDogForm);
+      if (form.valid && this.checked === 3) {
+        console.log("Valid form 100%");
+        this.sendTheForm(this.newDogForm);
+      }
     } else {
-      this.checked === 0;
+      this.checked = 0;
     }
 
-    //Validation
-    if (form.valid) {
-      this.validForm = true;
-      // console.log("Validated");
-      // console.log(NgForm);
-      // console.log(form);
-      return;
-    }
+    // //Validation
+    // if (form.valid && this.checked === 3) {
+    //   console.log("Valid form 100%");
+    //   this.sendTheForm(this.newDogForm);
+    //   // console.log("Validated");
+    //   // console.log(NgForm);
+    //   // console.log(form);
+    //   return;
+    // }
   }
+
   private sendTheForm(dogForm: DogForm): void {
     this.FS.sendDogForm(dogForm).subscribe(
       (responseData) => {
         // success
-        console.log("Events add HTTP response succeeded.");
+        // console.log("Events add HTTP response succeeded.");
         console.log(responseData);
 
-        if(responseData === "Error adding application."){
-            this.validForm = false;
+        if (responseData === "Error adding application.") {
+          // this.newDogForm = null;
+          // this.checked = 0;
+          // this.validForm = false;
+          this.validForm = false;
         }
+        this.newDogForm = null;
+        this.checked = 0;
       },
       () => {
         // error
         console.log("Events add HTTP response failed.");
+        this.newDogForm = null;
+        this.checked = 0;
+        this.validForm = false;
       }
     );
   }
