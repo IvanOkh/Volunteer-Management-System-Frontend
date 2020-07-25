@@ -78,7 +78,7 @@ export class VolunteerFormComponent {
       }
 
       //province
-      if(form.value.province === 'choose') {
+      if (form.value.province === "choose") {
         form.control.setErrors({ invalid: true });
       }
 
@@ -141,6 +141,7 @@ export class VolunteerFormComponent {
    * Redirects user back to home page
    */
   onOkClick() {
+    this.onScroll();
     this.router.navigate(["/login"]);
   }
 
@@ -150,10 +151,10 @@ export class VolunteerFormComponent {
         // success
         console.log("Events add HTTP response succeeded.");
         console.log(responseData);
-        
-        if(responseData === "Error adding application."){
+
+        if (responseData === "Error adding application.") {
           this.validForm = false;
-      }
+        }
       },
       () => {
         // error
@@ -162,11 +163,10 @@ export class VolunteerFormComponent {
     );
   }
 
-  private nlToggle(){
-    if(this.nlVisible === true){
+  private nlToggle() {
+    if (this.nlVisible === true) {
       this.nlVisible = false;
-    }
-    else{
+    } else {
       this.nlVisible = true;
     }
   }
