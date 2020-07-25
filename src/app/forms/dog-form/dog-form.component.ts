@@ -583,11 +583,6 @@ export class DogFormComponent implements OnInit {
       // console.log(NgForm);
       // console.log(form);
       return;
-    } else if (!form.valid) {
-      this.validForm = false;
-      // console.log(NgForm);
-      // console.log(form);
-      return;
     }
   }
   private sendTheForm(dogForm: DogForm): void {
