@@ -182,7 +182,9 @@
           <div class="media">
             <img
               class="mr-3 align-self-center"
-              src="https://source.unsplash.com/collection/201009/90x90?sig={{ event.id }}"
+              src="https://source.unsplash.com/collection/201009/90x90?sig={{
+                event.id
+              }}"
             />
             <div class="media-body">
               <div class="row">
@@ -454,9 +456,18 @@
           <!-- TABLE WITH REGISTERED USERS -->
           <div
             class="table-responsive table-sm"
-            *ngIf="defineNumberOfSubs(event.id) > 0"
+            *ngIf="
+              defineNumberOfSubs(event.id) > 0 &&
+              this.eventArrayHolder.length > 0
+            "
           >
-            <table class="table ml-3">
+            <table
+              class="table ml-3"
+              *ngIf="
+                !this.eventArrayHolder.length == 0 &&
+                !defineNumberOfSubs(event.id) == 0
+              "
+            >
               <thead>
                 <tr>
                   <th>User ID</th>
