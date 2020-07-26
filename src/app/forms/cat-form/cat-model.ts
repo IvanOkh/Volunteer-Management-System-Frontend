@@ -7,7 +7,7 @@ export class CatForm {
     public rejectionreason: string,
 
     // APPLICANT INFORMATION
-    public ameofcat: string,
+    public nameofcat: string,
     public fname: string,
     public lname: string,
     public address: string,
