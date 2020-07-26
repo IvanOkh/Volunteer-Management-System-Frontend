@@ -29,6 +29,20 @@ import { CatApprovedComponent } from "./administrator/manage-cat-application/cat
 import { ChangePasswordComponent } from "./shared/components/change-password/change-password.component";
 
 const appRoutes: Routes = [
+  {
+    path: "admin",
+    loadChildren: () =>
+      import("./administrator/administrator.module").then(
+        (m) => m.AdministratorModule
+      ),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: "volunteer",
+    loadChildren: () =>
+      import("./volunteer/volunteer.module").then((m) => m.VolunteerModule),
+    canActivate: [AuthUserGuard],
+  },
   { path: "volunteer-application", component: VolunteerFormComponent },
   { path: "foster-application", component: FosterFormComponent },
   {
@@ -45,27 +59,8 @@ const appRoutes: Routes = [
   { path: "change-password/:id", component: ChangePasswordComponent },
 
   { path: "login", component: MainPageComponent },
-  {
-    path: "admin",
-    loadChildren: () =>
-      import("./administrator/administrator.module").then(
-        (m) => m.AdministratorModule
-      ),
-    canActivate: [AuthGuard],
-  },
-  {
-    path: "volunteer",
-    component: VolunteerContainerComponent,
-    canActivate: [AuthUserGuard],
-    children: [
-      { path: "account", component: ViewVolunteerAccountComponent },
-      { path: "events", component: VolunteerSideEventsComponent },
-      { path: "", redirectTo: "events", pathMatch: "full" },
-      { path: "**", component: VolunteerSideEventsComponent },
-    ],
-  },
   { path: "", redirectTo: "login", pathMatch: "full" },
-  { path: "**", redirectTo: "login" },
+  { path: "**", component: MainPageComponent },
 ];
 
 @NgModule({
