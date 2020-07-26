@@ -4,6 +4,8 @@
 
 ### APP-WIDE:
 
+• Convert CARS pictures into light size images to be used throughout the app instead of unsplash pictures [In-progress] - Albert
+
 • Add 404 page to the routing [In-progress] - Ivan
 
 • Implement dynamic and smooth transitionon admin and user side.
@@ -34,6 +36,6 @@
 
 ### USER-SIDE:
 
-• Add lazy loading to the module [In-progress] - Ivan
+• Add lazy loading to the module [Done] - Ivan
 
 • Apply responsive.
