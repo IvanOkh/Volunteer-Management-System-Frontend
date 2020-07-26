@@ -5,6 +5,8 @@ th {
 .tableContainer {
   overflow-x: scroll;
 }
+
+
 tr {
   padding: 0.5rem;
   vertical-align: center;
