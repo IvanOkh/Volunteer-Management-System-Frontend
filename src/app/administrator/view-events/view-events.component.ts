@@ -33,12 +33,15 @@ export class ViewEventsComponent implements OnInit {
     private fs: FostersService
   ) {}
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    // this.isLoading = true;
     //this.ves.initializeData;
     this.ves.getSubscriptionData();
+
     //subscribe to keep up to date event staff
     this.ves.eventStaffData.subscribe((data) => {
       this.eventArrayHolder = data;
+      this.loadEvents();
     });
     //load active volunteers
     this.vs.loadVolunteers().subscribe((responseData) => {
@@ -49,10 +52,10 @@ export class ViewEventsComponent implements OnInit {
     this.fs.loadFosters().subscribe((responseData) => {
       this.fosterArray = responseData;
       // console.log(this.fosterArray);
-      this.loadEvents();
     });
 
     this.currentDate = new Date();
+    // this.isLoading = false;
   }
 
   //Method that returns array of registered event specific volunteers
@@ -156,6 +159,7 @@ export class ViewEventsComponent implements OnInit {
       () => {
         // error
         console.log("Events add HTTP response failed.");
+        this.loadEvents();
         this.isLoading = false;
       }
     );
