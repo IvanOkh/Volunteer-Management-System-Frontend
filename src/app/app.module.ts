@@ -3,7 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatTableModule } from "@angular/material";
 import { MatProgressSpinnerModule } from "@angular/material";
@@ -26,7 +26,8 @@ import { FamilyMembersComponent } from "./forms/foster-form/family-members/famil
 // import { CatFormModule } from "./forms/cat-form/cat-form.module";
 import { VolunteerModule } from "./volunteer/volunteer.module";
 import { AdministratorModule } from "./administrator/administrator.module";
-import { ChangePasswordComponent } from './shared/components/change-password/change-password.component';
+import { ChangePasswordComponent } from "./shared/components/change-password/change-password.component";
+import { AuthInterceptorService } from "./auth/auth-interceptor.service";
 // import { NaPipe } from "./shared/pipes/na.pipe";
 // import { Router } from "@angular/router";
 
@@ -58,7 +59,13 @@ import { ChangePasswordComponent } from './shared/components/change-password/cha
     VolunteerModule,
     AdministratorModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
