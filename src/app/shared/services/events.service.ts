@@ -1,17 +1,16 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 import { EventModel } from "../models/event.model";
 
 /******************************************************************************/
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
-export class EventsService
-{
+export class EventsService {
   private REST_API_SERVER = "http://68.66.193.100:8080/CARS/";
   private CTRL_MAPPING = "events/";
 
@@ -22,20 +21,23 @@ export class EventsService
    * Returns the list of events in a subscribe-able object.
    * @returns {Observable<EventModel[]>}
    */
-  public loadEvents(): Observable<EventModel[]>
-  {
-    return this.sendGetAllLoadRequest()
-      .pipe(
-        map((responseData: EventModel[]) => {
-          const eventArray: EventModel[] = [];
-          responseData.forEach((event: EventModel) => {
-            if (event.id) {
-              eventArray.push(event);
-            }
-          });
-          return eventArray;
-        })
-      );
+  public loadEvents(): Observable<EventModel[]> {
+    return this.sendGetAllLoadRequest().pipe(
+      map((responseData: EventModel[]) => {
+        const eventArray: EventModel[] = [];
+        responseData.forEach((event: EventModel) => {
+          if (event.id) {
+            eventArray.push(event);
+          }
+        });
+
+        eventArray.sort((a: EventModel, b: EventModel) => {
+          return +new Date(b.date) - +new Date(a.date);
+        });
+
+        return eventArray;
+      })
+    );
   }
 
   /**
@@ -43,14 +45,12 @@ export class EventsService
    * Returns a subscribe-able object containing the found Event.
    * @param eventID
    */
-  public getEvent(eventID: number): Observable<EventModel>
-  {
-    return this.sendGetEventRequest(eventID)
-      .pipe(
-        map((responseData: EventModel) => {
-          return responseData;
-        })
-      );
+  public getEvent(eventID: number): Observable<EventModel> {
+    return this.sendGetEventRequest(eventID).pipe(
+      map((responseData: EventModel) => {
+        return responseData;
+      })
+    );
   }
 
   /**
@@ -59,14 +59,12 @@ export class EventsService
    * subscibe-able object containing the server success/error response.
    * @param newEvent
    */
-  public addEvent(newEvent: EventModel): Observable<string>
-  {
-    return this.sendPostRequest(newEvent)
-      .pipe(
-        map((responseData) => {
-          return responseData;
-        })
-      );
+  public addEvent(newEvent: EventModel): Observable<string> {
+    return this.sendPostRequest(newEvent).pipe(
+      map((responseData) => {
+        return responseData;
+      })
+    );
   }
 
   /**
@@ -76,14 +74,12 @@ export class EventsService
    * response.
    * @param changes
    */
-  public updateEvent(changes: EventModel): Observable<string>
-  {
-    return this.sendUpdateRequest(changes)
-      .pipe(
-        map((responseData: string) => {
-          return responseData;
-        })
-      );
+  public updateEvent(changes: EventModel): Observable<string> {
+    return this.sendUpdateRequest(changes).pipe(
+      map((responseData: string) => {
+        return responseData;
+      })
+    );
   }
 
   /**
@@ -92,22 +88,19 @@ export class EventsService
    * able object containing the server success/error response.
    * @param deleteID
    */
-  public removeEvent(deleteID: number): Observable<string>
-  {
-    return this.sendDeleteRequest(deleteID)
-      .pipe(
-        map((responseData) => {
-          return responseData;
-        })
-      );
+  public removeEvent(deleteID: number): Observable<string> {
+    return this.sendDeleteRequest(deleteID).pipe(
+      map((responseData) => {
+        return responseData;
+      })
+    );
   }
 
   /******************************************************************************/
   /**
    * Http get load info from server.
    */
-  private sendGetAllLoadRequest()
-  {
+  private sendGetAllLoadRequest() {
     return this.http.get<EventModel[]>(
       this.REST_API_SERVER + this.CTRL_MAPPING
     );
@@ -116,8 +109,7 @@ export class EventsService
   /**
    * Http get one event from server.
    */
-  private sendGetEventRequest(id: number)
-  {
+  private sendGetEventRequest(id: number) {
     return this.http.get<EventModel>(
       this.REST_API_SERVER + this.CTRL_MAPPING + id
     );
@@ -126,36 +118,27 @@ export class EventsService
   /**
    * HTTP post new event to server
    */
-  private sendPostRequest(event: EventModel)
-  {
-    return this.http.post(
-      this.REST_API_SERVER + this.CTRL_MAPPING,
-      event,
-      {responseType: 'text'}
-    );
+  private sendPostRequest(event: EventModel) {
+    return this.http.post(this.REST_API_SERVER + this.CTRL_MAPPING, event, {
+      responseType: "text",
+    });
   }
 
   /**
    * HTTP delete event from server
    */
-  private sendDeleteRequest(id: number)
-  {
-    return this.http.delete(
-      this.REST_API_SERVER + this.CTRL_MAPPING + id,
-      { responseType: 'text' }
-    );
+  private sendDeleteRequest(id: number) {
+    return this.http.delete(this.REST_API_SERVER + this.CTRL_MAPPING + id, {
+      responseType: "text",
+    });
   }
 
   /**
    * HTTP patch event to update server
    */
-  private sendUpdateRequest(event: EventModel)
-  {
-    return this.http.patch(
-      this.REST_API_SERVER + this.CTRL_MAPPING,
-      event,
-      { responseType: 'text' }
-    );
+  private sendUpdateRequest(event: EventModel) {
+    return this.http.patch(this.REST_API_SERVER + this.CTRL_MAPPING, event, {
+      responseType: "text",
+    });
   }
-
 }

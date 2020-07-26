@@ -71,3 +71,7 @@ td {
 .mat-row, .mat-header-row{
   width: 100%;
 }
+
+.tableContainer {
+  overflow-x: scroll;
+}

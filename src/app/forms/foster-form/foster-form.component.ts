@@ -12,7 +12,6 @@ import { Router } from "@angular/router";
   styleUrls: ["./foster-form.component.css"],
 })
 export class FosterFormComponent {
-
   onScroll() {
     document.body.scrollTop = 0;
   }
@@ -51,10 +50,15 @@ export class FosterFormComponent {
   @ViewChild("ownRent", { static: false }) ownRent: string;
 
   /***FUNCTIONS***/
-  constructor(private http: HttpClient, private FS: FormsService, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private FS: FormsService,
+    private router: Router
+  ) {}
 
   //If form has submitted
   validForm: boolean = false;
+  addingSuccess: boolean = false;
 
   stringifyFamilyList(familyList: FamilyMember[]) {
     console.log(familyList);
@@ -70,6 +74,7 @@ export class FosterFormComponent {
   }
 
   onOkClick() {
+    this.onScroll();
     this.router.navigate(["/login"]);
   }
 
@@ -152,9 +157,14 @@ export class FosterFormComponent {
 
   private sendTheForm(fosForm: FosterApplication): void {
     this.FS.sendFosterForm(fosForm).subscribe(
-      () => {
+      (responseData) => {
         // success
         console.log("Events add HTTP response succeeded.");
+        console.log(responseData);
+
+        if (responseData === "Error adding application.") {
+          this.validForm = false;
+        }
       },
       () => {
         // error

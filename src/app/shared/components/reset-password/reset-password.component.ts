@@ -17,66 +17,55 @@ export class ResetPasswordComponent implements OnInit {
   submitted: boolean = false;
   email: string;
   message: string = "";
+  isLoading = false;
 
   constructor(private passwordService: passwordService) {}
 
   ngOnInit() {
-    this.submitted = false;
+    // this.submitted = false;
   }
 
   onSubmit(resetForm: NgForm) {
-    this.message = "";
-    // console.log(resetForm.value.recoveremail);
+    var serchfind: boolean;
+
     this.email = resetForm.value.recoveremail;
-    if (!(this.email === "" || this.email === null)) {
-      // this.passwordService.sendRecovery(this.email).pipe(
-      //   map((responseData) => {
-      //     console.log(responseData);
-      //     return responseData;
-      //   })
-      // );
+    //EMAIL REGEX
+    let regexp = new RegExp(
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+    //test user input
+    serchfind = regexp.test(this.email);
+
+    if (serchfind === true) {
+      this.isLoading = true;
       this.recover(this.email);
-      // this.submitEmail(this.email).subscribe {}
-      // this.submitted = true;
     } else {
       this.message = "Make sure you are entering correct email address";
       this.submitted = true;
     }
-    resetForm.reset();
+    // resetForm.reset();
   }
 
   private recover(email: string): void {
-    this.message = "";
     this.passwordService.sendRecovery(this.email).subscribe(
       (response) => {
         if (response === "Fail") {
           this.message =
             "We could not process your request. Make sure you are entering correct email address";
+          this.isLoading = false;
         } else {
-          this.message =
-            "An email has been sent. Please click the link when you get it.";
+          this.message = "An email has been sent.";
+          this.form.reset();
+          this.isLoading = false;
         }
       },
       (error: any) => {
         this.message =
-          "Unfortunaelly, we encountered an error. Please check you internet connection or try again later";
-        console.log("Password Recovery HTTP response failed.");
-        console.log(error);
+          "Unfortunately, we encountered an error. Please check your internet connection or try again later";
+        this.form.reset();
+        this.isLoading = false;
       }
     );
     this.submitted = true;
   }
-
-  // this.es.addEvent(newEvent).subscribe(
-  //   () => {
-  //     // success
-  //     this.loadEvents();
-  //   },
-  //   (error: any) => {
-  //     // error
-  //     console.log("Password Recovery HTTP response failed.");
-  //     console.log(error);
-  //   }
-  // );
-  // }
 }

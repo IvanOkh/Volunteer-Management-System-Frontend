@@ -51,7 +51,6 @@ export class FosterRejectedComponent implements OnInit {
 
   ngOnInit() {
     this.loadRejectedApplicants();
-    
   }
 
   //next two methods were added to eliminate prod error requestion to have these methods as they are defined in html. Ivan
@@ -73,7 +72,7 @@ export class FosterRejectedComponent implements OnInit {
         this.isLoading = false;
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
         this.isLoading = false;
       }
     );
@@ -100,7 +99,7 @@ export class FosterRejectedComponent implements OnInit {
         }
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
       }
     );
   }
@@ -115,7 +114,7 @@ export class FosterRejectedComponent implements OnInit {
         this.loadRejectedApplicants();
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
       }
     );
   }
@@ -130,7 +129,7 @@ export class FosterRejectedComponent implements OnInit {
         this.loadRejectedApplicants();
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
       }
     );
   }
@@ -145,7 +144,7 @@ export class FosterRejectedComponent implements OnInit {
         }
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
         this.isLoading = false;
       }
     );

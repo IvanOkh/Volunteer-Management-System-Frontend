@@ -1,12 +1,17 @@
 // ANGULAR IMPORTS
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {
   MatTableModule,
   MatPaginatorModule,
   MatFormFieldModule,
   MatIconModule,
+  MatNativeDateModule,
+  MatSortModule,
+  MatInputModule,
+  MatDialogModule,
+  MatProgressSpinnerModule,
 } from "@angular/material";
 
 // COMPONENT IMPORTS
@@ -17,6 +22,9 @@ import { VolunteerContainerComponent } from "./volunteer-container/volunteer-con
 // ROUTING MODULE IMPORT
 import { AppRoutingModule } from "../app-routing.module";
 import { ViewVolunteerAccountComponent } from "./view-volunteer-account/view-volunteer-account.component";
+import { VolunteerRoutingModule } from "./volunteer-routing.module";
+import { HttpModule } from "@angular/http";
+import { HttpClientModule } from "@angular/common/http";
 
 // MODULE DEFINITION
 @NgModule({
@@ -29,13 +37,28 @@ import { ViewVolunteerAccountComponent } from "./view-volunteer-account/view-vol
   imports: [
     CommonModule,
     FormsModule,
+    HttpModule,
+    HttpClientModule,
     MatTableModule,
-    MatPaginatorModule,
     MatFormFieldModule,
     MatIconModule,
-    AppRoutingModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
+
+    VolunteerRoutingModule,
   ],
-  exports: [VolunteerSideEventsComponent, VolunteerContainerComponent],
+  exports: [
+    VolunteerSideEventsComponent,
+    VolunteerSideNavbarComponent,
+    VolunteerContainerComponent,
+    ViewVolunteerAccountComponent,
+  ],
   providers: [],
+  bootstrap: [],
 })
 export class VolunteerModule {}

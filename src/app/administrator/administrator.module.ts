@@ -1,8 +1,8 @@
 // ANGULAR IMPORTS
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { BrowserModule } from "@angular/platform-browser";
+// import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+// import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { HttpModule } from "@angular/http";
 import {
@@ -34,11 +34,12 @@ import { ManageCatApplicationComponent } from "./manage-cat-application/manage-c
 import { ManageDogApplicationComponent } from "./manage-dog-application/manage-dog-application.component";
 import { FosterPendingComponent } from "./foster-applications/foster-pending/foster-pending.component";
 import { FosterRejectedComponent } from "./foster-applications/foster-rejected/foster-rejected.component";
-import { DogRejectedComponent } from './manage-dog-application/dog-rejected/dog-rejected/dog-rejected.component';
-import { CatRejectedComponent } from './manage-cat-application/cat-rejected/cat-rejected/cat-rejected.component';
-import { DogApprovedComponent } from './manage-dog-application/dog-approved/dog-approved/dog-approved.component';
-import { CatApprovedComponent } from './manage-cat-application/cat-approved/cat-approved/cat-approved.component';
-
+import { DogRejectedComponent } from "./manage-dog-application/dog-rejected/dog-rejected/dog-rejected.component";
+import { CatRejectedComponent } from "./manage-cat-application/cat-rejected/cat-rejected/cat-rejected.component";
+import { DogApprovedComponent } from "./manage-dog-application/dog-approved/dog-approved/dog-approved.component";
+import { CatApprovedComponent } from "./manage-cat-application/cat-approved/cat-approved/cat-approved.component";
+import { AdminRoutingModule } from "./administrator-routing.module";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -64,11 +65,12 @@ import { CatApprovedComponent } from './manage-cat-application/cat-approved/cat-
     // CatRejectedComponent,
   ],
   imports: [
-    BrowserModule,
+    // BrowserModule,
+    CommonModule,
     FormsModule,
     HttpModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+    // BrowserAnimationsModule,
     MatTableModule,
     MatFormFieldModule,
     MatIconModule,
@@ -80,7 +82,8 @@ import { CatApprovedComponent } from './manage-cat-application/cat-approved/cat-
     MatDialogModule,
     MatProgressSpinnerModule,
 
-    AppRoutingModule,
+    // AppRoutingModule,
+    AdminRoutingModule,
   ],
   exports: [
     AdminContainerComponent,
@@ -95,7 +98,7 @@ import { CatApprovedComponent } from './manage-cat-application/cat-approved/cat-
     ManageDogApplicationComponent,
     FosterPendingComponent,
     FosterRejectedComponent,
-    DogRejectedComponent
+    DogRejectedComponent,
   ],
   providers: [],
   bootstrap: [],

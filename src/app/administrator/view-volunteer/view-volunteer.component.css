@@ -76,13 +76,7 @@ header {
   margin-top: 18px;
 }
 
-.flag,
-.description {
-  margin-top: 5px;
-  padding: 13px;
-  border: 1px solid #7A5C61;
-  border-radius: 3px;
-}
+
 
 .noteSection {
   margin: 3px 5px;

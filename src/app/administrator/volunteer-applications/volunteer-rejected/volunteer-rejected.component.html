@@ -18,7 +18,7 @@
   </div>
 
   <!-- Application List body -->
-  <div class="container">
+  <div class="container tableContainer">
     <!-- displays when the page is waiting for a reply from the server -->
     <ng-container *ngIf="this.isLoading">
       <div class="row justify-content-center">
@@ -47,7 +47,9 @@
           <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
             Submission date
           </th>
-          <td mat-cell *matCellDef="let fetched">{{ fetched?.submissionDate }}</td>
+          <td mat-cell *matCellDef="let fetched">
+            {{ fetched?.submissionDate }}
+          </td>
         </ng-container>
 
         <ng-container matColumnDef="applicant">
@@ -121,14 +123,14 @@
           </button>
         </div>
         <div class="modal-body">
-          <!-- displays loading circle in body while things get ready -->	
+          <!-- displays loading circle in body while things get ready -->
           <ng-container *ngIf="this.isLoading">
             <div class="row justify-content-center">
-                <div class="spinner-border text-danger" role="status">
-                  <span class="sr-only">Loading...</span>
-                </div>
+              <div class="spinner-border text-danger" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
             </div>
-          </ng-container>	
+          </ng-container>
           <!-- displays fetched edit information if it is defined  -->
 
           <div class="container">
@@ -141,11 +143,19 @@
               <div class="col-6">
                 <h3 class="leftElements">Contact Information</h3>
                 <div style="text-align: left;">
-                  <p><strong>Cell phone:</strong> {{ application?.cellPhone }}</p>
-                  <p><strong>Home phone:</strong> {{ application?.homePhone }}</p>
+                  <p>
+                    <strong>Cell phone:</strong> {{ application?.cellPhone }}
+                  </p>
+                  <p>
+                    <strong>Home phone:</strong> {{ application?.homePhone }}
+                  </p>
                   <p><strong>Email:</strong> {{ application?.email }}</p>
                   <p>
                     <strong>T-shirt size:</strong> {{ application?.tshirtSize }}
+                  </p>
+                  <p>
+                    <strong>Submission Date: </strong>
+                    {{ application?.submissionDate }}
                   </p>
                 </div>
 
@@ -162,11 +172,15 @@
                 <p><strong>First name:</strong> {{ application?.fname }}</p>
                 <p><strong>Last name:</strong> {{ application?.lname }}</p>
                 <!-- string interpolation {{DOB}} removed by MAX because DOB doesn't exist. Fix please! -->
-                <p><strong>Over 18:</strong> {{ application?.over18 | yesNo }}</p>
+                <p>
+                  <strong>Over 18:</strong> {{ application?.over18 | yesNo }}
+                </p>
                 <p><strong>Gender:</strong> {{ application?.gender }}</p>
                 <p><strong>Address:</strong> {{ application?.address }}</p>
 
-                <p><strong>Postal Code:</strong> {{ application?.postalCode }}</p>
+                <p>
+                  <strong>Postal Code:</strong> {{ application?.postalCode }}
+                </p>
               </div>
             </div>
 
@@ -177,7 +191,9 @@
                 <hr style="width: 1px black;" />
                 <h5 class="leftElements">Emergency Contact 1</h5>
                 <hr style="width: 1px black;" />
-                <p><strong>First name:</strong> {{ application?.emg1_fname }}</p>
+                <p>
+                  <strong>First name:</strong> {{ application?.emg1_fname }}
+                </p>
                 <p><strong>Last name:</strong> {{ application?.emg1_lname }}</p>
                 <p>
                   <strong>Relationship:</strong>
@@ -197,7 +213,9 @@
                 <hr style="width: 1px black;" />
                 <h5 class="leftElements">Emergency Contact 2</h5>
                 <hr style="width: 1px black;" />
-                <p><strong>First name:</strong> {{ application?.emg2_fname }}</p>
+                <p>
+                  <strong>First name:</strong> {{ application?.emg2_fname }}
+                </p>
                 <p><strong>Last name:</strong> {{ application?.emg2_lname }}</p>
                 <p>
                   <strong>Relationship:</strong>
@@ -219,7 +237,9 @@
                 <hr style="width: 1px black;" />
                 <h5 class="leftElements">Reference Contact 1</h5>
                 <hr style="width: 1px black;" />
-                <p><strong>First name:</strong> {{ application?.ref1_fname }}</p>
+                <p>
+                  <strong>First name:</strong> {{ application?.ref1_fname }}
+                </p>
                 <p><strong>Last name:</strong> {{ application?.ref1_lname }}</p>
                 <p>
                   <strong>Cell Phone:</strong> {{ application?.ref1_cellPhone }}
@@ -232,7 +252,9 @@
                 <hr style="width: 1px black;" />
                 <h5 class="leftElements">Reference Contact 2</h5>
                 <hr style="width: 1px black;" />
-                <p><strong>First name:</strong> {{ application?.ref2_fname }}</p>
+                <p>
+                  <strong>First name:</strong> {{ application?.ref2_fname }}
+                </p>
                 <p><strong>Last name:</strong> {{ application?.ref2_lname }}</p>
                 <p>
                   <strong>Cell Phone:</strong> {{ application?.ref2_cellPhone }}
@@ -248,8 +270,8 @@
               <!-- (Still awaiting backend and service attribute) -->
               <h4 class="leftElements">Reason for Rejection:</h4>
               <i>
-                This note will only be visible to admins and won't be visible
-                to volunteers
+                This note will only be visible to admins and won't be visible to
+                volunteers
               </i>
               <section class="description mt-4">
                 <p>{{ application?.rejectionReason }}</p>
@@ -258,15 +280,23 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-outline-success ml-1 mr-1" data-dismiss="modal" data-toggle="modal"
-            attr.data-target="#pending{{ application?.id }}">
-              Mark as Pending
-            </button>
+          <button
+            class="btn btn-outline-success ml-1 mr-1"
+            data-dismiss="modal"
+            data-toggle="modal"
+            attr.data-target="#pending{{ application?.id }}"
+          >
+            Mark as Pending
+          </button>
 
-            <button class="btn btn-outline-danger ml-1 mr-1" data-dismiss="modal" data-toggle="modal"
-            attr.data-target="#delete{{ application?.id }}">
-                      Delete Application
-            </button>
+          <button
+            class="btn btn-outline-danger ml-1 mr-1"
+            data-dismiss="modal"
+            data-toggle="modal"
+            attr.data-target="#delete{{ application?.id }}"
+          >
+            Delete Application
+          </button>
         </div>
       </div>
     </div>
@@ -274,67 +304,80 @@
   <!-- End of  Modal-->
 
   <!-- Mark as Pending Modal -->
-<div class="modal fade" id="pending{{ application?.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">
-          Mark Application to pending
-          {{ application?.lname }}?
-        </h5>
-        <button class="close" data-dismiss="modal">
-          &times;
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>
-          You are about to send {{ application?.fname }} {{ application?.lname }}'s application back to the pending list.
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-success" data-dismiss="modal"
-          (click)="sendToPending(application?.id)">
-          Confirm
-        </button>
-        <button class="btn btn-secondary" data-dismiss="modal">
-          Cancel
-        </button>
+  <div
+    class="modal fade"
+    id="pending{{ application?.id }}"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            Mark Application to pending
+            {{ application?.lname }}?
+          </h5>
+          <button class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            You are about to send {{ application?.fname }}
+            {{ application?.lname }}'s application back to the pending list.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-success"
+            data-dismiss="modal"
+            (click)="sendToPending(application?.id)"
+          >
+            Confirm
+          </button>
+          <button class="btn btn-secondary" data-dismiss="modal">
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-- End Of Modal -->
+  <!-- End Of Modal -->
 
-<!-- Delete Modal -->
-<div class="modal" id="delete{{ application?.id }}">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">
-          Delete {{ application?.fname }}
-          {{ application?.lname }}?
-        </h5>
-        <button class="close" data-dismiss="modal">
-          &times;
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>
-          You are about to PERMANENTLY delete {{ application?.fname }}
-          {{ application?.lname }}'s volunteer application?.
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-danger" data-dismiss="modal" (click)="deleteApplication(application?.id)">
-          Delete Application
-        </button>
-        <button class="btn btn-secondary" data-dismiss="modal">
-          Cancel
-        </button>
+  <!-- Delete Modal -->
+  <div class="modal" id="delete{{ application?.id }}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            Delete {{ application?.fname }} {{ application?.lname }}?
+          </h5>
+          <button class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            You are about to PERMANENTLY delete {{ application?.fname }}
+            {{ application?.lname }}'s volunteer application?.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-danger"
+            data-dismiss="modal"
+            (click)="deleteApplication(application?.id)"
+          >
+            Delete Application
+          </button>
+          <button class="btn btn-secondary" data-dismiss="modal">
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-- End Of Modal -->
+  <!-- End Of Modal -->
 </div>

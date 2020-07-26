@@ -29,6 +29,20 @@ import { CatApprovedComponent } from "./administrator/manage-cat-application/cat
 import { ChangePasswordComponent } from "./shared/components/change-password/change-password.component";
 
 const appRoutes: Routes = [
+  {
+    path: "admin",
+    loadChildren: () =>
+      import("./administrator/administrator.module").then(
+        (m) => m.AdministratorModule
+      ),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: "volunteer",
+    loadChildren: () =>
+      import("./volunteer/volunteer.module").then((m) => m.VolunteerModule),
+    canActivate: [AuthUserGuard],
+  },
   { path: "volunteer-application", component: VolunteerFormComponent },
   { path: "foster-application", component: FosterFormComponent },
   {
@@ -45,43 +59,8 @@ const appRoutes: Routes = [
   { path: "change-password/:id", component: ChangePasswordComponent },
 
   { path: "login", component: MainPageComponent },
-  {
-    path: "admin",
-    component: AdminContainerComponent,
-    canActivate: [AuthGuard],
-    children: [
-      { path: "cat", component: ManageCatApplicationComponent },
-      { path: "rejectedCat", component: CatRejectedComponent },
-      { path: "acceptedCat", component: CatApprovedComponent },
-
-      { path: "dog", component: ManageDogApplicationComponent },
-      { path: "rejectedDog", component: DogRejectedComponent },
-      { path: "acceptedDog", component: DogApprovedComponent },
-
-      { path: "volunteerarchive", component: VolunteerRejectedComponent },
-      { path: "applications", component: VolunteerPendingComponent },
-      { path: "fosterarchive", component: FosterRejectedComponent },
-      { path: "fosterapplications", component: FosterPendingComponent },
-      { path: "events", component: ViewEventsComponent },
-      { path: "fosters", component: ViewFostersComponent },
-      { path: "volunteers", component: ViewVolunteerComponent },
-      { path: "", redirectTo: "admin/events", pathMatch: "full" },
-      { path: "**", component: ViewEventsComponent },
-    ],
-  },
-  {
-    path: "volunteer",
-    component: VolunteerContainerComponent,
-    canActivate: [AuthUserGuard],
-    children: [
-      { path: "account", component: ViewVolunteerAccountComponent },
-      { path: "events", component: VolunteerSideEventsComponent },
-      { path: "", redirectTo: "volunteer/events", pathMatch: "full" },
-      { path: "**", component: VolunteerSideEventsComponent },
-    ],
-  },
   { path: "", redirectTo: "login", pathMatch: "full" },
-  { path: "**", redirectTo: "login" },
+  { path: "**", component: MainPageComponent },
 ];
 
 @NgModule({

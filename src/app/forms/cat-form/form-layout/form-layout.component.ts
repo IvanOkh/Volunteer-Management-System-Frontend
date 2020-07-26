@@ -38,7 +38,6 @@ export type SubFormName =
   styleUrls: ["../../cat-form/cat-form-style.css"],
 })
 export class FormLayoutComponent implements OnInit {
-
   onScroll() {
     document.body.scrollTop = 0;
   }
@@ -50,7 +49,7 @@ export class FormLayoutComponent implements OnInit {
   submissionDate: string = "";
   rejected: boolean = false;
   rejectionReason: string = "";
-  approved: boolean =  false;
+  approved: boolean = false;
 
   //variables for living places validation
   numberOfPetCheck: any;
@@ -122,6 +121,7 @@ export class FormLayoutComponent implements OnInit {
    * Function to navigate the user back to home page (used for back button)
    */
   onOkClick() {
+    this.onScroll();
     this.router.navigate(["/login"]);
   }
 

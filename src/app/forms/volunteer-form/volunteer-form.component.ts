@@ -23,6 +23,8 @@ export class VolunteerFormComponent {
   defaultec2Relationship: string = "choose";
   defaultProvince = "choose";
 
+  nlVisible: boolean = false;
+
   constructor(
     private http: HttpClient,
     private FS: FormsService,
@@ -35,7 +37,7 @@ export class VolunteerFormComponent {
 
   //To check if form has been submitted successfully without any errors within values
   validForm: boolean = false;
-
+  addingSuccess: boolean = false;
   onSubmit(form: NgForm) {
     //Validation check
     if (!form.valid) {
@@ -76,7 +78,7 @@ export class VolunteerFormComponent {
       }
 
       //province
-      if(form.value.province === 'choose') {
+      if (form.value.province === "choose") {
         form.control.setErrors({ invalid: true });
       }
 
@@ -139,19 +141,33 @@ export class VolunteerFormComponent {
    * Redirects user back to home page
    */
   onOkClick() {
+    this.onScroll();
     this.router.navigate(["/login"]);
   }
 
   private sendTheForm(volForm: VolunteerApplication): void {
     this.FS.sendVolunteerForm(volForm).subscribe(
-      () => {
+      (responseData) => {
         // success
         console.log("Events add HTTP response succeeded.");
+        console.log(responseData);
+
+        if (responseData === "Error adding application.") {
+          this.validForm = false;
+        }
       },
       () => {
         // error
         console.log("Events add HTTP response failed.");
       }
     );
+  }
+
+  private nlToggle() {
+    if (this.nlVisible === true) {
+      this.nlVisible = false;
+    } else {
+      this.nlVisible = true;
+    }
   }
 }

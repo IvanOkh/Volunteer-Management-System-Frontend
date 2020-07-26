@@ -1,5 +1,10 @@
 // ANGULAR IMPORTS
-import { Component, OnInit, ApplicationInitStatus, ViewChild, } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ApplicationInitStatus,
+  ViewChild,
+} from "@angular/core";
 
 import {
   MatPaginator,
@@ -43,7 +48,7 @@ export class VolunteerRejectedComponent implements OnInit {
     //this.loadArchive(); // this one loads all rejected/archived applicants
     this.loadRejectedApplicants(); // this one loads all applicants regardless of active status
 
-    console.log(this.appList);
+    // console.log(this.appList);
   }
 
   //next two methods were added to eliminate prod error requestion to have these methods as they are defined in html. Ivan
@@ -62,13 +67,13 @@ export class VolunteerRejectedComponent implements OnInit {
         this.isLoading = false;
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
         this.isLoading = false;
       }
     );
   }
 
-    /**
+  /**
    * Changes the 'rejected' attribute of the volunteer application from 'false' to 'true'.
    * @param fosterID
    */
@@ -89,12 +94,12 @@ export class VolunteerRejectedComponent implements OnInit {
         }
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
       }
     );
   }
 
- /**
+  /**
    * Takes the passed volunteer application model and requests an update to the backend with the attributes provided.
    * @param changes
    */
@@ -104,13 +109,13 @@ export class VolunteerRejectedComponent implements OnInit {
         this.loadRejectedApplicants();
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
       }
     );
   }
 
-/**
-   * Permanently deletes the volunteer application with the passed id. 
+  /**
+   * Permanently deletes the volunteer application with the passed id.
    * @param id
    */
   public deleteApplication(id: number): void {
@@ -119,7 +124,7 @@ export class VolunteerRejectedComponent implements OnInit {
         this.loadRejectedApplicants();
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
       }
     );
   }
@@ -134,7 +139,7 @@ export class VolunteerRejectedComponent implements OnInit {
         }
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
         this.isLoading = false;
       }
     );

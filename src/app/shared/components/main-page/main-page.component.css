@@ -1,5 +1,7 @@
 .navbar-toggler {
   padding: 4px !important;
+  border-color: rgb(253, 253, 253);
+  border-width: 0.01rem;
 }
 
 .navbar {
@@ -291,6 +293,12 @@
     margin: 5px;
     border-radius: 7px;
   }
+
+  .nav-item {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
   .volunteerSection button {
     margin-top: 5%;
   }

@@ -40,9 +40,10 @@
           name="fname"
           required
           #fname="ngModel"
+          pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
         />
         <span class="help-block" *ngIf="!fname.valid && fname.touched"
-          >Please enter a first name.</span
+          >Please enter a first name. (Maximum 25 characters)</span
         >
       </div>
       <div class="form-group col-xs-6">
@@ -56,9 +57,10 @@
           name="lname"
           required
           #lname="ngModel"
+          pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
         />
         <span class="help-block" *ngIf="!lname.valid && lname.touched"
-          >Please enter a last name.</span
+          >Please enter a last name. (Maximum 25 characters)</span
         >
       </div>
     </div>
@@ -77,7 +79,7 @@
           #street="ngModel"
         />
         <span class="help-block" *ngIf="!street.valid && street.touched"
-          >Please enter a street address.</span
+          >Please enter a street address. (Maximum characters: 50)</span
         >
       </div>
     </div>
@@ -96,7 +98,7 @@
           #city="ngModel"
         />
         <span class="help-block" *ngIf="!city.valid && city.touched"
-          >Please enter a city.</span
+          >Please enter a city.(Maximum characters: 20</span
         >
       </div>
       <div class="form-group col-xs-4">
@@ -126,6 +128,7 @@
           name="postal"
           required
           #postal="ngModel"
+          pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]"
         />
         <span class="help-block" *ngIf="!postal.valid && postal.touched"
           >Please enter a valid postal code (ex. A1B-2C3)</span
@@ -135,27 +138,29 @@
     <!--Phones-->
     <div class="form-row">
       <div class="form-group col-xs-6">
-        <label for="hphone">Homephone</label>
+        <label for="hphone">Home Phone</label>
         <input
           type="tel"
           id="hphone"
           class="form-control"
-          placeholder="555-555-5555"
+          placeholder="xxx-xxx-xxxx"
           ngModel
           name="hphone"
+          pattern="\d{3}[\-]\d{3}[\-]\d{4}"
         />
       </div>
       <div class="form-group col-xs-6">
-        <label for="cphone">Cellphone</label>
+        <label for="cphone">Cell Phone</label>
         <input
           type="tel"
           id="cphone"
           class="form-control"
-          placeholder="555-555-5555"
+          placeholder="xxx-xxx-xxxx"
           ngModel
           name="cphone"
           required
           #cphone="ngModel"
+          pattern="\d{3}[\-]\d{3}[\-]\d{4}"
         />
         <span class="help-block" *ngIf="!cphone.valid && cphone.touched"
           >Please enter a valid cellphone number.</span
@@ -758,9 +763,10 @@
               ngModel
               required
               #refFname="ngModel"
+              pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
             />
             <span class="help-block" *ngIf="!refFname.valid && refFname.touched"
-              >Please enter reference's First Name.</span
+              >Please enter reference's First Name. (Maximum characters: 25)</span
             >
           </div>
           <div class="col-xs-6 mr-2">
@@ -773,9 +779,10 @@
               ngModel
               required
               #refLname="ngModel"
+              pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
             />
             <span class="help-block" *ngIf="!refLname.valid && refLname.touched"
-              >Please enter reference's Last name.</span
+              >Please enter reference's Last name. (Maximum characters: 25)</span
             >
           </div>
         </div>
@@ -790,9 +797,11 @@
               ngModel
               required
               #refPhone="ngModel"
+              pattern="\d{3}[\-]\d{3}[\-]\d{4}"
+              
             />
             <span class="help-block" *ngIf="!refPhone.valid && refPhone.touched"
-              >Please enter a valid phone number.</span
+              >Please enter a valid phone number. Make sure to add dashes! (-)</span
             >
           </div>
           <div class="col-xs-6 mr-2">
@@ -828,9 +837,10 @@
               ngModel
               required
               #refFname="ngModel"
+              pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
             />
             <span class="help-block" *ngIf="!refFname.valid && refFname.touched"
-              >Please enter reference's First Name.</span
+              >Please enter reference's First Name. (Maximum characters: 25)</span
             >
           </div>
           <div class="col-xs-6 mr-2">
@@ -843,9 +853,10 @@
               ngModel
               required
               #refLname="ngModel"
+              pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
             />
             <span class="help-block" *ngIf="!refLname.valid && refLname.touched"
-              >Please enter reference's Last name.</span
+              >Please enter reference's Last name. (Maximum characters: 25)</span
             >
           </div>
         </div>
@@ -860,9 +871,10 @@
               ngModel
               required
               #refPhone="ngModel"
+              pattern="\d{3}[\-]\d{3}[\-]\d{4}"
             />
             <span class="help-block" *ngIf="!refPhone.valid && refPhone.touched"
-              >Please enter a valid phone number.</span
+              >Please enter a valid phone number. Make sure to add dashes! (-)</span
             >
           </div>
           <div class="col-xs-6 mr-2">
@@ -898,9 +910,10 @@
               ngModel
               required
               #refFname="ngModel"
+              pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
             />
             <span class="help-block" *ngIf="!refFname.valid && refFname.touched"
-              >Please enter reference's First Name.</span
+              >Please enter reference's First Name. (Maximum characters: 25)</span
             >
           </div>
           <div class="col-xs-6">
@@ -913,9 +926,10 @@
               ngModel
               required
               #refLname="ngModel"
+              pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
             />
             <span class="help-block" *ngIf="!refLname.valid && refLname.touched"
-              >Please enter reference's Last name.</span
+              >Please enter reference's Last name. (Maximum characters: 25)</span
             >
           </div>
         </div>
@@ -930,9 +944,10 @@
               ngModel
               required
               #refPhone="ngModel"
+              pattern="\d{3}[\-]\d{3}[\-]\d{4}"
             />
             <span class="help-block" *ngIf="!refPhone.valid && refPhone.touched"
-              >Please enter a valid phone number.</span
+              >Please enter a valid phone number. Make sure to add dashes! (-)</span
             >
           </div>
           <div class="col-xs-6">
@@ -990,7 +1005,8 @@
               <button class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-              Please make sure to fill out every required field.
+              Please make sure to fill out every required field.<br>
+              Try restarting the form if you continue to receive this message OR contact us.
             </div>
             <div class="modal-footer">
               <button class="btn btn-danger" data-dismiss="modal">

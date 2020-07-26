@@ -17,7 +17,7 @@
 
   
   <!-- Application List body -->
-  <div class="container">
+  <div class="container tableContainer">
     <!-- displays when the page is waiting for a reply from the server -->
     <ng-container *ngIf="this.isLoading">
       <div class="row justify-content-center">
@@ -110,6 +110,10 @@
                   </p>
                   <p>
                     <strong>Last name: </strong> {{ application?.lname }}
+                  </p>
+                  <p>
+                    <strong>Submission Date: </strong> 
+                    {{ application?.submissionDate }}
                   </p>
                 </div>
 
