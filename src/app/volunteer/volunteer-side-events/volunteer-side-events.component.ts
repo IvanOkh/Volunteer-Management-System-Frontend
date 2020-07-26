@@ -17,7 +17,7 @@ export class VolunteerSideEventsComponent implements OnInit {
 
   constructor(private VES: VolunteerEventsService) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     //start up service
     this.VES.initializeData();
     this.isLoading = true;
