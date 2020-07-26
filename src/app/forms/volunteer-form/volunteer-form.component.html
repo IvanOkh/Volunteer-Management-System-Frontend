@@ -87,7 +87,6 @@
             name="city"
             required
             #city="ngModel"            
-            pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$"
           />
           <span class="help-block text-danger" *ngIf="!city.valid && city.touched"
             >Please enter a City.</span
@@ -373,6 +372,7 @@
             name="ec1Hphone"
             required
             #ec1Hphone="ngModel"
+            pattern="\d{3}[\-]\d{3}[\-]\d{4}"
           />
           <span class="help-block text-danger" *ngIf="!ec1Hphone.valid && ec1Hphone.touched">
             Please enter a valid phone number. Make sure to add dashes! (-)
