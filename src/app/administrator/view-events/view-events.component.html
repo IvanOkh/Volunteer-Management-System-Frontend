@@ -464,8 +464,8 @@
             <table
               class="table ml-3"
               *ngIf="
-                !this.eventArrayHolder.length == 0 &&
-                !defineNumberOfSubs(event.id) == 0
+                this.eventArrayHolder.length != 0 &&
+                defineNumberOfSubs(event.id) != 0
               "
             >
               <thead>
