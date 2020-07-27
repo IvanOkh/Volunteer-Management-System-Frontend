@@ -103,8 +103,7 @@
       </div>
       <div class="form-group col-xs-4">
         <label for="prov">Province</label>
-        <input
-          type="text"
+        <select
           id="prov"
           class="form-control"
           placeholder="Province"
@@ -112,7 +111,47 @@
           name="prov"
           required
           #prov="ngModel"
-        />
+        >
+        <option>
+          AB
+        </option>
+        <option>
+          BC
+        </option>
+        <option>
+          MB
+        </option>
+        <option>
+          NB
+        </option>
+        <option>
+          NL
+        </option>
+        <option>
+          NS
+        </option>
+        <option>
+          NT
+        </option>
+        <option>
+          NU
+        </option>
+        <option>
+          ON
+        </option>
+        <option>
+          PE
+        </option>
+        <option>
+          QC
+        </option>
+        <option>
+          SK
+        </option>
+        <option>
+          YT
+        </option>
+      </select>
         <span class="help-block" *ngIf="!prov.valid && prov.touched"
           >Please enter a province</span
         >
@@ -746,12 +785,10 @@
     </div>
 
     <!--Reference 1-->
+    <h4>Reference 1</h4>
+    <div class="container">
     <div class="form-row">
       <div class="form-group col-xs-12">
-        <label
-          >Please list a reference with phone numbers, address and email
-          address.</label
-        >
         <div class="row">
           <div class="col-xs-6 mr-2">
             <label>First name</label>
@@ -762,10 +799,10 @@
               name="ref1Fname"
               ngModel
               required
-              #refFname="ngModel"
+              #ref1Fname="ngModel"
               pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
             />
-            <span class="help-block" *ngIf="!refFname.valid && refFname.touched"
+            <span class="help-block" *ngIf="!ref1Fname.valid && ref1Fname.touched"
               >Please enter reference's First Name. (Maximum characters: 25)</span
             >
           </div>
@@ -778,10 +815,10 @@
               name="ref1Lname"
               ngModel
               required
-              #refLname="ngModel"
+              #ref1Lname="ngModel"
               pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
             />
-            <span class="help-block" *ngIf="!refLname.valid && refLname.touched"
+            <span class="help-block" *ngIf="!ref1Lname.valid && ref1Lname.touched"
               >Please enter reference's Last name. (Maximum characters: 25)</span
             >
           </div>
@@ -796,11 +833,11 @@
               name="ref1Phone"
               ngModel
               required
-              #refPhone="ngModel"
+              #ref1Phone="ngModel"
               pattern="\d{3}[\-]\d{3}[\-]\d{4}"
               
             />
-            <span class="help-block" *ngIf="!refPhone.valid && refPhone.touched"
+            <span class="help-block" *ngIf="!ref1Phone.valid && ref1Phone.touched"
               >Please enter a valid phone number. Make sure to add dashes! (-)</span
             >
           </div>
@@ -819,13 +856,13 @@
         </div>
       </div>
     </div>
+    </div>
+
     <!--Reference 2-->
+    <h4>Reference 2</h4>
+    <div class="container">
     <div class="form-row">
       <div class="form-group col-xs-12">
-        <label
-          >Please list a second reference with phone numbers, address and email
-          address.</label
-        >
         <div class="row">
           <div class="col-xs-6 mr-2">
             <label>First name</label>
@@ -836,10 +873,10 @@
               name="ref2Fname"
               ngModel
               required
-              #refFname="ngModel"
+              #ref2Fname="ngModel"
               pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
             />
-            <span class="help-block" *ngIf="!refFname.valid && refFname.touched"
+            <span class="help-block" *ngIf="!ref2Fname.valid && ref2Fname.touched"
               >Please enter reference's First Name. (Maximum characters: 25)</span
             >
           </div>
@@ -852,10 +889,10 @@
               name="ref2Lname"
               ngModel
               required
-              #refLname="ngModel"
+              #ref2Lname="ngModel"
               pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
             />
-            <span class="help-block" *ngIf="!refLname.valid && refLname.touched"
+            <span class="help-block" *ngIf="!ref2Lname.valid && ref2Lname.touched"
               >Please enter reference's Last name. (Maximum characters: 25)</span
             >
           </div>
@@ -870,10 +907,10 @@
               name="ref2Phone"
               ngModel
               required
-              #refPhone="ngModel"
+              #ref2Phone="ngModel"
               pattern="\d{3}[\-]\d{3}[\-]\d{4}"
             />
-            <span class="help-block" *ngIf="!refPhone.valid && refPhone.touched"
+            <span class="help-block" *ngIf="!ref2Phone.valid && ref2Phone.touched"
               >Please enter a valid phone number. Make sure to add dashes! (-)</span
             >
           </div>
@@ -892,13 +929,13 @@
         </div>
       </div>
     </div>
+    </div>
+
     <!--Reference 3-->
+    <h4>Reference 3</h4>
+    <div class="container">
     <div class="form-row">
       <div class="form-group col-xs-12">
-        <label
-          >Please list a final reference with phone numbers, address and email
-          address.</label
-        >
         <div class="row">
           <div class="col-xs-6 mr-2">
             <label>First name</label>
@@ -909,10 +946,10 @@
               name="ref3Fname"
               ngModel
               required
-              #refFname="ngModel"
+              #ref3Fname="ngModel"
               pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
             />
-            <span class="help-block" *ngIf="!refFname.valid && refFname.touched"
+            <span class="help-block" *ngIf="!ref3Fname.valid && ref3Fname.touched"
               >Please enter reference's First Name. (Maximum characters: 25)</span
             >
           </div>
@@ -925,10 +962,10 @@
               name="ref3Lname"
               ngModel
               required
-              #refLname="ngModel"
+              #ref3Lname="ngModel"
               pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
             />
-            <span class="help-block" *ngIf="!refLname.valid && refLname.touched"
+            <span class="help-block" *ngIf="!ref3Lname.valid && ref3Lname.touched"
               >Please enter reference's Last name. (Maximum characters: 25)</span
             >
           </div>
@@ -943,10 +980,10 @@
               name="ref3Phone"
               ngModel
               required
-              #refPhone="ngModel"
+              #ref3Phone="ngModel"
               pattern="\d{3}[\-]\d{3}[\-]\d{4}"
             />
-            <span class="help-block" *ngIf="!refPhone.valid && refPhone.touched"
+            <span class="help-block" *ngIf="!ref3Phone.valid && ref3Phone.touched"
               >Please enter a valid phone number. Make sure to add dashes! (-)</span
             >
           </div>
@@ -964,6 +1001,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
     <hr />
     <!--Submission Button-->
