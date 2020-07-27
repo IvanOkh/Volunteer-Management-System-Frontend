@@ -1,10 +1,15 @@
 <div class="container">
   <h1>Foster Applications</h1>
-    <!-- Pending and Archived tabs -->
+  <!-- Pending and Archived tabs -->
   <div class="mb-5 mt-3">
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/admin/fosterapplications" routerLinkActive="active">Pending Applications</a>
+        <a
+          class="nav-link"
+          routerLink="/admin/fosterapplications"
+          routerLinkActive="active"
+          >Pending Applications</a
+        >
       </li>
       <li class="nav-item">
         <!-- <a class="nav-link" href="#">Archived</a> -->
@@ -15,7 +20,6 @@
     </ul>
   </div>
 
-  
   <!-- Application List body -->
   <div class="container tableContainer">
     <!-- displays when the page is waiting for a reply from the server -->
@@ -35,44 +39,73 @@
     <!-- displays when loading is finished but no items exist to display -->
 
     <ng-container *ngIf="!this.isLoading && this.appList.length > 0">
-      <table mat-table [dataSource]="appList" class="mat-elevation-z8 mt-5" matSort width="100%">
-        
-    
+      <table
+        mat-table
+        [dataSource]="appList"
+        class="mat-elevation-z8 mt-5"
+        matSort
+        width="100%"
+      >
         <ng-container matColumnDef="submissionDate">
-          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header> Submission date</th>
-          <td mat-cell *matCellDef="let fetched">{{fetched.submissionDate}}</td>
+          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
+            Submission date
+          </th>
+          <td mat-cell *matCellDef="let fetched">
+            {{ fetched.submissionDate }}
+          </td>
         </ng-container>
 
         <ng-container matColumnDef="applicant">
-          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>Applicant</th>
-            <td mat-cell *matCellDef="let fetched">{{fetched.fname + ' ' + fetched.lname}}</td>
+          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
+            Applicant
+          </th>
+          <td mat-cell *matCellDef="let fetched">
+            {{ fetched.fname + " " + fetched.lname }}
+          </td>
         </ng-container>
 
         <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>Email</th>
-            <td mat-cell *matCellDef="let fetched">{{fetched.email}}</td>
+          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
+            Email
+          </th>
+          <td mat-cell *matCellDef="let fetched">{{ fetched.email }}</td>
         </ng-container>
-    
-        <ng-container matColumnDef="rejectionNote">
-          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>Reason for Rejection</th>
-          <td mat-cell *matCellDef="let fetched">{{fetched.rejectionReason}}</td>
-        </ng-container>
-    
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr class="tableRow" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row.id)" data-toggle="modal"
-          data-target="#viewApplication">
-        </tr>
-    
-      </table>
-      <mat-paginator [pageSizeOptions]="[20, 10, 30, 40, 50]" showFirstLastButtons></mat-paginator>
-    </ng-container>
 
-  
+        <ng-container matColumnDef="rejectionNote">
+          <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
+            Reason for Rejection
+          </th>
+          <td mat-cell *matCellDef="let fetched">
+            {{ fetched.rejectionReason }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          class="tableRow"
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          (click)="getRecord(row.id)"
+          data-toggle="modal"
+          data-target="#viewApplication"
+        ></tr>
+      </table>
+      <mat-paginator
+        [pageSizeOptions]="[20, 10, 30, 40, 50]"
+        showFirstLastButtons
+      ></mat-paginator>
+    </ng-container>
   </div>
 
   <!-- APPLICATION MODAL -->
 
-  <div class="modal fade" id="viewApplication" role="dialog" aria-labelledby="viewApplicationLabel" aria-hidden="true">
+  <div
+    class="modal fade"
+    id="viewApplication"
+    role="dialog"
+    aria-labelledby="viewApplicationLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <ng-container *ngIf="this.isLoading">
@@ -84,7 +117,11 @@
         </ng-container>
         <ng-container *ngIf="!this.isLoading && this.application">
           <div class="modal-header">
-            <h2 class="modal-title" id="viewFosterModalLabel" style="color: #fbfbff;">
+            <h2
+              class="modal-title"
+              id="viewFosterModalLabel"
+              style="color: #fbfbff;"
+            >
               Foster Information
             </h2>
             <button type="button" class="close">
@@ -105,15 +142,11 @@
                     <h3 class="mb-4">Details</h3>
                   </div>
                   <p><strong>Foster ID: </strong> {{ application?.id }}</p>
+                  <p><strong>First name: </strong> {{ application?.fname }}</p>
+                  <p><strong>Last name: </strong> {{ application?.lname }}</p>
                   <p>
-                    <strong>First name: </strong> {{ application?.fname }}
-                  </p>
-                  <p>
-                    <strong>Last name: </strong> {{ application?.lname }}
-                  </p>
-                  <p>
-                    <strong>Submission Date: </strong> 
-                    {{ application?.submissionDate }}
+                    <strong>Submission Date: </strong>
+                    {{ application?.submissiondate }}
                   </p>
                 </div>
 
@@ -269,9 +302,7 @@
                     <strong>Cell Phone:</strong>
                     {{ application?.ref1_cellPhone }}
                   </p>
-                  <p>
-                    <strong>Email:</strong> {{ application?.ref1_email }}
-                  </p>
+                  <p><strong>Email:</strong> {{ application?.ref1_email }}</p>
                 </div>
 
                 <!-- Ref contact 2  -->
@@ -290,9 +321,7 @@
                     <strong>Cell Phone:</strong>
                     {{ application?.ref2_cellPhone }}
                   </p>
-                  <p>
-                    <strong>Email:</strong> {{ application?.ref2_email }}
-                  </p>
+                  <p><strong>Email:</strong> {{ application?.ref2_email }}</p>
                 </div>
 
                 <!-- Ref contact 3  -->
@@ -311,9 +340,7 @@
                     <strong>Cell Phone:</strong>
                     {{ application?.ref3_cellPhone }}
                   </p>
-                  <p>
-                    <strong>Email:</strong> {{ application?.ref3_email }}
-                  </p>
+                  <p><strong>Email:</strong> {{ application?.ref3_email }}</p>
                 </div>
               </div>
             </div>
@@ -325,8 +352,8 @@
               <!-- (Still awaiting backend and service attribute) -->
               <h3>Reason For Rejection:</h3>
               <i>
-                This note will only be visible to admins and won't be
-                visible to volunteers
+                This note will only be visible to admins and won't be visible to
+                volunteers
               </i>
               <section class="description mt-4">
                 <p>{{ application?.rejectionReason }}</p>
@@ -335,14 +362,22 @@
           </div>
 
           <div class="modal-footer">
-            <button class="btn btn-outline-success ml-1 mr-1" data-dismiss="modal" data-toggle="modal"
-            attr.data-target="#pending{{ application?.id }}">
+            <button
+              class="btn btn-outline-success ml-1 mr-1"
+              data-dismiss="modal"
+              data-toggle="modal"
+              attr.data-target="#pending{{ application?.id }}"
+            >
               Mark as Pending
             </button>
 
-            <button class="btn btn-outline-danger ml-1 mr-1" data-dismiss="modal" data-toggle="modal"
-            attr.data-target="#delete{{ application?.id }}">
-                      Delete Application
+            <button
+              class="btn btn-outline-danger ml-1 mr-1"
+              data-dismiss="modal"
+              data-toggle="modal"
+              attr.data-target="#delete{{ application?.id }}"
+            >
+              Delete Application
             </button>
           </div>
         </ng-container>
@@ -350,71 +385,81 @@
     </div>
   </div>
 
-<!-- Mark as Pending Modal -->
-<div class="modal fade" id="pending{{ application?.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">
-          Mark Application to pending
-          {{ application?.lname }}?
-        </h5>
-        <button class="close" data-dismiss="modal">
-          &times;
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>
-          You are about to send {{ application?.fname }} {{ application?.lname }}'s application back to the pending list.
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-success" data-dismiss="modal"
-          (click)="sendToPending(application?.id)">
-          Confirm
-        </button>
-        <button class="btn btn-secondary" data-dismiss="modal">
-          Cancel
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End Of Modal -->
-
-<!-- Delete Modal -->
-<div class="modal" id="delete{{ application?.id }}">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">
-          Delete {{ application?.fname }}
-          {{ application?.lname }}?
-        </h5>
-        <button class="close" data-dismiss="modal">
-          &times;
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>
-          You are about to PERMANENTLY delete {{ application?.fname }}
-          {{ application?.lname }}'s foster application?.
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-danger" data-dismiss="modal" (click)="deleteApplication(application?.id)">
-          Delete Application
-        </button>
-        <button class="btn btn-secondary" data-dismiss="modal">
-          Cancel
-        </button>
+  <!-- Mark as Pending Modal -->
+  <div
+    class="modal fade"
+    id="pending{{ application?.id }}"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            Mark Application to pending
+            {{ application?.lname }}?
+          </h5>
+          <button class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            You are about to send {{ application?.fname }}
+            {{ application?.lname }}'s application back to the pending list.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-success"
+            data-dismiss="modal"
+            (click)="sendToPending(application?.id)"
+          >
+            Confirm
+          </button>
+          <button class="btn btn-secondary" data-dismiss="modal">
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-- End Of Modal -->
+  <!-- End Of Modal -->
 
-
-  
+  <!-- Delete Modal -->
+  <div class="modal" id="delete{{ application?.id }}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            Delete {{ application?.fname }} {{ application?.lname }}?
+          </h5>
+          <button class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            You are about to PERMANENTLY delete {{ application?.fname }}
+            {{ application?.lname }}'s foster application?.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-danger"
+            data-dismiss="modal"
+            (click)="deleteApplication(application?.id)"
+          >
+            Delete Application
+          </button>
+          <button class="btn btn-secondary" data-dismiss="modal">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Of Modal -->
 </div>
