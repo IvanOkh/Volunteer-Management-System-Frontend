@@ -82,7 +82,7 @@ export class VolunteerFormComponent {
         form.control.setErrors({ invalid: true });
       }
 
-      console.log(form.value);
+      // console.log(form.value);
 
       const volunteerForm = new VolunteerApplication(
         form.value.firstname as string, // fname
@@ -122,7 +122,7 @@ export class VolunteerFormComponent {
         "false,false,false" as string // emailPref [FALSE,FALSE,FALSE,FALSE] [electric newsletters, recruitment appeals, schedule reminders]
       );
 
-      console.log(volunteerForm);
+      // console.log(volunteerForm);
 
       // this.onCreatePost(volunteerForm);
       this.sendTheForm(volunteerForm);
@@ -149,8 +149,8 @@ export class VolunteerFormComponent {
     this.FS.sendVolunteerForm(volForm).subscribe(
       (responseData) => {
         // success
-        console.log("Events add HTTP response succeeded.");
-        console.log(responseData);
+        // console.log("Events add HTTP response succeeded.");
+        // console.log(responseData);
 
         if (responseData === "Error adding application.") {
           this.validForm = false;
@@ -163,7 +163,7 @@ export class VolunteerFormComponent {
     );
   }
 
-  private nlToggle() {
+  nlToggle() {
     if (this.nlVisible === true) {
       this.nlVisible = false;
     } else {

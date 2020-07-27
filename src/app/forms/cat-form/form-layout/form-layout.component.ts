@@ -354,7 +354,6 @@ export class FormLayoutComponent implements OnInit {
         this.parentForm.get("basicInfo").get("province").value,
         this.parentForm.get("basicInfo").get("postalCode").value,
 
-
         this.parentForm.get("basicInfo").get("homephone").value,
         this.parentForm.get("basicInfo").get("cellphone").value,
         this.parentForm.get("basicInfo").get("email").value,
@@ -479,15 +478,15 @@ export class FormLayoutComponent implements OnInit {
       );
     }
     this.sendTheForm(this.catForm);
-    console.log(this.catForm);
+    // console.log(this.catForm);
   }
 
   private sendTheForm(catForm: CatForm): void {
     this.FS.sendCatForm(catForm).subscribe(
       () => {
         // success
-        console.log('this is send method', catForm);
-        console.log("Events add HTTP response succeeded.");
+        // console.log('this is send method', catForm);
+        // console.log("Events add HTTP response succeeded.");
       },
       () => {
         // error

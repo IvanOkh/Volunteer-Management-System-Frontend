@@ -61,7 +61,7 @@ export class FosterFormComponent {
   addingSuccess: boolean = false;
 
   stringifyFamilyList(familyList: FamilyMember[]) {
-    console.log(familyList);
+    // console.log(familyList);
     let stringified = "";
 
     familyList.forEach((member) => {
@@ -147,6 +147,7 @@ export class FosterFormComponent {
     );
 
     // this.onCreatePost(formatForm);
+    console.log(formatForm);
     this.sendTheForm(formatForm);
 
     if (f.valid) {
@@ -159,8 +160,8 @@ export class FosterFormComponent {
     this.FS.sendFosterForm(fosForm).subscribe(
       (responseData) => {
         // success
-        console.log("Events add HTTP response succeeded.");
-        console.log(responseData);
+        // console.log("Events add HTTP response succeeded.");
+        // console.log(responseData);
 
         if (responseData === "Error adding application.") {
           this.validForm = false;
@@ -168,7 +169,7 @@ export class FosterFormComponent {
       },
       () => {
         // error
-        console.log("Events add HTTP response failed.");
+        // console.log("Events add HTTP response failed.");
       }
     );
   }

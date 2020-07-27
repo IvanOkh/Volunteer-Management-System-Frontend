@@ -7,7 +7,7 @@ import { map } from "rxjs/operators";
 import { DogForm } from "../../forms/dog-form/dog-form.model";
 import { CatForm } from "../../forms/cat-form/cat-model";
 import { VolunteerApplication } from "src/app/shared/models/volunteer-applications.model";
-import { FosterApplication } from '../models/foster-applications.model';
+import { FosterApplication } from "../models/foster-applications.model";
 
 /******************************************************************************/
 @Injectable({
@@ -56,8 +56,8 @@ export class FormsService {
   public sendCatForm(catForm: CatForm): Observable<string> {
     return this.sendCatPostRequest(catForm).pipe(
       map((responseData) => {
-        console.log('form service: ', catForm);
-        console.log(responseData);                                                              
+        // console.log('form service: ', catForm);
+        // console.log(responseData);
         return responseData;
       })
     );
@@ -105,7 +105,9 @@ export class FormsService {
    * Returns a subscibe-able object containing the server success/error response.
    * @param volunteerForm
    */
-  public sendVolunteerForm(volunteerForm: VolunteerApplication): Observable<string> {
+  public sendVolunteerForm(
+    volunteerForm: VolunteerApplication
+  ): Observable<string> {
     return this.sendVolunteerPostRequest(volunteerForm).pipe(
       map((responseData) => {
         return responseData;

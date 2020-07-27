@@ -573,9 +573,9 @@ export class DogFormComponent implements OnInit {
       );
       //DO PROCESSING HERE (this.newDogForm has been populated)
       this.validForm = true;
-      console.log(this.newDogForm);
+      // console.log(this.newDogForm);
       if (form.valid && this.checked === 3) {
-        console.log("Valid form 100%");
+        // console.log("Valid form 100%");
         this.sendTheForm(this.newDogForm);
       }
     } else {
@@ -598,7 +598,7 @@ export class DogFormComponent implements OnInit {
       (responseData) => {
         // success
         // console.log("Events add HTTP response succeeded.");
-        console.log(responseData);
+        // console.log(responseData);
 
         if (responseData === "Error adding application.") {
           // this.newDogForm = null;
