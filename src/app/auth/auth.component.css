@@ -8,12 +8,19 @@
   width: 100%;
   border: none;
   color: white;
+
   background-color: #ce0e2d;
 }
 
 #loginBtn:hover {
   /* background-color: #b60321; */
   background-color: #28a745;
+}
+
+#loginBtn:focus {
+  outline: none;
+  /* background-color: #b60321; */
+  background-color: #ce0e2d;
 }
 
 /* SECTION FOR MEDIA QUERY */
