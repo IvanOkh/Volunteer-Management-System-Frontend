@@ -10,12 +10,4 @@ export class VolunteerContainerComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {}
-
-  // ngAfterContentInit() {
-  //   this.router.navigate(["sideevents"], { relativeTo: this.route });
-  // }
-
-  // onBackToLogin() {
-  //   this.router.navigate(["/login"]);
-  // }
 }

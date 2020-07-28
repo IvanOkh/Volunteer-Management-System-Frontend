@@ -25,6 +25,9 @@ import { ViewVolunteerAccountComponent } from "./view-volunteer-account/view-vol
 import { VolunteerRoutingModule } from "./volunteer-routing.module";
 import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
+import { AppModule } from "../app.module";
+import { AdministratorModule } from "../administrator/administrator.module";
+import { FooterComponent } from "../shared/components/footer/footer.component";
 
 // MODULE DEFINITION
 @NgModule({
@@ -33,6 +36,7 @@ import { HttpClientModule } from "@angular/common/http";
     VolunteerSideNavbarComponent,
     VolunteerContainerComponent,
     ViewVolunteerAccountComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -53,6 +57,7 @@ import { HttpClientModule } from "@angular/common/http";
     VolunteerRoutingModule,
   ],
   exports: [
+    FooterComponent,
     VolunteerSideEventsComponent,
     VolunteerSideNavbarComponent,
     VolunteerContainerComponent,
