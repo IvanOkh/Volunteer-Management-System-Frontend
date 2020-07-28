@@ -25,7 +25,7 @@ export class ViewVolunteerComponent implements OnInit {
   fetchLoading: boolean = false; // selected volunteer data loading state
 
   volunteers = []; //initialize an array to hole all volunteer data fetched to mat table
-  
+
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild("form", { static: false }) form: NgForm;
@@ -41,12 +41,6 @@ export class ViewVolunteerComponent implements OnInit {
   ];
 
   constructor(public dialog: MatDialog, private test: VolunteerService) {}
-
-  // THIS IS BOOTSTRAP TABLE VERSION
-  // ngOnInit()
-  // {
-  //   this.loadAllVolunteers();
-  // }
 
   // MAT TABLE VERSION
   ngOnInit() {

@@ -44,10 +44,16 @@ export class ViewEventsComponent implements OnInit {
       this.loadEvents();
     });
     //load active volunteers
-    this.vs.loadVolunteers().subscribe((responseData) => {
-      this.volunteerArray = responseData;
-      // console.log(this.volunteerArray);
-    });
+    this.vs.loadVolunteers().subscribe(
+      (responseData) => {
+        this.volunteerArray = responseData;
+        // console.log(this.volunteerArray);
+      },
+      (error: any) => {
+        // console.log(error);
+      }
+    );
+
     //load active fosters
     this.fs.loadFosters().subscribe((responseData) => {
       this.fosterArray = responseData;
