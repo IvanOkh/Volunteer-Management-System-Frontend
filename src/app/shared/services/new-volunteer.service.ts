@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
 import { VolunteerForm } from "../models/volunteer-form.model";
-import { VolunteerApplication } from '../models/volunteer-applications.model';
+import { VolunteerApplication } from "../models/volunteer-applications.model";
 
 /******************************************************************************/
 @Injectable({
@@ -27,10 +27,11 @@ export class VolunteerService {
   public loadVolunteers(): Observable<VolunteerForm[]> {
     return this.sendGetAllVolunteersLoadRequest().pipe(
       map((responseData: VolunteerForm[]) => {
+        // console.log(responseData);
         const volunteerArray: VolunteerForm[] = [];
         if (responseData != null) {
           responseData.forEach((volunteer: VolunteerForm) => {
-              volunteerArray.push(volunteer);
+            volunteerArray.push(volunteer);
           });
         }
         return volunteerArray;
@@ -49,7 +50,7 @@ export class VolunteerService {
       map((responseData: VolunteerApplication[]) => {
         const volunteerAppArray: VolunteerApplication[] = [];
         responseData.forEach((volunteerApp: VolunteerApplication) => {
-            volunteerAppArray.push(volunteerApp);
+          volunteerAppArray.push(volunteerApp);
         });
         return volunteerAppArray;
       })
@@ -87,14 +88,15 @@ export class VolunteerService {
       })
     );
   }
-  
 
-   /**
+  /**
    * Sends a request to get a single VolunteerApplication matching the input id.
    * Returns a subscribe-able object containing the found Volunteer.
    * @param volunteerID
    */
-  public getVolunteerApplication(volunteerID: number): Observable<VolunteerApplication> {
+  public getVolunteerApplication(
+    volunteerID: number
+  ): Observable<VolunteerApplication> {
     return this.sendGetApplicationRequest(volunteerID).pipe(
       map((responseData: VolunteerApplication[]) => {
         const application: VolunteerApplication = responseData[0];
@@ -118,13 +120,15 @@ export class VolunteerService {
     );
   }
 
-   /**
+  /**
    * Sends a request to add a new VolunteerApplication to the backend database. The
    * input is the new Volunteer to persist to the backend. Returns a
    * subscibe-able object containing the server success/error response.
    * @param newVolunteer
    */
-  public addVolunteerApplication(newVolunteerApplication: VolunteerApplication): Observable<string> {
+  public addVolunteerApplication(
+    newVolunteerApplication: VolunteerApplication
+  ): Observable<string> {
     return this.sendPostApplicationRequest(newVolunteerApplication).pipe(
       map((responseData) => {
         return responseData;
@@ -147,14 +151,16 @@ export class VolunteerService {
     );
   }
 
-   /**
+  /**
    * Sends a request to update a VolunteerApplication. The input is a Volunteer
    * with the same ID as the one we want to update in the backend.
    * Returns a subscibe-able object containing the server success/error
    * response.
    * @param changes
    */
-  public updateVolunteerApplication(changes: VolunteerApplication): Observable<string> {
+  public updateVolunteerApplication(
+    changes: VolunteerApplication
+  ): Observable<string> {
     return this.sendUpdateApplicationRequest(changes).pipe(
       map((responseData: string) => {
         return responseData;
@@ -176,7 +182,7 @@ export class VolunteerService {
     );
   }
 
-    /**
+  /**
    * Sends a delete request for a volunteer application to the backend. Input ID is used in the
    * backend to delete a Volunteer with a matching ID. Returns a subscribe-
    * able object containing the server success/error response.
@@ -213,18 +219,25 @@ export class VolunteerService {
    * HTTP post new Volunteer to server
    */
   private sendPostVolunteerRequest(volunteer: VolunteerApplication) {
-    return this.http.post(this.REST_API_SERVER + this.CTRL_VOLUNTEER_MAPPING, volunteer, {
-      responseType: "text",
-    });
+    return this.http.post(
+      this.REST_API_SERVER + this.CTRL_VOLUNTEER_MAPPING,
+      volunteer,
+      {
+        responseType: "text",
+      }
+    );
   }
 
   /**
    * HTTP delete Volunteer from server
    */
   private sendDeleteVolunteerRequest(id: number) {
-    return this.http.delete(this.REST_API_SERVER + this.CTRL_VOLUNTEER_MAPPING + id, {
-      responseType: "text",
-    });
+    return this.http.delete(
+      this.REST_API_SERVER + this.CTRL_VOLUNTEER_MAPPING + id,
+      {
+        responseType: "text",
+      }
+    );
   }
 
   /**
@@ -237,7 +250,6 @@ export class VolunteerService {
       { responseType: "text" }
     );
   }
-
 
   //***********************Applications******************* */
 
@@ -260,18 +272,25 @@ export class VolunteerService {
    * HTTP post new Volunteer to server
    */
   private sendPostApplicationRequest(application: VolunteerApplication) {
-    return this.http.post(this.REST_API_SERVER + this.CTRL_APPLICATION_MAPPING, application, {
-      responseType: "text",
-    });
+    return this.http.post(
+      this.REST_API_SERVER + this.CTRL_APPLICATION_MAPPING,
+      application,
+      {
+        responseType: "text",
+      }
+    );
   }
 
   /**
    * HTTP delete Volunteer from server
    */
   private sendDeleteApplicationRequest(id: number) {
-    return this.http.delete(this.REST_API_SERVER + this.CTRL_APPLICATION_MAPPING + id, {
-      responseType: "text",
-    });
+    return this.http.delete(
+      this.REST_API_SERVER + this.CTRL_APPLICATION_MAPPING + id,
+      {
+        responseType: "text",
+      }
+    );
   }
 
   /**
