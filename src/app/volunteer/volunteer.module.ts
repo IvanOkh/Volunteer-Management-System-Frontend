@@ -1,5 +1,5 @@
 // ANGULAR IMPORTS
-import { NgModule } from "@angular/core";
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {
@@ -20,14 +20,12 @@ import { VolunteerSideNavbarComponent } from "./volunteer-side-navbar/volunteer-
 import { VolunteerContainerComponent } from "./volunteer-container/volunteer-container.component";
 
 // ROUTING MODULE IMPORT
-import { AppRoutingModule } from "../app-routing.module";
 import { ViewVolunteerAccountComponent } from "./view-volunteer-account/view-volunteer-account.component";
 import { VolunteerRoutingModule } from "./volunteer-routing.module";
 import { HttpModule } from "@angular/http";
-import { HttpClientModule } from "@angular/common/http";
-import { AppModule } from "../app.module";
-import { AdministratorModule } from "../administrator/administrator.module";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FooterComponent } from "../shared/components/footer/footer.component";
+import { AuthInterceptorService } from "../auth/auth-interceptor.service";
 
 // MODULE DEFINITION
 @NgModule({
@@ -63,7 +61,14 @@ import { FooterComponent } from "../shared/components/footer/footer.component";
     VolunteerContainerComponent,
     ViewVolunteerAccountComponent,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class VolunteerModule {}

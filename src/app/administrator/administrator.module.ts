@@ -3,7 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 // import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 // import { BrowserModule } from "@angular/platform-browser";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HttpModule } from "@angular/http";
 import {
   MatTableModule,
@@ -26,7 +26,6 @@ import { ViewVolunteerComponent } from "./view-volunteer/view-volunteer.componen
 import { VolunteerRejectedComponent } from "./volunteer-applications/volunteer-rejected/volunteer-rejected.component";
 
 // ROUTING MODULE IMPORTS
-import { AppRoutingModule } from "../app-routing.module";
 import { ViewFostersComponent } from "./view-fosters/view-fosters.component";
 import { YesNoPipe } from "../shared/pipes/yes-no.pipe";
 import { NaPipe } from "../shared/pipes/na.pipe";
@@ -40,8 +39,8 @@ import { DogApprovedComponent } from "./manage-dog-application/dog-approved/dog-
 import { CatApprovedComponent } from "./manage-cat-application/cat-approved/cat-approved/cat-approved.component";
 import { AdminRoutingModule } from "./administrator-routing.module";
 import { CommonModule } from "@angular/common";
-import { FooterComponent } from "../shared/components/footer/footer.component";
 import { VolunteerModule } from "../volunteer/volunteer.module";
+import { AuthInterceptorService } from "../auth/auth-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -87,7 +86,13 @@ import { VolunteerModule } from "../volunteer/volunteer.module";
     VolunteerModule,
   ],
 
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
