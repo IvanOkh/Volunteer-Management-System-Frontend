@@ -3,16 +3,14 @@ import {
   HttpInterceptor,
   HttpRequest,
   HttpHandler,
-  HttpParams,
 } from "@angular/common/http";
 import { take, exhaustMap } from "rxjs/operators";
-
 import { AuthService } from "./auth.service";
 
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
   constructor(private authService: AuthService) {}
-
+  //attach auth-token to every http request header
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     return this.authService.user.pipe(
       take(1),
@@ -20,10 +18,11 @@ export class AuthInterceptorService implements HttpInterceptor {
         if (!user) {
           return next.handle(req);
         }
+        //request can't be modified. Make a copy and apply changes to it
         const modifiedReq = req.clone({
-          params: new HttpParams().set("auth", user.token),
+          setHeaders: { "auth-token": user.token },
         });
-        // console.log(modifiedReq);
+        //return modified HttpRequest with auth-token written in the header
         return next.handle(modifiedReq);
       })
     );
