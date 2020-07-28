@@ -27,6 +27,7 @@ import { DogRejectedComponent } from "./administrator/manage-dog-application/dog
 import { CatRejectedComponent } from "./administrator/manage-cat-application/cat-rejected/cat-rejected/cat-rejected.component";
 import { CatApprovedComponent } from "./administrator/manage-cat-application/cat-approved/cat-approved/cat-approved.component";
 import { ChangePasswordComponent } from "./shared/components/change-password/change-password.component";
+import { WebsiteContainerComponent } from "./website/website-container/website-container.component";
 
 const appRoutes: Routes = [
   {
@@ -57,8 +58,13 @@ const appRoutes: Routes = [
   },
   { path: "reset-password", component: ResetPasswordComponent },
   { path: "change-password/:id", component: ChangePasswordComponent },
-
   { path: "login", component: MainPageComponent },
+  {
+    path: "develop",
+    loadChildren: () =>
+      import("./website/website.module").then((m) => m.WebsiteModule),
+  },
+  // { path: "develop", component: WebsiteContainerComponent },
   { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "**", component: MainPageComponent },
 ];
