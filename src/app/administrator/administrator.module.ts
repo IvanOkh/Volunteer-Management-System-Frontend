@@ -40,6 +40,8 @@ import { DogApprovedComponent } from "./manage-dog-application/dog-approved/dog-
 import { CatApprovedComponent } from "./manage-cat-application/cat-approved/cat-approved/cat-approved.component";
 import { AdminRoutingModule } from "./administrator-routing.module";
 import { CommonModule } from "@angular/common";
+import { FooterComponent } from "../shared/components/footer/footer.component";
+import { VolunteerModule } from "../volunteer/volunteer.module";
 
 @NgModule({
   declarations: [
@@ -52,7 +54,6 @@ import { CommonModule } from "@angular/common";
     VolunteerRejectedComponent,
     YesNoPipe,
     NaPipe,
-
     //manage cat and dog application components
     ManageCatApplicationComponent,
     ManageDogApplicationComponent,
@@ -81,25 +82,11 @@ import { CommonModule } from "@angular/common";
     ReactiveFormsModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-
     // AppRoutingModule,
     AdminRoutingModule,
+    VolunteerModule,
   ],
-  exports: [
-    AdminContainerComponent,
-    ViewEventsComponent,
-    AdminSideNavbarComponent,
-    VolunteerPendingComponent,
-    NaPipe,
-    FosterPendingComponent,
-    FosterRejectedComponent,
-    //manage dog and cat applications
-    ManageCatApplicationComponent,
-    ManageDogApplicationComponent,
-    FosterPendingComponent,
-    FosterRejectedComponent,
-    DogRejectedComponent,
-  ],
+
   providers: [],
   bootstrap: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

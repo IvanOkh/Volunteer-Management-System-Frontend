@@ -28,6 +28,7 @@ import { VolunteerModule } from "./volunteer/volunteer.module";
 import { AdministratorModule } from "./administrator/administrator.module";
 import { ChangePasswordComponent } from "./shared/components/change-password/change-password.component";
 import { AuthInterceptorService } from "./auth/auth-interceptor.service";
+import { WebsiteContainerComponent } from "./website/website-container/website-container.component";
 // import { NaPipe } from "./shared/pipes/na.pipe";
 // import { Router } from "@angular/router";
 
@@ -39,7 +40,7 @@ import { AuthInterceptorService } from "./auth/auth-interceptor.service";
     VolunteerFormComponent,
     FamilyMembersComponent,
     LoadingSpinnerComponent,
-    FooterComponent,
+
     ResetPasswordComponent,
     MainPageComponent,
     ChangePasswordComponent,
