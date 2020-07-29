@@ -1,6 +1,6 @@
 # Project Tasks
 
-## Update: Monday, July 27, 2020
+## Update: Wednesday, July 29, 2020
 
 ### APP-WIDE:
 
@@ -12,9 +12,7 @@
 
 • Resolve password recovery. [Waiting for back-end update(Ivan)] - Ivan/Raymond
 
-• Enable GWT security on both sides. [Waiting for back-end update(Ivan)] - Ivan/Raymond
-
-• Replace unsplash pictures with new personalized pictures. One for Events, one for volunteers/fosters.
+• Enable GWT security in backend. [In-progress] - Raymond
 
 • For modals, when an attribute is left blank, add "N/A"
 
@@ -37,7 +35,5 @@
 • Double check if animal type works properlly [In-progress] - Albert
 
 ### USER-SIDE:
-
-• Add lazy loading to the module [Done] - Ivan
 
 • Apply responsive.
