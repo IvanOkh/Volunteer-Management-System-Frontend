@@ -56,8 +56,8 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import("./forms/cat-form/cat-form.module").then((m) => m.CatFormModule),
   },
-  { path: "reset-password", component: ResetPasswordComponent },
-  { path: "change-password/:id", component: ChangePasswordComponent },
+  // { path: "reset-password", component: ResetPasswordComponent },
+  { path: "change-password", component: ChangePasswordComponent },
   { path: "login", component: MainPageComponent },
   {
     path: "develop",
