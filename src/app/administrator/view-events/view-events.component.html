@@ -454,18 +454,12 @@
             <p [innerText]="event.description"></p>
           </div>
           <!-- TABLE WITH REGISTERED USERS -->
-          <div
-            class="table-responsive table-sm"
-            *ngIf="
-              defineNumberOfSubs(event.id) > 0 &&
-              this.eventArrayHolder.length > 0
-            "
-          >
+          <div class="table-responsive table-sm">
             <table
               class="table ml-3"
               *ngIf="
-                this.eventArrayHolder.length != 0 &&
-                defineNumberOfSubs(event.id) != 0
+                getRegisteredUsers(event.id).length > 0 ||
+                getRegisteredFosters(event.id).length > 0
               "
             >
               <thead>
