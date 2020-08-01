@@ -27,14 +27,13 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form.value.newPassword);
-    console.log(form.value.confirmedNewPassword);
-
+    // console.log(form.value.newPassword);
+    // console.log(form.value.confirmedNewPassword);
     if (form.value.newPassword === form.value.confirmedNewPassword) {
       this.recover(this.UUID, form.value.newPassword);
     } else {
-      console.log("Reseted invalid form");
-      form.resetForm();
+      this.message = "Please make sure both passwords match each other";
+      // form.resetForm();
     }
   }
 
@@ -42,18 +41,22 @@ export class ChangePasswordComponent implements OnInit {
     this.passwordService.sendNewPassword(uuid, password).subscribe(
       (response) => {
         console.log(response);
-        if (response === "Request processed.") {
+        if (response) {
+          console.log("i am in processed");
           this.message =
-            "Your request has been processed. If the email matches our records, you will receive an email. Please check the Spam folder if the email response was not received within 12 hours.";
+            "Your request has been processed. Please try to login using new password.";
           // this.form.reset();
           // this.isLoading = false;
-        } else {
-          this.message =
-            "We could not process your request. Make sure you are entering correct email address";
-          // this.isLoading = false;
         }
+        // else {
+        //   console.log("i am in else");
+        //   this.message =
+        //     "We could not process your request. Make sure you are entering correct email address";
+        //   // this.isLoading = false;
+        // }
       },
       (error: any) => {
+        console.log("received an error");
         this.message =
           "Unfortunately, we encountered an error. Please check your internet connection or try again later";
         // this.form.reset();
@@ -61,5 +64,13 @@ export class ChangePasswordComponent implements OnInit {
       }
     );
     // this.submitted = true;
+  }
+
+  onScroll() {
+    document.body.scrollTop = 0;
+  }
+  onOkClick() {
+    this.onScroll();
+    this.router.navigate(["/login"]);
   }
 }
