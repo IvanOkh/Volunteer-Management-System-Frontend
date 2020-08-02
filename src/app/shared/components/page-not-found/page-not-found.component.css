@@ -1,0 +1,8 @@
+.container {
+  min-height: 700px;
+  height: 100vh;
+}
+
+#logo {
+  height: 150px;
+}
