@@ -15,22 +15,17 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AuthComponent } from "./auth/auth.component";
 
 import { LoadingSpinnerComponent } from "./shared/components/loading-spinner/loading-spinner.component";
-import { FooterComponent } from "./shared/components/footer/footer.component";
 import { ResetPasswordComponent } from "./shared/components/reset-password/reset-password.component";
 import { MainPageComponent } from "./shared/components/main-page/main-page.component";
 
 import { FosterFormComponent } from "./forms/foster-form/foster-form.component";
 import { VolunteerFormComponent } from "./forms/volunteer-form/volunteer-form.component";
 import { FamilyMembersComponent } from "./forms/foster-form/family-members/family-members.component";
-// import { DogFormComponent } from "./forms/dog-form/dog-form.component";
-// import { CatFormModule } from "./forms/cat-form/cat-form.module";
 import { VolunteerModule } from "./volunteer/volunteer.module";
 import { AdministratorModule } from "./administrator/administrator.module";
 import { ChangePasswordComponent } from "./shared/components/change-password/change-password.component";
 import { AuthInterceptorService } from "./auth/auth-interceptor.service";
-import { WebsiteContainerComponent } from "./website/website-container/website-container.component";
-// import { NaPipe } from "./shared/pipes/na.pipe";
-// import { Router } from "@angular/router";
+import { PageNotFoundComponent } from "./shared/components/page-not-found/page-not-found.component";
 
 @NgModule({
   declarations: [
@@ -44,6 +39,7 @@ import { WebsiteContainerComponent } from "./website/website-container/website-c
     ResetPasswordComponent,
     MainPageComponent,
     ChangePasswordComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     // ANGULAR IMPORTS
@@ -56,7 +52,6 @@ import { WebsiteContainerComponent } from "./website/website-container/website-c
     MatProgressSpinnerModule,
     // CUSTOM MODULES
     AppRoutingModule,
-    // CatFormModule,
     VolunteerModule,
     AdministratorModule,
   ],
