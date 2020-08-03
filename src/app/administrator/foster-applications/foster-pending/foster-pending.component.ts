@@ -106,8 +106,8 @@ export class FosterPendingComponent implements OnInit {
     this.fs.getFosterApplication(fosterID).subscribe(
       (foster: FosterApplication) => {
         this.fetched = foster;
-        // console.log(this.fetched);
-        this.delimitFosterType(this.fetched.preferredAnimal);
+        console.log(this.fetched.fosterAnimalType);
+        this.delimitFosterType(this.fetched.fosterAnimalType);
       },
       (error: any) => {
         // console.log(error);

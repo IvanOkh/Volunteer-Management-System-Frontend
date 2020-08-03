@@ -51,7 +51,7 @@
             </div>
 
             <!-- Card Body -->
-            <div data-toggle="modal" attr.data-target="#viewApplication{{ application.id }}">
+            <div data-toggle="modal" attr.data-target="#viewApplication{{ application.id }}" (click)="viewFoster(application.id)">
               <!-- Picture -->
               <!-- Separated into 3 columns to center image -->
               <div class="container">

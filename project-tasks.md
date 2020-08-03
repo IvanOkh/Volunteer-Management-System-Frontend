@@ -4,7 +4,7 @@
 
 ### APP-WIDE:
 
-• Convert CARS pictures into light size images to be used throughout the app instead of unsplash pictures [In-progress] - Albert
+• Convert CARS pictures into light size images to be used throughout the app instead of unsplash pictures [Going to ask CARS next meeting] - Albert
 
 • Add 404 page to the routing [In-progress] - Ivan
 
