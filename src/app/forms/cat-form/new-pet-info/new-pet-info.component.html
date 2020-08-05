@@ -174,7 +174,7 @@
               <label>Food expenses <span class="star">*</span></label>
             </div>
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" formControlName="foodExpense" min="0" max="99999"
+              <input type="number" class="form-control" formControlName="foodExpense" min="0" max="99999"
                 [ngClass]="{'is-invalid': form.foodExpense.errors && form.foodExpense.touched}">
               <!-- validation  -->
               <div *ngIf="form.foodExpense.errors && form.foodExpense.touched" class="col-12">
@@ -190,7 +190,7 @@
               <label>Veterinarian expenses <span class="star">*</span></label>
             </div>
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" formControlName="veterinarianExpense" min="0" max="99999"
+              <input type="number" class="form-control" formControlName="veterinarianExpense" min="0" max="99999"
                 [ngClass]="{'is-invalid': form.veterinarianExpense.errors && form.veterinarianExpense.touched}">
               <!-- validation  -->
               <div *ngIf="form.veterinarianExpense.errors && form.veterinarianExpense.touched" class="col-12">
@@ -204,7 +204,7 @@
               <label>Grooming expenses <span class="star">*</span></label>
             </div>
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" formControlName="groomingExpense" min="0" max="99999"
+              <input type="number" class="form-control" formControlName="groomingExpense" min="0" max="99999"
                 [ngClass]="{'is-invalid': form.groomingExpense.errors && form.groomingExpense.touched}">
               <!-- validation  -->
               <div *ngIf="form.groomingExpense.errors && form.groomingExpense.touched" class="col-12">
@@ -219,7 +219,7 @@
               <label>Boarding expenses <span class="star">*</span></label>
             </div>
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" formControlName="boardingExpense" min="0" max="99999"
+              <input type="number" class="form-control" formControlName="boardingExpense" min="0" max="99999"
                 [ngClass]="{'is-invalid': form.boardingExpense.errors && form.boardingExpense.touched}">
 
               <!-- validation  -->

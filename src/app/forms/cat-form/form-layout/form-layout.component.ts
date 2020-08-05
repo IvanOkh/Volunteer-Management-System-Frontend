@@ -418,7 +418,7 @@ export class FormLayoutComponent implements OnInit {
         this.parentForm
           .get("newPetInfo")
           .get("lengthOfTimeAdjustToNewHome").value,
-        this.parentForm.get("newPetInfo").get("foodExpense").value,
+        +this.parentForm.get("newPetInfo").get("foodExpense").value,
         this.parentForm.get("newPetInfo").get("veterinarianExpense").value,
         this.parentForm.get("newPetInfo").get("groomingExpense").value,
         this.parentForm.get("newPetInfo").get("boardingExpense").value,
@@ -478,15 +478,16 @@ export class FormLayoutComponent implements OnInit {
       );
     }
     this.sendTheForm(this.catForm);
-    // console.log(this.catForm);
+        
+    console.log('this is cat name:' , this.parentForm.get("basicInfo").get("catName").value)
   }
 
   private sendTheForm(catForm: CatForm): void {
     this.FS.sendCatForm(catForm).subscribe(
       () => {
         // success
-        // console.log('this is send method', catForm);
-        // console.log("Events add HTTP response succeeded.");
+        console.log('this is send method', catForm);
+        console.log("Events add HTTP response succeeded.");
       },
       () => {
         // error

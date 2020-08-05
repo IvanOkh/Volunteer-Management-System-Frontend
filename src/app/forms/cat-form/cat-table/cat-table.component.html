@@ -1,8 +1,8 @@
-
 <div class="container">
-    <label for="">I would like my new cat to:</label>
-    <div class="row">
-      <form [formGroup]="formGroup">
+  <label for="">I would like my new cat to:</label>
+  <div class="row">
+    <form [formGroup]="formGroup">
+      <div class="table-responsive">
         <table class="table table-striped">
           <thead>
             <tr>
@@ -134,7 +134,7 @@
 
             <tr>
               <th scope="row">Never wake me up at night</th>
-                <mat-radio-group formControlName="wakeMeUpAtNight">
+              <mat-radio-group formControlName="wakeMeUpAtNight">
                 <mat-radio-button value="Very important">Very Important</mat-radio-button>
                 <mat-radio-button value="Somewhat important">Somewhat Important</mat-radio-button>
                 <mat-radio-button value="No important">No Important</mat-radio-button>
@@ -143,7 +143,7 @@
 
             <tr>
               <th scope="row">Never show aggressive behavior</th>
-               <mat-radio-group formControlName="aggressiveBehaviour">
+              <mat-radio-group formControlName="aggressiveBehaviour">
                 <mat-radio-button value="Very important">Very Important</mat-radio-button>
                 <mat-radio-button value="Somewhat important">Somewhat Important</mat-radio-button>
                 <mat-radio-button value="No important">No Important</mat-radio-button>
@@ -160,7 +160,7 @@
             </tr>
           </tbody>
         </table>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
-
+</div>

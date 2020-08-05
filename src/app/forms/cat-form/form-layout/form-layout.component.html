@@ -5,11 +5,7 @@
 </div>
 
 <div class="container">
-  <button
-    class="btn btn-primary mb-5 text-left"
-    type="button"
-    (click)="onOkClick()"
-  >
+  <button class="btn btn-primary mb-5 text-left" type="button" (click)="onOkClick()">
     <i class="fa fa-reply" aria-hidden="true"></i> Back to Login
   </button>
 </div>
@@ -17,61 +13,31 @@
 <div class="container background">
   <form [formGroup]="parentForm" (ngSubmit)="onSubmit()" id="topPage">
     <app-form (formReady)="onSubFormReady($event, 'basicInfo')"></app-form>
-    <app-family-lifestyle
-      (formReady)="onSubFormReady($event, 'familyLifestyle')"
-    ></app-family-lifestyle>
-    <app-your-home
-      (formReady)="onSubFormReady($event, 'yourHome')"
-    ></app-your-home>
-    <app-current-previous
-      (formReady)="onSubFormReady($event, 'currentPreviousPet')"
-    ></app-current-previous>
-    <app-new-pet-info
-      (formReady)="onSubFormReady($event, 'newPetInfo')"
-    ></app-new-pet-info>
-    <app-physical-characteristics
-      (formReady)="onSubFormReady($event, 'physicalCharacter')"
-    >
+    <app-family-lifestyle (formReady)="onSubFormReady($event, 'familyLifestyle')"></app-family-lifestyle>
+    <app-your-home (formReady)="onSubFormReady($event, 'yourHome')"></app-your-home>
+    <app-current-previous (formReady)="onSubFormReady($event, 'currentPreviousPet')"></app-current-previous>
+    <app-new-pet-info (formReady)="onSubFormReady($event, 'newPetInfo')"></app-new-pet-info>
+    <app-physical-characteristics (formReady)="onSubFormReady($event, 'physicalCharacter')">
     </app-physical-characteristics>
-    <app-cat-table
-      (formReady)="onSubFormReady($event, 'catTable')"
-    ></app-cat-table>
-    <app-cat-table2
-      (formReady)="onSubFormReady($event, 'catTable2')"
-    ></app-cat-table2>
-    <app-references
-      (formReady)="onSubFormReady($event, 'references')"
-    ></app-references>
+    <app-cat-table (formReady)="onSubFormReady($event, 'catTable')"></app-cat-table>
+    <app-cat-table2 (formReady)="onSubFormReady($event, 'catTable2')"></app-cat-table2>
+    <app-references (formReady)="onSubFormReady($event, 'references')"></app-references>
 
     <div style="display: flex; justify-content: space-evenly;">
-      <button
-        onclick="window.print()"
-        class="btn btn-danger ml-3 mx-2"
-        style="padding: 9px;"
-      >
+      <button onclick="window.print()" class="btn btn-danger ml-3 mx-2" style="padding: 9px;">
         <i class="fa fa-print"></i> Print Form
       </button>
 
       <div *ngIf="parentForm.invalid">
-        <button
-          type="submit"
-          class="btn btn-success mx-2"
-          style="padding: 9px;"
-          data-toggle="modal"
-          data-target="#unsuccess"
-        >
+        <button type="submit" class="btn btn-success mx-2" style="padding: 9px;" data-toggle="modal"
+          data-target="#unsuccess">
           Submit Form
         </button>
       </div>
 
       <div *ngIf="parentForm.valid">
-        <button
-          type="submit"
-          class="btn btn-success mx-2"
-          style="padding: 9px;"
-          data-toggle="modal"
-          data-target="#success"
-        >
+        <button type="submit" class="btn btn-success mx-2" style="padding: 9px;" data-toggle="modal"
+          data-target="#success">
           Submit Form
         </button>
       </div>
@@ -79,32 +45,18 @@
   </form>
 </div>
 <div>
-  <a (click)="onScroll()" id="button-top"
-    ><i class="fa fa-angle-double-up"></i
-  ></a>
+  <a (click)="onScroll()" id="button-top"><i class="fa fa-angle-double-up"></i></a>
 </div>
 
 <!-- modal thanks for submit  -->
-<div
-  class="modal fade"
-  id="success"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
         <strong style="color: green;">Thank you for your submission !</strong>
       </div>
       <div class="modal-footer">
-        <button
-          type="button"
-          data-dismiss="modal"
-          class="btn btn-primary"
-          (click)="onOkClick()"
-        >
+        <button type="button" data-dismiss="modal" class="btn btn-primary" (click)="onOkClick()">
           OK
         </button>
       </div>
@@ -113,14 +65,8 @@
 </div>
 
 <!-- modal check info again  -->
-<div
-  class="modal fade"
-  id="unsuccess"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="unsuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
