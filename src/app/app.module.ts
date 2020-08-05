@@ -26,6 +26,7 @@ import { AdministratorModule } from "./administrator/administrator.module";
 import { ChangePasswordComponent } from "./shared/components/change-password/change-password.component";
 import { AuthInterceptorService } from "./auth/auth-interceptor.service";
 import { PageNotFoundComponent } from "./shared/components/page-not-found/page-not-found.component";
+import { WebsiteModule } from "./website/website.module";
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { PageNotFoundComponent } from "./shared/components/page-not-found/page-n
     ResetPasswordComponent,
     MainPageComponent,
     ChangePasswordComponent,
-    PageNotFoundComponent,
+    // PageNotFoundComponent,
   ],
   imports: [
     // ANGULAR IMPORTS
@@ -54,6 +55,7 @@ import { PageNotFoundComponent } from "./shared/components/page-not-found/page-n
     AppRoutingModule,
     VolunteerModule,
     AdministratorModule,
+    WebsiteModule,
   ],
   providers: [
     {
