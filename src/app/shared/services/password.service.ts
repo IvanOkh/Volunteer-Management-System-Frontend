@@ -17,8 +17,9 @@ export class passwordService {
   constructor(private http: HttpClient) {}
 
   //sequre request with uuid
-  public sendNewPassword(uuid: string, pass: string): Observable<string> {
-    this.holder = new NewPassword(uuid, pass);
+  public sendNewPassword(uuid: string, password: string): Observable<string> {
+    this.holder = new NewPassword(uuid, password);
+    console.log(this.holder);
     return this.sendPostUUID(this.holder).pipe(
       map((responseData) => {
         return responseData;

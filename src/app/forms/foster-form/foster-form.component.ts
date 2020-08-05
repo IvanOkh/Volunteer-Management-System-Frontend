@@ -118,7 +118,7 @@ export class FosterFormComponent {
       f.value.dogEnvironment as string,
       f.value.catEnvironment as string,
       !!(f.value.familyAgrees as string).match("Yes"),
-      f.value.rescueHistory as string,
+      f.value.fosterTypesRadio as string,
       f.value.fosterRequest as string,
       !!(f.value.keepFosterCatInside as string).match("Yes"),
       !!(f.value.hasFence as string).match("Yes"),
@@ -160,12 +160,11 @@ export class FosterFormComponent {
     this.FS.sendFosterForm(fosForm).subscribe(
       (responseData) => {
         // success
-        // console.log("Events add HTTP response succeeded.");
-        // console.log(responseData);
-
+        
         if (responseData === "Error adding application.") {
           this.validForm = false;
         }
+        console.log(responseData);
       },
       () => {
         // error

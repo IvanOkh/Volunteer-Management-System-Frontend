@@ -47,15 +47,17 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   private recover(email: string): void {
-    this.passwordService.sendRecovery(this.email).subscribe(
+    this.passwordService.sendRecovery(email).subscribe(
       (response) => {
-        if (response === "Fail") {
+        console.log(response);
+        if (response === "Request processed.") {
           this.message =
-            "We could not process your request. Make sure you are entering correct email address";
+            "Your request has been processed. If the email matches our records, you will receive an email. Please check the Spam folder if the email response was not received within 12 hours.";
+          this.form.reset();
           this.isLoading = false;
         } else {
-          this.message = "An email has been sent.";
-          this.form.reset();
+          this.message =
+            "We could not process your request. Make sure you are entering correct email address";
           this.isLoading = false;
         }
       },
