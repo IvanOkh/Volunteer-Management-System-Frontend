@@ -43,4 +43,33 @@
 • Implement "display events" via connection to public REST endpoint. [In-progress] - Awaiting for Raymond to create endpoint
 
 
+## Components Assignment
 
+List of components for CARS site
+
+Reusables
+- Nav bar [Albert]
+- Footer
+- Event Card
+- Custom jumbotron template
+- Animal Card
+
+Special Components
+- Animal list (and tabs)
+- Photo gallery/Title section
+- Contact us section
+
+Pages
+- Landing Page/Main Page [Luat]
+- Our Animals Page
+- Adoption Page (Features information and links to Cat and Dog Forms)
+- Volunteer Page (Features information and link to Volunteer Form)
+- Foster Page (Features information and link to Foster Form)
+- Donate Funds page
+- Donate Supplies Page
+- Contact Us Page
+- FAQ
+- Upcoming Events page
+- Our Partners Page
+- Happy Tails Page
+- Goptek page
