@@ -73,7 +73,7 @@ export class ViewVolunteerAccountComponent implements OnInit {
         }
       },
       (error: any) => {
-        this.fetchUser(Number(this.session.value.id));
+        // this.fetchUser(Number(this.session.value.id));
         // console.log(error);
         // this.isLoading = false;
       }
@@ -91,7 +91,7 @@ export class ViewVolunteerAccountComponent implements OnInit {
         }
       },
       (error: any) => {
-        this.fetchUser(Number(this.session.value.id));
+        // this.fetchUser(Number(this.session.value.id));
         // console.log(error);
         // this.isLoading = false;
       }

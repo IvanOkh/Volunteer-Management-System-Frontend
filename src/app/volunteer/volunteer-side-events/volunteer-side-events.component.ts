@@ -12,12 +12,12 @@ export class VolunteerSideEventsComponent implements OnInit {
   numberArray = []; //array to iterate "less/more details"
   activeEvents: EventModel[] = []; //array of active user specific events
   eventArrayHolder: EventStaffModel[] = []; //array of user specific event subscriptions
-  public isLoading = false; // loading status
-  public isLoading2 = false;
+  isLoading: boolean = false; // loading status
+  isLoading2: boolean = false;
 
   constructor(private VES: VolunteerEventsService) {}
 
-  async ngOnInit() {
+  ngOnInit() {
     //start up service
     this.VES.initializeData();
     this.isLoading = true;
@@ -41,14 +41,14 @@ export class VolunteerSideEventsComponent implements OnInit {
   //Method that checks if user is registered for event in a currently displayed event card.
   defineStatus(eventID): boolean {
     if (this.eventArrayHolder.find((e) => e.eventid == eventID)) {
-      setTimeout(() => {
-        return true;
-      }, 2000);
+      // setTimeout(() => {
+      //   return true;
+      // }, 2000);
       return true;
     }
-    setTimeout(() => {
-      return false;
-    }, 2000);
+    // setTimeout(() => {
+    //   return false;
+    // }, 2000);
     return false;
   }
 
