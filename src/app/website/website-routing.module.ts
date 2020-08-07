@@ -13,7 +13,6 @@ import { OurPartnersPageComponent } from "./_pages/our-partners-page/our-partner
 import { HappyTailsPageComponent } from "./_pages/happy-tails-page/happy-tails-page.component";
 import { GoptekPageComponent } from "./_pages/goptek-page/goptek-page.component";
 import { DonateFundsPageComponent } from "./_pages/donate-funds-page/donate-funds-page.component";
-import { DonateSuppliesPageComponent } from "./_pages/donate-supplies-page/donate-supplies-page.component";
 
 const websiteRoutes: Routes = [
   {
@@ -25,8 +24,7 @@ const websiteRoutes: Routes = [
       { path: "our-animals", component: OurAnimalsPageComponent },
       { path: "volunteer", component: VolunteerPageComponent },
       { path: "foster", component: FosterPageComponent },
-      { path: "donate-funds", component: DonateFundsPageComponent },
-      { path: "donate-supplies", component: DonateSuppliesPageComponent },
+      { path: "donate", component: DonateFundsPageComponent },
       { path: "contact-us", component: ContactUsPageComponent },
       { path: "faq", component: FaqPageComponent },
       { path: "events", component: UpcomingEventsPageComponent },
