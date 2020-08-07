@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Foster Applications</h1>
+  <h1 data-aos="fade-right">Foster Applications</h1>
   <!-- Pending and Archived tabs -->
   <div class="mb-5 mt-3">
     <ul class="nav nav-tabs">
@@ -24,7 +24,7 @@
   <div class="container tableContainer">
     <!-- displays when the page is waiting for a reply from the server -->
     <ng-container *ngIf="this.isLoading">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center mb-5">
         <div class="spinner-border text-danger" role="status">
           <span class="sr-only">Loading...</span>
         </div>
@@ -45,6 +45,7 @@
         class="mat-elevation-z8 mt-5"
         matSort
         width="100%"
+        data-aos="fade-in-out"
       >
         <ng-container matColumnDef="submissionDate">
           <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
