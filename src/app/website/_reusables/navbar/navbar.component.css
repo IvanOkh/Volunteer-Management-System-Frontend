@@ -13,9 +13,7 @@ width: 100%;
     cursor: pointer;
 }
 
-.nav-link{
-    color: #ecebf3;
-}
+
 
 .nav-item {
     font-weight: bold;
@@ -23,11 +21,19 @@ width: 100%;
 
 .dropdown-item.active{
     background-color: white !important;
-    color: black;
+    color: black !important;
 }
 
-.dropdown-item:hover{
+a.nav-link.dropdown-item{
+    color: black !important;
+}
+
+a.nav-link.dropdown-item:hover{
     background-color: #cd0d2e !important;
     color: #ecebf3 !important;
+}
+
+a{
+    color: #ecebf3;
 }
 
