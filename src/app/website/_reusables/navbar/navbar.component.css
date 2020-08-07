@@ -13,8 +13,6 @@ width: 100%;
     cursor: pointer;
 }
 
-
-
 .nav-item {
     font-weight: bold;
 }
@@ -36,4 +34,21 @@ a.nav-link.dropdown-item:hover{
 a{
     color: #ecebf3;
 }
+
+.dropdown:hover .dropdown-menu, .btn-group:hover .dropdown-menu{
+    display: block;
+}
+
+.dropdown-menu{
+    margin-top: 0;
+}
+
+.dropdown-toggle{
+    margin-bottom: 2px;
+}
+
+.navbar .dropdown-toggle, .nav-tabs .dropdown-toggle{
+    margin-bottom: 0;
+}
+
 
