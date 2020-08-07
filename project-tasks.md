@@ -6,7 +6,7 @@
 
 • Convert CARS pictures into light size images to be used throughout the app instead of unsplash pictures [Going to ask CARS next meeting] - Albert
 
-• Implement dynamic and smooth transitionon admin and user side.
+• Implement dynamic and smooth transitionon admin and user side. [In-progress] - Ivan
 
 • Debug, debug, and debug. [In-progress] - Everyone
 
