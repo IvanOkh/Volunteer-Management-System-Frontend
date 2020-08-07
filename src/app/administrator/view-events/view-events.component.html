@@ -1,406 +1,409 @@
-<!-- Add new event button -->
-<div class="row">
-  <div class="container">
-    <!-- Add new Event -->
-    <button
-      class="btn btn-outline-success btn-block mt-3"
-      data-toggle="modal"
-      data-target="#addEvent"
-    >
-      <i class="fa fa-plus mr-1" aria-hidden="true"></i> Add a new Event
-    </button>
-  </div>
-</div>
-
-<!-- New event modal -->
-<div class="modal" id="addEvent">
-  <div class="modal-dialog">
-    <div class="modal-content" id="modalDia">
-      <form #newEventForm="ngForm" (ngSubmit)="onAdd(newEventForm.value)">
-        <div class="modal-header">
-          <h5 class="modal-title">Add new Event</h5>
-          <button class="close" data-dismiss="modal">
-            &times;
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="newEventName">Event Name:</label>
-            <input
-              type="text"
-              placeholder="Event name"
-              class="form-control"
-              id="newEventName"
-              ngModel
-              name="name"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="newEventDate">Date: </label>
-            <input
-              type="text"
-              placeholder="YYYY-MM-DD"
-              class="form-control"
-              id="newEventDate"
-              ngModel
-              name="date"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="newEventCoordinator">Coordinator: </label>
-            <input
-              type="text"
-              placeholder="Coordinator"
-              class="form-control"
-              id="newEventCoordinator"
-              ngModel
-              name="coordinator"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="newEventSTime">Start time: </label>
-            <input
-              type="text"
-              placeholder="00:00am"
-              class="form-control"
-              id="newEventSTime"
-              ngModel
-              name="startTime"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="newEventETime">End time: </label>
-            <input
-              type="text"
-              placeholder="00:00am"
-              class="form-control"
-              id="newEventETime"
-              ngModel
-              name="endTime"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="newEventAddress">Address: </label>
-            <input
-              type="text"
-              placeholder="123 Street NE"
-              class="form-control"
-              id="newEventAddress"
-              ngModel
-              name="address"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="newEventDesc">Description: </label>
-            <textarea
-              class="form-control"
-              placeholder="Description of the event"
-              id="newEventDesc"
-              ngModel
-              name="description"
-              required
-            ></textarea>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button
-            class="btn btn-outline-success"
-            type="submit"
-            [disabled]="!newEventForm.valid"
-            data-toggle="modal"
-            data-target="#eventCreated"
-            (click)="hideModal()"
-          >
-            <i class="fa fa-floppy-o mr-1" aria-hidden="true"></i>Save
-          </button>
-
-          <button class="btn btn-outline-danger" data-dismiss="modal">
-            <i class="fa fa-trash-o mr-1" aria-hidden="true"></i>Discard
-          </button>
-        </div>
-      </form>
-    </div>
-
-    <!-- Event Created Modal
-            ALBERT: Keep this modal nested inside the other modal to so that both modals close at the same time-->
-    <div
-      class="modal fade"
-      id="eventCreated"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="alert alert-success mb-0">
-            <strong>Success</strong> Event Added!
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-              (click)="resetModal()"
-            >
-              <span aria-hidden="true">&times;</span>
+<div data-aos="fade-in-out">
+  <!-- New event modal -->
+  <div class="modal" id="addEvent">
+    <div class="modal-dialog">
+      <div class="modal-content" id="modalDia">
+        <form #newEventForm="ngForm" (ngSubmit)="onAdd(newEventForm.value)">
+          <div class="modal-header">
+            <h5 class="modal-title">Add new Event</h5>
+            <button class="close" data-dismiss="modal">
+              &times;
             </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="newEventName">Event Name:</label>
+              <input
+                type="text"
+                placeholder="Event name"
+                class="form-control"
+                id="newEventName"
+                ngModel
+                name="name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="newEventDate">Date: </label>
+              <input
+                type="text"
+                placeholder="YYYY-MM-DD"
+                class="form-control"
+                id="newEventDate"
+                ngModel
+                name="date"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="newEventCoordinator">Coordinator: </label>
+              <input
+                type="text"
+                placeholder="Coordinator"
+                class="form-control"
+                id="newEventCoordinator"
+                ngModel
+                name="coordinator"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="newEventSTime">Start time: </label>
+              <input
+                type="text"
+                placeholder="00:00am"
+                class="form-control"
+                id="newEventSTime"
+                ngModel
+                name="startTime"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="newEventETime">End time: </label>
+              <input
+                type="text"
+                placeholder="00:00am"
+                class="form-control"
+                id="newEventETime"
+                ngModel
+                name="endTime"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="newEventAddress">Address: </label>
+              <input
+                type="text"
+                placeholder="123 Street NE"
+                class="form-control"
+                id="newEventAddress"
+                ngModel
+                name="address"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="newEventDesc">Description: </label>
+              <textarea
+                class="form-control"
+                placeholder="Description of the event"
+                id="newEventDesc"
+                ngModel
+                name="description"
+                required
+              ></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-outline-success"
+              type="submit"
+              [disabled]="!newEventForm.valid"
+              data-toggle="modal"
+              data-target="#eventCreated"
+              (click)="hideModal()"
+            >
+              <i class="fa fa-floppy-o mr-1" aria-hidden="true"></i>Save
+            </button>
+
+            <button class="btn btn-outline-danger" data-dismiss="modal">
+              <i class="fa fa-trash-o mr-1" aria-hidden="true"></i>Discard
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Event Created Modal
+            ALBERT: Keep this modal nested inside the other modal to so that both modals close at the same time-->
+      <div
+        class="modal fade"
+        id="eventCreated"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="alert alert-success mb-0">
+              <strong>Success</strong> Event Added!
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+                (click)="resetModal()"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- End of Event Created Modal -->
-  </div>
-</div>
-
-<ng-container *ngIf="this.eventList.length <= 0 && !this.isLoading">
-  <div class="row justify-content-center">
-    <p>No events to display!</p>
-  </div>
-</ng-container>
-
-<ng-container *ngIf="this.isLoading">
-  <div class="row justify-content-center">
-    <div class="spinner-border text-danger" role="status">
-      <span class="sr-only">Loading...</span>
+      <!-- End of Event Created Modal -->
     </div>
   </div>
-</ng-container>
 
-<ng-container *ngIf="this.eventList.length > 0 && !this.isLoading">
-  <div *ngFor="let event of this.eventList; let i = index">
-    <!-- Event card -->
-    <div class="container event-card">
-      <div class="card">
-        <div class="card-body">
-          <div class="media">
-            <img
-              class="mr-3 align-self-center"
-              src="https://source.unsplash.com/collection/201009/90x90?sig={{
-                event.id
-              }}"
-            />
-            <div class="media-body">
-              <div class="row">
-                <div class="col-sm-9">
-                  <!-- Event title -->
-                  <h5 [innerText]="event.name"></h5>
-                  <!-- Event date -->
-                  <ul class="list-inline">
-                    <li class="list-inline-item">
-                      <p class="font-weight-bold">Date:</p>
-                    </li>
-                    <li class="list-inline-item">
-                      <p [innerText]="event.date"></p>
-                    </li>
-                  </ul>
-                  <!-- Event status -->
-                  <ul class="list-inline">
-                    <li class="list-inline-item">
-                      <p class="font-weight-bold">Status:</p>
-                    </li>
-                    <li class="list-inline-item">
-                      <p
-                        [innerText]="isOpen(event.date) ? 'Open' : 'Closed'"
-                        [ngStyle]="{
-                          color: isOpen(event.date) ? 'green' : 'red'
-                        }"
-                      ></p>
-                    </li>
-                  </ul>
-                  <!-- NUMBER OF REGISTRATIONS -->
-                  <ul class="list-inline" *ngIf="defineSubscribers(event.id)">
-                    <li class="list-inline-item">
-                      <p class="font-weight-bold">Registered:</p>
-                    </li>
-                    <li class="list-inline-item">
-                      <p
-                        [ngStyle]="{
-                          color: isOpen(event.date) ? 'green' : 'red'
-                        }"
-                      >
-                        {{ defineNumberOfSubs(event.id) }}
-                      </p>
-                    </li>
-                  </ul>
-                </div>
+  <ng-container *ngIf="this.eventList.length <= 0 && !this.isLoading">
+    <div class="row justify-content-center">
+      <p>No events to display!</p>
+    </div>
+  </ng-container>
 
-                <!-- Edit button -->
-                <div class="col-sm-3">
-                  <div class="btn-group float-right">
-                    <button
-                      class="btn btn-outline-info mr-1"
-                      data-toggle="modal"
-                      [attr.data-target]="'#edit' + event.id"
-                    >
-                      <i
-                        class="fa fa-pencil-square-o mr-1"
-                        aria-hidden="true"
-                      ></i
-                      >Edit
-                    </button>
-                    <button
-                      class="btn btn-outline-danger"
-                      [attr.data-target]="'#confirmDelete' + event.id"
-                      data-toggle="modal"
-                    >
-                      <i class="fa fa-trash-o mr-1" aria-hidden="true"></i
-                      >Delete
-                    </button>
+  <ng-container *ngIf="this.isLoading">
+    <div class="row justify-content-center my-5">
+      <div class="spinner-border text-danger" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="this.eventList.length > 0 && !this.isLoading">
+    <!-- Add new event button -->
+    <div class="row">
+      <div class="container">
+        <!-- Add new Event -->
+        <button
+          class="btn btn-outline-success btn-block mt-3"
+          data-toggle="modal"
+          data-target="#addEvent"
+        >
+          <i class="fa fa-plus mr-1" aria-hidden="true"></i> Add a new Event
+        </button>
+      </div>
+    </div>
+    <div *ngFor="let event of this.eventList; let i = index">
+      <!-- Event card -->
+      <div class="container event-card">
+        <div class="card">
+          <div class="card-body">
+            <div class="media">
+              <img
+                class="mr-3 align-self-center"
+                src="https://source.unsplash.com/collection/201009/90x90?sig={{
+                  event.id
+                }}"
+              />
+              <div class="media-body">
+                <div class="row">
+                  <div class="col-sm-9">
+                    <!-- Event title -->
+                    <h5 [innerText]="event.name"></h5>
+                    <!-- Event date -->
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                        <p class="font-weight-bold">Date:</p>
+                      </li>
+                      <li class="list-inline-item">
+                        <p [innerText]="event.date"></p>
+                      </li>
+                    </ul>
+                    <!-- Event status -->
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                        <p class="font-weight-bold">Status:</p>
+                      </li>
+                      <li class="list-inline-item">
+                        <p
+                          [innerText]="isOpen(event.date) ? 'Open' : 'Closed'"
+                          [ngStyle]="{
+                            color: isOpen(event.date) ? 'green' : 'red'
+                          }"
+                        ></p>
+                      </li>
+                    </ul>
+                    <!-- NUMBER OF REGISTRATIONS -->
+                    <ul class="list-inline" *ngIf="defineSubscribers(event.id)">
+                      <li class="list-inline-item">
+                        <p class="font-weight-bold">Registered:</p>
+                      </li>
+                      <li class="list-inline-item">
+                        <p
+                          [ngStyle]="{
+                            color: isOpen(event.date) ? 'green' : 'red'
+                          }"
+                        >
+                          {{ defineNumberOfSubs(event.id) }}
+                        </p>
+                      </li>
+                    </ul>
                   </div>
-                </div>
 
-                <!-- confirm delete  -->
-                <div
-                  class="modal fade"
-                  [id]="'confirmDelete' + event.id"
-                  tabindex="-1"
-                  role="dialog"
-                  aria-labelledby="exampleModalCenterTitle"
-                  aria-hidden="true"
-                >
+                  <!-- Edit button -->
+                  <div class="col-sm-3">
+                    <div class="btn-group float-right">
+                      <button
+                        class="btn btn-outline-info mr-1"
+                        data-toggle="modal"
+                        [attr.data-target]="'#edit' + event.id"
+                      >
+                        <i
+                          class="fa fa-pencil-square-o mr-1"
+                          aria-hidden="true"
+                        ></i
+                        >Edit
+                      </button>
+                      <button
+                        class="btn btn-outline-danger"
+                        [attr.data-target]="'#confirmDelete' + event.id"
+                        data-toggle="modal"
+                      >
+                        <i class="fa fa-trash-o mr-1" aria-hidden="true"></i
+                        >Delete
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- confirm delete  -->
                   <div
-                    class="modal-dialog modal-dialog-centered"
-                    role="document"
+                    class="modal fade"
+                    [id]="'confirmDelete' + event.id"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="exampleModalCenterTitle"
+                    aria-hidden="true"
                   >
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">
-                          Delete Event
-                        </h5>
-                        <button
-                          type="button"
-                          class="close"
-                          data-dismiss="modal"
-                          aria-label="Close"
-                        >
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body ml-2" style="padding: 4% 0px;">
-                        Are you sure you want to permanently delete
-                        <span style="color: orangered;">{{ event.name }} </span>
-                        ?
-                      </div>
-                      <div class="modal-footer">
-                        <button
-                          type="button"
-                          class="btn btn-danger"
-                          data-dismiss="modal"
-                          (click)="onDelete(event.id)"
-                        >
-                          Delete Event
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-secondary"
-                          data-dismiss="modal"
-                        >
-                          Cancel
-                        </button>
+                    <div
+                      class="modal-dialog modal-dialog-centered"
+                      role="document"
+                    >
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">
+                            Delete Event
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body ml-2" style="padding: 4% 0px;">
+                          Are you sure you want to permanently delete
+                          <span style="color: orangered;"
+                            >{{ event.name }}
+                          </span>
+                          ?
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-danger"
+                            data-dismiss="modal"
+                            (click)="onDelete(event.id)"
+                          >
+                            Delete Event
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                          >
+                            Cancel
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <!-- Edit event window -->
-                <div class="modal" [id]="'edit' + event.id">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">Edit Event</h5>
-                        <button class="close" data-dismiss="modal">
-                          &times;
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <form #editsForm="ngForm">
-                          <div class="form-group">
-                            <label for="eName">Event Name:</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              [(ngModel)]="event.name"
-                              name="name"
-                            />
-                          </div>
-                          <div class="form-group">
-                            <label for="eDate">Date: </label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              [(ngModel)]="event.date"
-                              name="date"
-                            />
-                          </div>
-                          <div class="form-group">
-                            <label for="eCoordinator">Coordinator: </label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              [(ngModel)]="event.coordinator"
-                              name="coordinator"
-                            />
-                          </div>
-                          <div class="form-group">
-                            <label for="eSTime">Start time: </label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              [(ngModel)]="event.startTime"
-                              name="startTime"
-                            />
-                          </div>
-                          <div class="form-group">
-                            <label for="eEtIME">End time: </label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              [(ngModel)]="event.endTime"
-                              name="endTime"
-                            />
-                          </div>
-                          <div class="form-group">
-                            <label for="eAddress">Address: </label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              [(ngModel)]="event.address"
-                              name="address"
-                            />
-                          </div>
-                          <div class="form-group">
-                            <label for="eDesc">Description: </label>
-                            <textarea
-                              class="form-control"
-                              [(ngModel)]="event.description"
-                              name="description"
-                            ></textarea>
-                          </div>
-                          <div class="form-group">
-                            <input
-                              type="hidden"
-                              class="form-control"
-                              [(ngModel)]="event.id"
-                              [value]="event.id"
-                              name="id"
-                            />
-                          </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button
-                          class="btn btn-primary"
-                          data-dismiss="modal"
-                          (click)="onEdit(editsForm)"
-                        >
-                          Save changes
-                        </button>
+                  <!-- Edit event window -->
+                  <div class="modal" [id]="'edit' + event.id">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Edit Event</h5>
+                          <button class="close" data-dismiss="modal">
+                            &times;
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form #editsForm="ngForm">
+                            <div class="form-group">
+                              <label for="eName">Event Name:</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                [(ngModel)]="event.name"
+                                name="name"
+                              />
+                            </div>
+                            <div class="form-group">
+                              <label for="eDate">Date: </label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                [(ngModel)]="event.date"
+                                name="date"
+                              />
+                            </div>
+                            <div class="form-group">
+                              <label for="eCoordinator">Coordinator: </label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                [(ngModel)]="event.coordinator"
+                                name="coordinator"
+                              />
+                            </div>
+                            <div class="form-group">
+                              <label for="eSTime">Start time: </label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                [(ngModel)]="event.startTime"
+                                name="startTime"
+                              />
+                            </div>
+                            <div class="form-group">
+                              <label for="eEtIME">End time: </label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                [(ngModel)]="event.endTime"
+                                name="endTime"
+                              />
+                            </div>
+                            <div class="form-group">
+                              <label for="eAddress">Address: </label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                [(ngModel)]="event.address"
+                                name="address"
+                              />
+                            </div>
+                            <div class="form-group">
+                              <label for="eDesc">Description: </label>
+                              <textarea
+                                class="form-control"
+                                [(ngModel)]="event.description"
+                                name="description"
+                              ></textarea>
+                            </div>
+                            <div class="form-group">
+                              <input
+                                type="hidden"
+                                class="form-control"
+                                [(ngModel)]="event.id"
+                                [value]="event.id"
+                                name="id"
+                              />
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            class="btn btn-primary"
+                            data-dismiss="modal"
+                            (click)="onEdit(editsForm)"
+                          >
+                            Save changes
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -408,99 +411,99 @@
               </div>
             </div>
           </div>
-        </div>
-        <!-- Expanded event section -->
-        <div class="collapse" id="collapse-event-{{ i }}">
-          <div class="container">
-            <!-- Coordinator -->
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <p class="font-weight-bold">Coordinator:</p>
-              </li>
-              <li class="list-inline-item">
-                <p [innerText]="event.coordinator"></p>
-              </li>
-            </ul>
-            <!-- Start time -->
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <p class="font-weight-bold">Start time:</p>
-              </li>
-              <li class="list-inline-item">
-                <p [innerText]="event.startTime"></p>
-              </li>
-            </ul>
-            <!-- End time -->
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <p class="font-weight-bold">End time:</p>
-              </li>
-              <li class="list-inline-item">
-                <p [innerText]="event.endTime"></p>
-              </li>
-            </ul>
-            <!-- Address -->
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <p class="font-weight-bold">Address:</p>
-              </li>
-              <li class="list-inline-item">
-                <p [innerText]="event.address"></p>
-              </li>
-            </ul>
-            <br />
-            <!-- Description -->
-            <p class="font-weight-bold">Description:</p>
-            <p [innerText]="event.description"></p>
+          <!-- Expanded event section -->
+          <div class="collapse" id="collapse-event-{{ i }}">
+            <div class="container">
+              <!-- Coordinator -->
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <p class="font-weight-bold">Coordinator:</p>
+                </li>
+                <li class="list-inline-item">
+                  <p [innerText]="event.coordinator"></p>
+                </li>
+              </ul>
+              <!-- Start time -->
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <p class="font-weight-bold">Start time:</p>
+                </li>
+                <li class="list-inline-item">
+                  <p [innerText]="event.startTime"></p>
+                </li>
+              </ul>
+              <!-- End time -->
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <p class="font-weight-bold">End time:</p>
+                </li>
+                <li class="list-inline-item">
+                  <p [innerText]="event.endTime"></p>
+                </li>
+              </ul>
+              <!-- Address -->
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <p class="font-weight-bold">Address:</p>
+                </li>
+                <li class="list-inline-item">
+                  <p [innerText]="event.address"></p>
+                </li>
+              </ul>
+              <br />
+              <!-- Description -->
+              <p class="font-weight-bold">Description:</p>
+              <p [innerText]="event.description"></p>
+            </div>
+            <!-- TABLE WITH REGISTERED USERS -->
+            <div class="table-responsive table-sm">
+              <table
+                class="table ml-3"
+                *ngIf="
+                  getRegisteredUsers(event.id).length > 0 ||
+                  getRegisteredFosters(event.id).length > 0
+                "
+              >
+                <thead>
+                  <tr>
+                    <th>User ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Cell Phone</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let usr of getRegisteredUsers(event.id)">
+                    <th scope="row">{{ usr.id }}</th>
+                    <td>{{ usr.fname }}</td>
+                    <td>{{ usr.lname }}</td>
+                    <td>{{ usr.cellPhone }}</td>
+                    <td>{{ usr.email }}</td>
+                  </tr>
+                  <tr *ngFor="let usr of getRegisteredFosters(event.id)">
+                    <th scope="row">{{ usr.id }}</th>
+                    <td>{{ usr.fname }}</td>
+                    <td>{{ usr.lname }}</td>
+                    <td>{{ usr.cellPhone }}</td>
+                    <td>{{ usr.email }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <!-- TABLE WITH REGISTERED USERS -->
-          <div class="table-responsive table-sm">
-            <table
-              class="table ml-3"
-              *ngIf="
-                getRegisteredUsers(event.id).length > 0 ||
-                getRegisteredFosters(event.id).length > 0
-              "
-            >
-              <thead>
-                <tr>
-                  <th>User ID</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Cell Phone</th>
-                  <th>Email</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let usr of getRegisteredUsers(event.id)">
-                  <th scope="row">{{ usr.id }}</th>
-                  <td>{{ usr.fname }}</td>
-                  <td>{{ usr.lname }}</td>
-                  <td>{{ usr.cellPhone }}</td>
-                  <td>{{ usr.email }}</td>
-                </tr>
-                <tr *ngFor="let usr of getRegisteredFosters(event.id)">
-                  <th scope="row">{{ usr.id }}</th>
-                  <td>{{ usr.fname }}</td>
-                  <td>{{ usr.lname }}</td>
-                  <td>{{ usr.cellPhone }}</td>
-                  <td>{{ usr.email }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <!-- Button to expand or collapse expanded event section -->
+          <button
+            class="btn btn-light"
+            data-toggle="collapse"
+            [attr.data-target]="'#collapse-event-' + i"
+            (click)="!!(numberArray[i] = !!!numberArray[i])"
+          >
+            <i class="fa fa-info-circle mr-2" aria-hidden="true"></i
+            >{{ !!numberArray[i] ? "Less Details" : "More Details" }}
+          </button>
         </div>
-        <!-- Button to expand or collapse expanded event section -->
-        <button
-          class="btn btn-light"
-          data-toggle="collapse"
-          [attr.data-target]="'#collapse-event-' + i"
-          (click)="!!(numberArray[i] = !!!numberArray[i])"
-        >
-          <i class="fa fa-info-circle mr-2" aria-hidden="true"></i
-          >{{ !!numberArray[i] ? "Less Details" : "More Details" }}
-        </button>
       </div>
     </div>
-  </div>
-</ng-container>
+  </ng-container>
+</div>

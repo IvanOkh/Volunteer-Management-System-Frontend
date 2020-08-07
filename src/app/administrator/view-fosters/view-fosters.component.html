@@ -1,6 +1,6 @@
-<div class="tableContainer">
+<div class="tableContainer" data-aos="fade-in-out">
   <ng-container *ngIf="this.isLoading">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center my-5">
       <div class="spinner-border text-danger" role="status">
         <span class="sr-only">Loading...</span>
       </div>
@@ -19,25 +19,42 @@
     <ng-container *ngIf="!this.isLoading && this.fosters.length > 0">
       <!-- START SEARCHING BAR  -->
       <ng-container *ngIf="!this.isLoading && this.fosters.length > 0">
-        <div class="input-group mb-3">
-          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search..." type="text"
-            class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+        <div class="input-group mb-3" data-aos="fade-in-out">
+          <input
+            matInput
+            (keyup)="applyFilter($event.target.value)"
+            placeholder="Search..."
+            type="text"
+            class="form-control"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
           <div class="input-group-append">
-            <span class="input-group-text" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i></span>
+            <span class="input-group-text" id="basic-addon2"
+              ><i class="fa fa-search" aria-hidden="true"></i
+            ></span>
           </div>
         </div>
       </ng-container>
       <!-- END SEARCHING BAR  -->
 
       <!-- START MAT TABLE -->
-      <table mat-table [dataSource]="dataSource" class=" mt-5" matSort width="100%">
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        class="mt-5"
+        matSort
+        width="100%"
+        data-aos="fade-in-out"
+      >
         <ng-container matColumnDef="fosterName">
           <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
             Name
           </th>
-          <td mat-cell *matCellDef="let element">{{ element.fname + ' ' + element.lname}}</td>
+          <td mat-cell *matCellDef="let element">
+            {{ element.fname + " " + element.lname }}
+          </td>
         </ng-container>
-
 
         <ng-container matColumnDef="email">
           <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
@@ -50,7 +67,9 @@
           <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
             Hours
           </th>
-          <td mat-cell *matCellDef="let element" style="padding-left: 10px;">{{ element.hours | number}}</td>
+          <td mat-cell *matCellDef="let element" style="padding-left: 10px;">
+            {{ element.hours | number }}
+          </td>
         </ng-container>
 
         <ng-container matColumnDef="over18">
@@ -59,35 +78,54 @@
           </th>
           <td mat-cell *matCellDef="let element">
             <div *ngIf="element.over18; else tooYoung">
-              <i class="fa fa-check-circle" aria-hidden="true" style="color:green; font: size 20px; margin-left:15px"></i>
+              <i
+                class="fa fa-check-circle"
+                aria-hidden="true"
+                style="color: green; font: size 20px; margin-left: 15px;"
+              ></i>
             </div>
             <ng-template #tooYoung>
-              <i class="fa fa-times-circle" aria-hidden="true" style="color:red; font: size 20px;margin-left:15px"></i>
+              <i
+                class="fa fa-times-circle"
+                aria-hidden="true"
+                style="color: red; font: size 20px; margin-left: 15px;"
+              ></i>
             </ng-template>
           </td>
         </ng-container>
-
 
         <ng-container matColumnDef="active">
           <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
             Status
           </th>
           <td mat-cell *matCellDef="let element">
-            <div style="margin-left:10px" [ngStyle]="{ color: element.active ? 'green' : 'red' }">
+            <div
+              style="margin-left: 10px;"
+              [ngStyle]="{ color: element.active ? 'green' : 'red' }"
+            >
               <i class="fa fa-user" style="font-size: 20px;"></i>
             </div>
           </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns" data-toggle="modal" (click)="viewFoster(row.id)"
-          data-toggle="modal" data-target="#viewFosterModal" style="pointer: cursor;"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          data-toggle="modal"
+          (click)="viewFoster(row.id)"
+          data-toggle="modal"
+          data-target="#viewFosterModal"
+          style="pointer: cursor;"
+        ></tr>
       </table>
-      <mat-paginator [pageSizeOptions]="[20, 10, 30, 40, 50]" showFirstLastButtons></mat-paginator>
+      <mat-paginator
+        [pageSizeOptions]="[20, 10, 30, 40, 50]"
+        showFirstLastButtons
+      ></mat-paginator>
 
       <!-- END MAT TABLE -->
     </ng-container>
-
   </div>
 
   <ng-container *ngIf="!this.isLoading && this.fosters.length === 0">
@@ -96,7 +134,13 @@
     </div>
   </ng-container>
   <!-- View foster info modal  -->
-  <div class="modal fade" id="viewFosterModal" role="dialog" aria-labelledby="viewFosterModalLabel" aria-hidden="true">
+  <div
+    class="modal fade"
+    id="viewFosterModal"
+    role="dialog"
+    aria-labelledby="viewFosterModalLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <ng-container *ngIf="this.fetchLoading">
@@ -108,7 +152,11 @@
         </ng-container>
         <ng-container *ngIf="!this.fetchLoading && this.fetched">
           <div class="modal-header">
-            <h2 class="modal-title" id="viewFosterModalLabel" style="color: #fbfbff;">
+            <h2
+              class="modal-title"
+              id="viewFosterModalLabel"
+              style="color: #fbfbff;"
+            >
               Foster Information
             </h2>
             <button type="button" class="close">
@@ -130,19 +178,17 @@
                   </div>
                   <p>
                     <strong>Status: </strong>
-                    <span [ngStyle]="{
-                                color: fetched.active ? 'green' : 'red'
-                              }">
+                    <span
+                      [ngStyle]="{
+                        color: fetched.active ? 'green' : 'red'
+                      }"
+                    >
                       <i class="fa fa-user" style="font-size: 20px;"></i>
                     </span>
                   </p>
                   <p><strong>Foster ID: </strong> {{ fetched.id }}</p>
-                  <p>
-                    <strong>First name: </strong> {{ fetched.fname }}
-                  </p>
-                  <p>
-                    <strong>Last name: </strong> {{ fetched.lname }}
-                  </p>
+                  <p><strong>First name: </strong> {{ fetched.fname }}</p>
+                  <p><strong>Last name: </strong> {{ fetched.lname }}</p>
                 </div>
 
                 <div class="col-sm-6">
@@ -187,12 +233,8 @@
                     <strong>Spayed and Neutered: </strong>
                     {{ fetched.spayedAndNeutered }}
                   </p>
-                  <p>
-                    <strong>Dog Habit: </strong> {{ fetched.dogHabit }}
-                  </p>
-                  <p>
-                    <strong>Cat Habit: </strong> {{ fetched.catHabit }}
-                  </p>
+                  <p><strong>Dog Habit: </strong> {{ fetched.dogHabit }}</p>
+                  <p><strong>Cat Habit: </strong> {{ fetched.catHabit }}</p>
                   <p>
                     <strong>Family Agreeable: </strong>
                     {{ fetched.familyAgreeable | yesNo }}
@@ -290,16 +332,12 @@
                     <strong>First name:</strong>
                     {{ fetched.ref1_fname }}
                   </p>
-                  <p>
-                    <strong>Last name:</strong> {{ fetched.ref1_lname }}
-                  </p>
+                  <p><strong>Last name:</strong> {{ fetched.ref1_lname }}</p>
                   <p>
                     <strong>Cell Phone:</strong>
                     {{ fetched.ref1_cellPhone }}
                   </p>
-                  <p>
-                    <strong>Email:</strong> {{ fetched.ref1_email }}
-                  </p>
+                  <p><strong>Email:</strong> {{ fetched.ref1_email }}</p>
                 </div>
 
                 <!-- Ref contact 2  -->
@@ -311,16 +349,12 @@
                     <strong>First name:</strong>
                     {{ fetched.ref2_fname }}
                   </p>
-                  <p>
-                    <strong>Last name:</strong> {{ fetched.ref2_lname }}
-                  </p>
+                  <p><strong>Last name:</strong> {{ fetched.ref2_lname }}</p>
                   <p>
                     <strong>Cell Phone:</strong>
                     {{ fetched.ref2_cellPhone }}
                   </p>
-                  <p>
-                    <strong>Email:</strong> {{ fetched.ref2_email }}
-                  </p>
+                  <p><strong>Email:</strong> {{ fetched.ref2_email }}</p>
                 </div>
 
                 <!-- Ref contact 3  -->
@@ -332,16 +366,12 @@
                     <strong>First name:</strong>
                     {{ fetched.ref3_fname }}
                   </p>
-                  <p>
-                    <strong>Last name:</strong> {{ fetched.ref3_lname }}
-                  </p>
+                  <p><strong>Last name:</strong> {{ fetched.ref3_lname }}</p>
                   <p>
                     <strong>Cell Phone:</strong>
                     {{ fetched.ref3_cellPhone }}
                   </p>
-                  <p>
-                    <strong>Email:</strong> {{ fetched.ref3_email }}
-                  </p>
+                  <p><strong>Email:</strong> {{ fetched.ref3_email }}</p>
                 </div>
               </div>
             </div>
@@ -353,8 +383,8 @@
               <!-- (Still awaiting backend and service attribute) -->
               <h3>Admin Notes:</h3>
               <i>
-                This note will only be visible to admins and won't be
-                visible to volunteers
+                This note will only be visible to admins and won't be visible to
+                volunteers
               </i>
               <section class="description mt-4">
                 <p>{{ fetched.note }}</p>
@@ -363,25 +393,46 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-dark delete-button" data-dismiss="modal"
-              data-target="#confirmDelete" [disabled]="this.fetched.active" data-toggle="modal">
+            <button
+              type="button"
+              class="btn btn-outline-dark delete-button"
+              data-dismiss="modal"
+              data-target="#confirmDelete"
+              [disabled]="this.fetched.active"
+              data-toggle="modal"
+            >
               Delete
             </button>
-            <button type="button" class="btn btn-outline-primary" data-dismiss="modal" data-target="#editInfo"
-              data-toggle="modal">
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              data-dismiss="modal"
+              data-target="#editInfo"
+              data-toggle="modal"
+            >
               Edit
             </button>
 
             <div *ngIf="fetched.active">
-              <button type="button" class="btn btn-outline-danger" data-dismiss="modal" data-target="#confirmDeactive"
-                data-toggle="modal">
+              <button
+                type="button"
+                class="btn btn-outline-danger"
+                data-dismiss="modal"
+                data-target="#confirmDeactive"
+                data-toggle="modal"
+              >
                 Deactivate
               </button>
             </div>
 
             <div *ngIf="!fetched.active">
-              <button type="button" class="btn btn-outline-success" data-dismiss="modal" data-target="#confirmActive"
-                data-toggle="modal">
+              <button
+                type="button"
+                class="btn btn-outline-success"
+                data-dismiss="modal"
+                data-target="#confirmActive"
+                data-toggle="modal"
+              >
                 Activate
               </button>
             </div>
@@ -393,8 +444,14 @@
 
   <!-- Confirm to activate a foster (popup modal) -->
   <div class="bootstrapConfirm">
-    <div class="modal fade" id="confirmActive" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
+    <div
+      class="modal fade"
+      id="confirmActive"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-dialog-centered" role="document">
         <ng-container *ngIf="this?.fetchLoading">
           <div class="row justify-content-center">
@@ -403,27 +460,42 @@
             </div>
           </div>
         </ng-container>
-        <ng-container *ngIf=" this.fetched">
+        <ng-container *ngIf="this.fetched">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLongTitle">
                 Confirmation
               </h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body ml-2" style="padding: 4% 0px;">
               Are you sure you want to activate
-              <span style="color: orangered;">{{ fetched.fname + " " + fetched.lname }}
+              <span style="color: orangered;"
+                >{{ fetched.fname + " " + fetched.lname }}
               </span>
               ?
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-outline-success" data-dismiss="modal" (click)="activateFoster()">
+              <button
+                type="button"
+                class="btn btn-outline-success"
+                data-dismiss="modal"
+                (click)="activateFoster()"
+              >
                 Activate
               </button>
-              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-dismiss="modal"
+              >
                 Cancel
               </button>
             </div>
@@ -433,10 +505,15 @@
     </div>
   </div>
 
-
   <!-- Confirm to deactivate a foster (popup modal) -->
-  <div class="modal fade" id="confirmDeactive" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+  <div
+    class="modal fade"
+    id="confirmDeactive"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-dialog-centered" role="document">
       <ng-container *ngIf="this?.fetchLoading">
         <div class="row justify-content-center">
@@ -451,21 +528,36 @@
             <h5 class="modal-title" id="exampleModalLongTitle">
               Confirmation
             </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body ml-2" style="padding: 4% 0px;">
             Are you sure you want to deactivate
-            <span style="color: orangered;">{{ fetched.fname + " " + fetched.lname }}
+            <span style="color: orangered;"
+              >{{ fetched.fname + " " + fetched.lname }}
             </span>
             ?
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-danger" data-dismiss="modal" (click)="activateFoster()">
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              data-dismiss="modal"
+              (click)="activateFoster()"
+            >
               Deactivate
             </button>
-            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              data-dismiss="modal"
+            >
               Cancel
             </button>
           </div>
@@ -475,30 +567,50 @@
   </div>
 
   <!-- confirm delete  -->
-  <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+  <div
+    class="modal fade"
+    id="confirmDelete"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle">
             Confirm Delete
           </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body ml-2" style="padding: 4% 0px;">
           Are you sure you want to permanently delete
-          <span style="color: orangered;">{{ fetched?.fname + " " + fetched?.lname }}
+          <span style="color: orangered;"
+            >{{ fetched?.fname + " " + fetched?.lname }}
           </span>
           ?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
-            (click)="onDeleteFoster(fetched.id)">
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            data-dismiss="modal"
+            (click)="onDeleteFoster(fetched.id)"
+          >
             Delete
           </button>
-          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            data-dismiss="modal"
+          >
             Cancel
           </button>
         </div>
@@ -507,8 +619,14 @@
   </div>
 
   <!-- edit fosters  -->
-  <div class="modal fade" id="editInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+  <div
+    class="modal fade"
+    id="editInfo"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
       <ng-container *ngIf="this?.fetchLoading">
         <div class="row justify-content-center">
@@ -523,7 +641,12 @@
             <h5 class="modal-title" id="exampleModalLongTitle">
               Edit Foster
             </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -533,98 +656,176 @@
                 <div class="row mt-3">
                   <div class="col-6">
                     <label for="">First name:</label>
-                    <input class="form-control" type="text" name="fname" [(ngModel)]="fetched.fname" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="fname"
+                      [(ngModel)]="fetched.fname"
+                    />
                   </div>
                   <div class="col-6">
                     <label for="">Last name:</label>
-                    <input class="form-control" type="text" name="lname" [(ngModel)]="fetched.lname" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="lname"
+                      [(ngModel)]="fetched.lname"
+                    />
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-6">
                     <label for="">Address</label>
-                    <input class="form-control" type="text" name="address" [(ngModel)]="fetched.address" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="address"
+                      [(ngModel)]="fetched.address"
+                    />
                   </div>
                   <div class="col-6">
                     <label for="">City</label>
-                    <input class="form-control" type="text" name="city" [(ngModel)]="fetched.city" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="city"
+                      [(ngModel)]="fetched.city"
+                    />
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-6">
                     <label for="">Province</label>
-                    <input class="form-control" type="text" name="province" [(ngModel)]="fetched.province" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="province"
+                      [(ngModel)]="fetched.province"
+                    />
                   </div>
                   <div class="col-6">
                     <label for="">Postal Code</label>
-                    <input class="form-control" type="text" name="postalCode" [(ngModel)]="fetched.postalCode" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="postalCode"
+                      [(ngModel)]="fetched.postalCode"
+                    />
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-6">
                     <label for="">Home Phone</label>
-                    <input class="form-control" type="text" name="homePhone" [(ngModel)]="fetched.homePhone" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="homePhone"
+                      [(ngModel)]="fetched.homePhone"
+                    />
                   </div>
                   <div class="col-6">
                     <label for="">Email</label>
-                    <input class="form-control" type="text" name="email" [(ngModel)]="fetched.email" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="email"
+                      [(ngModel)]="fetched.email"
+                    />
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-6">
                     <label for="">Type of residence</label>
-                    <input class="form-control" type="text" name="typeOfResidence"
-                      [(ngModel)]="fetched.typeOfResidence" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="typeOfResidence"
+                      [(ngModel)]="fetched.typeOfResidence"
+                    />
                   </div>
                   <div class="col-6">
                     <label for="">Pet details</label>
-                    <input class="form-control" type="text" name="petDetails" [(ngModel)]="fetched.petDetails" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="petDetails"
+                      [(ngModel)]="fetched.petDetails"
+                    />
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-6">
                     <label for="">Spayed And Neutered</label>
-                    <input class="form-control" type="text" name="spayedAndNeutered"
-                      [(ngModel)]="fetched.spayedAndNeutered" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="spayedAndNeutered"
+                      [(ngModel)]="fetched.spayedAndNeutered"
+                    />
                   </div>
                   <div class="col-6">
                     <label for="">Dog Habit</label>
-                    <input class="form-control" type="text" name="dogHabit" [(ngModel)]="fetched.dogHabit" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="dogHabit"
+                      [(ngModel)]="fetched.dogHabit"
+                    />
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-6">
                     <label for="">Cat Habit</label>
-                    <input class="form-control" type="text" name="catHabit" [(ngModel)]="fetched.catHabit" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="catHabit"
+                      [(ngModel)]="fetched.catHabit"
+                    />
                   </div>
                   <div class="col-6">
                     <label for="">Preferred animal</label>
-                    <input class="form-control" type="text" name="preferredAnimal"
-                      [(ngModel)]="fetched.preferredAnimal" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="preferredAnimal"
+                      [(ngModel)]="fetched.preferredAnimal"
+                    />
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-6">
                     <label for="">Past Rescue Experience</label>
-                    <input class="form-control" type="number" name="pastRescueExperience"
-                      [(ngModel)]="fetched.pastRescueExperience" />
+                    <input
+                      class="form-control"
+                      type="number"
+                      name="pastRescueExperience"
+                      [(ngModel)]="fetched.pastRescueExperience"
+                    />
                   </div>
                   <div class="col-6">
                     <label for="">House left alone</label>
-                    <input class="form-control" type="number" name="hoursLeftAlone"
-                      [(ngModel)]="fetched.hoursLeftAlone" />
+                    <input
+                      class="form-control"
+                      type="number"
+                      name="hoursLeftAlone"
+                      [(ngModel)]="fetched.hoursLeftAlone"
+                    />
                   </div>
                 </div>
 
-                <div class="row ">
-                  <div class="col-12" style="text-align: center; margin-top: 13px;">
+                <div class="row">
+                  <div
+                    class="col-12"
+                    style="text-align: center; margin-top: 13px;"
+                  >
                     <strong>Reference 1</strong>
                   </div>
                 </div>
@@ -632,28 +833,50 @@
                 <div class="row">
                   <div class="col-6">
                     <label for="">First name </label>
-                    <input class="form-control" type="text" name="ref1_fname" [(ngModel)]="fetched.ref1_fname" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="ref1_fname"
+                      [(ngModel)]="fetched.ref1_fname"
+                    />
                   </div>
                   <div class="col-6">
                     <label for="">Last name</label>
-                    <input class="form-control" type="text" name="ref1_lname" [(ngModel)]="fetched.ref1_lname" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="ref1_lname"
+                      [(ngModel)]="fetched.ref1_lname"
+                    />
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-6">
                     <label for="">Cell Phone</label>
-                    <input class="form-control" type="text" name="ref1_cellPhone"
-                      [(ngModel)]="fetched.ref1_cellPhone" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="ref1_cellPhone"
+                      [(ngModel)]="fetched.ref1_cellPhone"
+                    />
                   </div>
                   <div class="col-6">
                     <label for="">Email</label>
-                    <input class="form-control" type="text" name="ref1_email" [(ngModel)]="fetched.ref1_email" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="ref1_email"
+                      [(ngModel)]="fetched.ref1_email"
+                    />
                   </div>
                 </div>
 
-                <div class="row ">
-                  <div class="col-12" style="text-align: center; margin-top: 13px;">
+                <div class="row">
+                  <div
+                    class="col-12"
+                    style="text-align: center; margin-top: 13px;"
+                  >
                     <strong>Reference 2</strong>
                   </div>
                 </div>
@@ -661,27 +884,49 @@
                 <div class="row">
                   <div class="col-6">
                     <label for="">First name </label>
-                    <input class="form-control" type="text" name="ref2_fname" [(ngModel)]="fetched.ref2_fname" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="ref2_fname"
+                      [(ngModel)]="fetched.ref2_fname"
+                    />
                   </div>
                   <div class="col-6">
                     <label for="">Last name</label>
-                    <input class="form-control" type="text" name="ref2_lname" [(ngModel)]="fetched.ref2_lname" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="ref2_lname"
+                      [(ngModel)]="fetched.ref2_lname"
+                    />
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-6">
                     <label for="">Cell Phone</label>
-                    <input class="form-control" type="text" name="ref2_cellPhone"
-                      [(ngModel)]="fetched.ref2_cellPhone" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="ref2_cellPhone"
+                      [(ngModel)]="fetched.ref2_cellPhone"
+                    />
                   </div>
                   <div class="col-6">
                     <label for="">Email</label>
-                    <input class="form-control" type="text" name="ref2_email" [(ngModel)]="fetched.ref2_email" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="ref2_email"
+                      [(ngModel)]="fetched.ref2_email"
+                    />
                   </div>
                 </div>
-                <div class="row ">
-                  <div class="col-12" style="text-align: center; margin-top: 13px;">
+                <div class="row">
+                  <div
+                    class="col-12"
+                    style="text-align: center; margin-top: 13px;"
+                  >
                     <strong>Reference 3</strong>
                   </div>
                 </div>
@@ -689,23 +934,42 @@
                 <div class="row">
                   <div class="col-6">
                     <label for="">First name </label>
-                    <input class="form-control" type="text" name="ref3_fname" [(ngModel)]="fetched.ref3_fname" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="ref3_fname"
+                      [(ngModel)]="fetched.ref3_fname"
+                    />
                   </div>
                   <div class="col-6">
                     <label for="">Last name</label>
-                    <input class="form-control" type="text" name="ref3_lname" [(ngModel)]="fetched.ref3_lname" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="ref3_lname"
+                      [(ngModel)]="fetched.ref3_lname"
+                    />
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-6">
                     <label for="">Cell Phone</label>
-                    <input class="form-control" type="text" name="ref3_cellPhone"
-                      [(ngModel)]="fetched.ref3_cellPhone" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="ref3_cellPhone"
+                      [(ngModel)]="fetched.ref3_cellPhone"
+                    />
                   </div>
                   <div class="col-6">
                     <label for="">Email</label>
-                    <input class="form-control" type="text" name="ref3_email" [(ngModel)]="fetched.ref3_email" />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="ref3_email"
+                      [(ngModel)]="fetched.ref3_email"
+                    />
                   </div>
                 </div>
               </div>
@@ -714,15 +978,28 @@
               <!-- Admin Notes -->
               <h4 class="mt-3 text-center">Admin Notes</h4>
               <div class="form-group">
-                <textarea class="form-control" name="adminNotes" id="adminNotes" rows="3"
-                  [(ngModel)]="fetched.note"></textarea>
+                <textarea
+                  class="form-control"
+                  name="adminNotes"
+                  id="adminNotes"
+                  rows="3"
+                  [(ngModel)]="fetched.note"
+                ></textarea>
               </div>
 
               <div class="modal-footer">
-                <button type="submit" class="btn btn-outline-success" onclick="$('.modal').modal('hide')">
+                <button
+                  type="submit"
+                  class="btn btn-outline-success"
+                  onclick="$('.modal').modal('hide')"
+                >
                   Save Changes
                 </button>
-                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">
+                <button
+                  type="button"
+                  class="btn btn-outline-danger"
+                  data-dismiss="modal"
+                >
                   Discard Changes
                 </button>
               </div>
