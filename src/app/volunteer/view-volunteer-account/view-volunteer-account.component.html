@@ -3,7 +3,7 @@
 </div> -->
 
 <ng-container *ngIf="this.isLoading">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center my-5" data-aos="fade-in-out">
     <div class="spinner-border text-danger" role="status">
       <span class="sr-only">Loading...</span>
     </div>
@@ -11,7 +11,7 @@
 </ng-container>
 
 <ng-container *ngIf="!this.isLoading && this.user">
-  <div class="container">
+  <div class="container" data-aos="fade-in-out">
     <div class="mainSection">
       <button
         class="btn btn-outline-info p-2"
