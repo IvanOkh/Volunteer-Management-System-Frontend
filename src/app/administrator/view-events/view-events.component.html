@@ -1,4 +1,4 @@
-<div data-aos="fade-in-out">
+<div class="mb-5" data-aos="fade-in-out" style="min-height: 1080px;">
   <!-- New event modal -->
   <div class="modal" id="addEvent">
     <div class="modal-dialog">
@@ -147,13 +147,16 @@
   </div>
 
   <ng-container *ngIf="this.eventList.length <= 0 && !this.isLoading">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center my-5" style="height: 1080px;">
       <p>No events to display!</p>
     </div>
   </ng-container>
 
   <ng-container *ngIf="this.isLoading">
-    <div class="row justify-content-center my-5">
+    <div
+      class="row justify-content-center"
+      style="height: 1080px; margin-top: 80px;"
+    >
       <div class="spinner-border text-danger" role="status">
         <span class="sr-only">Loading...</span>
       </div>
