@@ -8,6 +8,10 @@ color: #ecebf3;
 width: 100%;
 }
 
+.container{
+    max-width: 1800px !important;
+}
+
 .nav-item a:hover {
     color: #dbc2c2;
     cursor: pointer;
@@ -51,4 +55,14 @@ a{
     margin-bottom: 0;
 }
 
-
+.portal-btn{
+    border: 3px solid white;
+    border-radius: 0.1rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    background-color: #CE0E2D;
+    font-size: 1rem;
+    color: white;
+}
