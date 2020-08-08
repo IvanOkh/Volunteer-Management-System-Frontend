@@ -1,5 +1,5 @@
-<div class="container">
-  <h1>Volunteer Applications</h1>
+<div class="container mb-5" style="min-height: 1080px;">
+  <h1 data-aos="fade-right">New Volunteer Applications</h1>
   <!-- Pending and Archived tabs -->
   <div class="mb-5 mt-3">
     <ul class="nav nav-tabs">
@@ -8,7 +8,11 @@
       </li>
       <li class="nav-item">
         <!-- <a class="nav-link" href="#">Archived</a> -->
-        <a class="nav-link" routerLink="/admin/volunteerarchive" routerLinkActive="active">
+        <a
+          class="nav-link"
+          routerLink="/admin/volunteerarchive"
+          routerLinkActive="active"
+        >
           Rejected Applications
         </a>
       </li>
@@ -19,7 +23,7 @@
   <div class="container">
     <!-- displays when the page is waiting for a reply from the server -->
     <ng-container *ngIf="this.isLoading">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center" style="height: 1080px;">
         <div class="spinner-border text-danger" role="status">
           <span class="sr-only">Loading...</span>
         </div>
@@ -27,13 +31,13 @@
     </ng-container>
     <!-- displays when the page has received content and is ready to load -->
     <ng-container *ngIf="!this.isLoading && this.appList.length === 0">
-      <div class="row justify-content-center noItems">
+      <div class="row justify-content-center noItems" style="height: 1080px;">
         <h3>No new applications to display!</h3>
       </div>
     </ng-container>
     <!-- displays when loading is finished but no items exist to display -->
     <ng-container *ngIf="!this.isLoading && this.appList.length > 0">
-      <div class="card-columns">
+      <div class="card-columns" data-aos="fade-in-out">
         <!-- Application Card -->
         <div *ngFor="let application of this.appList">
           <div class="card">
@@ -51,16 +55,23 @@
             </div>
 
             <!-- Card Body -->
-            <div data-toggle="modal" attr.data-target="#viewApplication{{ application.id }}">
+            <div
+              data-toggle="modal"
+              attr.data-target="#viewApplication{{ application.id }}"
+            >
               <!-- Picture -->
               <!-- Separated into 3 columns to center image -->
               <div class="container">
                 <div class="row">
                   <div class="col-sm-3"></div>
                   <div class="col-sm-6">
-                    <img class="card-img-top img-fluid rounded-circle mt-3" src="https://source.unsplash.com/collection/895539/300x300?sig={{
+                    <img
+                      class="card-img-top img-fluid rounded-circle mt-3"
+                      src="https://source.unsplash.com/collection/895539/300x300?sig={{
                         application.id
-                      }}" alt="" />
+                      }}"
+                      alt=""
+                    />
                   </div>
                   <div class="col-sm-3"></div>
                 </div>
@@ -69,7 +80,6 @@
               <!-- Info -->
               <div class="card-body">
                 <div class="card-text text-center">
-
                   <ul class="list-inline">
                     <li class="list-inline-item">
                       <p class="font-weight-bold">Email:</p>
@@ -96,7 +106,6 @@
                       <p>{{ application.submissionDate }}</p>
                     </li>
                   </ul>
-
                 </div>
               </div>
             </div>
@@ -104,8 +113,11 @@
             <div class="container mb-3">
               <div class="row container ml-0 mr-0 pl-0 pr-0">
                 <div class="col-sm-6 pl-1 pr-1 pb-1">
-                  <button class="btn btn-outline-success btn-block" data-toggle="modal"
-                    attr.data-target="#accept{{ application.id }}">
+                  <button
+                    class="btn btn-outline-success btn-block"
+                    data-toggle="modal"
+                    attr.data-target="#accept{{ application.id }}"
+                  >
                     Accept
                   </button>
 
@@ -129,11 +141,17 @@
                           </p>
                         </div>
                         <div class="modal-footer">
-                          <button class="btn btn-success" data-dismiss="modal"
-                            (click)="acceptApplication(application)">
+                          <button
+                            class="btn btn-success"
+                            data-dismiss="modal"
+                            (click)="acceptApplication(application)"
+                          >
                             Confirm
                           </button>
-                          <button class="btn btn-secondary" data-dismiss="modal">
+                          <button
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                          >
                             Cancel
                           </button>
                         </div>
@@ -144,8 +162,11 @@
                 </div>
 
                 <div class="col-sm-6 pl-1 pr-1 pb-1">
-                  <button class="btn btn-outline-danger btn-block" data-toggle="modal"
-                    attr.data-target="#reject{{ application.id }}">
+                  <button
+                    class="btn btn-outline-danger btn-block"
+                    data-toggle="modal"
+                    attr.data-target="#reject{{ application.id }}"
+                  >
                     Reject
                   </button>
                 </div>
@@ -169,10 +190,29 @@
                           {{ application.lname }}'s volunteer application.
                         </p>
                         <i>Please enter the reason for the rejection:</i>
-                        <textarea class="form-control" id="message" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 101px;" [(ngModel)]= application.rejectionReason></textarea>
+                        <textarea
+                          class="form-control"
+                          id="message"
+                          rows="3"
+                          style="
+                            margin-top: 0px;
+                            margin-bottom: 0px;
+                            height: 101px;
+                          "
+                          [(ngModel)]="application.rejectionReason"
+                        ></textarea>
                       </div>
                       <div class="modal-footer">
-                        <button class="btn btn-danger" data-dismiss="modal" (click)="rejectApplication(application.id, application.rejectionReason)">
+                        <button
+                          class="btn btn-danger"
+                          data-dismiss="modal"
+                          (click)="
+                            rejectApplication(
+                              application.id,
+                              application.rejectionReason
+                            )
+                          "
+                        >
                           Confirm
                         </button>
                         <button class="btn btn-secondary" data-dismiss="modal">
@@ -188,15 +228,33 @@
           </div>
 
           <!-- View Application -->
-          <div class="modal fade" tabindex="-1" id="viewApplication{{ application.id }}" role="dialog"
-            aria-labelledby="viewApplicationLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+          <div
+            class="modal fade"
+            tabindex="-1"
+            id="viewApplication{{ application.id }}"
+            role="dialog"
+            aria-labelledby="viewApplicationLabel"
+            aria-hidden="true"
+          >
+            <div
+              class="modal-dialog modal-lg modal-dialog-centered"
+              role="document"
+            >
               <div class="modal-content">
                 <div class="modal-header">
-                  <h2 class="modal-title" id="viewApplicationModalLabel" style="color: #fbfbff;">
+                  <h2
+                    class="modal-title"
+                    id="viewApplicationModalLabel"
+                    style="color: #fbfbff;"
+                  >
                     Application Information
                   </h2>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -209,56 +267,84 @@
                     </div>
                   </ng-container>
                   <!-- displays fetched edit information if it is defined  -->
-    
+
                   <div class="container">
                     <h1 class="centerElements mt-3">
-                      {{ application?.fname }}<span> {{ application?.lname }}</span>
+                      {{ application?.fname
+                      }}<span> {{ application?.lname }}</span>
                     </h1>
                     <hr style="width: 1px black;" />
-    
+
                     <div class="row container">
                       <div class="col-6">
                         <h3 class="leftElements">Contact Information</h3>
                         <div style="text-align: left;">
-                          <p><strong>Cell phone:</strong> {{ application?.cellPhone }}</p>
-                          <p><strong>Home phone:</strong> {{ application?.homePhone }}</p>
-                          <p><strong>Email:</strong> {{ application?.email }}</p>
                           <p>
-                            <strong>T-shirt size:</strong> {{ application?.tshirtSize }}
+                            <strong>Cell phone:</strong>
+                            {{ application?.cellPhone }}
                           </p>
                           <p>
-                            <strong>Submission Date: </strong> 
+                            <strong>Home phone:</strong>
+                            {{ application?.homePhone }}
+                          </p>
+                          <p>
+                            <strong>Email:</strong> {{ application?.email }}
+                          </p>
+                          <p>
+                            <strong>T-shirt size:</strong>
+                            {{ application?.tshirtSize }}
+                          </p>
+                          <p>
+                            <strong>Submission Date: </strong>
                             {{ application?.submissionDate }}
                           </p>
                         </div>
-    
+
                         <h4 class="leftElements">Description:</h4>
                         <section class="description mt-4">
                           <p>{{ application?.description }}</p>
                         </section>
                       </div>
-    
+
                       <div class="col-6">
                         <div class="leftElements">
                           <h3>Details</h3>
                         </div>
                         <p>
                           <strong>Status: </strong>
-                          <span [ngStyle]="{ color: application?.active ? 'green' : 'red' }">
+                          <span
+                            [ngStyle]="{
+                              color: application?.active ? 'green' : 'red'
+                            }"
+                          >
                             <i class="fa fa-user" style="font-size: 20px;"></i>
                           </span>
                         </p>
-                        <p><strong>First name:</strong> {{ application?.fname }}</p>
-                        <p><strong>Last name:</strong> {{ application?.lname }}</p>
+                        <p>
+                          <strong>First name:</strong> {{ application?.fname }}
+                        </p>
+                        <p>
+                          <strong>Last name:</strong> {{ application?.lname }}
+                        </p>
                         <!-- string interpolation {{DOB}} removed by MAX because DOB doesn't exist. Fix please! -->
-                        <p><strong>Over 18:</strong> {{ application?.over18 | yesNo }}</p>
-                        <p><strong>Gender:</strong> {{ application?.gender }}</p>
-                        <p><strong>Address:</strong> {{ application?.address }}</p>
-    
-                        <p><strong>Postal Code:</strong> {{ application?.postalCode }}</p>
+                        <p>
+                          <strong>Over 18:</strong>
+                          {{ application?.over18 | yesNo }}
+                        </p>
+                        <p>
+                          <strong>Gender:</strong> {{ application?.gender }}
+                        </p>
+                        <p>
+                          <strong>Address:</strong> {{ application?.address }}
+                        </p>
+
+                        <p>
+                          <strong>Postal Code:</strong>
+                          {{ application?.postalCode }}
+                        </p>
                       </div>
                     </div>
-    
+
                     <!-- emergency contacts section -->
                     <div class="row">
                       <!-- Emercency contact 1  -->
@@ -266,78 +352,126 @@
                         <hr style="width: 1px black;" />
                         <h5 class="leftElements">Emergency Contact 1</h5>
                         <hr style="width: 1px black;" />
-                        <p><strong>First name:</strong> {{ application?.emg1_fname }}</p>
-                        <p><strong>Last name:</strong> {{ application?.emg1_lname }}</p>
+                        <p>
+                          <strong>First name:</strong>
+                          {{ application?.emg1_fname }}
+                        </p>
+                        <p>
+                          <strong>Last name:</strong>
+                          {{ application?.emg1_lname }}
+                        </p>
                         <p>
                           <strong>Relationship:</strong>
                           {{ application?.emg1_relationship }}
                         </p>
                         <p>
-                          <strong>Home Phone:</strong> {{ application?.emg1_homePhone }}
+                          <strong>Home Phone:</strong>
+                          {{ application?.emg1_homePhone }}
                         </p>
                         <p>
-                          <strong>Cell Phone:</strong> {{ application?.emg1_cellPhone }}
+                          <strong>Cell Phone:</strong>
+                          {{ application?.emg1_cellPhone }}
                         </p>
-                        <p><strong>Email:</strong> {{ application?.emg1_email }}</p>
+                        <p>
+                          <strong>Email:</strong> {{ application?.emg1_email }}
+                        </p>
                       </div>
-    
+
                       <div class="col-6" style="text-align: left;">
                         <!-- Emercency contact 2  -->
                         <hr style="width: 1px black;" />
                         <h5 class="leftElements">Emergency Contact 2</h5>
                         <hr style="width: 1px black;" />
-                        <p><strong>First name:</strong> {{ application?.emg2_fname }}</p>
-                        <p><strong>Last name:</strong> {{ application?.emg2_lname }}</p>
+                        <p>
+                          <strong>First name:</strong>
+                          {{ application?.emg2_fname }}
+                        </p>
+                        <p>
+                          <strong>Last name:</strong>
+                          {{ application?.emg2_lname }}
+                        </p>
                         <p>
                           <strong>Relationship:</strong>
                           {{ application?.emg2_relationship }}
                         </p>
                         <p>
-                          <strong>Home Phone:</strong> {{ application?.emg2_homePhone }}
+                          <strong>Home Phone:</strong>
+                          {{ application?.emg2_homePhone }}
                         </p>
                         <p>
-                          <strong>Cell Phone:</strong> {{ application?.emg2_cellPhone }}
+                          <strong>Cell Phone:</strong>
+                          {{ application?.emg2_cellPhone }}
                         </p>
-                        <p><strong>Email:</strong> {{ application?.emg2_email }}</p>
+                        <p>
+                          <strong>Email:</strong> {{ application?.emg2_email }}
+                        </p>
                       </div>
                     </div>
-    
+
                     <!-- Ref contact 1  -->
                     <div class="row contactSection">
                       <div class="col-6" style="text-align: left;">
                         <hr style="width: 1px black;" />
                         <h5 class="leftElements">Reference Contact 1</h5>
                         <hr style="width: 1px black;" />
-                        <p><strong>First name:</strong> {{ application?.ref1_fname }}</p>
-                        <p><strong>Last name:</strong> {{ application?.ref1_lname }}</p>
                         <p>
-                          <strong>Cell Phone:</strong> {{ application?.ref1_cellPhone }}
+                          <strong>First name:</strong>
+                          {{ application?.ref1_fname }}
                         </p>
-                        <p><strong>Email:</strong> {{ application?.ref1_email }}</p>
+                        <p>
+                          <strong>Last name:</strong>
+                          {{ application?.ref1_lname }}
+                        </p>
+                        <p>
+                          <strong>Cell Phone:</strong>
+                          {{ application?.ref1_cellPhone }}
+                        </p>
+                        <p>
+                          <strong>Email:</strong> {{ application?.ref1_email }}
+                        </p>
                       </div>
-    
+
                       <!-- Ref contact 2  -->
                       <div class="col-6" style="text-align: left;">
                         <hr style="width: 1px black;" />
                         <h5 class="leftElements">Reference Contact 2</h5>
                         <hr style="width: 1px black;" />
-                        <p><strong>First name:</strong> {{ application?.ref2_fname }}</p>
-                        <p><strong>Last name:</strong> {{ application?.ref2_lname }}</p>
                         <p>
-                          <strong>Cell Phone:</strong> {{ application?.ref2_cellPhone }}
+                          <strong>First name:</strong>
+                          {{ application?.ref2_fname }}
                         </p>
-                        <p><strong>Email:</strong> {{ application?.ref2_email }}</p>
+                        <p>
+                          <strong>Last name:</strong>
+                          {{ application?.ref2_lname }}
+                        </p>
+                        <p>
+                          <strong>Cell Phone:</strong>
+                          {{ application?.ref2_cellPhone }}
+                        </p>
+                        <p>
+                          <strong>Email:</strong> {{ application?.ref2_email }}
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-success btn-block" data-dismiss="modal" data-toggle="modal"
-                    attr.data-target="#accept{{ application.id }}">
+                  <button
+                    type="button"
+                    class="btn btn-success btn-block"
+                    data-dismiss="modal"
+                    data-toggle="modal"
+                    attr.data-target="#accept{{ application.id }}"
+                  >
                     Accept
                   </button>
-                  <button type="button" class="btn btn-danger btn-block" data-dismiss="modal" data-toggle="modal"
-                    attr.data-target="#reject{{ application.id }}">
+                  <button
+                    type="button"
+                    class="btn btn-danger btn-block"
+                    data-dismiss="modal"
+                    data-toggle="modal"
+                    attr.data-target="#reject{{ application.id }}"
+                  >
                     Reject
                   </button>
                 </div>

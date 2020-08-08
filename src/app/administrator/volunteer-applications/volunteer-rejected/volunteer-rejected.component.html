@@ -1,5 +1,5 @@
-<div class="container">
-  <h1>Volunteer Applications</h1>
+<div class="container mb-5" style="min-height: 1080px;">
+  <h1 data-aos="fade-right">Rejected Volunteer Applications</h1>
   <!-- Pending and Archived tabs -->
   <div class="mb-5 mt-3">
     <ul class="nav nav-tabs">
@@ -21,7 +21,7 @@
   <div class="container tableContainer">
     <!-- displays when the page is waiting for a reply from the server -->
     <ng-container *ngIf="this.isLoading">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center" style="height: 1080px;">
         <div class="spinner-border text-danger" role="status">
           <span class="sr-only">Loading...</span>
         </div>
@@ -29,7 +29,7 @@
     </ng-container>
     <!-- displays when the page has received content and is ready to load -->
     <ng-container *ngIf="!this.isLoading && this.appList.length === 0">
-      <div class="row justify-content-center noItems">
+      <div class="row justify-content-center noItems" style="height: 1080px;">
         <h3>No new applications to display!</h3>
       </div>
     </ng-container>
@@ -42,6 +42,7 @@
         class="mat-elevation-z8 mt-5"
         matSort
         width="100%"
+        data-aos="fade-in-out"
       >
         <ng-container matColumnDef="submissionDate">
           <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
