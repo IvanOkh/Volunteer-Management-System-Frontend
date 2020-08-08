@@ -8,13 +8,13 @@ color: #ecebf3;
 width: 100%;
 }
 
+.container{
+    max-width: 1800px !important;
+}
+
 .nav-item a:hover {
     color: #dbc2c2;
     cursor: pointer;
-}
-
-.nav-link{
-    color: #ecebf3;
 }
 
 .nav-item {
@@ -23,11 +23,46 @@ width: 100%;
 
 .dropdown-item.active{
     background-color: white !important;
-    color: black;
+    color: black !important;
 }
 
-.dropdown-item:hover{
+a.nav-link.dropdown-item{
+    color: black !important;
+}
+
+a.nav-link.dropdown-item:hover{
     background-color: #cd0d2e !important;
     color: #ecebf3 !important;
 }
 
+a{
+    color: #ecebf3;
+}
+
+.dropdown:hover .dropdown-menu, .btn-group:hover .dropdown-menu{
+    display: block;
+}
+
+.dropdown-menu{
+    margin-top: 0;
+}
+
+.dropdown-toggle{
+    margin-bottom: 2px;
+}
+
+.navbar .dropdown-toggle, .nav-tabs .dropdown-toggle{
+    margin-bottom: 0;
+}
+
+.portal-btn{
+    border: 3px solid white;
+    border-radius: 0.1rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    background-color: #CE0E2D;
+    font-size: 1rem;
+    color: white;
+}

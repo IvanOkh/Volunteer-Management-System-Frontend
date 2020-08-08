@@ -1,6 +1,6 @@
 # Project Tasks
 
-## Update: Wednesday, August 5, 2020
+## Update: Friday, August 7, 2020
 
 ### APP-WIDE:
 
@@ -50,17 +50,17 @@ List of components for CARS site
 Reusables
 - Nav bar [Albert]
 - Footer
-- Event Card
+- Event Card [ Albert ]
 - Custom jumbotron template
 - Animal Card
 
 Special Components
 - Animal list (and tabs)
 - Photo gallery/Title section
-- Contact us section
+- Contact us page [ Albert ]
 
 Pages
-- Landing Page/Main Page [Luat]
+- Landing Page/Main Page [Luat for Start, Everyone for modification]
 - Our Animals Page
 - Adoption Page (Features information and links to Cat and Dog Forms)
 - Volunteer Page (Features information and link to Volunteer Form)
