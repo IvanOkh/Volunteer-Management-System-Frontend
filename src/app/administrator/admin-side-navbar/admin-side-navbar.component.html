@@ -50,7 +50,16 @@
         <li class="dropdown nav-item" style="cursor: pointer;">
           <a
             class="{{
-              rla.isActive || rlb.isActive || rlc.isActive || rld.isActive
+              rla.isActive ||
+              rla2.isActive ||
+              rlb.isActive ||
+              rlb2.isActive ||
+              rlc.isActive ||
+              rlc2.isActive ||
+              rlc3.isActive ||
+              rld.isActive ||
+              rld2.isActive ||
+              rld3.isActive
                 ? 'dropdown-toggle nav-link active'
                 : 'dropdown-toggle nav-link'
             }} "
@@ -71,13 +80,28 @@
               #rla="routerLinkActive"
               >Foster Applications</a
             >
-            <!-- <a routerLink="/user/jim">Jim</a> -->
+            <a
+              hidden
+              class="nav-link dropdown-item"
+              routerLink="/admin/fosterarchive"
+              routerLinkActive="active"
+              #rla2="routerLinkActive"
+              >Rejected Foster Applications</a
+            >
             <a
               class="nav-link dropdown-item"
               routerLink="/admin/applications"
               routerLinkActive="active"
               #rlb="routerLinkActive"
               >Volunteer Applications</a
+            >
+            <a
+              hidden
+              class="nav-link dropdown-item"
+              routerLink="/admin/volunteerarchive"
+              routerLinkActive="active"
+              #rlb2="routerLinkActive"
+              >Rejected Volunteer Applications</a
             >
             <a
               class="nav-link dropdown-item"
@@ -87,11 +111,47 @@
               >Dog adoption applications</a
             >
             <a
+              hidden
+              class="nav-link dropdown-item"
+              [routerLink]="['acceptedDog']"
+              routerLinkActive="active"
+              #rlc2="routerLinkActive"
+              >Accepted Dog adoption applications</a
+            >
+
+            <a
+              hidden
+              class="nav-link dropdown-item"
+              [routerLink]="['rejectedDog']"
+              routerLinkActive="active"
+              #rlc3="routerLinkActive"
+              >Rejected Dog adoption applications</a
+            >
+
+            <a
               class="nav-link dropdown-item"
               [routerLink]="['cat']"
               routerLinkActive="active"
               #rld="routerLinkActive"
               >Cat adoption applications</a
+            >
+
+            <a
+              hidden
+              class="nav-link dropdown-item"
+              [routerLink]="['acceptedCat']"
+              routerLinkActive="active"
+              #rld2="routerLinkActive"
+              >Accepted Cat adoption applications</a
+            >
+
+            <a
+              hidden
+              class="nav-link dropdown-item"
+              [routerLink]="['rejectedCat']"
+              routerLinkActive="active"
+              #rld3="routerLinkActive"
+              >Rejected Cat adoption applications</a
             >
           </div>
         </li>
