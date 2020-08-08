@@ -47,6 +47,7 @@ export class VolunteerRejectedComponent implements OnInit {
     // this.loadActiveApplicants();  // this one loads all currently active applicants
     //this.loadArchive(); // this one loads all rejected/archived applicants
     this.loadRejectedApplicants(); // this one loads all applicants regardless of active status
+    document.body.scrollTop = 0;
 
     // console.log(this.appList);
   }

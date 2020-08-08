@@ -23,7 +23,7 @@ export class ManageCatApplicationComponent implements OnInit {
   isLoading: boolean = false;
   applicationID: number;
   pendingCatArray: any[];
-  reason : string;
+  reason: string;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -50,14 +50,16 @@ export class ManageCatApplicationComponent implements OnInit {
       this.pendingCatArray = [];
       this.catArray = cats;
       this.catArray.forEach((pendingCat: CatForm) => {
-        if (pendingCat.approved == false && pendingCat.rejected == false) this.pendingCatArray.push(pendingCat);
-          this.dataSource = new MatTableDataSource(this.pendingCatArray);
-          this.dataSource.sort = this.sort;
-          this.dataSource.paginator = this.paginator;
-          this.application = this.catArray[0];
-          this.isLoading = false;
+        if (pendingCat.approved == false && pendingCat.rejected == false)
+          this.pendingCatArray.push(pendingCat);
+        this.dataSource = new MatTableDataSource(this.pendingCatArray);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+        this.application = this.catArray[0];
+        this.isLoading = false;
       });
     });
+    document.body.scrollTop = 0;
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

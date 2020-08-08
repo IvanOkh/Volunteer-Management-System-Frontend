@@ -30,6 +30,7 @@ export class FosterPendingComponent implements OnInit {
 
   ngOnInit() {
     this.loadPendingApplicants();
+    document.body.scrollTop = 0;
   }
 
   /**

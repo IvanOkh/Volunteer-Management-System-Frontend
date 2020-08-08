@@ -18,6 +18,7 @@ export class VolunteerSideEventsComponent implements OnInit {
   constructor(private VES: VolunteerEventsService) {}
 
   ngOnInit() {
+    document.body.scrollTop = 0;
     this.initData();
   }
 

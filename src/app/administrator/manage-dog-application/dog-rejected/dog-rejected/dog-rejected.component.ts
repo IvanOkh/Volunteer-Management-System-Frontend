@@ -46,8 +46,8 @@ export class DogRejectedComponent implements OnInit {
     private adoptionService: AdoptionService
   ) {}
 
-   //Load table
-   ngOnInit() {
+  //Load table
+  ngOnInit() {
     this.isLoading = true;
     this.adoptionService.loadDogs().subscribe((dogs) => {
       this.pendingDogArray = [];
@@ -61,6 +61,7 @@ export class DogRejectedComponent implements OnInit {
         this.isLoading = false;
       });
     });
+    document.body.scrollTop = 0;
   }
 
   applyFilter(filterValue: string) {
@@ -97,7 +98,6 @@ export class DogRejectedComponent implements OnInit {
       });
   }
 
-
   markPendingApplication(id: number) {
     console.log(id);
     this.adoptionService.getDogApplication(id).subscribe((dog: DogForm) => {
@@ -112,7 +112,4 @@ export class DogRejectedComponent implements OnInit {
       }
     });
   }
-
-
-
 }

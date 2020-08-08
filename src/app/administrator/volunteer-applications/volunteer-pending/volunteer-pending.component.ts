@@ -21,6 +21,7 @@ export class VolunteerPendingComponent implements OnInit {
   ngOnInit() {
     // this.loadActiveApplicants();  // this one loads all currently active applicants
     this.loadPendingApplicants(); // this one loads all applicants regardless of active status
+    document.body.scrollTop = 0;
   }
 
   acceptApplication(volunteer: VolunteerApplication): void {

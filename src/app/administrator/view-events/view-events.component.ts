@@ -62,6 +62,7 @@ export class ViewEventsComponent implements OnInit {
 
     this.currentDate = new Date();
     // this.isLoading = false;
+    document.body.scrollTop = 0;
   }
 
   //Method that returns array of registered event specific volunteers

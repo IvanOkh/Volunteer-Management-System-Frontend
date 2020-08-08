@@ -19,7 +19,7 @@ export class DogApprovedComponent implements OnInit {
   dogArray = [];
   isLoading: boolean = false;
   applicationID: any;
-  pendingDogArray:any[];
+  pendingDogArray: any[];
   reason: string;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -59,6 +59,7 @@ export class DogApprovedComponent implements OnInit {
         this.isLoading = false;
       });
     });
+    document.body.scrollTop = 0;
   }
 
   //Using Angular material to apply filter for every applications

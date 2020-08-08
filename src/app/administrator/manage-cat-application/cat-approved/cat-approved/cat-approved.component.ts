@@ -1,22 +1,26 @@
-import { CatForm } from './../../../../forms/cat-form/cat-model';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/material';
-import { NgForm } from '@angular/forms';
-import { AdoptionService } from 'src/app/shared/services/adoption.service';
+import { CatForm } from "./../../../../forms/cat-form/cat-model";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import {
+  MatPaginator,
+  MatSort,
+  MatTableDataSource,
+  MatDialog,
+} from "@angular/material";
+import { NgForm } from "@angular/forms";
+import { AdoptionService } from "src/app/shared/services/adoption.service";
 
 @Component({
-  selector: 'app-cat-approved',
-  templateUrl: './cat-approved.component.html',
-  styleUrls: ['./cat-approved.component.css']
+  selector: "app-cat-approved",
+  templateUrl: "./cat-approved.component.html",
+  styleUrls: ["./cat-approved.component.css"],
 })
 export class CatApprovedComponent implements OnInit {
-
   application: any;
   catArray = [];
-  pendingCatArray:any[];
+  pendingCatArray: any[];
   isLoading: boolean = false;
   applicationID: any;
-  reason:string;
+  reason: string;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -30,7 +34,6 @@ export class CatApprovedComponent implements OnInit {
     "email",
     "phone",
     "address",
-
   ];
 
   constructor(
@@ -45,15 +48,16 @@ export class CatApprovedComponent implements OnInit {
       this.pendingCatArray = [];
       this.catArray = cats;
       this.catArray.forEach((pendingCat: CatForm) => {
-        if (pendingCat.approved == true && pendingCat.rejected == false) this.pendingCatArray.push(pendingCat);
-          this.dataSource = new MatTableDataSource(this.pendingCatArray);
-          this.dataSource.sort = this.sort;
-          this.dataSource.paginator = this.paginator;
-          this.application = this.catArray[0];
-          this.isLoading = false;
-        
+        if (pendingCat.approved == true && pendingCat.rejected == false)
+          this.pendingCatArray.push(pendingCat);
+        this.dataSource = new MatTableDataSource(this.pendingCatArray);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+        this.application = this.catArray[0];
+        this.isLoading = false;
       });
     });
+    document.body.scrollTop = 0;
   }
 
   //Using Angular material to apply filter for every applications
@@ -94,5 +98,4 @@ export class CatApprovedComponent implements OnInit {
         });
     });
   }
-
 }

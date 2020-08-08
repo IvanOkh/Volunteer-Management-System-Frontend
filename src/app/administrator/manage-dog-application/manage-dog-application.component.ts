@@ -21,8 +21,8 @@ export class ManageDogApplicationComponent implements OnInit {
   dogArray = [];
   isLoading: boolean = false;
   applicationID: any;
-  pendingDogArray:any[];
-  reason:string;
+  pendingDogArray: any[];
+  reason: string;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -36,7 +36,6 @@ export class ManageDogApplicationComponent implements OnInit {
     "phone",
     "address",
     "applicationName",
-
   ];
 
   constructor(
@@ -51,7 +50,8 @@ export class ManageDogApplicationComponent implements OnInit {
       this.pendingDogArray = [];
       this.dogArray = dogs;
       this.dogArray.forEach((pendingDog: DogForm) => {
-        if (pendingDog.approved == false && pendingDog.rejected == false)  this.pendingDogArray.push(pendingDog);    
+        if (pendingDog.approved == false && pendingDog.rejected == false)
+          this.pendingDogArray.push(pendingDog);
         this.dataSource = new MatTableDataSource(this.pendingDogArray);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
@@ -59,6 +59,7 @@ export class ManageDogApplicationComponent implements OnInit {
         this.isLoading = false;
       });
     });
+    document.body.scrollTop = 0;
   }
 
   //Using Angular material to apply filter for every applications

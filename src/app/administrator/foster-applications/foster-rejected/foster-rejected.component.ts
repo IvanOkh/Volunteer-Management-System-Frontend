@@ -51,6 +51,7 @@ export class FosterRejectedComponent implements OnInit {
 
   ngOnInit() {
     this.loadRejectedApplicants();
+    document.body.scrollTop = 0;
   }
 
   //next two methods were added to eliminate prod error requestion to have these methods as they are defined in html. Ivan

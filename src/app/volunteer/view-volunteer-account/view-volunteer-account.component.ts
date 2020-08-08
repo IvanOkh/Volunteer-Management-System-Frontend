@@ -51,6 +51,7 @@ export class ViewVolunteerAccountComponent implements OnInit {
     if (this.fetchUser(Number(this.session.value.id)) === true) {
       this.fetchUser(Number(this.session.value.id));
     }
+    document.body.scrollTop = 0;
   }
 
   onSubmit(myForm: NgForm) {

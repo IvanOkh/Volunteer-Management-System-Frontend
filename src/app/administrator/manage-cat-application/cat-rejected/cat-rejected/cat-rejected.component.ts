@@ -8,7 +8,7 @@ import {
 } from "@angular/material";
 import { NgForm } from "@angular/forms";
 import { AdoptionService } from "src/app/shared/services/adoption.service";
-import { CatForm } from 'src/app/forms/cat-form/cat-model';
+import { CatForm } from "src/app/forms/cat-form/cat-model";
 
 @Component({
   selector: "app-cat-rejected",
@@ -20,7 +20,7 @@ export class CatRejectedComponent implements OnInit {
   catArray = [];
   isLoading: boolean = false;
   applicationID: any;
-  pendingCatArray:any[];
+  pendingCatArray: any[];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -47,7 +47,7 @@ export class CatRejectedComponent implements OnInit {
     this.isLoading = true;
     this.pendingCatArray = [];
     this.adoptionService.loadCats().subscribe((rejectedCatApp) => {
-    this.catArray = rejectedCatApp;
+      this.catArray = rejectedCatApp;
       rejectedCatApp.forEach((cats: CatForm) => {
         if (cats.rejected) this.pendingCatArray.push(cats);
         this.dataSource = new MatTableDataSource(this.pendingCatArray);
@@ -57,6 +57,7 @@ export class CatRejectedComponent implements OnInit {
         this.isLoading = false;
       });
     });
+    document.body.scrollTop = 0;
   }
   //Using Angular material to apply filter for every applications
   applyFilter(filterValue: string) {
@@ -94,7 +95,7 @@ export class CatRejectedComponent implements OnInit {
         }
       });
   }
-  markPendingApplication(id){
+  markPendingApplication(id) {
     console.log(id);
     this.adoptionService.getCatApplication(id).subscribe((cat: CatForm) => {
       if (cat) {

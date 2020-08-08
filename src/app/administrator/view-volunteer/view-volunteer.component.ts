@@ -52,6 +52,7 @@ export class ViewVolunteerComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.isLoading = false;
     });
+    document.body.scrollTop = 0;
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
