@@ -1,10 +1,10 @@
-<div class="jumbotron">
+<div class="jumbotron" data-aos="fade-in-out" data-aos-easing="ease-in-quad">
   <div class="container">
     <h1 class="display-4 text-center" id="topPage">Foster Home Application</h1>
   </div>
 </div>
 
-<div class="container">
+<div class="container" data-aos="fade-in-out" data-aos-easing="ease-in-quad">
   <!-- <h2 class="text-center">Foster Home Application</h2>
   <hr /> -->
   <p>
@@ -112,46 +112,46 @@
           required
           #prov="ngModel"
         >
-        <option>
-          AB
-        </option>
-        <option>
-          BC
-        </option>
-        <option>
-          MB
-        </option>
-        <option>
-          NB
-        </option>
-        <option>
-          NL
-        </option>
-        <option>
-          NS
-        </option>
-        <option>
-          NT
-        </option>
-        <option>
-          NU
-        </option>
-        <option>
-          ON
-        </option>
-        <option>
-          PE
-        </option>
-        <option>
-          QC
-        </option>
-        <option>
-          SK
-        </option>
-        <option>
-          YT
-        </option>
-      </select>
+          <option>
+            AB
+          </option>
+          <option>
+            BC
+          </option>
+          <option>
+            MB
+          </option>
+          <option>
+            NB
+          </option>
+          <option>
+            NL
+          </option>
+          <option>
+            NS
+          </option>
+          <option>
+            NT
+          </option>
+          <option>
+            NU
+          </option>
+          <option>
+            ON
+          </option>
+          <option>
+            PE
+          </option>
+          <option>
+            QC
+          </option>
+          <option>
+            SK
+          </option>
+          <option>
+            YT
+          </option>
+        </select>
         <span class="help-block" *ngIf="!prov.valid && prov.touched"
           >Please enter a province</span
         >
@@ -787,227 +787,258 @@
     <!--Reference 1-->
     <h4>Reference 1</h4>
     <div class="container">
-    <div class="form-row">
-      <div class="form-group col-xs-12">
-        <div class="row">
-          <div class="col-xs-6 mr-2">
-            <label>First name</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="First name"
-              name="ref1Fname"
-              ngModel
-              required
-              #ref1Fname="ngModel"
-              pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
-            />
-            <span class="help-block" *ngIf="!ref1Fname.valid && ref1Fname.touched"
-              >Please enter reference's First Name. (Maximum characters: 25)</span
-            >
+      <div class="form-row">
+        <div class="form-group col-xs-12">
+          <div class="row">
+            <div class="col-xs-6 mr-2">
+              <label>First name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="First name"
+                name="ref1Fname"
+                ngModel
+                required
+                #ref1Fname="ngModel"
+                pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
+              />
+              <span
+                class="help-block"
+                *ngIf="!ref1Fname.valid && ref1Fname.touched"
+                >Please enter reference's First Name. (Maximum characters:
+                25)</span
+              >
+            </div>
+            <div class="col-xs-6 mr-2">
+              <label>Last name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Last name"
+                name="ref1Lname"
+                ngModel
+                required
+                #ref1Lname="ngModel"
+                pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
+              />
+              <span
+                class="help-block"
+                *ngIf="!ref1Lname.valid && ref1Lname.touched"
+                >Please enter reference's Last name. (Maximum characters:
+                25)</span
+              >
+            </div>
           </div>
-          <div class="col-xs-6 mr-2">
-            <label>Last name</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Last name"
-              name="ref1Lname"
-              ngModel
-              required
-              #ref1Lname="ngModel"
-              pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
-            />
-            <span class="help-block" *ngIf="!ref1Lname.valid && ref1Lname.touched"
-              >Please enter reference's Last name. (Maximum characters: 25)</span
-            >
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-6 mr-2">
-            <label>Phone number</label>
-            <input
-              type="tel"
-              class="form-control"
-              placeholder="555-555-5555"
-              name="ref1Phone"
-              ngModel
-              required
-              #ref1Phone="ngModel"
-              pattern="\d{3}[\-]\d{3}[\-]\d{4}"
-              
-            />
-            <span class="help-block" *ngIf="!ref1Phone.valid && ref1Phone.touched"
-              >Please enter a valid phone number. Make sure to add dashes! (-)</span
-            >
-          </div>
-          <div class="col-xs-6 mr-2">
-            <label>Email</label>
-            <input
-              type="email"
-              class="form-control"
-              placeholder="abc@mail.com"
-              name="ref1Email"
-              ngModel
-              email
-              #refEmail="ngModel"
-            />
+          <div class="row">
+            <div class="col-xs-6 mr-2">
+              <label>Phone number</label>
+              <input
+                type="tel"
+                class="form-control"
+                placeholder="555-555-5555"
+                name="ref1Phone"
+                ngModel
+                required
+                #ref1Phone="ngModel"
+                pattern="\d{3}[\-]\d{3}[\-]\d{4}"
+              />
+              <span
+                class="help-block"
+                *ngIf="!ref1Phone.valid && ref1Phone.touched"
+                >Please enter a valid phone number. Make sure to add dashes!
+                (-)</span
+              >
+            </div>
+            <div class="col-xs-6 mr-2">
+              <label>Email</label>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="abc@mail.com"
+                name="ref1Email"
+                ngModel
+                email
+                #refEmail="ngModel"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
 
     <!--Reference 2-->
     <h4>Reference 2</h4>
     <div class="container">
-    <div class="form-row">
-      <div class="form-group col-xs-12">
-        <div class="row">
-          <div class="col-xs-6 mr-2">
-            <label>First name</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="First name"
-              name="ref2Fname"
-              ngModel
-              required
-              #ref2Fname="ngModel"
-              pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
-            />
-            <span class="help-block" *ngIf="!ref2Fname.valid && ref2Fname.touched"
-              >Please enter reference's First Name. (Maximum characters: 25)</span
-            >
+      <div class="form-row">
+        <div class="form-group col-xs-12">
+          <div class="row">
+            <div class="col-xs-6 mr-2">
+              <label>First name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="First name"
+                name="ref2Fname"
+                ngModel
+                required
+                #ref2Fname="ngModel"
+                pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
+              />
+              <span
+                class="help-block"
+                *ngIf="!ref2Fname.valid && ref2Fname.touched"
+                >Please enter reference's First Name. (Maximum characters:
+                25)</span
+              >
+            </div>
+            <div class="col-xs-6 mr-2">
+              <label>Last name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Last name"
+                name="ref2Lname"
+                ngModel
+                required
+                #ref2Lname="ngModel"
+                pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
+              />
+              <span
+                class="help-block"
+                *ngIf="!ref2Lname.valid && ref2Lname.touched"
+                >Please enter reference's Last name. (Maximum characters:
+                25)</span
+              >
+            </div>
           </div>
-          <div class="col-xs-6 mr-2">
-            <label>Last name</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Last name"
-              name="ref2Lname"
-              ngModel
-              required
-              #ref2Lname="ngModel"
-              pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
-            />
-            <span class="help-block" *ngIf="!ref2Lname.valid && ref2Lname.touched"
-              >Please enter reference's Last name. (Maximum characters: 25)</span
-            >
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-6 mr-2">
-            <label>Phone number</label>
-            <input
-              type="tel"
-              class="form-control"
-              placeholder="555-555-5555"
-              name="ref2Phone"
-              ngModel
-              required
-              #ref2Phone="ngModel"
-              pattern="\d{3}[\-]\d{3}[\-]\d{4}"
-            />
-            <span class="help-block" *ngIf="!ref2Phone.valid && ref2Phone.touched"
-              >Please enter a valid phone number. Make sure to add dashes! (-)</span
-            >
-          </div>
-          <div class="col-xs-6 mr-2">
-            <label>Email</label>
-            <input
-              type="email"
-              class="form-control"
-              placeholder="abc@mail.com"
-              name="ref2Email"
-              ngModel
-              email
-              #refEmail="ngModel"
-            />
+          <div class="row">
+            <div class="col-xs-6 mr-2">
+              <label>Phone number</label>
+              <input
+                type="tel"
+                class="form-control"
+                placeholder="555-555-5555"
+                name="ref2Phone"
+                ngModel
+                required
+                #ref2Phone="ngModel"
+                pattern="\d{3}[\-]\d{3}[\-]\d{4}"
+              />
+              <span
+                class="help-block"
+                *ngIf="!ref2Phone.valid && ref2Phone.touched"
+                >Please enter a valid phone number. Make sure to add dashes!
+                (-)</span
+              >
+            </div>
+            <div class="col-xs-6 mr-2">
+              <label>Email</label>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="abc@mail.com"
+                name="ref2Email"
+                ngModel
+                email
+                #refEmail="ngModel"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
 
     <!--Reference 3-->
     <h4>Reference 3</h4>
     <div class="container">
-    <div class="form-row">
-      <div class="form-group col-xs-12">
-        <div class="row">
-          <div class="col-xs-6 mr-2">
-            <label>First name</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="First name"
-              name="ref3Fname"
-              ngModel
-              required
-              #ref3Fname="ngModel"
-              pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
-            />
-            <span class="help-block" *ngIf="!ref3Fname.valid && ref3Fname.touched"
-              >Please enter reference's First Name. (Maximum characters: 25)</span
-            >
+      <div class="form-row">
+        <div class="form-group col-xs-12">
+          <div class="row">
+            <div class="col-xs-6 mr-2">
+              <label>First name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="First name"
+                name="ref3Fname"
+                ngModel
+                required
+                #ref3Fname="ngModel"
+                pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
+              />
+              <span
+                class="help-block"
+                *ngIf="!ref3Fname.valid && ref3Fname.touched"
+                >Please enter reference's First Name. (Maximum characters:
+                25)</span
+              >
+            </div>
+            <div class="col-xs-6">
+              <label>Last name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Last name"
+                name="ref3Lname"
+                ngModel
+                required
+                #ref3Lname="ngModel"
+                pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
+              />
+              <span
+                class="help-block"
+                *ngIf="!ref3Lname.valid && ref3Lname.touched"
+                >Please enter reference's Last name. (Maximum characters:
+                25)</span
+              >
+            </div>
           </div>
-          <div class="col-xs-6">
-            <label>Last name</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Last name"
-              name="ref3Lname"
-              ngModel
-              required
-              #ref3Lname="ngModel"
-              pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
-            />
-            <span class="help-block" *ngIf="!ref3Lname.valid && ref3Lname.touched"
-              >Please enter reference's Last name. (Maximum characters: 25)</span
-            >
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-6 mr-2">
-            <label>Phone number</label>
-            <input
-              type="tel"
-              class="form-control"
-              placeholder="555-555-5555"
-              name="ref3Phone"
-              ngModel
-              required
-              #ref3Phone="ngModel"
-              pattern="\d{3}[\-]\d{3}[\-]\d{4}"
-            />
-            <span class="help-block" *ngIf="!ref3Phone.valid && ref3Phone.touched"
-              >Please enter a valid phone number. Make sure to add dashes! (-)</span
-            >
-          </div>
-          <div class="col-xs-6">
-            <label>Email</label>
-            <input
-              type="email"
-              class="form-control"
-              placeholder="abc@mail.com"
-              name="ref3Email"
-              ngModel
-              email
-              #refEmail="ngModel"
-            />
+          <div class="row">
+            <div class="col-xs-6 mr-2">
+              <label>Phone number</label>
+              <input
+                type="tel"
+                class="form-control"
+                placeholder="555-555-5555"
+                name="ref3Phone"
+                ngModel
+                required
+                #ref3Phone="ngModel"
+                pattern="\d{3}[\-]\d{3}[\-]\d{4}"
+              />
+              <span
+                class="help-block"
+                *ngIf="!ref3Phone.valid && ref3Phone.touched"
+                >Please enter a valid phone number. Make sure to add dashes!
+                (-)</span
+              >
+            </div>
+            <div class="col-xs-6">
+              <label>Email</label>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="abc@mail.com"
+                name="ref3Email"
+                ngModel
+                email
+                #refEmail="ngModel"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
     <hr />
     <!--Submission Button-->
     <div class="form-row">
       <div class="form-group col-xs-12">
-        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#submissionModal">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#submissionModal"
+        >
           Submit Application
         </button>
       </div>
@@ -1024,13 +1055,22 @@
               <button class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-              submission successful! Thanks for taking the time to fill out our Foster application.
+              submission successful! Thanks for taking the time to fill out our
+              Foster application.
             </div>
             <div class="modal-footer">
-              <button class="btn btn-outline-secondary" data-dismiss="modal" (click)="reset()">
+              <button
+                class="btn btn-outline-secondary"
+                data-dismiss="modal"
+                (click)="reset()"
+              >
                 Fill another Application
               </button>
-              <button class="btn btn-primary" data-dismiss="modal" (click)="onOkClick()">
+              <button
+                class="btn btn-primary"
+                data-dismiss="modal"
+                (click)="onOkClick()"
+              >
                 Back to Home Page
               </button>
             </div>
@@ -1043,8 +1083,9 @@
               <button class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-              Please make sure to fill out every required field.<br>
-              Try restarting the form if you continue to receive this message OR contact us.
+              Please make sure to fill out every required field.<br />
+              Try restarting the form if you continue to receive this message OR
+              contact us.
             </div>
             <div class="modal-footer">
               <button class="btn btn-danger" data-dismiss="modal">
@@ -1055,11 +1096,10 @@
         </div>
       </div>
     </div>
-    
   </form>
 </div>
 
-<div>
+<div data-aos="fade-in-out" data-aos-easing="ease-in-quad">
   <a (click)="onScroll()" id="button-top"
     ><i class="fa fa-angle-double-up"></i
   ></a>

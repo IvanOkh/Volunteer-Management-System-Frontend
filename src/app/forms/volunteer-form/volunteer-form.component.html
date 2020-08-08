@@ -1,10 +1,10 @@
-<div class="jumbotron">
+<div class="jumbotron" data-aos="fade-in-out" data-aos-easing="ease-in-quad">
   <div class="container">
     <h1 class="display-4 text-center">Volunteer Form</h1>
   </div>
 </div>
 
-<div class="container">
+<div class="container" data-aos="fade-in-out" data-aos-easing="ease-in-quad">
   <button class="btn btn-primary mb-5" type="button" (click)="onOkClick()">
     <i class="fa fa-reply" aria-hidden="true"></i> Back to Login
   </button>
@@ -36,7 +36,9 @@
             #firstname="ngModel"
             pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
-          <span class="help-block text-danger" *ngIf="!firstname.valid && firstname.touched"
+          <span
+            class="help-block text-danger"
+            *ngIf="!firstname.valid && firstname.touched"
             >Please enter a first name.(Maximum characters: 25)</span
           >
         </div>
@@ -53,7 +55,9 @@
             #lastname="ngModel"
             pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
-          <span class="help-block text-danger" *ngIf="!lastname.valid && lastname.touched"
+          <span
+            class="help-block text-danger"
+            *ngIf="!lastname.valid && lastname.touched"
             >Please enter a last name.(Maximum characters: 25)</span
           >
         </div>
@@ -71,7 +75,9 @@
         #street="ngModel"
         pattern="^.{1,50}$"
       />
-      <span class="help-block text-danger" *ngIf="!street.valid && street.touched"
+      <span
+        class="help-block text-danger"
+        *ngIf="!street.valid && street.touched"
         >Please enter a Street address. (Maximum characters: 50)</span
       >
       <br />
@@ -86,9 +92,11 @@
             ngModel
             name="city"
             required
-            #city="ngModel"            
+            #city="ngModel"
           />
-          <span class="help-block text-danger" *ngIf="!city.valid && city.touched"
+          <span
+            class="help-block text-danger"
+            *ngIf="!city.valid && city.touched"
             >Please enter a City.</span
           >
         </div>
@@ -164,11 +172,11 @@
             #postalcode="ngModel"
             ngModel
             pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]"
-           
           />
           <span
             class="help-block text-danger"
-            *ngIf="!postalcode.valid && postalcode.touched">
+            *ngIf="!postalcode.valid && postalcode.touched"
+          >
             Please enter a valid province (A1A 1A1).</span
           >
         </div>
@@ -190,7 +198,10 @@
             ngModel
             pattern="\d{3}[\-]\d{3}[\-]\d{4}"
           />
-          <span class="help-block text-danger" *ngIf="!hphone.valid && hphone.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!hphone.valid && hphone.touched"
+          >
             Please enter a valid phone number. Make sure to add dashes! (-)
           </span>
         </div>
@@ -208,7 +219,10 @@
             ngModel
             pattern="\d{3}[\-]\d{3}[\-]\d{4}"
           />
-          <span class="help-block text-danger" *ngIf="!cphone.valid && cphone.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!cphone.valid && cphone.touched"
+          >
             Please enter a valid phone number. Make sure to add dashes! (-)
           </span>
         </div>
@@ -227,7 +241,10 @@
         type="email"
         pattern="^.{1,50}$"
       />
-      <span class="help-block text-danger" *ngIf="!email.valid && email.touched">
+      <span
+        class="help-block text-danger"
+        *ngIf="!email.valid && email.touched"
+      >
         Please enter a email address. (Maximum characters: 50)
       </span>
     </div>
@@ -236,13 +253,13 @@
     <div>
       <h3>Demographic Information</h3>
       <label for="over18">Are you over the age of 18?</label>
-        <input
-          type="checkbox"
-          class="custom-check-input ml-2 mr-1"
-          id="over18"
-          name="over18"
-          ngModel
-        />
+      <input
+        type="checkbox"
+        class="custom-check-input ml-2 mr-1"
+        id="over18"
+        name="over18"
+        ngModel
+      />
       <br />
       <label for="gender">Gender</label>
       <select
@@ -269,11 +286,14 @@
           Prefer not to say
         </option>
       </select>
-      <span class="help-block text-danger" *ngIf="gender.value === 'choose' && gender.touched">
+      <span
+        class="help-block text-danger"
+        *ngIf="gender.value === 'choose' && gender.touched"
+      >
         Please choose an option.
       </span>
 
-      <br>
+      <br />
 
       <label for="shirtSize">T-Shirt size: </label>
       <select
@@ -284,9 +304,9 @@
         required
         #shirtsize="ngModel"
       >
-      <option value="choose">
-        Choose
-      </option>
+        <option value="choose">
+          Choose
+        </option>
         <option>
           XXL
         </option>
@@ -303,13 +323,17 @@
           S
         </option>
       </select>
-      <span class="help-block text-danger" *ngIf="shirtsize.value === 'choose' && shirtsize.touched">
+      <span
+        class="help-block text-danger"
+        *ngIf="shirtsize.value === 'choose' && shirtsize.touched"
+      >
         Please choose an option.
       </span>
-      <br>
+      <br />
 
       <label for="paragraph"
-        >Please tell us in a paragraph (or two!) about yourself. (Maximum characters: 200)
+        >Please tell us in a paragraph (or two!) about yourself. (Maximum
+        characters: 200)
       </label>
       <textarea
         id="paragraph"
@@ -320,7 +344,10 @@
         required
         #paragraph="ngModel"
       ></textarea>
-      <span class="help-block text-danger" *ngIf="!paragraph.valid && paragraph.touched">
+      <span
+        class="help-block text-danger"
+        *ngIf="!paragraph.valid && paragraph.touched"
+      >
         Please write a short description of yourself. (Maximum characters: 200)
       </span>
     </div>
@@ -343,10 +370,13 @@
             #ec1Fname="ngModel"
             pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
-          <span class="help-block text-danger" *ngIf="!ec1Fname.valid && ec1Fname.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!ec1Fname.valid && ec1Fname.touched"
+          >
             Please enter a name. (Maximum characters: 25)
           </span>
-          <br>
+          <br />
           <label for="ec1Lname">Last name:</label>
           <input
             type="text"
@@ -358,10 +388,13 @@
             #ec1Lname="ngModel"
             pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
-          <span class="help-block text-danger" *ngIf="!ec1Lname.valid && ec1Lname.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!ec1Lname.valid && ec1Lname.touched"
+          >
             Please enter a name. (Maximum characters:25)
           </span>
-          <br>
+          <br />
 
           <label for="ec1Hphone">Home Phone:</label>
           <input
@@ -374,10 +407,13 @@
             #ec1Hphone="ngModel"
             pattern="\d{3}[\-]\d{3}[\-]\d{4}"
           />
-          <span class="help-block text-danger" *ngIf="!ec1Hphone.valid && ec1Hphone.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!ec1Hphone.valid && ec1Hphone.touched"
+          >
             Please enter a valid phone number. Make sure to add dashes! (-)
           </span>
-          <br>
+          <br />
           <label for="ec1Cphone">Cell Phone:</label>
           <input
             type="text"
@@ -391,10 +427,13 @@
             ngModel
             pattern="\d{3}[\-]\d{3}[\-]\d{4}"
           />
-          <span class="help-block text-danger" *ngIf="!ec1Cphone.valid && ec1Cphone.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!ec1Cphone.valid && ec1Cphone.touched"
+          >
             Please enter a valid phone number. Make sure to add dashes! (-)
           </span>
-          <br>
+          <br />
           <label for="ec1Email">Email address:</label>
           <input
             type="email"
@@ -408,10 +447,13 @@
             placeholder="abc@email.com"
             pattern="^.{1,50}$"
           />
-          <span class="help-block text-danger" *ngIf="!ec1Email.valid && ec1Email.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!ec1Email.valid && ec1Email.touched"
+          >
             Please enter a valid email. (Maximum characters: 50)
           </span>
-          <br>
+          <br />
 
           <label for="ec1Relationship">Relationship:</label>
           <select
@@ -456,7 +498,12 @@
               Supervisor
             </option>
           </select>
-          <span class="help-block text-danger" *ngIf="ec1Relationship.value === 'choose' && ec1Relationship.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="
+              ec1Relationship.value === 'choose' && ec1Relationship.touched
+            "
+          >
             Please choose an option.
           </span>
         </div>
@@ -473,10 +520,13 @@
             #ec2Fname="ngModel"
             pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
-          <span class="help-block text-danger" *ngIf="!ec2Fname.valid && ec2Fname.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!ec2Fname.valid && ec2Fname.touched"
+          >
             Please enter a name. (Maximum characters: 25)
           </span>
-          <br>
+          <br />
 
           <label for="ec2Lname">Last name:</label>
           <input
@@ -489,10 +539,13 @@
             #ec2Lname="ngModel"
             pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
-          <span class="help-block text-danger" *ngIf="!ec2Lname.valid && ec2Lname.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!ec2Lname.valid && ec2Lname.touched"
+          >
             Please enter a name. (Maximum characters: 25)
           </span>
-          <br>
+          <br />
 
           <label for="ec2Hphone">Home Phone:</label>
           <input
@@ -507,10 +560,13 @@
             ngModel
             pattern="\d{3}[\-]\d{3}[\-]\d{4}"
           />
-          <span class="help-block text-danger" *ngIf="!ec2Hphone.valid && ec2Hphone.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!ec2Hphone.valid && ec2Hphone.touched"
+          >
             Please enter a valid phone number. Make sure to add dashes! (-)
           </span>
-          <br>
+          <br />
 
           <label for="ec2Cphone">Cell Phone:</label>
           <input
@@ -525,10 +581,13 @@
             ngModel
             pattern="\d{3}[\-]\d{3}[\-]\d{4}"
           />
-          <span class="help-block text-danger" *ngIf="!ec2Cphone.valid && ec2Cphone.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!ec2Cphone.valid && ec2Cphone.touched"
+          >
             Please enter a valid phone number. Make sure to add dashes! (-)
           </span>
-          <br>
+          <br />
 
           <label for="ec2Email">Email address:</label>
           <input
@@ -543,10 +602,13 @@
             placeholder="abc@email.com"
             pattern="^.{1,50}$"
           />
-          <span class="help-block text-danger" *ngIf="!ec2Email.valid && ec2Email.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!ec2Email.valid && ec2Email.touched"
+          >
             Please enter a valid email. (Maximum characters: 50)
           </span>
-          <br>
+          <br />
 
           <label for="ec2Relationship">Relationship:</label>
           <select
@@ -591,7 +653,12 @@
               Supervisor
             </option>
           </select>
-          <span class="help-block text-danger" *ngIf="ec2Relationship.value === 'choose' && ec2Relationship.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="
+              ec2Relationship.value === 'choose' && ec2Relationship.touched
+            "
+          >
             Please choose an option.
           </span>
         </div>
@@ -616,10 +683,13 @@
             #r1Fname="ngModel"
             pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
-          <span class="help-block text-danger" *ngIf="!r1Fname.valid && r1Fname.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!r1Fname.valid && r1Fname.touched"
+          >
             Please enter a name. (Maximum characters: 25)
           </span>
-          <br>
+          <br />
 
           <label for="r1Lname">Last name:</label>
           <input
@@ -632,10 +702,13 @@
             #r1Lname="ngModel"
             pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
-          <span class="help-block text-danger" *ngIf="!r1Lname.valid && r1Lname.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!r1Lname.valid && r1Lname.touched"
+          >
             Please enter a name. (Maximum characters: 25)
           </span>
-          <br>
+          <br />
 
           <label for="r1Cphone">Cell Phone:</label>
           <input
@@ -650,10 +723,13 @@
             ngModel
             pattern="\d{3}[\-]\d{3}[\-]\d{4}"
           />
-          <span class="help-block text-danger" *ngIf="!r1Cphone.valid && r1Cphone.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!r1Cphone.valid && r1Cphone.touched"
+          >
             Please enter a valid phone number. Make sure to add dashes! (-)
           </span>
-          <br>
+          <br />
 
           <label for="r1Email">Email address:</label>
           <input
@@ -668,7 +744,10 @@
             placeholder="abc@email.com"
             pattern="^.{1,50}$"
           />
-          <span class="help-block text-danger" *ngIf="!r1Email.valid && r1Email.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!r1Email.valid && r1Email.touched"
+          >
             Please enter a valid email. (Maximum characters: 50)
           </span>
         </div>
@@ -685,10 +764,13 @@
             #r2Fname="ngModel"
             pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
-          <span class="help-block text-danger" *ngIf="!r2Fname.valid && r2Fname.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!r2Fname.valid && r2Fname.touched"
+          >
             Please enter a name. (Maximum characters: 25)
           </span>
-          <br>
+          <br />
 
           <label for="r2Lname">Last name:</label>
           <input
@@ -701,10 +783,13 @@
             #r2Lname="ngModel"
             pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,25}$"
           />
-          <span class="help-block text-danger" *ngIf="!r2Lname.valid && r2Lname.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!r2Lname.valid && r2Lname.touched"
+          >
             Please enter a name. (Maximum characters: 25)
           </span>
-          <br>
+          <br />
 
           <label for="r2Cphone">Cell Phone:</label>
           <input
@@ -719,10 +804,13 @@
             ngModel
             pattern="\d{3}[\-]\d{3}[\-]\d{4}"
           />
-          <span class="help-block text-danger" *ngIf="!r2Cphone.valid && r2Cphone.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!r2Cphone.valid && r2Cphone.touched"
+          >
             Please enter a valid phone number. Make sure to add dashes! (-)
           </span>
-          <br>
+          <br />
 
           <label for="r2Email">Email address:</label>
           <input
@@ -737,7 +825,10 @@
             placeholder="abc@email.com"
             pattern="^.{1,50}$"
           />
-          <span class="help-block text-danger" *ngIf="!r2Email.valid && r2Email.touched">
+          <span
+            class="help-block text-danger"
+            *ngIf="!r2Email.valid && r2Email.touched"
+          >
             Please enter a valid email. (Maximum characters: 50)
           </span>
         </div>
@@ -763,44 +854,42 @@
         value="weekLetters"
         #weekLetter="ngModel"
         ngModel
-        (click)="nlToggle();"
+        (click)="nlToggle()"
       />
       <br />
 
       <ng-container *ngIf="nlVisible">
-      <hr />
-      
+        <hr />
 
-      <label>If yes, What kinds of email would you like to receive?</label>
-      <br />
-      <input
-        type="checkbox"
-        class="custom-check-input ml-2 mr-1"
-        id="eNewsletters"
-        name="eNewsLetters"
-        value="Electric Newsletters"
-        ngModel
-      />Electric newletters
-      <br />
-      <input
-        type="checkbox"
-        class="custom-check-input ml-2 mr-1"
-        id="recAppeals"
-        name="recAppeals"
-        value="Recruitment Appeals"
-        ngModel
-      />Recruitment appeals
-      <br />
-      <input
-        type="checkbox"
-        class="custom-check-input ml-2 mr-1"
-        id="schedReminders"
-        name="schedReminders"
-        value="Schedule Reminders"
-        ngModel
-      />Schedule reminders
-
-    </ng-container>
+        <label>If yes, What kinds of email would you like to receive?</label>
+        <br />
+        <input
+          type="checkbox"
+          class="custom-check-input ml-2 mr-1"
+          id="eNewsletters"
+          name="eNewsLetters"
+          value="Electric Newsletters"
+          ngModel
+        />Electric newletters
+        <br />
+        <input
+          type="checkbox"
+          class="custom-check-input ml-2 mr-1"
+          id="recAppeals"
+          name="recAppeals"
+          value="Recruitment Appeals"
+          ngModel
+        />Recruitment appeals
+        <br />
+        <input
+          type="checkbox"
+          class="custom-check-input ml-2 mr-1"
+          id="schedReminders"
+          name="schedReminders"
+          value="Schedule Reminders"
+          ngModel
+        />Schedule reminders
+      </ng-container>
     </div>
 
     <br />
@@ -878,9 +967,10 @@
               <button class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-              Please make sure to fill out every required field.<br>
-              Make sure your self description is under 200 characters.<br>
-              Try restarting the form if you continue to receive this message OR contact us.
+              Please make sure to fill out every required field.<br />
+              Make sure your self description is under 200 characters.<br />
+              Try restarting the form if you continue to receive this message OR
+              contact us.
             </div>
             <div class="modal-footer">
               <button class="btn btn-danger" data-dismiss="modal">
@@ -894,7 +984,7 @@
   </form>
 </div>
 
-<div id="btn">
+<div id="btn" data-aos="fade-in-out" data-aos-easing="ease-in-quad">
   <a (click)="onScroll()" id="button-top"
     ><i class="fa fa-angle-double-up"></i
   ></a>
