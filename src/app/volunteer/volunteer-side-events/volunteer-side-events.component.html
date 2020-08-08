@@ -1,233 +1,239 @@
-<ng-container *ngIf="this.isLoading && this.isLoading2">
-  <div class="row justify-content-center">
-    <div class="spinner-border text-danger" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
-</ng-container>
-<!-- SPINNER -->
-<ng-container
-  *ngIf="this.activeEvents.length <= 0 && !this.isLoading && !this.isLoading2"
->
-  <div class="row justify-content-center">
-    <p>
-      No events to display! Try to refresh the page or check back again later.
-    </p>
-  </div>
-</ng-container>
 <div class="container">
-  <div class="row">
-    <!-- This div Loops through array of events and loads each into a separate card -->
-    <div
-      class="container event-card"
-      *ngFor="let event of activeEvents; let i = index"
+  <div class="row" data-aos="fade-in-out">
+    <ng-container *ngIf="this.isLoading">
+      <div class="row justify-content-center my-5" data-aos="fade-in-out">
+        <div class="spinner-border text-danger" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </ng-container>
+    <!-- SPINNER -->
+    <!-- <ng-container
+      *ngIf="
+        this.activeEvents.length <= 0 && (!this.isLoading || !this.isLoading2)
+      "
     >
-      <div class="card">
-        <div class="card-body">
-          <!-- Media brings a nice card look. Sets the image on the left side with the text on the right -->
-          <div class="media">
-            <img
-              class="mr-3 align-self-center"
-              src="https://source.unsplash.com/collection/201009/90x90?sig={{
-                event.id
-              }}"
-            />
-            <div class="media-body">
-              <div class="row">
-                <div class="col-sm-10">
-                  <!-- Event title -->
-                  <h5>{{ event.name }}</h5>
+      <div class="row justify-content-center">
+        <p>
+          No events to display! Try to refresh the page or check back again
+          later.
+        </p>
+      </div>
+    </ng-container> -->
 
-                  <!-- Event date -->
-                  <ul class="list-inline">
-                    <li class="list-inline-item">
-                      <p class="font-weight-bold">Date:</p>
-                    </li>
-                    <li class="list-inline-item">
-                      <p>{{ event.date }}</p>
-                    </li>
-                  </ul>
+    <!-- This div Loops through array of events and loads each into a separate card -->
+    <ng-container *ngIf="!this.isLoading && !this.isLoading2">
+      <div
+        class="container event-card"
+        *ngFor="let event of activeEvents; let i = index"
+      >
+        <div class="card">
+          <div class="card-body">
+            <!-- Media brings a nice card look. Sets the image on the left side with the text on the right -->
+            <div class="media">
+              <img
+                class="mr-3 align-self-center"
+                src="https://source.unsplash.com/collection/201009/90x90?sig={{
+                  event.id
+                }}"
+              />
+              <div class="media-body">
+                <div class="row">
+                  <div class="col-sm-10">
+                    <!-- Event title -->
+                    <h5>{{ event.name }}</h5>
 
-                  <!-- Event status -->
-                  <ul class="list-inline">
-                    <li class="list-inline-item">
-                      <p class="font-weight-bold">Status:</p>
-                    </li>
-                    <li class="list-inline-item text-success">
-                      <p>Open for applications</p>
-                    </li>
-                  </ul>
-                </div>
+                    <!-- Event date -->
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                        <p class="font-weight-bold">Date:</p>
+                      </li>
+                      <li class="list-inline-item">
+                        <p>{{ event.date }}</p>
+                      </li>
+                    </ul>
 
-                <!-- Unregister button -->
-                <div class="col-sm-2" *ngIf="defineStatus(event.id)">
-                  <button
-                    class="btn btn-outline-danger float-right"
-                    data-toggle="modal"
-                    [attr.data-target]="'#r' + event.id"
-                    (click)="unregisterForEvent(event.id)"
-                  >
-                    <i class="fa fa-user-times mr-1" aria-hidden="true"></i
-                    >Unregister
-                  </button>
-                </div>
-                <!-- Register button -->
-                <div class="col-sm-2" *ngIf="!defineStatus(event.id)">
-                  <button
-                    class="btn btn-outline-success float-right"
-                    data-toggle="modal"
-                    [attr.data-target]="'#d' + event.id"
-                    (click)="registerForEvent(event.id)"
-                  >
-                    <i class="fa fa-user-plus mr-1" aria-hidden="true"></i
-                    >Register
-                  </button>
-                </div>
+                    <!-- Event status -->
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                        <p class="font-weight-bold">Status:</p>
+                      </li>
+                      <li class="list-inline-item text-success">
+                        <p>Open for applications</p>
+                      </li>
+                    </ul>
+                  </div>
 
-                <!-- Modal for register button-->
-                <div class="modal" id="d{{ event.id }}">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">
-                          Register for {{ event.name }} event
-                        </h5>
-                        <button class="close" data-dismiss="modal">
-                          &times;
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <p>
-                          Thank you for registering for the
-                          <b>{{ event.name }}</b> event! If you have any
-                          questions or concerns, you can notify us by clicking
-                          on "Contact" below.
-                        </p>
-                      </div>
-                      <div class="modal-footer">
-                        <a
-                          class="btn btn-outline-primary"
-                          href="mailto:events@calgaryanimalrescue.com"
-                          role="button"
-                        >
-                          <i
-                            class="fa fa-envelope-o mr-1"
-                            aria-hidden="true"
-                          ></i
-                          >Contact
-                        </a>
-                        <button
-                          class="btn btn-outline-dark"
-                          data-dismiss="modal"
-                        >
-                          <i class="fa fa-times mr-1" aria-hidden="true"></i
-                          >Close
-                        </button>
+                  <!-- Unregister button -->
+                  <div class="col-sm-2" *ngIf="defineStatus(event.id)">
+                    <button
+                      class="btn btn-outline-danger float-right"
+                      data-toggle="modal"
+                      [attr.data-target]="'#r' + event.id"
+                      (click)="unregisterForEvent(event.id)"
+                    >
+                      <i class="fa fa-user-times mr-1" aria-hidden="true"></i
+                      >Unregister
+                    </button>
+                  </div>
+                  <!-- Register button -->
+                  <div class="col-sm-2" *ngIf="!defineStatus(event.id)">
+                    <button
+                      class="btn btn-outline-success float-right"
+                      data-toggle="modal"
+                      [attr.data-target]="'#d' + event.id"
+                      (click)="registerForEvent(event.id)"
+                    >
+                      <i class="fa fa-user-plus mr-1" aria-hidden="true"></i
+                      >Register
+                    </button>
+                  </div>
+
+                  <!-- Modal for register button-->
+                  <div class="modal" id="d{{ event.id }}">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">
+                            Register for {{ event.name }} event
+                          </h5>
+                          <button class="close" data-dismiss="modal">
+                            &times;
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>
+                            Thank you for registering for the
+                            <b>{{ event.name }}</b> event! If you have any
+                            questions or concerns, you can notify us by clicking
+                            on "Contact" below.
+                          </p>
+                        </div>
+                        <div class="modal-footer">
+                          <a
+                            class="btn btn-outline-primary"
+                            href="mailto:events@calgaryanimalrescue.com"
+                            role="button"
+                          >
+                            <i
+                              class="fa fa-envelope-o mr-1"
+                              aria-hidden="true"
+                            ></i
+                            >Contact
+                          </a>
+                          <button
+                            class="btn btn-outline-dark"
+                            data-dismiss="modal"
+                          >
+                            <i class="fa fa-times mr-1" aria-hidden="true"></i
+                            >Close
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <!-- End of Modal -->
+                  <!-- End of Modal -->
 
-                <!-- Modal for unregister button-->
-                <div class="modal" id="r{{ event.id }}">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">
-                          Cancel registration for {{ event.name }} event
-                        </h5>
-                        <button class="close" data-dismiss="modal">
-                          &times;
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <p>
-                          You have successfully unregistered for
-                          <b>{{ event.name }}</b>
-                          event.
-                        </p>
-                      </div>
-                      <div class="modal-footer">
-                        <button
-                          class="btn btn-outline-dark"
-                          data-dismiss="modal"
-                        >
-                          <i class="fa fa-times mr-1" aria-hidden="true"></i
-                          >Close
-                        </button>
+                  <!-- Modal for unregister button-->
+                  <div class="modal" id="r{{ event.id }}">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">
+                            Cancel registration for {{ event.name }} event
+                          </h5>
+                          <button class="close" data-dismiss="modal">
+                            &times;
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>
+                            You have successfully unregistered for
+                            <b>{{ event.name }}</b>
+                            event.
+                          </p>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            class="btn btn-outline-dark"
+                            data-dismiss="modal"
+                          >
+                            <i class="fa fa-times mr-1" aria-hidden="true"></i
+                            >Close
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <!-- End of Modal -->
                 </div>
-                <!-- End of Modal -->
               </div>
             </div>
           </div>
-        </div>
-        <!-- Expanded section (Data is hidden until the expand button is clicked)-->
-        <div class="collapse" id="collapse-event-{{ i }}">
-          <div class="container">
-            <!-- Coordinator -->
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <p class="font-weight-bold">Coordinator:</p>
-              </li>
-              <li class="list-inline-item">
-                <p>{{ event.coordinator }}</p>
-              </li>
-            </ul>
+          <!-- Expanded section (Data is hidden until the expand button is clicked)-->
+          <div class="collapse" id="collapse-event-{{ i }}">
+            <div class="container">
+              <!-- Coordinator -->
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <p class="font-weight-bold">Coordinator:</p>
+                </li>
+                <li class="list-inline-item">
+                  <p>{{ event.coordinator }}</p>
+                </li>
+              </ul>
 
-            <!-- Start time -->
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <p class="font-weight-bold">Start time:</p>
-              </li>
-              <li class="list-inline-item">
-                <p>{{ event.startTime }}</p>
-              </li>
-            </ul>
+              <!-- Start time -->
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <p class="font-weight-bold">Start time:</p>
+                </li>
+                <li class="list-inline-item">
+                  <p>{{ event.startTime }}</p>
+                </li>
+              </ul>
 
-            <!-- End time -->
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <p class="font-weight-bold">End time:</p>
-              </li>
-              <li class="list-inline-item">
-                <p>{{ event.endTime }}</p>
-              </li>
-            </ul>
+              <!-- End time -->
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <p class="font-weight-bold">End time:</p>
+                </li>
+                <li class="list-inline-item">
+                  <p>{{ event.endTime }}</p>
+                </li>
+              </ul>
 
-            <!-- Address -->
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <p class="font-weight-bold">Address:</p>
-              </li>
-              <li class="list-inline-item">
-                <p>{{ event.address }}</p>
-              </li>
-            </ul>
-            <br />
+              <!-- Address -->
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <p class="font-weight-bold">Address:</p>
+                </li>
+                <li class="list-inline-item">
+                  <p>{{ event.address }}</p>
+                </li>
+              </ul>
+              <br />
 
-            <!-- Description -->
-            <p class="font-weight-bold">Description:</p>
-            <p>
-              {{ event.description }}
-            </p>
+              <!-- Description -->
+              <p class="font-weight-bold">Description:</p>
+              <p>
+                {{ event.description }}
+              </p>
+            </div>
           </div>
-        </div>
 
-        <!-- This button controls collapse of expanded section -->
-        <button
-          class="btn btn-light"
-          data-toggle="collapse"
-          [attr.data-target]="'#collapse-event-' + i"
-          (click)="!!(numberArray[i] = !!!numberArray[i])"
-        >
-          <i class="fa fa-info-circle mr-2" aria-hidden="true"></i>
-          {{ !!numberArray[i] ? "Less Details" : "More Details" }}
-        </button>
+          <!-- This button controls collapse of expanded section -->
+          <button
+            class="btn btn-light"
+            data-toggle="collapse"
+            [attr.data-target]="'#collapse-event-' + i"
+            (click)="!!(numberArray[i] = !!!numberArray[i])"
+          >
+            <i class="fa fa-info-circle mr-2" aria-hidden="true"></i>
+            {{ !!numberArray[i] ? "Less Details" : "More Details" }}
+          </button>
+        </div>
       </div>
-    </div>
+    </ng-container>
   </div>
 </div>
