@@ -1,28 +1,23 @@
 <div class="container">
+  <ng-container *ngIf="activeEvents.length === 0 && !isLoading && !isLoading2">
+    <div class="row justify-content-center my-5" data-aos="fade-in-out">
+      <div class="spinner-border text-danger" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </ng-container>
+  <!-- SPINNER -->
+  <ng-container *ngIf="activeEvents.length === 0 && isLoading && isLoading2">
+    <div class="row justify-content-center my-5" data-aos="fade-in-out">
+      <p>
+        No events to display. Try to refresh the page with 'F5' key or check
+        back again later.
+      </p>
+    </div>
+  </ng-container>
   <div class="row" data-aos="fade-in-out">
-    <ng-container *ngIf="this.isLoading && this.isLoading2">
-      <div class="row justify-content-center my-5" data-aos="fade-in-out">
-        <div class="spinner-border text-danger" role="status">
-          <span class="sr-only">Loading...</span>
-        </div>
-      </div>
-    </ng-container>
-    <!-- SPINNER -->
-    <!-- <ng-container
-      *ngIf="
-        this.activeEvents.length <= 0 && (!this.isLoading || !this.isLoading2)
-      "
-    >
-      <div class="row justify-content-center">
-        <p>
-          No events to display! Try to refresh the page or check back again
-          later.
-        </p>
-      </div>
-    </ng-container> -->
-
     <!-- This div Loops through array of events and loads each into a separate card -->
-    <ng-container *ngIf="!this.isLoading && !this.isLoading2">
+    <ng-container *ngIf="activeEvents.length > 0 && !isLoading && !isLoading2">
       <div
         class="container event-card"
         *ngFor="let event of activeEvents; let i = index"

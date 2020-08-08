@@ -22,10 +22,10 @@ export class VolunteerSideEventsComponent implements OnInit {
   }
 
   private initData() {
-    //start up service
-    this.VES.initializeData();
     this.isLoading = true;
     this.isLoading2 = true;
+    //start up service
+    this.VES.initializeData();
     //subscribe to two observables to keep updated events and event-registration arrays
     this.VES.eventStaffData.subscribe((data) => {
       if (data != null) {
