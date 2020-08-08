@@ -1,6 +1,6 @@
-<div class="tableContainer" data-aos="fade-in-out">
+<div class="tableContainer" data-aos="fade-in-out" style="min-height: 1080px;">
   <ng-container *ngIf="this.isLoading">
-    <div class="row justify-content-center my-5">
+    <div class="row justify-content-center my-5" style="height: 1080px;">
       <div class="spinner-border text-danger" role="status">
         <span class="sr-only">Loading...</span>
       </div>
@@ -17,7 +17,7 @@
   </ng-container>
 
   <!-- <ng-container *ngIf="!this.isLoading && this.volunteers.length > 0"> -->
-  <div class="container">
+  <div class="container mb-5">
     <ng-container *ngIf="!this.isLoading && this.volunteers.length > 0">
       <!-- START SEARCHING BAR  -->
       <ng-container *ngIf="!this.isLoading && this.volunteers.length > 0">
@@ -123,7 +123,7 @@
           (click)="viewVolunteer(row.id)"
           data-toggle="modal"
           data-target="#viewVolunteerModal"
-          style="pointer: cursor;"
+          style="cursor: pointer;"
         ></tr>
       </table>
       <mat-paginator
