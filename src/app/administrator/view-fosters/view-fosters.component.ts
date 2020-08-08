@@ -43,11 +43,10 @@ export class ViewFostersComponent implements OnInit {
   displayedColumns: string[] = [
     "fosterName",
     "email",
-    "hours",
+    // "hours",
     "over18",
     "active",
   ];
-
 
   constructor(public dialog: MatDialog, private test: FostersService) {}
 
@@ -57,7 +56,7 @@ export class ViewFostersComponent implements OnInit {
   // }
 
   //Mat table version
-  ngOnInit(){
+  ngOnInit() {
     this.isLoading = true;
     this.test.loadFosters().subscribe((fosters) => {
       this.fosters = fosters;
@@ -65,7 +64,8 @@ export class ViewFostersComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.isLoading = false;
-    })
+    });
+    document.body.scrollTop = 0;
   }
 
   // method to apply filter for data in table
@@ -97,7 +97,6 @@ export class ViewFostersComponent implements OnInit {
     else this.fetched.active = true;
 
     this.updateFoster(this.fetched);
-
   }
 
   /**
@@ -110,7 +109,6 @@ export class ViewFostersComponent implements OnInit {
     }
 
     this.deleteFoster(fosterID);
-    
   }
 
   editFoster(form: NgForm, id: number) {
