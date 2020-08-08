@@ -1,13 +1,17 @@
-<div class="tableContainer" data-aos="fade-in-out">
+<div
+  class="tableContainer mb-5"
+  data-aos="fade-in-out"
+  style="min-height: 1080px;"
+>
   <ng-container *ngIf="this.isLoading">
-    <div class="row justify-content-center my-5">
+    <div class="row justify-content-center my-5" style="height: 1080px;">
       <div class="spinner-border text-danger" role="status">
         <span class="sr-only">Loading...</span>
       </div>
     </div>
   </ng-container>
   <ng-container *ngIf="!this.isLoading && this.fosters.length == 0">
-    <div class="row justify-content-center noItems">
+    <div class="row justify-content-center noItems" style="height: 1080px;">
       <p>
         We don't have anything to display at this time. Please stand by or check
         again later
@@ -63,14 +67,14 @@
           <td mat-cell *matCellDef="let element">{{ element.email }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="hours">
+        <!-- <ng-container matColumnDef="hours">
           <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
             Hours
           </th>
           <td mat-cell *matCellDef="let element" style="padding-left: 10px;">
             {{ element.hours | number }}
           </td>
-        </ng-container>
+        </ng-container> -->
 
         <ng-container matColumnDef="over18">
           <th mat-header-cell *matHeaderCellDef class="th" mat-sort-header>
@@ -116,7 +120,7 @@
           (click)="viewFoster(row.id)"
           data-toggle="modal"
           data-target="#viewFosterModal"
-          style="pointer: cursor;"
+          style="cursor: pointer;"
         ></tr>
       </table>
       <mat-paginator
@@ -129,7 +133,7 @@
   </div>
 
   <ng-container *ngIf="!this.isLoading && this.fosters.length === 0">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="height: 1080px;">
       <h3>No foster volunteers to display!</h3>
     </div>
   </ng-container>
@@ -144,7 +148,7 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <ng-container *ngIf="this.fetchLoading">
-          <div class="row justify-content-center">
+          <div class="row justify-content-center" style="height: 1080px;">
             <div class="spinner-border text-danger" role="status">
               <span class="sr-only">Loading...</span>
             </div>
