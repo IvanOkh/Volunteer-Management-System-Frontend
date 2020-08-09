@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" data-aos="fade-in-out">
   <div class="loginSection">
     <div class="row">
       <div class="col-12">
@@ -70,6 +70,7 @@
           <div
             *ngIf="errorMessage == true && !email.dirty && !email.touched"
             class="rounded-pill border-danger text-center alert alert-secondary bg-white"
+            data-aos="fade-in-out"
           >
             <strong style="width: 100%; color: #ce0e2d;"
               >Invalid email and/or password</strong
@@ -79,6 +80,7 @@
           <div
             *ngIf="!email.valid && email.touched && email.dirty"
             class="rounded-pill border-danger text-center alert alert-secondary bg-white"
+            data-aos="fade-in-out"
           >
             <strong
               *ngIf="!email.valid && email.touched && email.dirty"
