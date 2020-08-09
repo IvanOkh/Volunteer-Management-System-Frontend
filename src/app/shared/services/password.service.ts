@@ -12,14 +12,14 @@ export class passwordService {
   private CTRL_MAPPING = "reset";
   private UUID_MAPPING = "password";
 
-  holder: NewPassword = null;
+  private holder: NewPassword = null;
 
   constructor(private http: HttpClient) {}
 
   //sequre request with uuid
   public sendNewPassword(uuid: string, password: string): Observable<string> {
     this.holder = new NewPassword(uuid, password);
-    console.log(this.holder);
+    // console.log(this.holder);
     return this.sendPostUUID(this.holder).pipe(
       map((responseData) => {
         return responseData;
