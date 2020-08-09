@@ -1,0 +1,77 @@
+.lg-red-btn{
+    border: 3px solid #CE0E2D;
+    border-radius: 0.1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    background-color: #CE0E2D;
+    font-size: 1.3rem;
+    color: white;
+}
+
+.lg-red-outline-btn{
+    border: 3px solid #CE0E2D;
+    border-radius: 0.1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    background-color: white;
+    font-size: 1.3rem;
+    color: #CE0E2D;
+}
+
+.sm-red-btn{
+    border: 3px solid #CE0E2D;
+    border-radius: 0.1rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    background-color: #CE0E2D;
+    font-size: 1rem;
+    color: white;
+}
+
+.sm-red-outline-btn{
+    border: 3px solid #CE0E2D;
+    border-radius: 0.1rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    background-color: white;
+    font-size: 1rem;
+    color: #CE0E2D;
+}
+
+
+
+.sm-white-outline-btn{
+    border: 3px solid white;
+    border-radius: 0.1rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    background-color: #CE0E2D;
+    font-size: 1rem;
+    color: white;
+}
+
+.text-black{
+    color: #353740;
+}
+
+.text-white{
+    color: white;
+}
+
+.text-red{
+    color: #CE0E2D;
+}
+
+h1, h2, h3, h4{
+    color:#353740;
+}
