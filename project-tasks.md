@@ -40,6 +40,12 @@
 
 ## Components Assignment
 
+NOTE: For decorating and styling, please please please reuse classes already made in both the component's stylesheet and 'website-style.css'.
+We want to try to make this thing as extensible, clean and organized as we can.
+
+Remember: K.I.S.S. (Keep It Simple Stupid)
+
+
 List of components for CARS site
 
 Reusables

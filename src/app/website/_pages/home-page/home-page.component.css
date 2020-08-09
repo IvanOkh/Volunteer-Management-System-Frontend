@@ -1,5 +1,17 @@
-.main-img{
-    height: 600px;
-    background-image: "../../../../assets/images/1\ cover\ Copy\ of\ Dakota1WM-min.jpg";
+p{
+    font-size: 20px;
+    color: white;
+}
+
+.landing-section{
+    height: 70vh;
+    background-image:  linear-gradient(121deg, rgba(255,255,255,0) 45%, rgba(0,0,0,0.3225665266106442) 74%, rgba(0,0,0,1) 100%), url("../../../../assets/images/1.jpg");
     background-size: cover;
 }
+
+.landing-container{
+    margin-right: 10rem;
+    margin-top: 15vh;
+    padding-left: 10vw;
+}
+
