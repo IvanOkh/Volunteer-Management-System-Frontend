@@ -57,7 +57,7 @@ Reusables
 
 Special Components
 - Animal list (and tabs)
-- Photo gallery/Title section
+- Photo gallery/Title section [ Albert ]
 - Contact us page [ Albert ]
 
 Pages
