@@ -1,18 +1,16 @@
 # Project Tasks
 
-## Update: Friday, August 7, 2020
+## Update: Saturday, August 8, 2020
 
 ### APP-WIDE:
 
 • Convert CARS pictures into light size images to be used throughout the app instead of unsplash pictures [Going to ask CARS next meeting] - Albert
 
-• Implement dynamic and smooth transitionon admin and user side. [In-progress (user side is done)] - Ivan
+• Implement dynamic and smooth transition in forms, admin and user side. [Done] - Ivan
 
 • Debug, debug, and debug. [In-progress] - Everyone
 
 ### FORMS:
-
-• Implement regex patterns Cat form (see other forms or login/recovery).
 
 • Animal Foster type not registering. [In-progress] - Albert
 
@@ -28,9 +26,6 @@
 
 • Apply responsive. [In-progress] - Luat
 
-### LIST OF NECESSARY WEBSITE COMPONENTS:
-
-• Feel free to fill this in
 
 ### TASKS FOR THE NEW WEBSITE:
 
@@ -45,6 +40,12 @@
 
 ## Components Assignment
 
+NOTE: For decorating and styling, please please please reuse classes already made in both the component's stylesheet and 'website-style.css'.
+We want to try to make this thing as extensible, clean and organized as we can.
+
+Remember: K.I.S.S. (Keep It Simple Stupid)
+
+
 List of components for CARS site
 
 Reusables
@@ -56,7 +57,7 @@ Reusables
 
 Special Components
 - Animal list (and tabs)
-- Photo gallery/Title section
+- Photo gallery/Title section [ Albert ]
 - Contact us page [ Albert ]
 
 Pages

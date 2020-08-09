@@ -12,11 +12,6 @@ width: 100%;
     max-width: 1800px !important;
 }
 
-.nav-item a:hover {
-    color: #dbc2c2;
-    cursor: pointer;
-}
-
 .nav-item {
     font-weight: bold;
 }
@@ -45,6 +40,7 @@ a{
 
 .dropdown-menu{
     margin-top: 0;
+    background-color: white;
 }
 
 .dropdown-toggle{
@@ -55,14 +51,21 @@ a{
     margin-bottom: 0;
 }
 
-.portal-btn{
-    border: 3px solid white;
-    border-radius: 0.1rem;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    background-color: #CE0E2D;
-    font-size: 1rem;
-    color: white;
+
+/* navbar on hover animation */
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
 }
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+

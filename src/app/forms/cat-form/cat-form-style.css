@@ -91,7 +91,11 @@ body {
     display: unset;
   }
 }
-
+@media only screen and (max-width: 374px) {
+  .desiredAgeCustom {
+      margin-left: 0px;
+    }
+}
 .hover:hover {
   background-color: rgba(255, 149, 79, 0.164);
   -webkit-transition: all 0.7s;
