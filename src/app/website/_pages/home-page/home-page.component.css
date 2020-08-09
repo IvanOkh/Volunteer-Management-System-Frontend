@@ -3,15 +3,21 @@ p{
     color: white;
 }
 
-.landing-section{
+.landing-container{
+    margin-right: 5rem;
+    margin-top: 15vh;
+}
+
+#landing-section{
     height: 70vh;
     background-image:  linear-gradient(121deg, rgba(255,255,255,0) 45%, rgba(0,0,0,0.3225665266106442) 74%, rgba(0,0,0,1) 100%), url("../../../../assets/images/1.jpg");
     background-size: cover;
 }
 
-.landing-container{
-    margin-right: 10rem;
-    margin-top: 15vh;
-    padding-left: 10vw;
+#about-section{
+    background-color: white;
 }
+
+
+
 

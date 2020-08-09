@@ -82,6 +82,18 @@ button{
     color: #CE0E2D;
 }
 
-h1, h2, h3, h4{
+h1, h2, h3, h4, p{
     color:#353740;
+}
+
+h2{
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.jumbotron{
+    margin-bottom: 0 !important;
 }
