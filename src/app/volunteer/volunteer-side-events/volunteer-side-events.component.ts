@@ -45,7 +45,7 @@ export class VolunteerSideEventsComponent implements OnInit {
 
   //Method that checks if user is registered for event in a currently displayed event card.
   defineStatus(eventID): boolean {
-    if (this.eventArrayHolder.find((e) => e.eventid == eventID)) {
+    if (this.eventArrayHolder.find((e) => e.eventid === eventID)) {
       // setTimeout(() => {
       //   return true;
       // }, 2000);

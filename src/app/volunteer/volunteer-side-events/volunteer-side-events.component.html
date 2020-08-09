@@ -64,7 +64,12 @@
                   </div>
 
                   <!-- Unregister button -->
-                  <div class="col-sm-2" *ngIf="defineStatus(event.id)">
+                  <div
+                    class="col-sm-2"
+                    *ngIf="
+                      defineStatus(event.id) && eventArrayHolder.length > 0
+                    "
+                  >
                     <button
                       class="btn btn-outline-danger float-right"
                       data-toggle="modal"
@@ -76,7 +81,12 @@
                     </button>
                   </div>
                   <!-- Register button -->
-                  <div class="col-sm-2" *ngIf="!defineStatus(event.id)">
+                  <div
+                    class="col-sm-2"
+                    *ngIf="
+                      !defineStatus(event.id) && eventArrayHolder.length > 0
+                    "
+                  >
                     <button
                       class="btn btn-outline-success float-right"
                       data-toggle="modal"
