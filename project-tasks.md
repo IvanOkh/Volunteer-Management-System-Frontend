@@ -12,6 +12,8 @@
 
 ### FORMS:
 
+• Cat form responsive is still incomplete. Some input is extra small, and the "scroll to top" button disappeared.
+
 • Animal Foster type not registering. [In-progress] - Albert
 
 • Hide empty fields in foster modals and tables if it's attributes are empty or undefined. User shouldn't be able to see label witout data.
