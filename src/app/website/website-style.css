@@ -1,3 +1,12 @@
+/* Colors
+FBFBFF - white
+CE0E2D - red
+0D0106 - black
+7A5C61 - taupe
+657ED4 - blue
+ */
+
+
 button{
     border-radius: 50px;
 }
@@ -96,4 +105,5 @@ h2{
 
 .jumbotron{
     margin-bottom: 0 !important;
+    border-radius: 0px;
 }
