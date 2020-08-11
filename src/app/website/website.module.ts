@@ -24,6 +24,7 @@ import { OurPartnersPageComponent } from "./_pages/our-partners-page/our-partner
 import { HappyTailsPageComponent } from "./_pages/happy-tails-page/happy-tails-page.component";
 import { GoptekPageComponent } from "./_pages/goptek-page/goptek-page.component";
 import { VolunteerModule } from "../volunteer/volunteer.module";
+import { CarouselComponent } from './_reusables/carousel/carousel.component';
 // MODULE DEFINITION
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { VolunteerModule } from "../volunteer/volunteer.module";
     OurPartnersPageComponent,
     HappyTailsPageComponent,
     GoptekPageComponent,
+    CarouselComponent,
   ],
   imports: [
     CommonModule,

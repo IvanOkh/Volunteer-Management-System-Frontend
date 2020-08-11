@@ -4,18 +4,33 @@ p{
 }
 
 .landing-container{
-    margin-right: 5rem;
     margin-top: 15vh;
+    margin-right: 5rem;
+    margin-left: 50vw;
+    z-index: 1;
+    position: absolute;
+}
+
+.landing-wrap{
+    float:right;
 }
 
 #landing-section{
     height: 70vh;
-    background-image:  linear-gradient(121deg, rgba(255,255,255,0) 45%, rgba(0,0,0,0.3225665266106442) 74%, rgba(0,0,0,1) 100%), url("../../../../assets/images/1.jpg");
+    /* background-image:  linear-gradient(121deg, rgba(255,255,255,0) 45%, rgba(0,0,0,0.3225665266106442) 74%, rgba(0,0,0,1) 100%), url("../../../../assets/images/1.jpg"); */
     background-size: cover;
+    position: relative;
+ 
 }
 
 #about-section{
     background-color: white;
+}
+
+#carousel{
+    background-size: cover;
+    width: 100%;
+    z-index: 0;
 }
 
 
