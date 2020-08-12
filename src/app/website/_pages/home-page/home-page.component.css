@@ -32,6 +32,10 @@ p{
     background-image: url("../../../../assets/images/banner.jpg");
 }
 
+#foster-home-section{
+    background-color: white;
+}
+
 #carousel{
     background-size: cover;
     width: 100%;
