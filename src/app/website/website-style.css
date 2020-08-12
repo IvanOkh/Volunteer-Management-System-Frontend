@@ -22,17 +22,6 @@ button{
     color: white;
 }
 
-.lg-pill-red-btn{
-    border: 3px solid #CE0E2D;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    background-color: #CE0E2D;
-    font-size: 1.3rem;
-    color: white;
-}
-
 .lg-red-outline-btn{
     border: 3px solid #CE0E2D;
     padding-top: 1.5rem;
@@ -42,6 +31,17 @@ button{
     background-color: white;
     font-size: 1.3rem;
     color: #CE0E2D;
+}
+
+.lg-white-outline-btn{
+    border: 3px solid white;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    background-color: #CE0E2D;
+    font-size: 1.3rem;
+    color: white;
 }
 
 .sm-red-btn{

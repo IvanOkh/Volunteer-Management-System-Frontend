@@ -27,6 +27,11 @@ p{
     background-color: white;
 }
 
+#volunteer-section{
+    float: center;
+    background-image: url("../../../../assets/images/banner.jpg");
+}
+
 #carousel{
     background-size: cover;
     width: 100%;
