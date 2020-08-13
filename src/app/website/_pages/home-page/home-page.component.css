@@ -37,6 +37,7 @@ p {
   z-index: 0;
 }
 
+/* Laptop screens */
 @media (min-width: 1200px) {
   #primary-title {
     font-size: 70px;
@@ -49,4 +50,18 @@ p {
   #landing-section {
     margin-bottom: 250px;
   }
+}
+
+/* WIDE monitors */
+@media (min-width: 1600px){
+    #primary-title {
+        font-size: 100px;
+      }
+    
+      #secondary-title {
+        font-size: 65px;
+      }
+      #landing-section {
+        margin-bottom: 20px;
+      }
 }
