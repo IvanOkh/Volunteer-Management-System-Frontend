@@ -37,6 +37,8 @@ p {
   z-index: 0;
 }
 
+
+
 /* Laptop screens */
 @media (min-width: 1200px) {
   #primary-title {
