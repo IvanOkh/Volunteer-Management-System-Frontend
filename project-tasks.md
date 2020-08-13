@@ -6,17 +6,15 @@
 
 • Convert CARS pictures into light size images to be used throughout the app instead of unsplash pictures [Going to ask CARS next meeting] - Albert
 
-• Implement dynamic and smooth transition in forms, admin and user side. [Done] - Ivan
-
-• Debug, debug, and debug. [In-progress] - Everyone
-
 ### FORMS:
 
-• Cat form responsive is still incomplete. Some input is extra small, and the "scroll to top" button disappeared.
+• Cat form responsive is still incomplete. Some input is extra small, and the "scroll to top" button disappeared. [In-progress] - Luat
 
-• Animal Foster type not registering. [In-progress] - Albert
+• Animal Foster type not registering. [In-progress] - Ivan
 
-• Hide empty fields in foster modals and tables if it's attributes are empty or undefined. User shouldn't be able to see label witout data.
+• Hide empty fields in foster modals and tables if it's attributes are empty or undefined. User shouldn't be able to see label witout data. [In-progress] - Ivan
+
+• Fix foster form (see 'f.value.fosterTypesRadio as string') [In-progress] - Ivan
 
 ### ADMIN-SIDE:
 
@@ -28,7 +26,6 @@
 
 • Apply responsive. [In-progress] - Luat
 
-
 ### TASKS FOR THE NEW WEBSITE:
 
 • Finish the home page design.
@@ -37,8 +34,7 @@
 
 • Add all necessary component templates to the project.
 
-• Implement "display events" via connection to public REST endpoint. [In-progress] - Awaiting for Raymond to create endpoint
-
+• Implement "display events" via connection to public REST endpoint (Raymond provided the endpoint).
 
 ## Components Assignment
 
@@ -47,10 +43,12 @@ We want to try to make this thing as extensible, clean and organized as we can.
 
 Remember: K.I.S.S. (Keep It Simple Stupid)
 
+Albert you da best!
 
-List of components for CARS site
+## List of components for CARS site
 
 Reusables
+
 - Nav bar [Albert]
 - Footer
 - Event Card [ Albert ]
@@ -58,11 +56,13 @@ Reusables
 - Animal Card
 
 Special Components
+
 - Animal list (and tabs)
 - Photo gallery/Title section [ Albert ]
 - Contact us page [ Albert ]
 
 Pages
+
 - Landing Page/Main Page [Luat for Start, Everyone for modification]
 - Our Animals Page
 - Adoption Page (Features information and links to Cat and Dog Forms)
