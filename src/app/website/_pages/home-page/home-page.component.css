@@ -22,6 +22,12 @@ p {
   position: relative;
 }
 
+#carousel {
+  background-size: cover;
+  width: 100%;
+  z-index: 0;
+}
+
 #about-section {
   background-color: white;
 }
@@ -31,11 +37,10 @@ p {
   background-image: url("../../../../assets/images/banner.jpg");
 }
 
-#carousel {
-  background-size: cover;
-  width: 100%;
-  z-index: 0;
+#foster-home-section{
+  background-color: white;
 }
+
 
 
 
