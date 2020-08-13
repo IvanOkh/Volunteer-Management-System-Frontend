@@ -1,3 +1,9 @@
-.carousel-item{
-    height: 68vh;
+.carousel-item {
+  height: 68vh;
+}
+
+@media (min-width: 1200px) {
+  .carousel-item {
+    height: 100vh;
+  }
 }
