@@ -15,6 +15,10 @@ p {
   float: right;
 }
 
+.card{
+  border-radius: 1.5rem;
+}
+
 #landing-section {
   height: 70vh;
   /* background-image:  linear-gradient(121deg, rgba(255,255,255,0) 45%, rgba(0,0,0,0.3225665266106442) 74%, rgba(0,0,0,1) 100%), url("../../../../assets/images/1.jpg"); */
@@ -42,6 +46,10 @@ p {
 }
 
 
+
+
+
+/* *******VIEWPORTS****** */
 
 
 /* Laptop screens */
