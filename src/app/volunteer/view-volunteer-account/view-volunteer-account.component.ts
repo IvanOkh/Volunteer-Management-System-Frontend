@@ -47,7 +47,7 @@ export class ViewVolunteerAccountComponent implements OnInit {
 
   session: BehaviorSubject<User> = this.a.user;
 
-  async ngOnInit() {
+  ngOnInit() {
     if (this.fetchUser(Number(this.session.value.id)) === true) {
       this.fetchUser(Number(this.session.value.id));
     }
