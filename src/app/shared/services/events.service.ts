@@ -13,6 +13,7 @@ import { EventModel } from "../models/event.model";
 export class EventsService {
   private REST_API_SERVER = "http://68.66.193.100:8080/CARS/";
   private CTRL_MAPPING = "events/";
+  todayDate = new Date().getTime();
 
   constructor(private http: HttpClient) {}
 
@@ -39,6 +40,33 @@ export class EventsService {
       })
     );
   }
+
+  /**
+   * Sends a request to the backend for an array containing all events.
+   * Returns the list of public events in a subscribe-able object.
+   * @returns {Observable<EventModel[]>}
+   */
+  public loadPublicEvents(): Observable<EventModel[]> {
+    return this.sendGetPublicLoadRequest().pipe(
+      map((responseData: EventModel[]) => {
+        const eventArray: EventModel[] = [];
+        responseData.forEach((event: EventModel) => {
+          let eventDate = new Date(event.date).getTime();
+          if (event.id && eventDate > this.todayDate) {
+            eventArray.push(event);
+          }
+        });
+
+        eventArray.sort((a: EventModel, b: EventModel) => {
+          return +new Date(b.date) - +new Date(a.date);
+        });
+
+        return eventArray;
+      })
+    );
+  }
+
+  // http://68.66.193.100:8080/CARS/events-readonly GET
 
   /**
    * Sends a request to get a single Event matching the input id.
@@ -105,6 +133,17 @@ export class EventsService {
       this.REST_API_SERVER + this.CTRL_MAPPING
     );
   }
+
+  /**
+   * Http get load info from server.
+   */
+  private sendGetPublicLoadRequest() {
+    return this.http.get<EventModel[]>(
+      "http://68.66.193.100:8080/CARS/events-readonly"
+    );
+  }
+
+  // http://68.66.193.100:8080/CARS/events-readonly GET
 
   /**
    * Http get one event from server.
