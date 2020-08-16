@@ -18,6 +18,7 @@ export class VolunteerEventsService {
   eventStaffData = this.EventStaffSource.asObservable();
   //this subject holds array of Events
   backEndEvents = new BehaviorSubject<EventModel[]>(null);
+  backEndEvents$ = this.backEndEvents.asObservable();
   //dynamically updated current user id
   private userid: number;
   allEvents: EventModel[] = [];
