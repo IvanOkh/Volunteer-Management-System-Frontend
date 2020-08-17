@@ -2,3 +2,22 @@
   <h1><b>upcoming-events-page works!</b></h1>
   <hr />
 </div>
+
+<div class="mb-5" *ngIf="webSiteEvents$ | async as events; else loading">
+  <h1>Upcoming public events:</h1>
+  <div class="m-1" *ngFor="let event of events; let i = index">
+    {{ event.name + " on " + event.date + " - " + event.description }}
+    <!-- public id: number,
+    public name: string,
+    public address: string,
+    public description: string,
+    public coordinator: string,
+    public date: string,
+    public startTime: string,
+    public endTime: string -->
+  </div>
+</div>
+
+<ng-template #loading>
+  <div>Loading..</div>
+</ng-template>

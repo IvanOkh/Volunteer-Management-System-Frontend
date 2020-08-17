@@ -1,5 +1,15 @@
 <div class="container mb-5" style="min-height: 1080px;">
-  <ng-container *ngIf="activeEvents.length === 0 && !isLoading && !isLoading2">
+  <!-- SPINNER -->
+  <ng-container *ngIf="!this.activeEvents$">
+    <div class="row justify-content-center my-5" data-aos="fade-in-out">
+      <p>
+        No events to display. Try to refresh the page with 'F5' key or check
+        back again later.
+      </p>
+    </div>
+  </ng-container>
+
+  <ng-template #spin>
     <div
       class="row justify-content-center my-5"
       data-aos="fade-in-out"
@@ -9,22 +19,14 @@
         <span class="sr-only">Loading...</span>
       </div>
     </div>
-  </ng-container>
-  <!-- SPINNER -->
-  <ng-container *ngIf="activeEvents.length === 0 && isLoading && isLoading2">
-    <div class="row justify-content-center my-5" data-aos="fade-in-out">
-      <p>
-        No events to display. Try to refresh the page with 'F5' key or check
-        back again later.
-      </p>
-    </div>
-  </ng-container>
+  </ng-template>
+
   <div class="row" data-aos="fade-in-out">
     <!-- This div Loops through array of events and loads each into a separate card -->
-    <ng-container *ngIf="activeEvents.length > 0 && !isLoading && !isLoading2">
+    <ng-container *ngIf="activeEvents$ | async as act; else spin">
       <div
         class="container event-card"
-        *ngFor="let event of activeEvents; let i = index"
+        *ngFor="let event of act; let i = index"
       >
         <div class="card">
           <div class="card-body">

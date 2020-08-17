@@ -36,10 +36,10 @@ export class FosterFormComponent {
   ifCatChoices = ["Indoor", "Outdoor", "Combination", "No Cats"];
   fosterTypesRadio = [
     "Puppy",
-    "Adult Dog",
+    "AdultDog",
     "Kitten",
-    "Adult Cat",
-    "Medical Care",
+    "AdultCat",
+    "MedicalCare",
     "Quarantine",
   ];
 
@@ -59,6 +59,7 @@ export class FosterFormComponent {
   //If form has submitted
   validForm: boolean = false;
   addingSuccess: boolean = false;
+  fosterTypesProperObject: string = "";
 
   stringifyFamilyList(familyList: FamilyMember[]) {
     // console.log(familyList);
@@ -92,6 +93,34 @@ export class FosterFormComponent {
     }
     let formatForm: FosterApplication;
 
+    if (f.value.Puppy === true) {
+      this.fosterTypesProperObject = this.fosterTypesProperObject + "true,";
+    } else {
+      this.fosterTypesProperObject = this.fosterTypesProperObject + "false,";
+    }
+
+    if (f.value.AdultDog === true) {
+      this.fosterTypesProperObject = this.fosterTypesProperObject + "true,";
+    } else {
+      this.fosterTypesProperObject = this.fosterTypesProperObject + "false,";
+    }
+
+    if (f.value.Kitten === true)
+      this.fosterTypesProperObject = this.fosterTypesProperObject + "true,";
+    else this.fosterTypesProperObject = this.fosterTypesProperObject + "false,";
+
+    if (f.value.AdultCat === true)
+      this.fosterTypesProperObject = this.fosterTypesProperObject + "true,";
+    else this.fosterTypesProperObject = this.fosterTypesProperObject + "false,";
+
+    if (f.value.MedicalCare === true)
+      this.fosterTypesProperObject = this.fosterTypesProperObject + "true,";
+    else this.fosterTypesProperObject = this.fosterTypesProperObject + "false,";
+
+    if (f.value.Quarantine === true)
+      this.fosterTypesProperObject = this.fosterTypesProperObject + "true";
+    else this.fosterTypesProperObject = this.fosterTypesProperObject + "false";
+
     formatForm = new FosterApplication(
       f.value.fname as string,
       f.value.lname as string,
@@ -118,7 +147,28 @@ export class FosterFormComponent {
       f.value.dogEnvironment as string,
       f.value.catEnvironment as string,
       !!(f.value.familyAgrees as string).match("Yes"),
-      f.value.fosterTypesRadio as string,
+      // f.value.fosterTypesRadio as string, - this code should not be used on checkboxes
+      // as they only return booleans for individual ids
+      // (f.value.Puppy
+      //   ? this.fosterTypesProperObject.concat("true,")
+      //   : this.fosterTypesProperObject.concat("false,"),
+      // f.value.AdultDog
+      //   ? this.fosterTypesProperObject.concat("true,")
+      //   : this.fosterTypesProperObject.concat("false,"),
+      // f.value.Kitten
+      //   ? this.fosterTypesProperObject.concat("true,")
+      //   : this.fosterTypesProperObject.concat("false,"),
+      // f.value.AdultCat
+      //   ? this.fosterTypesProperObject.concat("true,")
+      //   : this.fosterTypesProperObject.concat("false,"),
+      // f.value.MedicalCare
+      //   ? this.fosterTypesProperObject.concat("true,")
+      //   : this.fosterTypesProperObject.concat("false,"),
+      // f.value.Quarantine
+      //   ? this.fosterTypesProperObject.concat("true,")
+      //   : this.fosterTypesProperObject.concat("false,")),
+      // "Puppy,Adult Dog,Kitten,Adult Cat,Medical Care,Quarantine",
+      this.fosterTypesProperObject,
       f.value.fosterRequest as string,
       !!(f.value.keepFosterCatInside as string).match("Yes"),
       !!(f.value.hasFence as string).match("Yes"),
@@ -147,7 +197,7 @@ export class FosterFormComponent {
     );
 
     // this.onCreatePost(formatForm);
-    console.log(formatForm);
+    // console.log(formatForm);
     this.sendTheForm(formatForm);
 
     if (f.valid) {
@@ -160,7 +210,7 @@ export class FosterFormComponent {
     this.FS.sendFosterForm(fosForm).subscribe(
       (responseData) => {
         // success
-        
+
         if (responseData === "Error adding application.") {
           this.validForm = false;
         }

@@ -1,6 +1,6 @@
 # Project Tasks
 
-## Update: Saturday, August 8, 2020
+## Update: Sunday, August 16, 2020
 
 ### APP-WIDE:
 
@@ -10,11 +10,9 @@
 
 • Cat form responsive is still incomplete. Some input is extra small, and the "scroll to top" button disappeared. [In-progress] - Luat
 
-• Animal Foster type not registering. [In-progress] - Ivan
+• Animal Foster type not registering. [Done] - Ivan
 
-• Hide empty fields in foster modals and tables if it's attributes are empty or undefined. User shouldn't be able to see label witout data. [In-progress] - Ivan
-
-• Fix foster form (see 'f.value.fosterTypesRadio as string') [In-progress] - Ivan
+• Fix foster form (see 'f.value.fosterTypesRadio as string') [Done] - Ivan
 
 ### ADMIN-SIDE:
 
@@ -34,7 +32,7 @@
 
 • Add all necessary component templates to the project.
 
-• Implement "display events" via connection to public REST endpoint (Raymond provided the endpoint).
+• Implement "display events" via connection to public REST endpoint (Raymond provided the endpoint). [Done] - Ivan
 
 ## Components Assignment
 
@@ -72,7 +70,7 @@ Pages
 - Donate Supplies Page
 - Contact Us Page
 - FAQ
-- Upcoming Events page
+- Upcoming Events page [In-progress] - Ivan
 - Our Partners Page
 - Happy Tails Page
 - Goptek page
