@@ -15,7 +15,7 @@
       <a href="https://www.instagram.com/calgaryanimalrescue/"
         ><i class="fa fa-2x fa-instagram ml-2 mr-2 social-icon"></i
       ></a>
-      
+
       <button class="sm-white-outline-btn btn shadow ml-2">
         Donate
       </button>
@@ -48,8 +48,19 @@
           </li>
 
           <li class="dropdown nav-item">
-            <a class="nav-link" data-toggle="dropdown">
-              Animals for Adoption⯆
+            <a
+              class="nav-link"
+              (click)="onAdoptionTurn()"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <ng-container
+                *ngIf="adoptionTurn$ | async; else AdoptionTurnback"
+              >
+                Animals for Adoption⯅</ng-container
+              >
+              <ng-template #AdoptionTurnback>Animals for Adoption⯆</ng-template>
             </a>
             <div class="dropdown-menu">
               <a
@@ -76,8 +87,16 @@
           </li>
 
           <li class="dropdown nav-item">
-            <a class="nav-link" data-toggle="dropdown">
-              Get Involved⯆
+            <a
+              class="nav-link"
+              (click)="onInvolvedTurn()"
+              data-toggle="dropdown"
+            >
+              <ng-container *ngIf="involvedTurn$ | async; else InvolvedTurnback"
+                >Get Involved⯅</ng-container
+              >
+
+              <ng-template #InvolvedTurnback>Get Involved⯆</ng-template>
             </a>
             <div class="dropdown-menu">
               <a
@@ -104,9 +123,13 @@
           </li>
 
           <li class="dropdown nav-item">
-            <a class="nav-link" data-toggle="dropdown">
-              More⯆
+            <a class="nav-link" (click)="onMoreTurn()" data-toggle="dropdown">
+              <ng-container *ngIf="moreTurn$ | async; else MoreTurnback"
+                >More⯅</ng-container
+              >
+              <ng-template #MoreTurnback>More⯆</ng-template>
             </a>
+
             <div class="dropdown-menu">
               <a
                 class="nav-link dropdown-item"
@@ -161,7 +184,6 @@
             </a>
           </li>
         </ul>
-        
       </div>
     </div>
   </nav>
