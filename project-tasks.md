@@ -1,6 +1,6 @@
 # Project Tasks
 
-## Update: Sunday, August 16, 2020
+## Update: Sunday, August 23, 2020
 
 ### APP-WIDE:
 
@@ -9,10 +9,6 @@
 ### FORMS:
 
 • Cat form responsive is still incomplete. Some input is extra small, and the "scroll to top" button disappeared. [In-progress] - Luat
-
-• Animal Foster type not registering. [Done] - Ivan
-
-• Fix foster form (see 'f.value.fosterTypesRadio as string') [Done] - Ivan
 
 ### ADMIN-SIDE:
 
@@ -31,8 +27,6 @@
 • Implement i-frames and convert them to custom css.
 
 • Add all necessary component templates to the project.
-
-• Implement "display events" via connection to public REST endpoint (Raymond provided the endpoint). [Done] - Ivan
 
 ## Components Assignment
 
@@ -61,7 +55,7 @@ Special Components
 
 Pages
 
-- Landing Page/Main Page [Luat for Start, Everyone for modification]
+- Landing Page/Main Page [Luat for Start, Everyone for modification] (adding ui fixes along - Ivan)
 - Our Animals Page
 - Adoption Page (Features information and links to Cat and Dog Forms)
 - Volunteer Page (Features information and link to Volunteer Form)
