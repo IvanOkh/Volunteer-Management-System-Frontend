@@ -47,7 +47,11 @@
             </a>
           </li>
 
-          <li class="dropdown nav-item">
+          <li
+            class="dropdown nav-item active"
+            (mouseenter)="dochangeText = true"
+            (mouseleave)="dochangeText = false"
+          >
             <a
               class="nav-link"
               (click)="onAdoptionTurn()"
@@ -56,7 +60,7 @@
               aria-expanded="false"
             >
               <ng-container
-                *ngIf="adoptionTurn$ | async; else AdoptionTurnback"
+                *ngIf="dochangeText && adoptionTurn$; else AdoptionTurnback"
               >
                 Animals for Adoption⯅</ng-container
               >
@@ -86,16 +90,22 @@
             </div>
           </li>
 
-          <li class="dropdown nav-item">
+          <li
+            class="dropdown nav-item active"
+            (mouseenter)="changeText2 = true"
+            (mouseleave)="changeText2 = false"
+          >
             <a
               class="nav-link"
               (click)="onInvolvedTurn()"
               data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
-              <ng-container *ngIf="involvedTurn$ | async; else InvolvedTurnback"
+              <ng-container
+                *ngIf="changeText2 && involvedTurn$; else InvolvedTurnback"
                 >Get Involved⯅</ng-container
               >
-
               <ng-template #InvolvedTurnback>Get Involved⯆</ng-template>
             </a>
             <div class="dropdown-menu">
@@ -122,9 +132,13 @@
             </div>
           </li>
 
-          <li class="dropdown nav-item">
+          <li
+            class="dropdown nav-item"
+            (mouseenter)="changeText3 = true"
+            (mouseleave)="changeText3 = false"
+          >
             <a class="nav-link" (click)="onMoreTurn()" data-toggle="dropdown">
-              <ng-container *ngIf="moreTurn$ | async; else MoreTurnback"
+              <ng-container *ngIf="changeText3 && moreTurn$; else MoreTurnback"
                 >More⯅</ng-container
               >
               <ng-template #MoreTurnback>More⯆</ng-template>

@@ -1,4 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  TemplateRef,
+  ElementRef,
+} from "@angular/core";
 import { NgForm, NgModel } from "@angular/forms";
 import { Observable, BehaviorSubject } from "rxjs";
 
@@ -34,7 +40,4 @@ export class NavbarComponent implements OnInit {
       ? this.adoptionTurn$.next(true)
       : this.adoptionTurn$.next(false);
   }
-
-  //TODO - tie onclick out to each directive (when user clicks out of open dropdown, the arrow should
-  //return to default position)
 }
