@@ -62,7 +62,7 @@
               <ng-container
                 *ngIf="dochangeText && adoptionTurn$; else AdoptionTurnback"
               >
-                Animals for Adoption⯅</ng-container
+                Animals for Adoption⯇</ng-container
               >
               <ng-template #AdoptionTurnback>Animals for Adoption⯆</ng-template>
             </a>
@@ -104,7 +104,7 @@
             >
               <ng-container
                 *ngIf="changeText2 && involvedTurn$; else InvolvedTurnback"
-                >Get Involved⯅</ng-container
+                >Get Involved⯇</ng-container
               >
               <ng-template #InvolvedTurnback>Get Involved⯆</ng-template>
             </a>
@@ -139,7 +139,7 @@
           >
             <a class="nav-link" (click)="onMoreTurn()" data-toggle="dropdown">
               <ng-container *ngIf="changeText3 && moreTurn$; else MoreTurnback"
-                >More⯅</ng-container
+                >More⯇</ng-container
               >
               <ng-template #MoreTurnback>More⯆</ng-template>
             </a>
