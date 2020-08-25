@@ -30,24 +30,6 @@ p {
   color: #ce0e2d;
 }
 
-.foster-text{
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: white;
-  border-radius: 1rem;
-}
-
-.foster-container:hover .foster-text {
-  opacity: 1;
-}
-
 #landing-section {
   height: 70vh;
   /* background-image:  linear-gradient(121deg, rgba(255,255,255,0) 45%, rgba(0,0,0,0.3225665266106442) 74%, rgba(0,0,0,1) 100%), url("../../../../assets/images/1.jpg"); */
