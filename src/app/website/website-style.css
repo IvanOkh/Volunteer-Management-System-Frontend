@@ -92,7 +92,9 @@ button {
   color: white;
 }
 
-
+.header-banner{
+  background-image: url("/../../../assets/images/headerbanner.jpg");
+}
 
 .text-black {
   color: #353740;
