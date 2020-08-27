@@ -19,6 +19,10 @@ p {
   border-radius: 1.5rem;
 }
 
+.section-image{
+  height: 20rem;
+}
+
 
 #landing-section {
   height: 70vh;
