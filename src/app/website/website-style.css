@@ -94,6 +94,7 @@ button {
 
 .header-banner{
   background-image: url("/../../../assets/images/headerbanner.jpg");
+  background-position: center;
 }
 
 .text-black {
