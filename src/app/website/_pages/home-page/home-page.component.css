@@ -15,14 +15,13 @@ p {
   float: right;
 }
 
-.card{
+.card {
   border-radius: 1.5rem;
 }
 
-.section-image{
+.section-image {
   height: 20rem;
 }
-
 
 #landing-section {
   height: 70vh;
@@ -46,20 +45,31 @@ p {
   background-image: url("../../../../assets/images/banner.jpg");
 }
 
-#foster-home-section{
+#foster-home-section {
   background-color: white;
 }
 
-#events-section{
+#events-section {
   background-color: white;
 }
 
+.black {
+  transition: all 0.1s ease;
+}
 
+.black:hover {
+  transform: scale(1.05);
+}
 
+.blax {
+  transition: all 0.2s ease;
+}
 
+.blax:hover {
+  transform: scale(1.1);
+}
 
 /* *******VIEWPORTS****** */
-
 
 /* Laptop screens */
 @media (min-width: 1200px) {
@@ -77,15 +87,15 @@ p {
 }
 
 /* WIDE monitors */
-@media (min-width: 1600px){
-    #primary-title {
-        font-size: 100px;
-      }
-    
-      #secondary-title {
-        font-size: 65px;
-      }
-      #landing-section {
-        margin-bottom: 20px;
-      }
+@media (min-width: 1600px) {
+  #primary-title {
+    font-size: 100px;
+  }
+
+  #secondary-title {
+    font-size: 65px;
+  }
+  #landing-section {
+    margin-bottom: 20px;
+  }
 }
