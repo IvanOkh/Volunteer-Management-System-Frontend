@@ -1,6 +1,6 @@
 # Project Tasks
 
-## Update: Sunday, August 23, 2020
+## Update: Sunday, August 30, 2020
 
 ### APP-WIDE:
 
@@ -36,6 +36,8 @@ We want to try to make this thing as extensible, clean and organized as we can.
 Remember: K.I.S.S. (Keep It Simple Stupid)
 
 Albert you da best!
+
+Header links should remain active if iser is on a related page [In-progress] - Ivan
 
 ## List of components for CARS site
 
