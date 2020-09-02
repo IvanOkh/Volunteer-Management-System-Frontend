@@ -3,6 +3,7 @@
   data-aos="fade-in-out"
   style="min-height: 1080px;"
 >
+
   <ng-container *ngIf="this.isLoading">
     <div class="row justify-content-center my-5" style="height: 1080px;">
       <div class="spinner-border text-danger" role="status">
@@ -20,6 +21,7 @@
   </ng-container>
 
   <div class="container">
+    <h1 data-aos="fade-right" class="display-4">Fosters</h1>
     <ng-container *ngIf="!this.isLoading && this.fosters.length > 0">
       <!-- START SEARCHING BAR  -->
       <ng-container *ngIf="!this.isLoading && this.fosters.length > 0">
