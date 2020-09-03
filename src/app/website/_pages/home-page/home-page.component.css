@@ -15,10 +15,6 @@ p {
   float: right;
 }
 
-.card {
-  border-radius: 1.5rem;
-}
-
 .section-image {
   height: 40rem;
 }
@@ -47,6 +43,10 @@ p {
 
 #foster-home-section {
   background-color: white;
+}
+
+#animal-section{
+  background-color: #ce0e2d;
 }
 
 #events-section {
