@@ -18,7 +18,6 @@ import { FosterPageComponent } from "./_pages/foster-page/foster-page.component"
 import { DonateFundsPageComponent } from "./_pages/donate-funds-page/donate-funds-page.component";
 import { DonateSuppliesPageComponent } from "./_pages/donate-supplies-page/donate-supplies-page.component";
 import { ContactUsPageComponent } from "./_pages/contact-us-page/contact-us-page.component";
-import { FaqPageComponent } from "./_pages/faq-page/faq-page.component";
 import { UpcomingEventsPageComponent } from "./_pages/upcoming-events-page/upcoming-events-page.component";
 import { OurPartnersPageComponent } from "./_pages/our-partners-page/our-partners-page.component";
 import { HappyTailsPageComponent } from "./_pages/happy-tails-page/happy-tails-page.component";
@@ -40,7 +39,6 @@ import { FosterHomeSectionComponent } from './_reusables/foster-home-section/fos
     DonateFundsPageComponent,
     DonateSuppliesPageComponent,
     ContactUsPageComponent,
-    FaqPageComponent,
     UpcomingEventsPageComponent,
     OurPartnersPageComponent,
     HappyTailsPageComponent,

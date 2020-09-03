@@ -7,7 +7,6 @@ import { OurAnimalsPageComponent } from "./_pages/our-animals-page/our-animals-p
 import { VolunteerPageComponent } from "./_pages/volunteer-page/volunteer-page.component";
 import { FosterPageComponent } from "./_pages/foster-page/foster-page.component";
 import { ContactUsPageComponent } from "./_pages/contact-us-page/contact-us-page.component";
-import { FaqPageComponent } from "./_pages/faq-page/faq-page.component";
 import { UpcomingEventsPageComponent } from "./_pages/upcoming-events-page/upcoming-events-page.component";
 import { OurPartnersPageComponent } from "./_pages/our-partners-page/our-partners-page.component";
 import { HappyTailsPageComponent } from "./_pages/happy-tails-page/happy-tails-page.component";
@@ -26,7 +25,6 @@ const websiteRoutes: Routes = [
       { path: "foster", component: FosterPageComponent },
       { path: "donate", component: DonateFundsPageComponent },
       { path: "contact-us", component: ContactUsPageComponent },
-      { path: "faq", component: FaqPageComponent },
       { path: "events", component: UpcomingEventsPageComponent },
       { path: "partners", component: OurPartnersPageComponent },
       { path: "happy-tails", component: HappyTailsPageComponent },
