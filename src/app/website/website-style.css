@@ -97,6 +97,10 @@ button {
   background-position: center;
 }
 
+.header-banner h1{
+  color:white;
+}
+
 .text-black {
   color: #353740;
 }
