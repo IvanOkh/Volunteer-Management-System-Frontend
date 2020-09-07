@@ -1,23 +1,108 @@
 <div data-aos="fade-up">
-  <h1><b>upcoming-events-page works!</b></h1>
-  <hr />
-</div>
+  <div class="jumbotron header-banner">
+    <div class="container">
+      <h1>Upcoming Events</h1>
+    </div>
+  </div>
+  <!-- <h1><b>upcoming-events-page works!</b></h1>
+  <hr /> -->
+  <h2 class="text-center my-4 pb-3">Our Upcoming Events</h2>
 
-<div class="mb-5" *ngIf="webSiteEvents$ | async as events; else loading">
-  <h1>Upcoming public events:</h1>
-  <div class="m-1" *ngFor="let event of events; let i = index">
-    {{ event.name + " on " + event.date + " - " + event.description }}
-    <!-- public id: number,
-    public name: string,
-    public address: string,
-    public description: string,
-    public coordinator: string,
-    public date: string,
-    public startTime: string,
-    public endTime: string -->
+  <div class="mb-5" *ngIf="webSiteEvents$ | async as events; else loading">
+    <div class="m-1 mb-3" *ngFor="let event of events; let i = index">
+      <div class="container event-card col-6">
+        <div class="card shadow">
+          <div class="card-body">
+            <div class="media">
+              <!-- align-self-center -->
+              <img
+                class="mr-3"
+                src="https://source.unsplash.com/collection/201009/90x90?sig={{
+                  event.id
+                }}"
+              />
+              <div class="media-body">
+                <div class="row">
+                  <div class="col-sm-9">
+                    <!-- Event title -->
+                    <h5 [innerText]="event.name"></h5>
+                    <hr />
+                    <!-- Event date -->
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                        <p class="font-weight-bold">Date:</p>
+                      </li>
+                      <li class="list-inline-item">
+                        <p [innerText]="event.date"></p>
+                      </li>
+                    </ul>
+
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                        <p class="font-weight-bold">Event time:</p>
+                      </li>
+                      <li class="list-inline-item">
+                        <p>{{ event.startTime + " - " + event.endTime }}</p>
+                      </li>
+                    </ul>
+
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                        <p class="font-weight-bold">Address:</p>
+                      </li>
+                      <li class="list-inline-item">
+                        <p [innerText]="event.address"></p>
+                      </li>
+                    </ul>
+
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                        <p class="font-weight-bold">Coordinator:</p>
+                      </li>
+                      <li class="list-inline-item">
+                        <p [innerText]="event.coordinator"></p>
+                      </li>
+                    </ul>
+
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                        <p class="font-weight-bold">Phone Number:</p>
+                      </li>
+                      <li class="list-inline-item">
+                        <p>403-816-0759</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <p class="font-weight-bold">Description:</p>
+                  </li>
+                  <li class="list-inline-item">
+                    <p [innerText]="event.description"></p>
+                  </li>
+                </ul>
+                <!-- {{
+                  event.name + " on " + event.date + " - " + event.description
+                }} -->
+              </div>
+            </div>
+          </div>
+
+          <!-- 
+          public id: number,
+          public name: string,
+          public address: string,
+          public description: string,
+          public coordinator: string,
+          public date: string,
+          public startTime: string,
+          public endTime: string 
+        --></div>
+      </div>
+    </div>
   </div>
 </div>
-
 <ng-template #loading>
   <div>Loading..</div>
 </ng-template>
