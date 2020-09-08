@@ -1,6 +1,6 @@
 # Project Tasks
 
-## Update: Sunday, August 30, 2020
+## Update:* Monday, September 7th, 2020
 
 ### APP-WIDE:
 
@@ -8,17 +8,17 @@
 
 ### FORMS:
 
-• Cat form responsive is still incomplete. Some input is extra small, and the "scroll to top" button disappeared. [In-progress] - Luat
+• Cat form responsive is still incomplete. Some input is extra small, and the "scroll to top" button disappeared.
 
 ### ADMIN-SIDE:
 
-• Fix “Print Form” button to all submitted applications modals that are displayed to admin in “Applications” and “Adoptions” tabs. [In-progress] - Luat
+• Fix “Print Form” button to all submitted applications modals that are displayed to admin in “Applications” and “Adoptions” tabs.
 
-• Apply responsive. [In-progress] - Luat
+• Apply responsive.
 
 ### USER-SIDE:
 
-• Apply responsive. [In-progress] - Luat
+• Apply responsive.
 
 ### TASKS FOR THE NEW WEBSITE:
 
