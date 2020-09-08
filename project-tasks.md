@@ -57,7 +57,7 @@ Special Components
 
 Pages
 
-- Landing Page/Main Page [Luat for Start, Everyone for modification] (adding ui fixes along - Ivan)
+- Landing Page/Main Page
 - Our Animals Page
 - Adoption Page (Features information and links to Cat and Dog Forms)
 - Volunteer Page (Features information and link to Volunteer Form)
