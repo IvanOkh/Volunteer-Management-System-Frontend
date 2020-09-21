@@ -17,6 +17,9 @@ export class NavbarComponent implements OnInit {
   moreTurn$ = new BehaviorSubject<boolean>(false);
   involvedTurn$ = new BehaviorSubject<boolean>(false);
   adoptionTurn$ = new BehaviorSubject<boolean>(false);
+  dochangeText;
+  changeText2;
+  changeText3;
 
   constructor() {}
 
