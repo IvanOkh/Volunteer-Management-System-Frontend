@@ -1,6 +1,6 @@
 # Project Tasks
 
-## Update:* Monday, September 7th, 2020
+## Update:* Monday, September 7th, 2020 - PENDING
 
 ### APP-WIDE:
 
