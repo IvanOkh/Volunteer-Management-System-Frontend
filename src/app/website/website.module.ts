@@ -25,6 +25,7 @@ import { GoptekPageComponent } from "./_pages/goptek-page/goptek-page.component"
 import { VolunteerModule } from "../volunteer/volunteer.module";
 import { CarouselComponent } from './_reusables/carousel/carousel.component';
 import { FosterHomeSectionComponent } from './_reusables/foster-home-section/foster-home-section.component';
+import { RainbowBridgePageComponent } from './_pages/rainbow-bridge-page/rainbow-bridge-page.component';
 // MODULE DEFINITION
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { FosterHomeSectionComponent } from './_reusables/foster-home-section/fos
     GoptekPageComponent,
     CarouselComponent,
     FosterHomeSectionComponent,
+    RainbowBridgePageComponent,
   ],
   imports: [
     CommonModule,

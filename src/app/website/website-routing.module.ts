@@ -13,6 +13,7 @@ import { HappyTailsPageComponent } from "./_pages/happy-tails-page/happy-tails-p
 import { GoptekPageComponent } from "./_pages/goptek-page/goptek-page.component";
 import { DonateFundsPageComponent } from "./_pages/donate-funds-page/donate-funds-page.component";
 import { DonateSuppliesPageComponent } from "./_pages/donate-supplies-page/donate-supplies-page.component";
+import { RainbowBridgePageComponent } from "./_pages/rainbow-bridge-page/rainbow-bridge-page.component";
 
 
 const websiteRoutes: Routes = [
@@ -31,6 +32,7 @@ const websiteRoutes: Routes = [
       { path: "events", component: UpcomingEventsPageComponent },
       { path: "partners", component: OurPartnersPageComponent },
       { path: "happy-tails", component: HappyTailsPageComponent },
+      { path: "rainbow-bridge", component: RainbowBridgePageComponent },
       { path: "goptek", component: GoptekPageComponent },
       { path: "", redirectTo: "home", pathMatch: "full" },
       //feel free to add child routes below this line
