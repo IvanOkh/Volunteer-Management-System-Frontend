@@ -83,23 +83,62 @@
     <div class="mb-5 mt-3">
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link active">Adult Cats</a>
+          <a class="nav-link"
+            [ngClass]="{ 'active': openTab == 'ac' }"
+            (click)="tabChange('ac')">
+          Adult Cats</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">Kittens</a>
+          <a class="nav-link"
+          [ngClass]="{ 'active': openTab == 'ki' }"
+          (click)="tabChange('ki')">
+          Kittens
+        </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">Adult Dogs</a>
+          <a class="nav-link"
+          [ngClass]="{ 'active': openTab == 'ad' }"
+          (click)="tabChange('ad')">
+          Adult Dogs
+        </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">Puppies</a>
+          <a class="nav-link"
+          [ngClass]="{ 'active': openTab == 'pu' }"
+          (click)="tabChange('pu')">
+            Puppies</a>
         </li>
       </ul>
     </div>
 
-    <div class="adopt-display">
+    <div class="adopt-display text-center">
       <!-- CSS still has to be figured out -->
-      <iframe src="https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Cat&amp;gender=A&amp;agegroup=OverYear&amp;location=&amp;site=&amp;onhold=A&amp;orderby=ID&amp;colnum=3&amp;css=./src/app/website/_reusables/petpointStyle.css&amp;authkey=x5f30oscjcbuiji6hkjx6rxfs7prkxcs0vhlx18b7777wpmvvq&amp;recAmount=&amp;detailsInPopup=No&amp;featuredPet=Include&amp;stageID=" width="800" height="700" scrolling="auto"></iframe>
+      <!-- Adult Cats Iframe -->
+      <iframe 
+      *ngIf="openTab == 'ac'"
+      src="https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Cat&amp;gender=A&amp;agegroup=OverYear&amp;location=&amp;site=&amp;onhold=A&amp;orderby=ID&amp;colnum=3&amp;css=./src/app/website/_reusables/petpointStyle.css&amp;authkey=x5f30oscjcbuiji6hkjx6rxfs7prkxcs0vhlx18b7777wpmvvq&amp;recAmount=&amp;detailsInPopup=No&amp;featuredPet=Include&amp;stageID=" width="800" height="700" scrolling="auto">
+      </iframe>
+
+      <!-- Kittens Iframe -->
+      <iframe 
+      *ngIf="openTab == 'ki'"
+      src="https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Cat&amp;gender=A&amp;agegroup=UnderYear&amp;location=&amp;site=&amp;onhold=A&amp;orderby=ID&amp;colnum=3&amp;css=./src/app/website/_reusables/petpointStyle.css&amp;authkey=x5f30oscjcbuiji6hkjx6rxfs7prkxcs0vhlx18b7777wpmvvq&amp;recAmount=&amp;detailsInPopup=No&amp;featuredPet=Include&amp;stageID=" width="800" height="700" scrolling="auto">
+      </iframe>
+
+      <!-- Adult Dogs Iframe -->
+      <iframe 
+      *ngIf="openTab == 'ad'"
+      src="https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&amp;gender=A&amp;agegroup=OverYear&amp;location=&amp;site=&amp;onhold=A&amp;orderby=ID&amp;colnum=3&amp;css=./src/app/website/_reusables/petpointStyle.css&amp;authkey=x5f30oscjcbuiji6hkjx6rxfs7prkxcs0vhlx18b7777wpmvvq&amp;recAmount=&amp;detailsInPopup=No&amp;featuredPet=Include&amp;stageID=" width="800" height="700" scrolling="auto">
+      </iframe>
+
+      <!-- Puppies Iframe -->
+      <iframe 
+      *ngIf="openTab == 'pu'"
+      src="https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&amp;gender=A&amp;agegroup=UnderYear&amp;location=&amp;site=&amp;onhold=A&amp;orderby=ID&amp;colnum=3&amp;css=./src/app/website/_reusables/petpointStyle.css&amp;authkey=x5f30oscjcbuiji6hkjx6rxfs7prkxcs0vhlx18b7777wpmvvq&amp;recAmount=&amp;detailsInPopup=No&amp;featuredPet=Include&amp;stageID=" width="800" height="700" scrolling="auto">
+      </iframe>
+
+      
+    
     </div>
   </div>
 </div>
