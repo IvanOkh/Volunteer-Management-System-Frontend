@@ -1,3 +1,10 @@
 td{
     padding: .3rem !important;
 }
+
+iframe {
+    min-width: auto;
+    width: 42rem;
+    min-height: auto; 
+    height: 50rem; 
+}

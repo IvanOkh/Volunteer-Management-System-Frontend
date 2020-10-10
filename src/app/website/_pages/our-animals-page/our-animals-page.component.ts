@@ -1,11 +1,13 @@
-import { Component, OnInit } from "@angular/core";
+import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
 
 @Component({
   selector: "app-our-animals-page",
   templateUrl: "./our-animals-page.component.html",
-  styleUrls: ["./our-animals-page.component.css", "../../website-style.css"],
+  styleUrls: ["./our-animals-page.component.css"],
 })
-export class OurAnimalsPageComponent implements OnInit {
+export class OurAnimalsPageComponent implements OnInit, AfterViewInit {
+  
+  @ViewChild("petIframe", {static: false}) public Iframe;
 
   openTab: string;
 
@@ -14,7 +16,14 @@ export class OurAnimalsPageComponent implements OnInit {
   ngOnInit() {
     document.body.scrollTop = 0;
     this.openTab = 'ac';
+    // this.myIframe.css("../../website-style.css");
+    // this.myIframe.style("background-color: red");
   }
+
+ngAfterViewInit() {
+  const iframDoc = this.Iframe.nativeElement.contentWindow.document;
+  iframDoc.head.appendChild('../../website-style.css');
+}
 
 
   /**
