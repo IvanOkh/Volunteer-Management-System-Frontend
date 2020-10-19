@@ -1,10 +1,10 @@
 # Project Tasks
 
-## Update:* Monday, September 7th, 2020 - PENDING
+## Update:* Sunday, October 18, 2020
 
 ### APP-WIDE:
 
-• Convert CARS pictures into light size images to be used throughout the app instead of unsplash pictures [Going to ask CARS next meeting] - Albert
+• Convert CARS pictures into light size images to be used throughout the app instead of unsplash pictures - Request has been denied by CARS. Keep unsplash feed.
 
 ### FORMS:
 
@@ -22,11 +22,7 @@
 
 ### TASKS FOR THE NEW WEBSITE:
 
-• Finish the home page design.
-
 • Implement i-frames and convert them to custom css.
-
-• Add all necessary component templates to the project.
 
 ## Components Assignment
 
@@ -36,8 +32,6 @@ We want to try to make this thing as extensible, clean and organized as we can.
 Remember: K.I.S.S. (Keep It Simple Stupid)
 
 Albert you da best!
-
-Header links should remain active if iser is on a related page [In-progress] - Ivan
 
 ## List of components for CARS site
 
