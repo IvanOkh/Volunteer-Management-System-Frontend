@@ -1,11 +1,10 @@
-
-
 @media (min-width: 1200px) {
   .carousel-item {
     height: 100vh;
   }
 }
 
+/* Wide monitors */
 @media (min-width: 1600px){
     .carousel-item {
         height: 68vh;
