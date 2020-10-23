@@ -155,4 +155,28 @@ h2 {
     padding-right: 1.7rem;
     font-size: 1rem;
   }
+
+  .display-4{
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+
+  p{
+    font-size: 1rem;
+  }
+
+  h2{
+    font-size: 3rem;
+  }
+
+  .sm-white-outline-btn{
+    border: 2px solid white;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #ce0e2d;
+    font-size: .7rem;
+    color: white;
+  }
 }

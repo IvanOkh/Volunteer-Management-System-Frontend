@@ -125,4 +125,13 @@ p {
     background: black;
     overflow: hidden;
   }
+
+  .section-image {
+    height: 20rem;
+  }
+
+  #about-section{
+    padding-top: 40rem;
+  }
+
 }
