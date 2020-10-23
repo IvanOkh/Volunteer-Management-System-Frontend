@@ -11,3 +11,17 @@
         height: 68vh;
       }
 }
+
+/* Mobile */
+@media (max-width: 576px) {
+  .carousel-item {
+    width: 150vh;
+    transform: translateX(500px);
+    object-fit: cover;
+    opacity: 0.6;
+  }
+
+  #slides {
+    background-color: black;
+  }
+}

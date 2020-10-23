@@ -26,12 +26,6 @@ p {
   position: relative;
 }
 
-#carousel {
-  background-size: cover;
-  width: 100%;
-  z-index: 0;
-}
-
 #about-section {
   background-color: white;
 }
@@ -100,5 +94,35 @@ p {
   }
   #landing-section {
     margin-bottom: 20px;
+  }
+}
+
+/* Mobile Screens */
+@media (max-width: 576px) {
+  #primary-title {
+    font-size: 50px;
+  }
+
+  #secondary-title {
+    font-size: 25px;
+  }
+
+  #title-desc{
+    font-size: 12px;
+    padding-left: 850px;
+  }
+
+  .landing-container{
+    margin-top: 10rem;
+    margin-right:15px;
+    margin-left: 15px;
+    padding-right: 12px;
+  }
+
+  #carousel{
+    height: 600px;
+    width: 100vw;
+    background: black;
+    overflow: hidden;
   }
 }
