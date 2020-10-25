@@ -14,7 +14,7 @@ import { FosterApplication } from "../models/foster-applications.model";
   providedIn: "root",
 })
 export class FormsService {
-  private REST_API_SERVER = "http://68.66.193.100:8080/CARS/applications/";
+  private REST_API_SERVER = "http://199.195.116.225:8080/CARS/applications/";
   private VOLUNTEER_FORM_MAPPING = "volunteers/";
   private FOSTER_FORM_MAPPING = "fosters/";
   private DOG_FORM_MAPPING = "dogs/";

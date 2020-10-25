@@ -12,7 +12,7 @@ import { FosterApplication } from "../models/foster-applications.model";
   providedIn: "root",
 })
 export class FostersService {
-  private REST_API_SERVER = "http://68.66.193.100:8080/CARS/";
+  private REST_API_SERVER = "http://199.195.116.225:8080/CARS/";
   private CTRL_FOSTER_MAPPING = "fosters/";
   private CTRL_APPLICATION_MAPPING = "applications/fosters/";
   private NEWFOSTER_MAPPING = "new/";

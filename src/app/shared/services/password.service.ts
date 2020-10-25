@@ -8,7 +8,7 @@ import { NewPassword } from "../models/new-password.model";
   providedIn: "root",
 })
 export class passwordService {
-  private REST_API_SERVER = "http://68.66.193.100:8080/CARS/"; // REST API endpoint
+  private REST_API_SERVER = "http://199.195.116.225:8080/CARS/"; // REST API endpoint
   private CTRL_MAPPING = "reset";
   private UUID_MAPPING = "password";
 

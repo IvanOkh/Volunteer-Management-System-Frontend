@@ -11,7 +11,7 @@ import { EventModel } from "../models/event.model";
   providedIn: "root",
 })
 export class EventsService {
-  private REST_API_SERVER = "http://68.66.193.100:8080/CARS/";
+  private REST_API_SERVER = "http://199.195.116.225:8080/CARS/";
   private CTRL_MAPPING = "events/";
   todayDate = new Date().getTime();
 
@@ -66,7 +66,7 @@ export class EventsService {
     );
   }
 
-  // http://68.66.193.100:8080/CARS/events-readonly GET
+  // http://199.195.116.225:8080/CARS/events-readonly GET
 
   /**
    * Sends a request to get a single Event matching the input id.
@@ -139,11 +139,11 @@ export class EventsService {
    */
   private sendGetPublicLoadRequest() {
     return this.http.get<EventModel[]>(
-      "http://68.66.193.100:8080/CARS/events-readonly"
+      "http://199.195.116.225:8080/CARS/events-readonly"
     );
   }
 
-  // http://68.66.193.100:8080/CARS/events-readonly GET
+  // http://199.195.116.225:8080/CARS/events-readonly GET
 
   /**
    * Http get one event from server.

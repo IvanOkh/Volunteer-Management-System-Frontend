@@ -16,7 +16,7 @@ export class AdoptionService {
   dogArray: DogForm[] = [];
 
   private REST_API_SERVER: string =
-    "http://68.66.193.100:8080/CARS/applications/";
+    "http://199.195.116.225:8080/CARS/applications/";
   private CAT_CTRL_MAPPING: string = "cats/";
   private DOG_CTRL_MAPPING: string = "dogs/";
 

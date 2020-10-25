@@ -17,7 +17,7 @@ export class UpcomingEventsPageComponent implements OnInit {
   constructor(private eventService: EventsService) {}
 
   ngOnInit() {
-    // http://68.66.193.100:8080/CARS/events-readonly GET
+    // http://199.195.116.225:8080/CARS/events-readonly GET
     this.webSiteEvents$ = this.eventService.loadPublicEvents();
   }
 }

@@ -113,7 +113,7 @@ export class VolunteerEventsService {
   //Method that gets array of all events from back end.
   public sendGetLoadEventsRequest() {
     return this.http.get<EventModel[]>(
-      "http://68.66.193.100:8080/CARS/events",
+      "http://199.195.116.225:8080/CARS/events",
       {
         observe: "response",
       }
@@ -141,7 +141,7 @@ export class VolunteerEventsService {
   //Method which gets eventStaffModel instances fron DB.
   public sendGetLoadEventStaff() {
     return this.http.get<EventStaffModel[]>(
-      "http://68.66.193.100:8080/CARS/" + "event-info/"
+      "http://199.195.116.225:8080/CARS/" + "event-info/"
     );
   }
 
@@ -175,7 +175,7 @@ export class VolunteerEventsService {
   //Method that posts an eventStaffModel instance to backend.
   public sendEventStaff(_eventStaff: EventStaffModel) {
     return this.http.post(
-      "http://68.66.193.100:8080/CARS/" + "/event-info/",
+      "http://199.195.116.225:8080/CARS/" + "/event-info/",
       _eventStaff,
       {
         responseType: "text",
@@ -186,7 +186,7 @@ export class VolunteerEventsService {
   //Method that deletes backend eventStaffModel instance based on event and staff IDs.
   public sendDeleteEventStuff(eventid: number, staffid: number) {
     return this.http.delete(
-      "http://68.66.193.100:8080/CARS/" +
+      "http://199.195.116.225:8080/CARS/" +
         "event-info/" +
         eventid +
         "/" +

@@ -12,7 +12,7 @@ import { AnimalModel } from '../models/animal.model';
 })
 export class AnimalService
 {
-  private REST_API_SERVER = "http://68.66.193.100:8080/CARS/";
+  private REST_API_SERVER = "http://199.195.116.225:8080/CARS/";
   private CTRL_MAPPING = "animals/";
 
   constructor(private http: HttpClient) {}
