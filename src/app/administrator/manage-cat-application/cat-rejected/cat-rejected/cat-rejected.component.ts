@@ -13,7 +13,7 @@ import { CatForm } from "src/app/forms/cat-form/cat-model";
 @Component({
   selector: "app-cat-rejected",
   templateUrl: "./cat-rejected.component.html",
-  styleUrls: ["./cat-rejected.component.css"],
+  styleUrls: ["./cat-rejected.component.css", "../../../responsive-modal-style.css"],
 })
 export class CatRejectedComponent implements OnInit {
   application: any;

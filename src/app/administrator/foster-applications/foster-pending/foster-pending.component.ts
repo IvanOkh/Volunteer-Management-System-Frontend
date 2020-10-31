@@ -10,7 +10,7 @@ import { FosterRejectedComponent } from "../foster-rejected/foster-rejected.comp
 @Component({
   selector: "app-foster-pending",
   templateUrl: "./foster-pending.component.html",
-  styleUrls: ["./foster-pending.component.css"],
+  styleUrls: ["./foster-pending.component.css", "../../responsive-modal-style.css"],
   providers: [FostersService],
 })
 export class FosterPendingComponent implements OnInit {

@@ -13,7 +13,7 @@ import { FostersService } from "src/app/shared/services/new-fosters.service";
 @Component({
   selector: "app-view-events",
   templateUrl: "./view-events.component.html",
-  styleUrls: ["./view-events.component.css"],
+  styleUrls: ["./view-events.component.css", "../responsive-modal-style.css"],
   providers: [EventsService],
 })
 export class ViewEventsComponent implements OnInit {

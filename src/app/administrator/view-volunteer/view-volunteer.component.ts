@@ -15,7 +15,7 @@ import { NgForm } from "@angular/forms";
 @Component({
   selector: "app-view-volunteer",
   templateUrl: "./view-volunteer.component.html",
-  styleUrls: ["./view-volunteer.component.css"],
+  styleUrls: ["./view-volunteer.component.css", "../responsive-modal-style.css"],
   providers: [VolunteerService],
 })
 export class ViewVolunteerComponent implements OnInit {

@@ -9,7 +9,7 @@ import { VolunteerForm } from "src/app/shared/models/volunteer-form.model";
 @Component({
   selector: "app-volunteer-pending",
   templateUrl: "./volunteer-pending.component.html",
-  styleUrls: ["./volunteer-pending.component.css"],
+  styleUrls: ["./volunteer-pending.component.css", "../../responsive-modal-style.css"],
   providers: [VolunteerService],
 })
 export class VolunteerPendingComponent implements OnInit {

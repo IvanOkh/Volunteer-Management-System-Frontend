@@ -12,7 +12,7 @@ import { DogForm } from "src/app/forms/dog-form/dog-form.model";
 @Component({
   selector: "app-dog-approved",
   templateUrl: "./dog-approved.component.html",
-  styleUrls: ["./dog-approved.component.css"],
+  styleUrls: ["./dog-approved.component.css", "../../../responsive-modal-style.css"],
 })
 export class DogApprovedComponent implements OnInit {
   application: any;

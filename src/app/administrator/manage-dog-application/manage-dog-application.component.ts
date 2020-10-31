@@ -13,7 +13,7 @@ import { DogForm } from "src/app/forms/dog-form/dog-form.model";
 @Component({
   selector: "app-manage-dog-application",
   templateUrl: "./manage-dog-application.component.html",
-  styleUrls: ["./manage-dog-application.component.css"],
+  styleUrls: ["./manage-dog-application.component.css", "../responsive-modal-style.css"],
   providers: [AdoptionService],
 })
 export class ManageDogApplicationComponent implements OnInit {

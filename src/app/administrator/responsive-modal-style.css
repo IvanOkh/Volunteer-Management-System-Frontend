@@ -1,0 +1,25 @@
+/* Standard css for mobile modal view */
+
+@media (max-width: 576px) {
+
+
+    h1{
+        font-size: 30px;
+    }
+
+    h3{
+        font-size: 20px;
+    }
+
+    h4{
+        font-size: 20px;
+    }
+
+    p{
+        font-size: 13px;
+    }
+
+    strong{
+        font-size: 15px;
+    }
+}

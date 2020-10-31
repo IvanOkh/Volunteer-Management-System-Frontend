@@ -12,7 +12,7 @@ import { AdoptionService } from "src/app/shared/services/adoption.service";
 @Component({
   selector: "app-cat-approved",
   templateUrl: "./cat-approved.component.html",
-  styleUrls: ["./cat-approved.component.css"],
+  styleUrls: ["./cat-approved.component.css", "../../../responsive-modal-style.css"],
 })
 export class CatApprovedComponent implements OnInit {
   application: any;

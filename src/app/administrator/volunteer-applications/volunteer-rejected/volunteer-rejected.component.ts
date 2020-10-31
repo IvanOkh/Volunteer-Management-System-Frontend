@@ -22,7 +22,7 @@ import { VolunteerService } from "src/app/shared/services/new-volunteer.service"
 @Component({
   selector: "app-volunteer-rejected",
   templateUrl: "./volunteer-rejected.component.html",
-  styleUrls: ["./volunteer-rejected.component.css"],
+  styleUrls: ["./volunteer-rejected.component.css", "../../responsive-modal-style.css"],
   providers: [VolunteerService],
 })
 export class VolunteerRejectedComponent implements OnInit {

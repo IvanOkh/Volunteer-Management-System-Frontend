@@ -19,7 +19,7 @@ import { FostersService } from "src/app/shared/services/new-fosters.service";
 @Component({
   selector: "app-foster-rejected",
   templateUrl: "./foster-rejected.component.html",
-  styleUrls: ["./foster-rejected.component.css"],
+  styleUrls: ["./foster-rejected.component.css", "../../responsive-modal-style.css"],
   providers: [FostersService],
 })
 export class FosterRejectedComponent implements OnInit {

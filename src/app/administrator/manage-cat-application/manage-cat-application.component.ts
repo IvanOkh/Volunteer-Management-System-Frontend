@@ -13,7 +13,7 @@ import { CatForm } from "src/app/forms/cat-form/cat-model";
 @Component({
   selector: "app-manage-cat-application",
   templateUrl: "./manage-cat-application.component.html",
-  styleUrls: ["./manage-cat-application.component.css"],
+  styleUrls: ["./manage-cat-application.component.css", "../responsive-modal-style.css"],
   providers: [AdoptionService],
 })
 export class ManageCatApplicationComponent implements OnInit {

@@ -13,7 +13,7 @@ import { DogForm } from "src/app/forms/dog-form/dog-form.model";
 @Component({
   selector: "app-dog-rejected",
   templateUrl: "./dog-rejected.component.html",
-  styleUrls: ["./dog-rejected.component.css"],
+  styleUrls: ["./dog-rejected.component.css", "../../../responsive-modal-style.css"],
 })
 export class DogRejectedComponent implements OnInit {
   dogObj: DogForm;
