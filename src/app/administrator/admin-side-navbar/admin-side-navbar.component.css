@@ -66,3 +66,11 @@ WHITE -      #ecebf3
 #logo {
   height: 60px;
 }
+
+
+/* Mobile Screens */
+@media (max-width: 576px) {
+  .nav-link{
+    padding-left: 1rem;
+  }  
+}
