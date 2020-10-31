@@ -146,6 +146,21 @@
     </div>
   </div>
 
+  <!-- Add new event button -->
+  <div class="row">
+    <div class="container">
+      <h1 data-aos="fade-right" class="display-4" style="color: #cd0d2e;">Events</h1>
+      <!-- Add new Event -->
+      <button
+        class="btn btn-outline-success btn-block mt-3"
+        data-toggle="modal"
+        data-target="#addEvent"
+      >
+        <i class="fa fa-plus mr-1" aria-hidden="true"></i> Add a new Event
+      </button>
+    </div>
+  </div>
+
   <ng-container *ngIf="this.eventList.length <= 0 && !this.isLoading">
     <div class="row justify-content-center my-5" style="height: 1080px;">
       <p>No events to display!</p>
@@ -164,20 +179,6 @@
   </ng-container>
 
   <ng-container *ngIf="this.eventList.length > 0 && !this.isLoading">
-    <!-- Add new event button -->
-    <div class="row">
-      <div class="container">
-        <h1 data-aos="fade-right" class="display-4" style="color: #cd0d2e;">Events</h1>
-        <!-- Add new Event -->
-        <button
-          class="btn btn-outline-success btn-block mt-3"
-          data-toggle="modal"
-          data-target="#addEvent"
-        >
-          <i class="fa fa-plus mr-1" aria-hidden="true"></i> Add a new Event
-        </button>
-      </div>
-    </div>
     <div *ngFor="let event of this.eventList; let i = index">
       <!-- Event card -->
       <div class="container event-card">
