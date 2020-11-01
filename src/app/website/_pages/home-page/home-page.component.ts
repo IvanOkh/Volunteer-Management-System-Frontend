@@ -9,12 +9,16 @@ import { EventsService } from "src/app/shared/services/events.service";
 })
 export class HomePageComponent implements OnInit {
 
-  webSiteEvents$: Observable<EventModel[]>;
+  public webSiteEvents$: Observable<EventModel[]>;
+  public events: EventModel[] = [];
 
   constructor(private eventService: EventsService) {}
 
   ngOnInit() {
     document.body.scrollTop = 0;
     this.webSiteEvents$ = this.eventService.loadPublicEvents();
+    this.webSiteEvents$.subscribe(events => {
+      this.events = events;
+    })
   }
 }

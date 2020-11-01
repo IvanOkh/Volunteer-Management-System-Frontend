@@ -47,6 +47,7 @@ export class ManageDogApplicationComponent implements OnInit {
   ngOnInit() {
     this.isLoading = true;
     this.adoptionService.loadDogs().subscribe((dogs) => {
+      // console.log(dogs);
       this.pendingDogArray = [];
       this.dogArray = dogs;
       this.dogArray.forEach((pendingDog: DogForm) => {

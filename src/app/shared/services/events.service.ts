@@ -61,6 +61,7 @@ export class EventsService {
           return +new Date(b.date) - +new Date(a.date);
         });
 
+        // console.log(eventArray);
         return eventArray;
       })
     );

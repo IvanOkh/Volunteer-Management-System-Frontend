@@ -572,11 +572,18 @@ export class DogFormComponent implements OnInit {
         form.value.howFoundTheDog
       );
       //DO PROCESSING HERE (this.newDogForm has been populated)
-      this.validForm = true;
-      // console.log(this.newDogForm);
-      if (form.valid && this.checked === 3) {
-        // console.log("Valid form 100%");
+      // console.log(form.touched);
+      // console.log("VALID?: " + form.valid);
+      // console.log("CHECKED?: " + this.checked);
+      // form.controls.forEach(element => {
+      //   console.log(element);
+      // });
+      console.log(form.controls);
+
+      if (form.valid && this.checked === 3) {    
+        console.log("Thank you for submitting this form");
         this.sendTheForm(this.newDogForm);
+        this.validForm = true;
       }
     } else {
       this.checked = 0;
