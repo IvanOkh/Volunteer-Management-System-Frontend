@@ -513,10 +513,9 @@ export class DogFormComponent implements OnInit {
         this.hadDogs, //hadDogs Boolean
         this.houseBrokenBefore, //housebrokenBefore Boolean
         form.value.correction, //dogCorrectionPlan S
+        form.value.vacationStay, // vacationHome S
         this.dogStayDay, //dogStayDay S
         this.dogStayNight, //dogStayNight S
-
-        form.value.vacationStay, // vacationHome S
         form.value.leftAloneWeek, //leftAloneWeekday Number
         form.value.leftAloneWknd, //leftAloneWeekend Number
         form.value.adjTime, // petAdjustment Number

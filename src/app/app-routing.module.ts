@@ -40,12 +40,12 @@ const appRoutes: Routes = [
   { path: "change-password", component: ChangePasswordComponent },
   { path: "login", component: MainPageComponent },
   {
-    path: "develop",
+    path: "public",
     loadChildren: () =>
       import("./website/website.module").then((m) => m.WebsiteModule),
   },
   // { path: "develop", component: WebsiteContainerComponent },
-  { path: "", redirectTo: "login", pathMatch: "full" },
+  { path: "", redirectTo: "public", pathMatch: "full" },
   { path: "**", component: PageNotFoundComponent },
 ];
 

@@ -46,6 +46,7 @@
               <input
                 type="text"
                 id="dogName"
+                maxlength="25"
                 ngModel
                 name="dogName"
                 dogName
@@ -72,7 +73,8 @@
                 ngModel
                 name="firstName"
                 required
-                minlength="2"
+                minlength="1"
+                maxlength="25"
                 class="form-control"
                 placeholder="First Name"
                 #firstName="ngModel"
@@ -95,7 +97,8 @@
                 ngModel
                 name="lastName"
                 required
-                minlength="2"
+                minlength="1"
+                maxlength="25"
                 class="form-control"
                 placeholder="Last Name"
                 #lastName="ngModel"
@@ -128,7 +131,8 @@
                 ngModel
                 name="street"
                 required
-                minlength="5"
+                minlength="1"
+                maxlength="50"
                 class="form-control"
                 placeholder="Street Address"
                 #street="ngModel"
@@ -160,7 +164,8 @@
                 ngModel
                 name="city"
                 required
-                minlength="3"
+                minlength="1"
+                maxlength="20"
                 class="form-control"
                 placeholder="City"
                 #city="ngModel"
@@ -316,6 +321,7 @@
                 id="email"
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                 minlength="6"
+                maxlength="50"
                 ngModel
                 name="email"
                 email
@@ -340,7 +346,7 @@
             <div class="col-md-9" data-toggle="tooltip" title="Enter your age">
               <input
                 min="1"
-                max="99"
+                max="999"
                 type="number"
                 id="age"
                 ngModel
@@ -559,6 +565,7 @@
                 type="text"
                 id="childAges"
                 ngModel
+                maxlength="50"
                 name="childAges"
                 childAges
                 class="form-control"
@@ -893,7 +900,7 @@
               <b style="color: red;">*</b>
             </label>
             <textarea
-              maxlength="50"
+              maxlength="100"
               rows="3"
               type="text"
               id="familyPerosonality"
@@ -978,7 +985,7 @@
                   >
                     <input
                       type="text"
-                      maxlength="75"
+                      maxlength="20"
                       id="inputPlans"
                       ngModel
                       name="inputPlans"
@@ -1153,6 +1160,7 @@
               <input
                 type="text"
                 id="landlord"
+                maxlength="50"
                 ngModel
                 name="landlord"
                 landlord
@@ -1364,6 +1372,7 @@
               <input
                 type="text"
                 id="fenceType"
+                maxlength="25"
                 ngModel
                 name="fenceType"
                 fenceType
@@ -1389,6 +1398,7 @@
               <input
                 type="number"
                 min="0"
+                max="99"
                 id="fenceHeight"
                 ngModel
                 name="fenceHeight"
@@ -1514,6 +1524,7 @@
               <input
                 type="text"
                 id="howOldAnmls"
+                maxlength="50"
                 ngModel
                 name="howOldAnmls"
                 howOldAnmls
@@ -1572,6 +1583,7 @@
                 type="text"
                 id="otherPetsDesc"
                 ngModel
+                maxlength="50"
                 name="otherPetsDesc"
                 otherPetsDesc
                 class="form-control"
@@ -1580,80 +1592,7 @@
               />
             </div>
           </div>
-          <!-- other pets checkboxes retired? -->
-          <!-- <fieldset class="form-group">
-          <div class="row" id="highlight">
 
-            <legend class="col-form-label col-6 pt-0">
-              Do you have other pets? <b style="color: red">*</b>
-            </legend>
-
-            <div class="col-3">
-              <div class="form-check">
-                <input
-                  class="custom-check-input"
-                  type="checkbox"
-                  name="haveCats"
-                  id="6checkBoxes1"
-                  value="Cats"
-                  #check6="ngModel"
-                  ngModel
-                />
-
-                <label class="form-check-label" for="6checkBoxes1">
-                  Cats
-                </label>
-              </div>
-
-              <div class="form-check">
-                <input
-                  class="custom-check-input"
-                  type="checkbox"
-                  name="haveRabbits"
-                  id="6checkBoxes2"
-                  value="Rabbits"
-                  #check6="ngModel"
-                  ngModel
-                />
-                <label class="form-check-label" for="6checkBoxes2">
-                  Rabbits
-                </label>
-              </div>
-            </div>
-
-            <div class="col-3">
-              <div class="form-check">
-                <input
-                  class="custom-check-input"
-                  type="checkbox"
-                  name="haveBirds"
-                  id="6checkBoxes3"
-                  value="Birds"
-                  #check6="ngModel"
-                  ngModel
-                />
-                <label class="form-check-label" for="6checkBoxes3">
-                  Birds
-                </label>
-              </div>
-
-              <div class="form-check">
-                <input
-                  class="custom-check-input"
-                  type="checkbox"
-                  name="haveOthers"
-                  id="6checkBoxes4"
-                  value="Other"
-                  #check6="ngModel"
-                  ngModel
-                />
-                <label class="form-check-label" for="6checkBoxes4">
-                  Other
-                </label>
-              </div>
-            </div>
-          </div>
-        </fieldset> -->
           <!-- How many spayed -->
           <div class="form-group row">
             <label for="howMnySpayed" class="col-md-6 col-form-label">
@@ -1663,6 +1602,7 @@
               <input
                 type="number"
                 min="0"
+                max="999"
                 id="howMnySpayed"
                 ngModel
                 name="howMnySpayed"
@@ -1738,6 +1678,7 @@
               <input
                 type="text"
                 id="whatGroup"
+                maxlength="20"
                 ngModel
                 name="whatGroup"
                 whatGroup
@@ -1792,7 +1733,7 @@
               If yes, what were the circumstances?
             </label>
             <textarea
-              maxlength="100"
+              maxlength="200"
               rows="3"
               type="text"
               id="circumstances"
@@ -1823,6 +1764,7 @@
               #veterinarian="ngModel"
             ></textarea>
           </div>
+
           <!-- NEW PET INFORMATION -->
           <hr />
         </div>
@@ -1843,6 +1785,7 @@
                 id="primeCaretaker"
                 ngModel
                 name="primeCaretaker"
+                maxlength="50"
                 primeCaretaker
                 class="form-control"
                 placeholder=""
@@ -1936,7 +1879,7 @@
               do you plan to use? <b style="color: red;">*</b>
             </label>
             <textarea
-              maxlength="50"
+              maxlength="200"
               rows="3"
               type="text"
               id="correction"
@@ -2292,7 +2235,7 @@
                   >
                     <input
                       type="text"
-                      maxlength="75"
+                      maxlength="30"
                       id="inputVacation"
                       ngModel
                       name="inputVacation"
@@ -4173,7 +4116,7 @@
               <b style="color: red;">*</b>
             </label>
             <textarea
-              maxlength="100"
+              maxlength="200"
               rows="3"
               type="text"
               id="longTermExpcttns"
@@ -4359,7 +4302,7 @@
               <b style="color: red;">*</b>
             </label>
             <textarea
-              maxlength="100"
+              maxlength="200"
               rows="3"
               type="text"
               id="whatWouldDo"
@@ -4392,6 +4335,7 @@
               id="firstRefFirstName"
               ngModel
               name="firstRefFirstName"
+              maxlength="25"
               required
               firstRefFirstName
               class="form-control"
@@ -4410,6 +4354,7 @@
               type="text"
               id="firstRefLastName"
               ngModel
+              maxlength="25"
               name="firstRefLastName"
               required
               firstRefLastName
@@ -4488,6 +4433,7 @@
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               id="firstRefEmail"
               ngModel
+              maxlength="50"
               name="firstRefEmail"
               firstRefEmail
               class="form-control"
@@ -4508,6 +4454,7 @@
               type="text"
               id="secondRefFirstName"
               ngModel
+              maxlength="25"
               name="secondRefFirstName"
               required
               secondRefFirstName
@@ -4527,6 +4474,7 @@
               type="text"
               id="secondRefLastName"
               ngModel
+              maxlength="25"
               name="secondRefLastName"
               required
               secondRefLastName
@@ -4606,6 +4554,7 @@
               id="secondRefEmail"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               ngModel
+              maxlength="50"
               name="secondRefEmail"
               secondRefEmail
               class="form-control"
