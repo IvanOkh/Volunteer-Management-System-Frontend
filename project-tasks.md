@@ -1,6 +1,6 @@
 # Project Tasks
 
-## Update:* Sunday, October 18, 2020
+## Update:* Sunday, November 1, 2020
 
 ### APP-WIDE:
 
@@ -22,37 +22,20 @@
 
 ### TASKS FOR THE NEW WEBSITE:
 
-• Implement i-frames and convert them to custom css.
+• Apply responsive.
+
+• Convert iframe to custom css.
 
 ## Components Assignment
 
 NOTE: For decorating and styling, please please please reuse classes already made in both the component's stylesheet and 'website-style.css'.
-We want to try to make this thing as extensible, clean and organized as we can.
 
 Remember: K.I.S.S. (Keep It Simple Stupid)
 
-Albert you da best!
-
-## List of components for CARS site
-
-Reusables
-
-- Nav bar [Albert]
-- Footer
-- Event Card [ Albert ]
-- Custom jumbotron template
-- Animal Card
-
-Special Components
-
-- Animal list (and tabs)
-- Photo gallery/Title section [ Albert ]
-- Contact us page [ Albert ]
-
-Pages
+## List of pages for CARS site
 
 - Landing Page/Main Page
-- Our Animals Page
+- Our Animals Page [In-progress] - Ivan
 - Adoption Page (Features information and links to Cat and Dog Forms)
 - Volunteer Page (Features information and link to Volunteer Form)
 - Foster Page (Features information and link to Foster Form)
@@ -63,4 +46,4 @@ Pages
 - Upcoming Events page [In-progress] - Ivan
 - Our Partners Page
 - Happy Tails Page
-- Goptek page
+- Goptek page  [In-progress] - Ivan
