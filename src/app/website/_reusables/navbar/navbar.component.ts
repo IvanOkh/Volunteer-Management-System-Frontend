@@ -6,6 +6,7 @@ import {
   ElementRef,
 } from "@angular/core";
 import { NgForm, NgModel } from "@angular/forms";
+import { Router } from '@angular/router';
 import { Observable, BehaviorSubject } from "rxjs";
 
 @Component({
@@ -21,9 +22,21 @@ export class NavbarComponent implements OnInit {
   changeText2;
   changeText3;
 
-  constructor() {}
+  constructor(
+    private router: Router
+  ) {}
 
   ngOnInit() {}
+
+  onScroll() {
+    document.body.scrollTop = 0;
+  }
+
+  onDonateClick() {
+    console.log("HHHHHHHHHH")
+    this.onScroll();
+    this.router.navigate(["/public/donatefunds"]);
+  }
 
   //directives for up/down arrows
   onMoreTurn() {
