@@ -5,6 +5,12 @@ GREY -       #6d7275
 LIGHT GREY - #c7d6d5
 WHITE -      #ecebf3
 */
+
+.hand {
+  cursor: pointer;
+  color: #cd0d2e;
+}
+
 ul {
   list-style: none;
   transition: all 0.5s;

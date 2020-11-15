@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-footer",
@@ -6,7 +7,17 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./footer.component.css"]
 })
 export class FooterComponent implements OnInit {
-  constructor() {}
+  
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  onScroll() {
+    document.body.scrollTop = 0;
+  }
+
+  onOkClick() {
+    this.onScroll();
+    this.router.navigate(["/public/goptek"]);
+  }
 }
