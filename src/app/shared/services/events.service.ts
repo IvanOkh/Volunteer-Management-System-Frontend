@@ -50,19 +50,20 @@ export class EventsService {
     return this.sendGetPublicLoadRequest().pipe(
       map((responseData: EventModel[]) => {
         const eventArray: EventModel[] = [];
-        responseData.forEach((event: EventModel) => {
-          let eventDate = new Date(event.date).getTime();
-          if (event.id && eventDate > this.todayDate) {
-            eventArray.push(event);
-          }
-        });
+        if(responseData) {
+          responseData.forEach((event: EventModel) => {
+            let eventDate = new Date(event.date).getTime();
+            if (event.id && eventDate > this.todayDate) {
+              eventArray.push(event);
+            }
+          });
 
-        eventArray.sort((a: EventModel, b: EventModel) => {
-          return +new Date(b.date) - +new Date(a.date);
-        });
-
+          eventArray.sort((a: EventModel, b: EventModel) => {
+            return +new Date(b.date) - +new Date(a.date);
+          });
+        }
         // console.log(eventArray);
-        return eventArray;
+        return eventArray || [];
       })
     );
   }
