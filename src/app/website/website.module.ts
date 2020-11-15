@@ -11,7 +11,6 @@ import { PageNotFoundComponent } from "../shared/components/page-not-found/page-
 
 import { NavbarComponent } from "./_reusables/navbar/navbar.component";
 import { HomePageComponent } from "./_pages/home-page/home-page.component";
-import { AdoptionPageComponent } from "./_pages/adoption-page/adoption-page.component";
 import { OurAnimalsPageComponent } from "./_pages/our-animals-page/our-animals-page.component";
 import { VolunteerPageComponent } from "./_pages/volunteer-page/volunteer-page.component";
 import { FosterPageComponent } from "./_pages/foster-page/foster-page.component";
@@ -33,7 +32,6 @@ import { RainbowBridgePageComponent } from './_pages/rainbow-bridge-page/rainbow
     PageNotFoundComponent,
     NavbarComponent,
     HomePageComponent,
-    AdoptionPageComponent,
     OurAnimalsPageComponent,
     VolunteerPageComponent,
     FosterPageComponent,
@@ -60,4 +58,4 @@ import { RainbowBridgePageComponent } from './_pages/rainbow-bridge-page/rainbow
   providers: [],
   bootstrap: [],
 })
-export class WebsiteModule {}
+export class WebsiteModule { }

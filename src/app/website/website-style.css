@@ -5,7 +5,15 @@ CE0E2D - red
 7A5C61 - taupe
 657ED4 - blue
  */
-
+ .strokeme
+ {
+     text-shadow:
+     -1px -1px 0 #ce0e2d,
+     1px -1px 0 #ce0e2d,
+     -1px 1px 0 #ce0e2d,
+     1px 1px 0 #ce0e2d;  
+ }
+ 
 button {
   border-radius: 50px;
 }
