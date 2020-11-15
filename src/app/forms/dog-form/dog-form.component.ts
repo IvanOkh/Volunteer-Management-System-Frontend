@@ -67,7 +67,7 @@ export class DogFormComponent implements OnInit {
    */
   onOkClick() {
     this.onScroll();
-    this.router.navigate(["/login"]);
+    this.router.navigate(["/public/home"]);
   }
 
   refresh() {

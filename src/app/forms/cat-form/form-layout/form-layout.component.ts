@@ -122,7 +122,7 @@ export class FormLayoutComponent implements OnInit {
    */
   onOkClick() {
     this.onScroll();
-    this.router.navigate(["/login"]);
+    this.router.navigate(["/public/home"]);
   }
 
   public onSubmit() {
