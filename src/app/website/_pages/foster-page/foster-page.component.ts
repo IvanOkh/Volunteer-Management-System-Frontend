@@ -12,4 +12,7 @@ export class FosterPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  public onScroll() {
+    document.body.scrollTop = 0;
+  }
 }

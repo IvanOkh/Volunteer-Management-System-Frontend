@@ -1,7 +1,7 @@
 <div data-aos="fade-up">
   <div class="jumbotron header-banner">
     <div class="container">
-      <h1>VOLUNTEER</h1>
+      <h1 class="strokeme">VOLUNTEER</h1>
     </div>
   </div>
 
@@ -65,6 +65,7 @@
       <button
         class="btn lg-red-btn shadow mb-4"
         [routerLink]="'/volunteer-application/'"
+        (click)="onScroll()"
       >
         Volunteer Application Form
       </button>

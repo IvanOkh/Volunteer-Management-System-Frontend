@@ -5,3 +5,12 @@ img{
 .row{
     margin-bottom: 3rem !important;
 }
+
+.strokeme
+{
+    text-shadow:
+    -1px -1px 0 #ce0e2d,
+    1px -1px 0 #ce0e2d,
+    -1px 1px 0 #ce0e2d,
+    1px 1px 0 #ce0e2d;  
+}

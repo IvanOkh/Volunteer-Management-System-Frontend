@@ -2,9 +2,31 @@ td{
     padding: .3rem !important;
 }
 
+.hand {
+    cursor: pointer;
+}
+
 iframe {
     min-width: auto;
     width: 42rem;
     min-height: auto; 
     height: 50rem; 
 }
+
+@media only screen and (max-width: 575px) {
+    iframe {
+        min-width: auto;
+        width: 23rem;
+        min-height: auto; 
+        height: 50rem; 
+    }
+  }
+
+/* .strokeme
+{
+    text-shadow:
+    -1px -1px 0 #ce0e2d,
+    1px -1px 0 #ce0e2d,
+    -1px 1px 0 #ce0e2d,
+    1px 1px 0 #ce0e2d;  
+} */

@@ -1,7 +1,7 @@
 <div data-aos="fade-up">
   <div class="jumbotron header-banner">
     <div class="container">
-      <h1>Upcoming Events</h1>
+      <h1 class="strokeme">Upcoming Events</h1>
     </div>
   </div>
   <!-- <h1><b>upcoming-events-page works!</b></h1>
@@ -10,7 +10,7 @@
 
   <div class="mb-5" *ngIf="webSiteEvents$ | async as events; else loading">
     <div class="m-1 mb-3" *ngFor="let event of events; let i = index">
-      <div class="container event-card col-6">
+      <div class="container event-card col-md-6">
         <div class="card shadow">
           <div class="card-body">
             <div class="media">
@@ -23,7 +23,7 @@
               />
               <div class="media-body">
                 <div class="row">
-                  <div class="col-sm-9">
+                  <div class="col-md-9">
                     <!-- Event title -->
                     <h5 [innerText]="event.name"></h5>
                     <hr />

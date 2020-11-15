@@ -15,7 +15,7 @@
           application form below and someone will be in touch with you to set up
           a meet and greet.
         </p>
-        <button class="lg-red-btn btn shadow mr-3">Donate Now</button>
+        <button class="lg-red-btn btn shadow mr-3" (click)="onDonateClick()">Donate Now</button>
       </div>
 
       <app-carousel id="carousel"></app-carousel>
@@ -28,7 +28,7 @@
       <h2 class="display-1">About Us</h2>
       <div class="container">
         <div class="row mt-5">
-          <div class="col-6 my-auto text-left">
+          <div class="col-md-6 my-auto text-left">
             <h3 class="display-4 text-red">Who we are</h3>
             <p>
               Calgary Animal Rescue Society is made up of volunteers, some of us
@@ -45,7 +45,7 @@
               about team work!
             </p>
           </div>
-          <div class="col-6 pl-5 pt-5">
+          <div class="col-md-6 pl-5 pt-5">
             <img
               class="section-image shadow-lg rounded blax"
               src="../../../../assets/images/DSC_2082-15-1.jpg"
@@ -55,7 +55,7 @@
         </div>
 
         <div class="row mt-5">
-          <div class="col-6 pr-5">
+          <div class="col-md-6 pr-5">
             <img
               class="section-image shadow-lg rounded blax"
               src="../.././../../assets/images/IMG_8493-Edit-Edit.jpg"
@@ -63,7 +63,7 @@
             />
           </div>
 
-          <div class="col-6 my-auto text-right about-item">
+          <div class="col-md-6 my-auto text-right about-item">
             <h3 class="display-4 text-red">What we do</h3>
             <p>
               Our primary goal is to find loving forever homes for cats and dogs
@@ -85,12 +85,12 @@
     <div class="container">
       <h2 class="text-white">Become a Volunteer!</h2>
       <p class="text-white">
-        Volunteering will not change the world, but it can save an animals life.
+        Volunteering will not change the world, but it can save an animal's life.
         The people who volunteer with animal rescues are our heroes. A
-        volunteers heart comes from the love that is seen with an animals eyes,
-        making them rare and priceless … volunteer, feel that love.
+        volunteer's heart comes from the love that is seen with an animals eyes,
+        making them rare and priceless… volunteer, feel that love.
       </p>
-      <button class="lg-red-btn btn shadow mt-3">Volunteer Now</button>
+      <button class="lg-red-btn btn shadow mt-3" (click)="onVolunteerClick()" >Volunteer Now</button>
     </div>
   </div>
 
@@ -103,7 +103,7 @@
       <h2 class="text-white">Featured Animals</h2>
       <div class="container">
         <div class="row">
-          <div class="col-6">
+          <div class="col-md-6 mb-4">
             <div class="card shadow black">
               <img
                 class="card-img-top img-fluid"
@@ -111,15 +111,15 @@
                 alt=""
               />
               <div class="card-body">
-                <h3 class="card-title text-red">Animal 1</h3>
+                <h3 class="card-title text-red">Featured Dog</h3>
                 <p class="card-text">
-                  Animal 1 Description ( Integrate this with petpoint iframe )
+                  Description is in development
                 </p>
               </div>
             </div>
           </div>
 
-          <div class="col-6">
+          <div class="col-md-6">
             <div class="card shadow black">
               <img
                 class="card-img-top img-fluid"
@@ -127,16 +127,16 @@
                 alt=""
               />
               <div class="card-body">
-                <h3 class="card-title text-red">Animal 2</h3>
+                <h3 class="card-title text-red">Featured Dog</h3>
                 <p class="card-text">
-                  Animal 2 Description ( Integrate this with petpoint iframe )
+                  Description is in development
                 </p>
               </div>
             </div>
           </div>
 
           <div class="container mt-4 text-center">
-            <button class="lg-white-outline-btn btn black">More Animals</button>
+            <button class="lg-white-outline-btn btn black" (click)="onMoreAnimalsClick()">More Animals</button>
           </div>
         </div>
       </div>
@@ -151,7 +151,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <ng-container *ngIf="events.length > 0; else noEvents" >
-            <div class="col-4" *ngFor="let event of webSiteEvents$ | async">
+            <div class="col-md-4 mt-2 mb-4" *ngFor="let event of webSiteEvents$ | async">
               <div class="card shadow black">
                 <!-- src="../../../../assets/images/2 JanuaryCopy of DSC_9158-min.jpg" -->
                 <img
@@ -196,7 +196,7 @@
         </div>
         
         <div class="text-center mt-4">
-          <button class="lg-red-outline-btn btn black">More Events</button>
+          <button class="lg-red-outline-btn btn black" (click)="onMoreEventsClick()">More Events</button>
         </div>
       </div>
     </div>

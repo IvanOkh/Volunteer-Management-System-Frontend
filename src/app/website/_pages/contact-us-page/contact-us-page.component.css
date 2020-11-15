@@ -1,3 +1,12 @@
 a{
     color: #ce0e2d;
 }
+
+.strokeme
+{
+    text-shadow:
+    -1px -1px 0 #ce0e2d,
+    1px -1px 0 #ce0e2d,
+    -1px 1px 0 #ce0e2d,
+    1px 1px 0 #ce0e2d;  
+}

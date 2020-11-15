@@ -2,6 +2,14 @@
   height: 60px;
 }
 
+#togglebutton:focus {
+  outline: none;
+}
+
+.hand {
+  cursor: pointer;
+}
+
 .navbar {
   background-color: #cd0d2e;
   color: #ecebf3;

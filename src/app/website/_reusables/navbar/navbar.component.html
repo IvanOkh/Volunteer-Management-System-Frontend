@@ -1,11 +1,12 @@
 <div class="sticky-top" data-aos="fade-down" data-aos-once="ture">
   <nav class="navbar nav navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand ml-5 pt-1" routerLink="home">
+      <a class="navbar-brand ml-5 pt-1" routerLink="home" (click)="onScroll()">
         <img
           id="navlogo"
           src="../../../assets/cars-site-logo1.png"
           alt="Calgary Animal Rescue Society"
+   
         />
       </a>
 
@@ -22,6 +23,7 @@
 
       <button
         class="navbar-toggler"
+        id="togglebutton"
         type="button"
         data-toggle="collapse"
         data-target="#carsNav"
@@ -31,18 +33,25 @@
 
       <div class="collapse navbar-collapse" id="carsNav">
         <ul class="navbar-nav ml-auto mr-5">
-          <li class="nav-item">
+          <li class="nav-item"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+          >
             <a
               class="nav-link hvr-underline-from-center"
               routerLink="home"
               routerLinkActive=""
+              (click)="onScroll()"
             >
               About Us
             </a>
           </li>
 
-          <li class="nav-item hvr-underline-from-center">
-            <a class="nav-link" routerLink="contact-us" routerLinkActive="">
+          <li class="nav-item hvr-underline-from-center"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+          >
+            <a class="nav-link" routerLink="contact-us" routerLinkActive="" (click)="onScroll()">
               Contact Us
             </a>
           </li>
@@ -51,6 +60,8 @@
             class="dropdown nav-item active"
             (mouseenter)="dochangeText = true"
             (mouseleave)="dochangeText = false"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
           >
             <a
               class="nav-link"
@@ -62,15 +73,16 @@
               <ng-container
                 *ngIf="dochangeText && adoptionTurn$; else AdoptionTurnback"
               >
-                Animals for Adoption⯇</ng-container
+              <span class="hand">Animals for Adoption⯇</span></ng-container
               >
-              <ng-template #AdoptionTurnback>Animals for Adoption⯆</ng-template>
+              <ng-template #AdoptionTurnback><span class="hand">Animals for Adoption⯆</span></ng-template>
             </a>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu pl-2">
               <a
                 class="nav-link dropdown-item"
                 routerLink="our-animals"
                 routerLinkActive="active"
+                (click)="onScroll()"
                 >See our Animals
               </a>
 
@@ -78,6 +90,7 @@
                 class="nav-link dropdown-item"
                 routerLink="../dog-application"
                 routerLinkActive="active"
+                (click)="onScroll()"
                 >Dog Adoption Form
               </a>
 
@@ -85,6 +98,7 @@
                 class="nav-link dropdown-item"
                 routerLink="../cat-application"
                 routerLinkActive="active"
+                (click)="onScroll()"
                 >Cat Adoption Form
               </a>
             </div>
@@ -94,6 +108,8 @@
             class="dropdown nav-item active"
             (mouseenter)="changeText2 = true"
             (mouseleave)="changeText2 = false"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
           >
             <a
               class="nav-link"
@@ -104,15 +120,16 @@
             >
               <ng-container
                 *ngIf="changeText2 && involvedTurn$; else InvolvedTurnback"
-                >Get Involved⯇</ng-container
+                ><span class="hand">Get Involved⯇</span></ng-container
               >
-              <ng-template #InvolvedTurnback>Get Involved⯆</ng-template>
+              <ng-template #InvolvedTurnback><span class="hand">Get Involved⯆</span></ng-template>
             </a>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu pl-2">
               <a
                 class="nav-link dropdown-item"
                 routerLink="volunteer"
                 routerLinkActive="active"
+                (click)="onScroll()"
                 >Volunteer
               </a>
 
@@ -120,6 +137,7 @@
                 class="nav-link dropdown-item"
                 routerLink="foster"
                 routerLinkActive="active"
+                (click)="onScroll()"
                 >Foster
               </a>
 
@@ -127,6 +145,7 @@
                 class="nav-link dropdown-item"
                 routerLink="donatefunds"
                 routerLinkActive="active"
+                (click)="onScroll()"
                 >Donate Funds
               </a>
 
@@ -134,6 +153,7 @@
                 class="nav-link dropdown-item"
                 routerLink="donatesupplies"
                 routerLinkActive="active"
+                (click)="onScroll()"
                 >Donate Supplies
               </a>
             </div>
@@ -143,19 +163,22 @@
             class="dropdown nav-item"
             (mouseenter)="changeText3 = true"
             (mouseleave)="changeText3 = false"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
           >
             <a class="nav-link" (click)="onMoreTurn()" data-toggle="dropdown">
               <ng-container *ngIf="changeText3 && moreTurn$; else MoreTurnback"
-                >More⯇</ng-container
+                ><span class="hand">More⯇</span></ng-container
               >
-              <ng-template #MoreTurnback>More⯆</ng-template>
+              <ng-template #MoreTurnback><span class="hand">More⯆</span></ng-template>
             </a>
 
-            <div class="dropdown-menu">
+            <div class="dropdown-menu pl-2">
               <a
                 class="nav-link dropdown-item"
                 routerLink="events"
                 routerLinkActive="active"
+                (click)="onScroll()"
                 >Upcoming Events
               </a>
 
@@ -163,6 +186,7 @@
                 class="nav-link dropdown-item"
                 routerLink="partners"
                 routerLinkActive="active"
+                (click)="onScroll()"
                 >Our Partners
               </a>
 
@@ -170,6 +194,7 @@
                 class="nav-link dropdown-item"
                 routerLink="happy-tails"
                 routerLinkActive="active"
+                (click)="onScroll()"
                 >Happy Tails
               </a>
 
@@ -177,6 +202,7 @@
                 class="nav-link dropdown-item"
                 routerLink="rainbow-bridge"
                 routerLinkActive="active"
+                (click)="onScroll()"
                 >The Rainbow Bridge page
               </a>
 
@@ -184,15 +210,20 @@
                 class="nav-link dropdown-item"
                 routerLink="goptek"
                 routerLinkActive="active"
-                >Goptek
+                (click)="onScroll()"
+                >Our Developers
               </a>
             </div>
           </li>
-          <li class="nav-item">
+          <li class="nav-item"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+          >
             <a
               class="nav-link hvr-underline-from-center"
               routerLink="/login"
               routerLinkActive="active"
+              (click)="onScroll()"
             >
               Login
             </a>

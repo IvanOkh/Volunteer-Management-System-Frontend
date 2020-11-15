@@ -33,7 +33,6 @@ export class NavbarComponent implements OnInit {
   }
 
   onDonateClick() {
-    console.log("HHHHHHHHHH")
     this.onScroll();
     this.router.navigate(["/public/donatefunds"]);
   }

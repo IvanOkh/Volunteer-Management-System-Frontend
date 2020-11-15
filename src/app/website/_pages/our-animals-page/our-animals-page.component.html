@@ -1,12 +1,12 @@
-<div data-aos="fade-up">
+<div data-aos="fade-up" class="mb-5 pb-5">
   <div class="jumbotron header-banner">
     <div class="container">
-      <h1>OUR ANIMALS</h1>
+      <h1 class="strokeme">OUR ANIMALS</h1>
     </div>
   </div>
 
   <div class="container my-5 pb-5">
-    <h2>About our Animals</h2>
+    <h2 class="text-center mb-4">About our Animals</h2>
     <div class="justify">
       <p>
         As a rescue group we are dedicated to helping animals in need, and
@@ -32,49 +32,57 @@
       </p>
     </div>
 
-    <h2>Adoption Fees</h2>
+    <h2 class="text-center mb-4">Adoption Fees</h2>
     <div class="row mb-4">
-      <div class="col-5">
-        <div class="float-right rounded shadow p-4">
-          <h3 class="text-center text-red">Canines</h3>
-          <tr>
-            <td>Puppies</td>
-            <td>$500</td>
-          </tr>
-          <tr>
-            <td>Dog</td>
-            <td>$400</td>
-          </tr>
-          <tr>
-            <td>Senior Dog</td>
-            <td>$300</td>
-          </tr>
-          <tr>
-            <td>Bonded Pair of Adult Dogs</td>
-            <td>$350</td>
-          </tr>
+      <div class="col-md-5 mb-4">
+        <div class="md-float-right rounded shadow p-4">
+          <h3 class="text-center"><span class="text-danger">Canines</span></h3>
+          <div class="row justify-content-center">
+            <div class="column">
+              <tr>
+                <td>Puppies</td>
+                <td>$500</td>
+              </tr>
+              <tr>
+                <td>Dog</td>
+                <td>$400</td>
+              </tr>
+              <tr>
+                <td>Senior Dog</td>
+                <td>$300</td>
+              </tr>
+              <tr>
+                <td>Bonded Pair of Adult Dogs</td>
+                <td>$350</td>
+              </tr>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-2"></div>
-      <div class="col-5">
-        <div class="float-left rounded shadow p-4">
-          <h3 class="text-center text-red">Felines</h3>
-          <tr>
-            <td>Kittens</td>
-            <td>$175</td>
-          </tr>
-          <tr>
-            <td>Cat</td>
-            <td>$150</td>
-          </tr>
-          <tr>
-            <td>Senior Cat</td>
-            <td>$100</td>
-          </tr>
-          <tr>
-            <td>Bonded Pair of Adult Cats</td>
-            <td>$150</td>
-          </tr>
+      <div class="col-md-5">
+        <div class="md-float-left rounded shadow p-4">
+          <h3 class="text-center"><span class="text-danger">Felines</span></h3>
+          <div class="row justify-content-center">
+            <div class="column">
+              <tr>
+                <td>Kittens</td>
+                <td>$175</td>
+              </tr>
+              <tr>
+                <td>Cat</td>
+                <td>$150</td>
+              </tr>
+              <tr>
+                <td>Senior Cat</td>
+                <td>$100</td>
+              </tr>
+              <tr>
+                <td>Bonded Pair of Adult Cats</td>
+                <td>$150</td>
+              </tr>
+          </div>
+         </div>
         </div>
       </div>
     </div>
@@ -83,27 +91,27 @@
     <div class="mb-5 mt-3">
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link"
+          <a class="nav-link hand"
             [ngClass]="{ 'active': openTab == 'ac' }"
             (click)="tabChange('ac')">
           Adult Cats</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"
+          <a class="nav-link hand"
           [ngClass]="{ 'active': openTab == 'ki' }"
           (click)="tabChange('ki')">
           Kittens
         </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"
+          <a class="nav-link hand"
           [ngClass]="{ 'active': openTab == 'ad' }"
           (click)="tabChange('ad')">
           Adult Dogs
         </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"
+          <a class="nav-link hand"
           [ngClass]="{ 'active': openTab == 'pu' }"
           (click)="tabChange('pu')">
             Puppies</a>
@@ -111,30 +119,30 @@
       </ul>
     </div>
 
-    <div class="adopt-display text-center">
+    <div class="adopt-display text-center col-sm-10">
       <!-- CSS still has to be figured out -->
       <!-- Adult Cats Iframe -->
       <iframe class="border-0 rounded" #petIframe
       *ngIf="openTab == 'ac'"
-      src="https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Cat&amp;gender=A&amp;agegroup=OverYear&amp;location=&amp;site=&amp;onhold=A&amp;orderby=ID&amp;colnum=3&amp;css=our-animals-page.component.css&amp;authkey=x5f30oscjcbuiji6hkjx6rxfs7prkxcs0vhlx18b7777wpmvvq&amp;recAmount=&amp;detailsInPopup=No&amp;featuredPet=Include&amp;stageID=" scrolling="auto" >
+      src="https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Cat&amp;gender=A&amp;agegroup=OverYear&amp;location=&amp;site=&amp;onhold=A&amp;orderby=ID&amp;colnum=3&amp;css=&amp;authkey=x5f30oscjcbuiji6hkjx6rxfs7prkxcs0vhlx18b7777wpmvvq&amp;recAmount=&amp;detailsInPopup=No&amp;featuredPet=Include&amp;stageID=" scrolling="auto" >
       </iframe>
 
       <!-- Kittens Iframe -->
       <iframe class="border-0 rounded" #petIframe
       *ngIf="openTab == 'ki'"
-      src="https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Cat&amp;gender=A&amp;agegroup=UnderYear&amp;location=&amp;site=&amp;onhold=A&amp;orderby=ID&amp;colnum=3&amp;css=./src/app/website/_reusables/petpointStyle.css&amp;authkey=x5f30oscjcbuiji6hkjx6rxfs7prkxcs0vhlx18b7777wpmvvq&amp;recAmount=&amp;detailsInPopup=No&amp;featuredPet=Include&amp;stageID=" scrolling="auto">
+      src="https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Cat&amp;gender=A&amp;agegroup=UnderYear&amp;location=&amp;site=&amp;onhold=A&amp;orderby=ID&amp;colnum=3&amp;css=&amp;authkey=x5f30oscjcbuiji6hkjx6rxfs7prkxcs0vhlx18b7777wpmvvq&amp;recAmount=&amp;detailsInPopup=No&amp;featuredPet=Include&amp;stageID=" scrolling="auto">
       </iframe>
 
       <!-- Adult Dogs Iframe -->
       <iframe class="border-0 rounded" #petIframe
       *ngIf="openTab == 'ad'"
-      src="https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&amp;gender=A&amp;agegroup=OverYear&amp;location=&amp;site=&amp;onhold=A&amp;orderby=ID&amp;colnum=3&amp;css=./src/app/website/_reusables/petpointStyle.css&amp;authkey=x5f30oscjcbuiji6hkjx6rxfs7prkxcs0vhlx18b7777wpmvvq&amp;recAmount=&amp;detailsInPopup=No&amp;featuredPet=Include&amp;stageID="  scrolling="auto">
+      src="https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&amp;gender=A&amp;agegroup=OverYear&amp;location=&amp;site=&amp;onhold=A&amp;orderby=ID&amp;colnum=3&amp;css=&amp;authkey=x5f30oscjcbuiji6hkjx6rxfs7prkxcs0vhlx18b7777wpmvvq&amp;recAmount=&amp;detailsInPopup=No&amp;featuredPet=Include&amp;stageID="  scrolling="auto">
       </iframe>
 
       <!-- Puppies Iframe -->
       <iframe class="border-0 rounded" #petIframe
       *ngIf="openTab == 'pu'"
-      src="https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&amp;gender=A&amp;agegroup=UnderYear&amp;location=&amp;site=&amp;onhold=A&amp;orderby=ID&amp;colnum=3&amp;css=./src/app/website/_reusables/petpointStyle.css&amp;authkey=x5f30oscjcbuiji6hkjx6rxfs7prkxcs0vhlx18b7777wpmvvq&amp;recAmount=&amp;detailsInPopup=No&amp;featuredPet=Include&amp;stageID=" scrolling="auto">
+      src="https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&amp;gender=A&amp;agegroup=UnderYear&amp;location=&amp;site=&amp;onhold=A&amp;orderby=ID&amp;colnum=3&amp;css=&amp;authkey=x5f30oscjcbuiji6hkjx6rxfs7prkxcs0vhlx18b7777wpmvvq&amp;recAmount=&amp;detailsInPopup=No&amp;featuredPet=Include&amp;stageID=" scrolling="auto">
       </iframe>
    
     </div>

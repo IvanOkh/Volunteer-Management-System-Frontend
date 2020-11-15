@@ -12,4 +12,7 @@ export class VolunteerPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  public onScroll() {
+    document.body.scrollTop = 0;
+  }
 }
