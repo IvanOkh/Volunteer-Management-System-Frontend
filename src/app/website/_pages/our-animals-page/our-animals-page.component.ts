@@ -3,7 +3,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
 @Component({
   selector: "app-our-animals-page",
   templateUrl: "./our-animals-page.component.html",
-  styleUrls: ["./our-animals-page.component.css"],
+  styleUrls: ["./our-animals-page.component.css", "../../website-style.css"],
 })
 export class OurAnimalsPageComponent implements OnInit{
   
