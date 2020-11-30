@@ -138,6 +138,9 @@ h2 {
 }
 
 .jumbotron {
+  /* margin-right: 0 !important;
+  margin-left: none;
+  padding-left: none; */
   margin-bottom: 0 !important;
   border-radius: 0px;
 }
