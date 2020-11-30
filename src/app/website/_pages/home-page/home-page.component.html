@@ -104,7 +104,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 mb-4">
-            <div class="card shadow black" (click)="onMoreAnimalsClick()">
+            <div class="card shadow black hvr" (click)="onMoreAnimalsClick()">
               <img
                 class="card-img-top img-fluid"
                 src="../../../../assets/images/IMG_8635-Edit.jpg"
@@ -120,7 +120,7 @@
           </div>
 
           <div class="col-md-6">
-            <div class="card shadow black" (click)="onMoreAnimalsClick()">
+            <div class="card shadow black hvr" (click)="onMoreAnimalsClick()">
               <img
                 class="card-img-top img-fluid"
                 src="../../../../assets/images/2 JanuaryCopy of DSC_9158-min.jpg"
@@ -151,7 +151,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <ng-container *ngIf="events.length > 0; else noEvents" >
-            <div class="col-md-4 mt-2 mb-4" *ngFor="let event of webSiteEvents$ | async">
+            <div class="col-md-4 mt-2 mb-4 hvr" *ngFor="let event of webSiteEvents$ | async">
               <div class="card shadow black">
                 <!-- src="../../../../assets/images/2 JanuaryCopy of DSC_9158-min.jpg" -->
                 <img

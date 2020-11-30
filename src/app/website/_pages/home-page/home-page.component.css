@@ -15,6 +15,10 @@ p {
   float: right;
 }
 
+.hvr {
+  cursor: pointer;
+}
+
 .section-image {
   height: 40rem;
 }
