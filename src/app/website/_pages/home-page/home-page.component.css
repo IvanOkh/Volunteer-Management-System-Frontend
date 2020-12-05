@@ -72,7 +72,7 @@ p {
 
 /* *******VIEWPORTS****** */
 
-/* Laptop screens */
+/* x-Large screens */
 @media (min-width: 1200px) {
   #primary-title {
     font-size: 70px;
@@ -83,21 +83,62 @@ p {
   }
 
   #landing-section {
-    margin-bottom: 250px;
+    margin-bottom: 10px !important;
+  }
+
+  .landing-container{
+    margin-left: 35rem !important;
   }
 }
 
-/* WIDE monitors */
-@media (min-width: 1600px) {
+/* between xl and lg */
+@media (min-width: 992px) {
+  #landing-section {
+    margin-bottom: 30px;
+  }
+
+  .landing-container{
+    margin-left: 20rem;
+  }
+}
+
+/* Large devices (desktops) */
+
+@media (min-width: 768px) {
   #primary-title {
-    font-size: 100px;
+    font-size: 50px;
   }
 
   #secondary-title {
-    font-size: 65px;
+    font-size: 30px;
   }
+
   #landing-section {
-    margin-bottom: 20px;
+    margin-bottom: 100px;
+  }
+
+  .landing-container{
+    margin-left: 5rem;
+  }
+}
+
+/* Medium devices (desktops) */
+@media (max-width: 768px) {
+  #primary-title {
+    font-size: 50px;
+  }
+
+  #secondary-title {
+    font-size: 30px;
+  }
+
+  #landing-section {
+    margin-bottom: 130px;
+  }
+
+  .landing-container{
+    margin-right: 1rem;
+    margin-left: 15rem;
   }
 }
 
@@ -112,15 +153,16 @@ p {
   }
 
   #title-desc{
-    font-size: 12px;
-    padding-left: 850px;
+    font-size: 20px;
   }
 
   .landing-container{
-    margin-top: 10rem;
-    margin-right:15px;
-    margin-left: 15px;
-    padding-right: 12px;
+    margin-right: 1rem;
+    margin-left: 55rem;
+  }
+
+  #landing-section {
+    margin-bottom: 170px;
   }
 
   #carousel{
@@ -132,10 +174,6 @@ p {
 
   .section-image {
     height: 20rem;
-  }
-
-  #about-section{
-    padding-top: 40rem;
   }
 
 }

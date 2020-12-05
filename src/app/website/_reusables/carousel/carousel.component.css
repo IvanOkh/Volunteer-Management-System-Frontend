@@ -1,14 +1,31 @@
-@media (min-width: 1200px) {
+
+/* XL */
+@media (min-width: 1200px){
   .carousel-item {
-    height: 100vh;
+    height: 70vh;
   }
 }
 
-/* Wide monitors */
-@media (min-width: 1600px){
-    .carousel-item {
-        height: 68vh;
-      }
+/* large desktops */
+@media (min-width: 768px) {
+  .carousel-item {
+    height: 70vh;
+  }
+}
+
+
+/* Medium devices (tablets) */
+
+@media (max-width: 768px) {
+  .carousel-item {
+    width: 150vh;
+    object-fit: cover;
+    opacity: 0.6;
+  }
+
+  #slides {
+    background-color: black;
+  }
 }
 
 /* Mobile */
