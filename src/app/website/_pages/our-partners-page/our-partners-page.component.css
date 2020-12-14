@@ -14,3 +14,7 @@ img{
     -1px 1px 0 #ce0e2d,
     1px 1px 0 #ce0e2d;  
 }
+
+.mainWrapper {
+    min-height: 100vh;
+}
