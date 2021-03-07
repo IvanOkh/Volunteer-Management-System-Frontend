@@ -118,9 +118,9 @@
   </div>
   <div class="copyRight px-2">
     <p style="text-align: center;">
-      &copy; 2020 Calgary Animal Rescue Society | Designed and developed by <a 
+      &copy; {{currentDate | date: 'yyyy' }} Calgary Animal Rescue Society | Designed and developed by <a 
           class="hand" (click)="onOkClick()">
-      volunteers</a>
+      volunteers <i class="fa fa-heart-o" aria-hidden="true"></i></a>
     </p>
   </div>
 </div>
