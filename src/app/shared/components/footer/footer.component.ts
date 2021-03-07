@@ -20,4 +20,8 @@ export class FooterComponent implements OnInit {
     this.onScroll();
     this.router.navigate(["/public/goptek"]);
   }
+
+  public get currentDate () {
+    return new Date();
+  }
 }
